@@ -7,24 +7,63 @@ body
    font-size: 1.5rem;
 }
 /* NAV-MENU */
+#menu
+{
+   margin-right: 12rem;
+}
 .navbar
 {
    border-radius: 1rem;
+   
 }
 .navbar-brand
 {
    font-size: 2rem;
+   color: green;
+   margin-left: 2rem;
    
 }
 .nav-item
 {
-   border-right: 1px solid black;
    padding: 0.5rem;
    text-align: center;
+   margin-left: 2rem;
+   
 }  
-.nav-item:last-child
+.nav-link
 {
-   border: 0;
+   color: green;
+   position: relative;
+   text-align: center;
+}
+.nav-link:hover
+{
+   
+   background-color: ghostwhite;
+   border-radius: 2rem;
+}
+.nav-link::before
+{
+   content: '';
+   position: absolute;
+   width: 0;
+   left: 50%;
+   bottom: 0;
+   height: 0.3rem;
+   background-color: #000;
+   transform: translate( -50%, 100%);
+   transition: 300ms width;
+}
+.nav-link:hover::before
+{
+   width: 100%;
+}
+.navbar-nav .nav-icon
+{
+   max-height: 5rem;
+   margin-top: -0.7rem;
+   margin-right: 2rem;
+   
 }
 .custom-toggler.navbar-toggler 
 { 
@@ -34,4 +73,12 @@ body
 .custom-toggler .navbar-toggler-icon 
 { 
 background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
-}         
+}
+/* ROBOCZE MEDIA QUERY */
+@media only screen and (max-width: 992px)
+{
+   #menu
+   {
+      margin-right: 0;
+   }
+}
