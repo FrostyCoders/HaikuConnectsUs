@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="menu.svg">
+   sodipodi:docname="people_icon.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,22 +25,26 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="7.949378"
-     inkscape:cy="15.34012"
+     inkscape:zoom="64"
+     inkscape:cx="13.602917"
+     inkscape:cy="17.773469"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:snap-page="true"
+     inkscape:snap-page="false"
      inkscape:snap-grids="false"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-others="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-bbox="false">
     <sodipodi:guide
        position="1.2924987,8.1997458"
        orientation="1,0"
@@ -61,6 +65,26 @@
        orientation="0,1"
        id="guide5109"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="1.8708867,2.7595579"
+       orientation="0,1"
+       inkscape:locked="false"
+       id="guide1992" />
+    <sodipodi:guide
+       position="2.0345893,3.2024318"
+       orientation="1,0"
+       id="guide5708"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="6.4512858,2.6086263"
+       orientation="1,0"
+       id="guide5710"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="4.2328811,5.2647922"
+       orientation="1,0"
+       id="guide5729"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -78,7 +102,20 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-288.53332)" />
+     transform="translate(0,-288.53332)">
+    <path
+       style="fill:none;stroke:#de3163;stroke-width:0.26458333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.96805114"
+       d="m 2.0366564,294.24043 c 1.4555484,-1.67313 2.9014705,-1.68536 4.3891458,0 -0.9056311,1.46429 -3.3120016,1.65693 -4.3891458,0 z"
+       id="path5706"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <circle
+       style="opacity:1;fill:#de3163;fill-opacity:0;stroke:#de3163;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path5731"
+       cx="4.2306623"
+       cy="291.88074"
+       r="0.86280698" />
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
@@ -87,28 +124,17 @@
        transform="translate(0.02687848,-286.71546)"
        id="g5117"
        inkscape:export-xdpi="39.217213"
-       inkscape:export-ydpi="39.217213">
-      <rect
-         y="288.80881"
-         x="1.5351293"
-         height="0.048804276"
-         width="5.3404708"
-         id="rect5071"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.48036239;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="290.91757"
-         x="1.5271995"
-         height="0.064664766"
-         width="3.7688315"
-         id="rect5071-1"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.46450192;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="293.04221"
-         x="1.5351293"
-         height="0.048804276"
-         width="5.3404708"
-         id="rect5071-1-4"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.48036239;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+       inkscape:export-ydpi="39.217213" />
+    <a
+       transform="translate(0,-288.53331)"
+       style=""
+       id="a1998">
+      <circle
+         r="2.6460555"
+         cy="292.76776"
+         cx="4.2322431"
+         id="path843"
+         style="opacity:1;fill:#de3163;fill-opacity:0;stroke:#de3163;stroke-width:0.26458333;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
   </g>
 </svg>

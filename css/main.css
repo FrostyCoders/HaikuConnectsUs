@@ -25,9 +25,10 @@ body
 .navbar-brand
 {
    font-size: 2rem;
-   color: var(--dark-color);
+   color: var(--black-color);
    margin-left: 2rem;
    font-weight: 500;
+   transition-duration: 150ms;
 }
 
 .navbar-brand:hover
@@ -45,10 +46,11 @@ body
 
 .nav-link
 {
-   color: var(--dark-color);
+   color: var(--black-color);
    position: relative;
    text-align: center;
    font-weight: 500;
+   transition-duration: 150ms;
 }
 
 .nav-link:hover
@@ -58,7 +60,7 @@ body
    color: var(--extra-color);
 }
 
-.nav-link::before
+.nav-text::before
 {
    content: '';
    position: absolute;
@@ -71,7 +73,7 @@ body
    transition: 300ms width;
 }
 
-.nav-link:hover::before
+.nav-text:hover::before
 {
    width: 100%;
 }
@@ -80,30 +82,47 @@ body
 {
    max-height: 5rem;
    margin-top: -0.7rem;
-   margin-right: 2rem;
+   filter: brightness(0%);
+   transition-duration: 150ms;
 }
 
-.navbar-toggler
+.navbar-nav .nav-icon:hover
+{
+    filter: brightness(100%);
+}
+
+#navbar-toggler-menu
 {
     outline: none !important;
+    border: 0;
+    font-size: 1.75rem;
 }
-
-.custom-toggler .navbar-toggler 
-{ 
- border: 0;
- font-size: 1.75rem;
-} 
 
 .custom-toggler .navbar-toggler-icon 
 {  
     background-image: url("../icons/menu.svg");
     background-size: auto;
+    filter: brightness(0%);
+    font-size: 100%;
     transition-duration: 150ms;
 }
 
 .custom-toggler .navbar-toggler-icon:hover
 {
-    background-image: url("../icons/menu_hover.svg");
+    filter: brightness(100%);
+}
+
+#navbar-toggler-icon-menu-close
+{
+    background-image: url("../icons/menu_close.svg");
+}
+
+#navbar-toggler-menu-close
+{
+    outline: none !important;
+    border: 0;
+    font-size: 1.75rem;
+    display: none;
 }
 
 /* ROBOCZE MEDIA QUERY */
@@ -113,4 +132,32 @@ body
    {
       margin-right: 0;
    }
+}
+
+@media only screen and (min-width: 768px) 
+{
+    #navbar-toggler-menu
+    {
+        display: none !important;
+    }  
+    
+    #navbar-toggler-menu-close
+    {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 768px) 
+{
+    .nav-item
+    {
+       padding: 0.5rem;
+       text-align: center;
+       margin-left: 0rem;
+    }  
+    
+    .nav-link:hover::before
+    {
+       width: 30%;
+    }
 }
