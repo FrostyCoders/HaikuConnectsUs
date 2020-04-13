@@ -18,14 +18,13 @@ body
 
 .navbar
 {
-   border-radius: 1rem;
-   background-color: var(--light-color);
+   background-color: var(--dark-color);
 }
 
 .navbar-brand
 {
    font-size: 2rem;
-   color: var(--black-color);
+   color: var(--white-color);
    margin-left: 2rem;
    font-weight: 500;
    transition-duration: 150ms;
@@ -46,7 +45,7 @@ body
 
 .nav-link
 {
-   color: var(--black-color);
+   color: var(--white-color);
    position: relative;
    text-align: center;
    font-weight: 500;
@@ -68,7 +67,7 @@ body
    left: 50%;
    bottom: 0;
    height: 0.2rem;
-   background-color: var(--dark-color);
+   background-color: var(--light-color);
    transform: translate( -50%, 100%);
    transition: 300ms width;
 }
@@ -82,13 +81,13 @@ body
 {
    max-height: 5rem;
    margin-top: -0.7rem;
-   filter: brightness(0%);
+   filter: brightness(0%) invert(1);
    transition-duration: 150ms;
 }
 
 .navbar-nav .nav-icon:hover
 {
-    filter: brightness(100%);
+    filter: invert(0) brightness(100%);
 }
 
 #navbar-toggler-menu
@@ -102,14 +101,14 @@ body
 {  
     background-image: url("../icons/menu.svg");
     background-size: auto;
-    filter: brightness(0%);
+    filter: brightness(0%) invert(1);
     font-size: 100%;
     transition-duration: 150ms;
 }
 
 .custom-toggler .navbar-toggler-icon:hover
 {
-    filter: brightness(100%);
+    filter: invert(0) brightness(100%);
 }
 
 #navbar-toggler-icon-menu-close
@@ -122,6 +121,52 @@ body
     outline: none !important;
     border: 0;
     font-size: 1.75rem;
+    display: none;
+}
+
+/* Statistics */
+.statistics
+{
+    margin-top: 2rem;
+    background: green;
+}
+
+.statistics-text
+{
+    height: auto;
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+    color: var(--dark-color);
+    background: yellow;
+}
+
+#statistics-text-show::selection
+{
+    background-color: none;
+}
+
+#statistics-text-hide
+{
+    display: none;
+}
+
+#statistics-text-hide::selection
+{
+    background-color: none;
+}
+
+.statistics-text span
+{
+    cursor: pointer;
+}
+
+#statistics-div
+{
+    height: 5rem;
+    width: auto;
+    background-color: blue;
     display: none;
 }
 
