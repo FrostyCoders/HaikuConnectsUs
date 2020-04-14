@@ -1,0 +1,136 @@
+:root
+{
+    --color-theme: #3c96d6;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    background-attachment: fixed;
+    /*
+    =========================================================================
+    This pattern is downloaded from www.toptal.com/designers/subtlepatterns/ 
+    If you need more, that's where to get'em.
+    ========================================================================
+    */
+    font-family: 'Raleway', sans-serif;
+    
+}
+a
+{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+a:hover
+{
+    color: var(--color-theme);
+}
+.window
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    min-height: 200px;
+    background-color: white;
+    opacity: 80%;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px gray;
+    padding-bottom: 75px;
+}
+.frame
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.logo
+{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+}
+.logo img
+{
+    width: 100px;
+}
+form
+{
+    position: relative;
+    padding: 30px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.login_label, .password_label, .pass_forget
+{
+    width: 100%;
+    padding: 0px;
+    text-align: left;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px;
+}
+.pass_forget
+{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+input
+{
+    width: 90%;
+    height: 25px;
+    border: 1px solid #112D40;
+    margin: 5px;
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: 0.3s;
+    font-size: 12px;
+}
+input[type=submit]
+{
+    cursor: pointer;
+    height: 30px;
+    font-size: 12px;
+    transition: 0.2s;
+    background-color: white;
+}
+input[type=submit]:hover
+{
+    background-color: var(--color-theme);
+    color: white;
+    border: 2px solid var(--color-theme);
+}
+.reg_p
+{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.login_error
+{
+    color: red;
+    text-align: center;
+    font-size: 12px;
+}
+.copy
+{
+    position: absolute;
+    bottom: 1%;
+    right: -5%;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-size: 12px;
+}
