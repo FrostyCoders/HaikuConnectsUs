@@ -169,7 +169,22 @@ body
     background-color: blue;
     display: none;
 }
-
+/* FOOTER */
+footer
+{
+ background-color: var(--dark-color);  
+ color: white;
+}
+.hr-footer
+{
+   background-color: white;
+}
+.tooltip-inner 
+{
+   min-width: initial;
+   width: 32rem;
+   font-size: 1.5rem;
+}
 /* ROBOCZE MEDIA QUERY */
 @media only screen and (max-width: 992px)
 {
