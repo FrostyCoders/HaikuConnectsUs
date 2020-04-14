@@ -13,7 +13,7 @@ body
 /* NAV-MENU */
 #menu
 {
-   margin-right: 12rem;
+   margin-right: 0;
 }
 
 .navbar
@@ -101,12 +101,17 @@ body
 {  
     background-image: url("../icons/menu.svg");
     background-size: auto;
-    filter: brightness(0%) invert(1);
     font-size: 100%;
     transition-duration: 150ms;
 }
 
-.custom-toggler .navbar-toggler-icon:hover
+.navbar-toggler
+{
+    filter: brightness(0%) invert(1);
+    transition-duration: 150ms;
+}
+
+.navbar-toggler:hover
 {
     filter: invert(0) brightness(100%);
 }
@@ -173,10 +178,7 @@ body
 /* ROBOCZE MEDIA QUERY */
 @media only screen and (max-width: 992px)
 {
-   #menu
-   {
-      margin-right: 0;
-   }
+   
 }
 
 @media only screen and (min-width: 768px) 
