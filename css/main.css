@@ -1,0 +1,116 @@
+@import url("variables.css");
+
+html
+{
+   font-size: 62.5%;
+}
+
+body
+{
+   font-size: 1.5rem;
+}
+
+/* NAV-MENU */
+#menu
+{
+   margin-right: 12rem;
+}
+
+.navbar
+{
+   border-radius: 1rem;
+   background-color: var(--light-color);
+}
+
+.navbar-brand
+{
+   font-size: 2rem;
+   color: var(--dark-color);
+   margin-left: 2rem;
+   font-weight: 500;
+}
+
+.navbar-brand:hover
+{
+    color: var(--extra-color);
+}
+
+.nav-item
+{
+   padding: 0.5rem;
+   text-align: center;
+   margin-left: 2rem;
+   
+}  
+
+.nav-link
+{
+   color: var(--dark-color);
+   position: relative;
+   text-align: center;
+   font-weight: 500;
+}
+
+.nav-link:hover
+{
+   /*background-color: ghostwhite;
+   border-radius: 2rem;*/
+   color: var(--extra-color);
+}
+
+.nav-link::before
+{
+   content: '';
+   position: absolute;
+   width: 0;
+   left: 50%;
+   bottom: 0;
+   height: 0.2rem;
+   background-color: var(--dark-color);
+   transform: translate( -50%, 100%);
+   transition: 300ms width;
+}
+
+.nav-link:hover::before
+{
+   width: 100%;
+}
+
+.navbar-nav .nav-icon
+{
+   max-height: 5rem;
+   margin-top: -0.7rem;
+   margin-right: 2rem;
+}
+
+.navbar-toggler
+{
+    outline: none !important;
+}
+
+.custom-toggler .navbar-toggler 
+{ 
+ border: 0;
+ font-size: 1.75rem;
+} 
+
+.custom-toggler .navbar-toggler-icon 
+{  
+    background-image: url("../icons/menu.svg");
+    background-size: auto;
+    transition-duration: 150ms;
+}
+
+.custom-toggler .navbar-toggler-icon:hover
+{
+    background-image: url("../icons/menu_hover.svg");
+}
+
+/* ROBOCZE MEDIA QUERY */
+@media only screen and (max-width: 992px)
+{
+   #menu
+   {
+      margin-right: 0;
+   }
+}
