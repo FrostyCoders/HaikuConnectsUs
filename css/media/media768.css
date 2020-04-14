@@ -1,0 +1,12 @@
+@media only screen and (max-width: 768px) 
+{
+    .navbar-toggler
+    {
+        display: block;
+    }  
+    
+    .navbar
+    {
+        background-color: red;
+    }
+}
