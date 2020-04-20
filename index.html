@@ -60,15 +60,23 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3" style="background-color: red;">
-                    <div class="statistics">
-                        <div id="statistics-div">
-                            sadfghnbsd fmsf ms
-                        </div>
-                        <div class="statistics-text">
-                            <span id="statistics-text-show">▼ Show Statistics ▼</span>
-                            <span id="statistics-text-hide">▲ Hide Statistics ▲</span>
-                        </div>
+                <div class="col-12 col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2">
+                    <div class="text-enter-div">
+                        <div class="text-enter-avatar"></div>
+                        <form action="#">
+                            <textarea class="text-enter-input" name="text-enter-input" placeholder="Write something mannnn"></textarea>
+                            <select class="text-enter-select-fcolor">
+                                <option>Font color</option>
+                                <option value="#000">Black</option>
+                                <option value="#fff">White</option>
+                            </select>
+                            <select class="text-enter-select-bgcolor">
+                                <option>Background color</option>
+                                <option value="#000">Black</option>
+                                <option value="#fff">White</option>
+                            </select>
+                            <input type="submit" class="text-enter-submit" value="Dodaj Haiku" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -81,7 +89,6 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/change_icons_menu.js"></script>
-    <script src="js/show_statistics.js"></script>
     
 </body>
 </html>
