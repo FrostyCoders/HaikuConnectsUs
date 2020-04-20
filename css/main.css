@@ -252,6 +252,7 @@ body
 /* FOOTER */
 footer
 {
+ margin-top: 41rem;
  background-color: var(--dark-color);  
  color: white;
 }
