@@ -278,7 +278,9 @@ body
 /* FOOTER */
 footer
 {
- margin-top: 41rem;
+ bottom: 0;
+ position: fixed;
+ width: 100%;
  background-color: var(--dark-color);  
  color: white;
 }

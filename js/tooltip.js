@@ -1,5 +1,3 @@
-$('a[data-toggle="tooltip"]').tooltip({
-    animated: 'fade',
-    placement: 'bottom',
-    html: true
+$(document).ready(function(){
+    $('.logo-tooltip').tooltip({html: true, animation: true, placement: "bottom"});
 });
