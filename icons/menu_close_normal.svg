@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
+<!-- By Farriven -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -15,7 +17,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="menu.svg">
+   sodipodi:docname="menu_close_normal.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,22 +27,24 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="7.949378"
-     inkscape:cy="15.34012"
+     inkscape:zoom="32"
+     inkscape:cx="13.500993"
+     inkscape:cy="16.372651"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="false"
      units="px"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:snap-page="true"
+     inkscape:snap-page="false"
      inkscape:snap-grids="false"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-others="false">
     <sodipodi:guide
        position="1.2924987,8.1997458"
        orientation="1,0"
@@ -75,40 +79,29 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-288.53332)" />
+     id="layer3"
+     inkscape:label="left">
+    <rect
+       y="-0.024402143"
+       x="3.316602"
+       height="0.048804276"
+       width="5.3404708"
+       id="rect5071-3"
+       style="opacity:0.98000004;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.396875;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="rotate(45)" />
+  </g>
   <g
      inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2">
-    <g
-       transform="translate(0.02687848,-286.71546)"
-       id="g5117"
-       inkscape:export-xdpi="39.217213"
-       inkscape:export-ydpi="39.217213">
-      <rect
-         y="288.80881"
-         x="1.5351293"
-         height="0.048804276"
-         width="5.3404708"
-         id="rect5071"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.48036239;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="290.91757"
-         x="1.5271995"
-         height="0.064664766"
-         width="3.7688315"
-         id="rect5071-1"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.46450192;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="293.04221"
-         x="1.5351293"
-         height="0.048804276"
-         width="5.3404708"
-         id="rect5071-1-4"
-         style="fill:#de3163;fill-opacity:1;stroke:#de3163;stroke-width:0.48036239;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+     id="layer4"
+     inkscape:label="right">
+    <rect
+       y="5.9624352"
+       x="-2.6702354"
+       height="0.048804276"
+       width="5.3404708"
+       id="rect5071-0"
+       style="opacity:0.98000004;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.396875;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="rotate(-45)" />
   </g>
 </svg>
