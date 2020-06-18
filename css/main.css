@@ -86,6 +86,14 @@ body
    transition-duration: 150ms;
 }
 
+.nav-icon .nav-link:hover .avatar-nav-icon
+{
+    border-radius: 50px;
+    -webkit-box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
+    -moz-box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
+    box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
+}
+
 .avatar-nav-icon
 {
     width: 4rem;
@@ -97,14 +105,6 @@ body
     background-size: contain;
     margin-left: auto;
     margin-right: auto;
-}
-
-.avatar-nav-icon:hover
-{
-    border-radius: 50px;
-    -webkit-box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
-    -moz-box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
-    box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.5);
 }
 
 .navbar-nav .nav-link-icon
@@ -193,7 +193,7 @@ body
 .jumbotron-my
 {
     padding: 5rem;
-    background-color: rgb(221,48,80,0.15);
+    background-color: #f1dedd;
     -webkit-box-shadow: 0px 20px 50px -20px rgba(221,48,80,1);
     -moz-box-shadow: 0px 20px 50px -20px rgba(221,48,80,1);
     box-shadow: 0px 20px 50px -20px rgba(221,48,80,1);
@@ -209,17 +209,180 @@ body
     float: left;
 }
 
+.jumbotron-text h1
+{
+    letter-spacing: 0.2rem;
+}
+
 .jumbotron-img
 {
     width: 33.333333%;
     min-height: 20rem;
-    background-image: url(../icons/menu_close_normal.svg);
+    background-image: url(../icons/haiku_normal.svg);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70%;
-    filter: invert(1);
+    background-position: right;
+    background-size: contain;
     float: left;
 }
+
+.filters, .posts
+{
+    margin-top: 5rem;
+}
+
+.filters h4
+{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.filters hr
+{
+    width: 10rem;
+}
+
+.filters #show-filters, .filters #hide-filters
+{
+    cursor: pointer;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 0.1rem;
+    transition-duration: 0.05s;
+    display: none;
+}
+
+.filters #show-filters:hover, .filters #hide-filters:hover
+{
+    font-weight: 500;
+}
+
+@keyframes show-filters
+{
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.filter-option
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 6rem;
+    margin-top: 2rem;
+}
+
+.filter-option p
+{
+    font-weight: 500;
+    padding-left: 0.75rem;
+}
+
+.filter-option input[type="radio"]
+{
+    display: none;
+}
+
+.radio-container label
+{
+    margin-left: 25%;
+    width: 75%;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.radio-container span::before, .radio-container span::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.radio-container span.radio
+{
+    transition-duration: 0.15s;
+}
+
+.radio-container span.radio:hover
+{
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.radio-container span.radio::before
+{
+    left: -5rem;
+    width: 4rem;
+    height: 2.25rem;
+    background-color: var(--dark-color);
+    border-radius: 5rem;
+}
+.radio-container span.radio::after
+{
+    left: -4.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--light-color);
+    transition: left .25s, background-color .25s;
+}
+
+input[type="radio"]:checked + label span.radio::after
+{
+    left: -3rem;
+    background-color: var(--extra-color);
+}
+
+.filter-option input[type="text"]
+{
+    background-color: var(--light-color);
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    width: calc(100% - 1.5rem);
+    height: 3.5rem;
+    border: 2px solid var(--dark-color);
+    border-radius: 0.5rem;
+    transition-duration: 0.35s;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.filter-option input[type="text"]:focus
+{
+    outline: none;
+    background-color: var(--light-color);
+    border-color: var(--extra-color);
+}
+
+.filter-option:last-child
+{
+    position: relative;
+}
+
+.filter-option input[type="submit"]
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: 2px solid var(--extra-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    width: 8rem;
+    height: 4rem;
+    transition-duration: 0.35s;
+}
+
+.filter-option input[type="submit"]:hover
+{
+    border-color: var(--extra-color);
+    color: var(--light-color);
+    background-color: var(--extra-color);
+}
+
 
 /* FOOTER */
 footer
@@ -251,8 +414,25 @@ footer
 
     .jumbotron-img
     {
-        width: 23.333333%;
-        background-size: 125%;
+        width: 20%;
+        margin-left: 3.333333%;
+    }
+    
+    .filters #show-filters
+    {
+        display: block;
+    }
+    
+    .filter-option
+    {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    
+    #filters-form
+    {
+        display: none;
     }
 }
 

@@ -1,7 +1,5 @@
-:root
-{
-    --color-theme: #3c96d6;
-}
+@import "variables.css";
+
 body
 {
     margin: 0;
@@ -28,7 +26,7 @@ a
 }
 a:hover
 {
-    color: var(--color-theme);
+    color: var(--extra-color);
 }
 .window
 {
@@ -105,9 +103,9 @@ input[type=submit]
 }
 input[type=submit]:hover
 {
-    background-color: var(--color-theme);
+    background-color: var(--extra-color);
     color: white;
-    border: 2px solid var(--color-theme);
+    border: 2px solid var(--extra-color);
 }
 .reg_p
 {

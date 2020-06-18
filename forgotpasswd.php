@@ -20,13 +20,13 @@
 <body>
     <div class="window">
         <div class="frame">
-            <div class="logo"><img src="img/logo.png" alt="Haiku Logo"></div>
+            <div class="logo"><img src="icons/haiku_normal.svg" alt="Haiku Logo"></div>
             <form action="login.php" method="POST">
                 <p class="login_label">E-mail</p>
-                <input type="text" name="fp-login" required>
-               
+                <input type="text" name="fp-login" required><br>
+                <p class="pass_forgot"><a href="index.php">Return to Login</a></p>
                  <br><br>
-                <input type="submit" value="Reset Password">
+                <input type="submit" class="submit-button" value="Reset Password">
                 <p class="login_error">
                     <?php
                         if(isset($_SESSION['login_error']))

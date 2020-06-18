@@ -59,7 +59,8 @@
       </div>     
     </nav>
 
-    <!-- ZAWARTOŚĆ  col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2-->
+    <!-- ZAWARTOŚĆ  -->
+    <!--col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2-->
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -74,9 +75,70 @@
                         </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div style="background-color:red;" class="col-12 col-md-10 col-lg-8 offset-0 offset-md-1 offset-lg-2">
-                adadadjadandknadknn
+            <div class="row">
+                <div class="col-12 col-lg-2 offset-0 offset-lg-1 filters">
+                    <h4>Filters:</h4>
+                    <hr class="mt-2">
+                    <p id="show-filters">Show filters</p>
+                    <p id="hide-filters">Hide filters</p>
+                    <form id="filters-form">
+                        <div class="filter-option">
+                            <p>Sort by:</p>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="" id="sort3" /><label for="sort3"><span class="radio">Popularity</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
+                            </div>
+                        </div>
+                        <div class="filter-option">
+                            <p>Quantity per page:</p>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity" value="" id="quantity1" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity" value="" id="quantity2" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity" value="" id="quantity3" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
+                            </div>
+                        </div>
+                        <div class="filter-option">
+                            <p>Or search:</p>
+                            <input type="text" placeholder="Search..." />
+                        </div>
+                        <div class="filter-option">
+                            <input type="submit" value="Submit" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-md-5 col-lg-4 offset-0 offset-md-1 offset-lg-0 posts">sdasd </div>
+                <div class="col-12 col-md-5 col-lg-4 offset-0 offset-md-1 offset-lg-0 posts">sdadadsdaad </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    Dolores omnis rerum id nam deserunt. Quo sunt qui voluptatem deserunt eaque nihil voluptate. Dolorem sit alias quasi qui optio. Asperiores sed fugiat nam.
+
+Et accusamus quia quia ad necessitatibus laboriosam. Vitae corporis autem neque enim et. Omnis quaerat ad quisquam iure quae esse. Qui eius consequatur enim ut aut placeat eum.
+
+Atque error ex dignissimos. Ut est rerum voluptas quas. Voluptas ipsum eius quia. Est omnis necessitatibus magnam deserunt ex sunt quia. Est occaecati odio error. Repellendus numquam dolores aut atque eum fugiat.
+
+Temporibus commodi voluptates quis quisquam excepturi quaerat. Neque corrupti aut dolorem corporis commodi esse. Et assumenda dolores est perferendis necessitatibus quia. Magni expedita soluta et voluptas cum doloremque. Iusto sint repellendus ab est placeat explicabo excepturi est. Placeat non quia veritatis minus.
+
+Impedit a accusamus sit temporibus quo inventore. Dicta reprehenderit est ullam cupiditate eum. Quo dolores alias reprehenderit rerum excepturi magnam fugiat. Et consequatur possimus sit laborum amet aspernatur rem dignissimos.
                 </div>
             </div>
         </div>
@@ -160,6 +222,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     
