@@ -1,4 +1,5 @@
-function showhidefilters()
+// SHOW & HIDE FILTERS IN MAIN PAGE
+function showFilters()
 {
     var showfiltersbutton = document.getElementById("show-filters");
     var hidefiltersbutton = document.getElementById("hide-filters");
@@ -9,10 +10,8 @@ function showhidefilters()
     hidefiltersbutton.style.display = "block";
     filtersform.style.animation = "show-filters 1s 1";
 }
-var showfiltersbutton = document.getElementById("show-filters");
-showfiltersbutton.addEventListener('click', showhidefilters, false);
 
-function hidehidefilters()
+function hideFilters()
 {
     var showfiltersbutton = document.getElementById("show-filters");
     var hidefiltersbutton = document.getElementById("hide-filters");
@@ -23,6 +22,21 @@ function hidehidefilters()
     showfiltersbutton.style.display = "block";
 }
 var showfiltersbutton = document.getElementById("show-filters");
-showfiltersbutton.addEventListener('click', showhidefilters, false);
+showfiltersbutton.addEventListener('click', showFilters, false);
 var hidefiltersbutton = document.getElementById("hide-filters");
-hidefiltersbutton.addEventListener('click', hidehidefilters, false);
+hidefiltersbutton.addEventListener('click', hideFilters, false);
+
+// LIKES POKAZOWE TRZEBA Z POMOCA PHP ZROBIC
+function likeIt()
+{
+    var like = document.getElementById("post-like");
+    var likecounteradd = document.getElementById("post-like-counter").getAttribute("data-value");
+    likecounteradd = parseInt(likecounteradd)+1;
+    var likecounter = document.getElementById("post-like-counter");
+    
+    like.style.backgroundImage = "url('icons/heart_full_normal.svg')";
+    likecounter.innerHTML = likecounteradd;
+}
+
+var like = document.getElementById("post-like");
+like.addEventListener('click', likeIt, false);
