@@ -117,7 +117,7 @@
                             </div>
                         </div>
                         <div class="filter-option">
-                            <p>Or search:</p>
+                            <p>Or search for author:</p>
                             <input type="text" placeholder="Search..." />
                         </div>
                         <div class="filter-option">
