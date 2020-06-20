@@ -36,6 +36,8 @@ function likeIt()
     
     like.style.backgroundImage = "url('icons/heart_full_normal.svg')";
     likecounter.innerHTML = likecounteradd;
+    
+    like.style.animation = "like-it 1s 1";
 }
 
 var like = document.getElementById("post-like");
