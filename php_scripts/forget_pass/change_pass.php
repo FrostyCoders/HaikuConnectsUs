@@ -1,20 +1,5 @@
 <?php
-    // RANDOM SERIES
-    function random_series($chars)
-    {
-        $chars;
-        $final_series = "";
-        $series = array();
-        for($i=0; $i<$chars; $i++)
-        {
-            do
-            {
-                $series[$i] = rand(48, 122);
-            }while(($series[$i] > 57) && ($series[$i] < 65) || ($series[$i] > 90) && ($series[$i] < 97));
-            $final_series .= chr($series[$i]);
-        }
-        return $final_series;
-    }
+    require_once "../crypt/encryption.php";
     // VALIDATE PASSWORDS
     function validate_passwords($n, $r)
     {
@@ -35,45 +20,6 @@
             return 3;
         }
         return 0;
-    }
-    // SECURE PASSWORD
-    function secure_encrypt($pass)
-    {
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
-        $pass = random_series(40) . substr($pass, 7).random_series(35);
-        $pass = str_replace('.', "@", $pass);
-        $pass = str_replace('/', "*", $pass);
-        $count = 0;
-        $change = array();
-        for($i = 0; $i < 12; $i++)
-        {
-            for($j = 0; $j < 12; $j++)
-            {
-                if($count > 127)
-                {
-                    $change[$i][$j] = "";
-                }
-                else
-                {
-                    $change[$i][$j] = $pass[$count];
-                }
-                $count++;
-            }
-        }
-        $pass = "";
-        for($i = 0; $i < 12; $i++)
-        {
-            for($j = 0; $j < 12; $j++)
-            {
-                $pass .= $change[$j][$i];
-            }
-        }
-        $crypt_pass = "";
-        for($k = 127; $k >= 0; $k--)
-        {
-            $crypt_pass .= $pass[$k];
-        }
-        return $crypt_pass;
     }
     // UPDATE PASSWORD IN DB
     function update_password($pass, $user, $key_id, $conn)
@@ -107,8 +53,8 @@
     {
         case 0:
         {
-            require_once "connect.php";
-            $n_password = secure_encrypt($n_password);
+            require_once "../connect.php";
+            $n_password = encrypt_pass($n_password, $ckey2);
             if(update_password($n_password, $_SESSION['user_id'], $_SESSION['key_id'], $conn))
             {
                 $_SESSION['result'] = "Password changed!";

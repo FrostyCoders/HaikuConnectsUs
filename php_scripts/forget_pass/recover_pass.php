@@ -34,6 +34,7 @@
             return $stmt->fetch();
         }
     }
+    //MAIN
     session_start();
     if(!isset($_GET['rk']))
     {
@@ -48,7 +49,7 @@
     }
     else
     {
-        require_once "connect.php";
+        require_once "../connect.php";
         $recover_data = get_data($recovery_key, $conn);
         switch($recover_data)
         {

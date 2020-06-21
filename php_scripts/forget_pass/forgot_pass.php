@@ -1,27 +1,5 @@
 <?php
-    session_start();
-    require_once "connect.php";
-    if(!isset($_POST) || empty($_POST['email']))
-    {
-        header("Location: test_forgot.php");
-        exit();
-    }
-    // GENERARE RANDOM SERIES
-    function random_series($chars)
-    {
-        $chars;
-        $final_series = "";
-        $series = array();
-        for($i=0; $i<$chars; $i++)
-        {
-            do
-            {
-                $series[$i] = rand(48, 122);
-            }while(($series[$i] > 57) && ($series[$i] < 65) || ($series[$i] > 90) && ($series[$i] < 97));
-            $final_series .= chr($series[$i]);
-        }
-        return $final_series;
-    }
+    require_once "../crypt/encryption.php";
     // CHANGE KEY IF ALREADY EXIST
     function validate_key($key, $conn)
     {
@@ -144,7 +122,14 @@
             }
         }
     }
-    // MAIN 
+    // MAIN
+    session_start();
+    require_once "../connect.php";
+    if(!isset($_POST) || empty($_POST['email']))
+    {
+        header("Location: test_forgot.php");
+        exit();
+    }
     $email = $_POST['email'];
     $user_exist = validate_user($email, $conn);
     if($user_exist === false)
