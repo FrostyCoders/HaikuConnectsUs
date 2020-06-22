@@ -48,7 +48,7 @@
     If you want to generate new key just <a href="" onclick="location.reload();">refresh</a> this site.
     <br>
     <br>
-    Now you can copy this key and paste into keys file.
+    Now you can copy this key and paste into keys file (/php/).
     After using this file it is recommended to delete this file.
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION['haiku']) && $_SESSION['haiku'] == true)
+    if(isset($_SESSION['logged_user']))
     {
         header("Location: main_page.php");
         exit();
@@ -21,11 +21,11 @@
     <div class="window">
         <div class="frame">
             <div class="logo"><img src="img/logo.png" alt="Haiku Logo"></div>
-            <form action="login.php" method="POST">
+            <form action="php/core/login.php" method="POST">
                 <p class="login_label">E-mail</p>
-                <input type="text" name="fp-login" required>
+                <input type="text" name="email" required>
                 <p class="password_label">Password</p>
-                <input type="password" name="fp-password" required><br>
+                <input type="password" name="password" required><br>
                 <p class="pass_forgot"><a href="forgotpasswd.php">Forgot Password</a></p>
                  <br><br>
                 <input type="submit" value="Login">

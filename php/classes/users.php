@@ -52,9 +52,4 @@
             return $result;
         }
     }
-
-    $object = new User(1, "user1", "user@email.com");
-
-    echo $object->showName();
-
 ?>

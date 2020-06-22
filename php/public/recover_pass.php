@@ -28,7 +28,7 @@
         if($stmt->rowCount() == 0)
         {
             return 1;
-        }
+        }   
         else
         {
             return $stmt->fetch();
