@@ -95,12 +95,12 @@
         {
             $subject = "Recovering password - Haiku Connects Us";
 
-            $massage = '<a href="http://localhost/test/recover_pass.php?rk=' . $key . '">Recover password!</a>';
+            $message = '<a href="http://localhost/test/recover_pass.php?rk=' . $key . '">Recover password!</a>';
 
             $header = "From: noreply@gmail.com \nContent-Type:".
             ' text/html;charset="UTF-8"'.
             "\nContent-Transfer-Encoding: 8bit";
-            if(mail($email, $subject, $massage, $header))
+            if(mail($email, $subject, $message, $header))
             {
                 return true;
             }
