@@ -1,7 +1,7 @@
 <?php
     require_once "../core/decryption.php";
     // CHECK THAT USER EXISTS FUNCTION
-    function user_exists($email, $conn)
+    function user_exists($email, $conn, $ckey1)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
@@ -39,17 +39,17 @@
                 $result = array(false, "There's no account with this email address!");
             }
             unset($conn);
-            return $result;
         }
+        return $result;
     }
     // CHANGE KEY IF ALREADY EXIST
     function validate_key($rkey, $conn)
     {
-        $query = $conn->prepare("SELECT * FROM forgot_password WHERE key_series = :key_series");
+        $query = $conn->prepare("SELECT * FROM pass_change_requests WHERE key_series = :key_series");
         $query->bindParam(":key_series", $rkey);
         try
         {
-            $check->execute();
+            $query->execute();
         }
         catch(Exception $e)
         {
@@ -67,9 +67,9 @@
     // CREATE NEW REQUEST
     function create_request($user_id, $conn, $key)
     {
-        $query = $conn->prepare("INSERT INTO forgot_password VALUES (NULL, :uid, :rkey, :expire_time, 0);");
+        $query = $conn->prepare("INSERT INTO pass_change_requests VALUES (NULL, :uid, :rkey, :expire_time, 0)");
         $query->bindParam(":uid", $user_id);
-        $query->bindParam(":rkey", $rkey);
+        $query->bindParam(":rkey", $key);
         $now = date('Y-m-d H:i:s',strtotime('+15 minutes',strtotime(date("Y-m-d H:i:s"))));
         $query->bindParam(":expire_time", $now);
         try
@@ -80,6 +80,7 @@
         catch(Exception $e)
         {
             $result = array(false, "Error occured, try later!");
+            echo $e;
         }
         return $result;
     }
@@ -88,18 +89,19 @@
     {
         if(empty($email) || empty($key))
         {
-            $_SESSION['result'] = "Error occured!";
             return false;
         }
         else
         {
             $subject = "Recovering password - Haiku Connects Us";
 
-            $message = '<a href="http://localhost/test/recover_pass.php?rk=' . $key . '">Recover password!</a>';
+            $message = '<a href="http://localhost/haiku/php/public/change_pass.php?rk=' . $key . '">Recover password!</a>';
 
-            $header = "From: noreply@gmail.com \nContent-Type:".
-            ' text/html;charset="UTF-8"'.
-            "\nContent-Transfer-Encoding: 8bit";
+            $header = "MIME-Version: 1.0" . "\r\n";
+            $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $header .= 'From: <noreply@gmail.com>' . "\r\n";
+            $header .= 'Cc: myboss@example.com' . "\r\n";
+
             if(mail($email, $subject, $message, $header))
             {
                 return true;
@@ -120,13 +122,13 @@
     else
     {
         $email = $_POST['email'];
-        $user_exist = user_exists($email, $conn);
+        $user_exist = user_exists($email, $conn, $ckey1);
         if($user_exist[0] == true)
         {
             do
             {
                 $rkey = random_series(20);
-                $rkey_unique = validate_rkey($rkey, $conn);
+                $rkey_unique = validate_key($rkey, $conn);
             }while($rkey_unique == 0);
             if($rkey_unique == 2)
             {
@@ -136,7 +138,7 @@
             {
                 $db_ok = create_request($user_exist[1], $conn, $rkey);
                 if($db_ok[0] == true)
-                {
+                {   
                     if(send_mail($email, $rkey) == true)
                     {
                         $result = array(true, "The recovery link has been sent, you have 15 min to change your password.");
@@ -157,4 +159,5 @@
             $result = array(false, $user_exist[1]);
         }
     }
+    echo json_encode($result);
 ?>

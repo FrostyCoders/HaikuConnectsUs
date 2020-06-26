@@ -7,41 +7,68 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Haiku ConnectUs - Login</title>
+    <title>Haiku Connects Us</title>
     <meta name="author" content="Frosty Coders">
-    <link rel="shortcut icon" href="img/icon.png">
+    <link rel="shortcut icon" href="icons/haiku_normal.svg">
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <div class="window">
-        <div class="frame">
-            <div class="logo"><img src="icons/haiku_normal.svg" alt="Haiku Logo"></div>
-            <form action="php/core/login.php" method="POST">
-                <p class="login_label">E-mail</p>
-                <input type="text" name="email" required>
-                <p class="password_label">Password</p>
-                <input type="password" name="password" required><br>
-                <p class="pass_forgot"><a href="forgotpasswd.php">Forgot Password</a></p>
-                 <br><br>
-                <input type="submit" class="submit-button" value="Login">
-                <p class="login_error">
-                    <?php
-                        if(isset($_SESSION['login_error']))
-                        {
-                            echo $_SESSION['login_error'];
-                            unset($_SESSION['login_error']);
-                        }
-                    ?>
-                </p>
-            </form>
+    <div id="window">
+        <div id="info">
+            <div class="logo">
+                <img src="icons/haiku_normal.svg" alt="Haiku Logo">
+                <h1>Haiku Connects Us</h1>
+                <h3>We are unique and that makes us different. Our work does not have to be underestimated and wait for greater publicity.</h3>
+                <hr class="spacer">
+                <p>Let's share it among those who also create haiku!</p>
+            </div>
+        </div>
+        <div id="form">
+            <!-- LOGIN FORM -->
+            <div id="login">
+                <h1>Log In</h1>
+                <form>
+                    <div class="input_container">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="text">
+                    </div>
+                    <div class="input_container">
+                        <label for="password">Password</label>
+                        <input id="password" type="password">
+                        <p class="forgot">Forgot password</p>
+                    </div>
+                    <button id="login_button" type="button">Login</button>
+                    <div id="request_result_login"></div>
+                </form>
+            </div>
+            <!-- FORGOT PASSWORD FORM -->
+            <div id="forget_pass">
+                <h1>Recover password</h1>
+                <form id="forgot_form">
+                    <div class="input_container">
+                        <label for="recover_email">Account e-mail</label>
+                        <input id="recover_email" type="text">
+                        <p class="back_login">Go back</p>
+                    </div>
+                    <button id="forgot_button" type="button">Send Mail</button>
+                    <div id="request_result_forgot"></div>
+                </form>
+            </div>
+            <div class="copy">Copyright &copy - Frosty Coders 2020</div>
         </div>
     </div>
-    <div class="copy">Copyright &copy - Frosty Coders 2020</div>
-    <script src="js/scripts.js"></script>
+    <div class="cookies_button">Privacy Policies & Cookies</div>
+    <div class="cookies_info">
+        <div class="info_frame">
+            This website uses cookies to function in proper way. <a href="#" target="_blank">Read more.</a>
+            <img id="close_info" src="icons/close_icon.svg" alt="Close" title="Close">
+        </div>
+    </div>
+    <script src="js/login.js"></script>
 </body>
 </html>
