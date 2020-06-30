@@ -10,7 +10,7 @@
     <title>Haiku Connect People</title>
     
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="icons/haiku_normal.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/icons/haiku_normal.svg" type="image/x-icon" />
     
     <!-- SKRYPTY -->
     
@@ -134,6 +134,16 @@
                             <p class="post-author">~ Taki Testowy</p>
                         </div>
                         <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
+                        <div class="post-nav" id="post-nav">
+                            <div class="post-nav-dot"></div>
+                            <div class="post-nav-dot"></div>
+                            <div class="post-nav-dot"></div>
+                            <div class="post-nav-sub" id="post-nav-sub">
+                                <a href="#"><div class="post-nav-sub-option">Report</div></a>
+                                <a href="#"><div class="post-nav-sub-option">Edit</div></a>
+                                <a href="#"><div class="post-nav-sub-option">Delete</div></a>
+                            </div>
+                        </div>
                         <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
                     </div>
                     <div class="posts">
@@ -248,28 +258,28 @@
                 <div class="col-6 col-lg-3 mb-3">
                     <div class="logo">
                         <a href="#">
-                            <img class="logo-tooltip" src="icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
                         </a>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 mb-3">
                      <div class="logo">
                         <a href="#">
-                            <img class="logo-tooltip" src="icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
                         </a>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 mb-3">
                      <div class="logo">
                         <a href="#">
-                            <img class="logo-tooltip" src="icons/gear_normal.svg" title="FrostyCoders">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
                         </a>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 mb-3">
                      <div class="logo">
                         <a href="#">
-                            <img class="logo-tooltip" src="icons/gear_normal.svg" title="Others">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
                         </a>
                     </div>
                 </div>

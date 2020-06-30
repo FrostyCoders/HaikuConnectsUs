@@ -99,7 +99,7 @@ body
     width: 4rem;
     height: 4rem;
     transition-duration: 150ms;
-    background-image: url("../icons/avatar_circle_normal.svg");
+    background-image: url("../img/icons/avatar_circle_normal.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -126,7 +126,7 @@ body
 {
     width: 2rem;
     height: 2rem;
-    background-image: url("../icons/gear_normal.svg");
+    background-image: url("../img/icons/gear_normal.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 110%;
@@ -137,7 +137,7 @@ body
 {
     width: 2rem;
     height: 2rem;
-    background-image: url("../icons/logout_wide.svg");
+    background-image: url("../img/icons/logout_wide.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 130%;
@@ -171,7 +171,7 @@ body
 
 .custom-toggler .navbar-toggler-icon 
 {  
-    background-image: url("../icons/menu_flash_normal.svg");
+    background-image: url("../img/icons/menu_flash_normal.svg");
     background-size: auto;
     font-size: 100%;
     transition-duration: 150ms;
@@ -179,7 +179,7 @@ body
 
 #navbar-toggler-icon-menu-close
 {
-    background-image: url("../icons/menu_close_normal.svg");
+    background-image: url("../img/icons/menu_close_normal.svg");
 }
 
 #navbar-toggler-menu-close
@@ -220,7 +220,7 @@ body
 {
     width: 33.333333%;
     min-height: 20rem;
-    background-image: url(../icons/haiku_normal.svg);
+    background-image: url(../img/icons/haiku_normal.svg);
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
@@ -435,7 +435,7 @@ input[type="radio"]:checked + label span.radio::after
     bottom: 2.5rem;
     width: 3rem;
     height: 3rem;
-    background-image: url(../icons/heart_normal.svg);
+    background-image: url(../img/icons/heart_normal.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -453,13 +453,83 @@ input[type="radio"]:checked + label span.radio::after
 
 .post-like:hover
 {
-    background-image: url(../icons/heart_color_normal.svg);
+    background-image: url(../img/icons/heart_color_normal.svg);
 }
 
 @keyframes like-it
 {
-    from {background-image: url(../icons/heart_normal.svg);}
-    to {background-image: url(../icons/heart_full_normal.svg);}
+    from {background-image: url(../img/icons/heart_normal.svg);}
+    to {background-image: url(../img/icons/heart_full_normal.svg);}
+}
+
+.post-nav
+{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2rem;
+    height: 2.45rem;
+    cursor: pointer;
+}
+
+.post-nav-dot
+{
+    width: 0.65rem;
+    height: 0.65rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.25rem;
+    border: 1.25px solid var(--dark-color);
+    border-radius: 50%;
+    transition-duration: 0.15s;
+}
+
+.post-nav:hover .post-nav-dot
+{
+    border-color: var(--extra-color);
+}
+
+.post-nav-sub
+{
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    min-width: 10rem;
+    min-height: 5rem;
+    border: 1px solid var(--dark-color);
+    border-radius: 0.25rem;
+    background-color: var(--light-color);
+    -webkit-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
+    -moz-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
+    box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
+}
+
+.post-nav-sub a:link
+{
+    text-decoration: none;
+}
+
+.post-nav-sub-option
+{
+    width: 100%;
+    text-align: center;
+    color: var(--dark-color);
+    padding: 0.5rem;
+    font-weight: 500;
+    transition-duration: 0.15s;
+}
+
+.post-nav-sub-option:hover
+{
+    color: var(--extra-color);
+}
+
+@keyframes post-nav-sub
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 /* PAGINATION */
