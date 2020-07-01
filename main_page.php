@@ -128,6 +128,7 @@
                 <div class="col-12 col-md-5 col-lg-4 offset-0 offset-md-1 offset-lg-0">
                     <div class="posts">
                         <div class="posts-haiku">
+                            <p class="post-title">Tytułowowo</p>
                             <p class="post-haiku">Jakby co to ten</p>
                             <p class="post-haiku">działa tylko to</p>
                             <p class="post-haiku">zacne serducho.</p>
@@ -144,7 +145,9 @@
                                 <a href="#"><div class="post-nav-sub-option">Delete</div></a>
                             </div>
                         </div>
+                        <div class="post-time">12:05 - 01.07.2020</div>
                         <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
+                        <div class="post-error">Something gone wrong...</div>
                     </div>
                     <div class="posts">
                         <div class="posts-haiku">

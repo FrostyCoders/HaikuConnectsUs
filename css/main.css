@@ -9,6 +9,7 @@ body
 {
    font-size: 1.5rem;
    background-color: var(--light-color);
+   font-family: TitilliumWeb;
 }
 
 /* NAV-MENU */
@@ -413,6 +414,18 @@ input[type="radio"]:checked + label span.radio::after
     width: 74%;
 }
 
+.post-title
+{
+    position: relative;
+    top: 10%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.25rem;
+}
+
 .post-haiku
 {
     text-align: center;
@@ -426,6 +439,15 @@ input[type="radio"]:checked + label span.radio::after
     font-size: 1.5rem;
     text-align: center;
     color: #444;
+}
+
+.post-time
+{
+    font-size: 1rem;
+    color: #555555;
+    position: relative;
+    bottom: 1rem;
+    left: 1rem;
 }
 
 .post-like
@@ -530,6 +552,20 @@ input[type="radio"]:checked + label span.radio::after
 {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+.post-error
+{
+    position: absolute;
+    bottom: 0;
+    transform: translateY(110%);
+    width: 100%;
+    text-align: center;
+    color: var(--extra-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    display: none;
 }
 
 /* PAGINATION */

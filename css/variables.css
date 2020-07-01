@@ -8,3 +8,9 @@
   --black-color: #000;
   --white-color: #fff;
 }
+
+@font-face 
+{
+  font-family: TitilliumWeb;
+  src: url(fonts/TitilliumWeb-Regular.ttf);
+}
