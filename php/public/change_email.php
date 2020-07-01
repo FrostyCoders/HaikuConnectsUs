@@ -1,10 +1,5 @@
 <?php
-    if(!isset($_GET['rk']))
-    {
-        header("Location: index.php");
-        exit();
-    }
-    require_once "../private/recover_pass.php";
+    require_once "../private/email_change.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Haiku ConnectUs - Change Password</title>
+    <title>Haiku ConnectUs - Change E-mail</title>
     <meta name="author" content="Frosty Coders">
     <link rel="shortcut icon" href="../../icons/haiku_normal.svg">
     <link rel="stylesheet" href="../../css/variables.css">
@@ -30,17 +25,10 @@
             </div>
         </div>
         <div id="form">
-            <h1>Change password</h1>
+            <h1>Change e-mail</h1>
             <div class="frame">
                 <?php
-                    if($result[0] == false)
-                    {
-                        echo '<p class="error">'.$result[1].'</p>';
-                    }
-                    else
-                    {
-                        echo $result[1];
-                    }
+                    echo $result[1];
                 ?>
             </div>
         <div class="copy">Copyright &copy - Frosty Coders 2020</div>
@@ -54,6 +42,5 @@
         </div>
     </div>
     <script src="../../js/login.js"></script>
-    <script src="../../js/forgot_pass/enter_new.js"></script>
 </body>
 </html>
