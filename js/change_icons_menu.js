@@ -18,8 +18,8 @@ function showNavIcons() {
   var navlinkicon2 = document.getElementById("nav-link-icon2");
   navlinkiconcontainer.style.display = "block";
   navlinkiconcontainer.style.animation = "show-nav-link-icon-container 0.35s 1";
-  navlinkicon1.style.animation = "show-nav-link-icon-in-container 1s 1";
-  navlinkicon2.style.animation = "show-nav-link-icon-in-container 1s 1";
+  navlinkicon1.style.animation = "show-element 1s 1";
+  navlinkicon2.style.animation = "show-element 1s 1";
 }
 
 function hideNavIcons() {

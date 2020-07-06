@@ -22,6 +22,20 @@
     
 </head>
 <body>
+    <!-- INNE -->
+    <div class="loading-container" id="loading-container">
+        <div class="points-loading-container">
+            <div class="point1"></div>
+            <div class="point2"></div>
+        </div>
+    </div>
+    <div class="post-error" id="post-error">Something gone wrong...</div>
+    <div class="post-report-menu" id="post-report-menu">
+        <div class="post-report-close" id="post-report-close"></div>
+        <p>Report:</p>
+        <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
+        <input type="submit" value="Send" />
+    </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-md">
       <a class="navbar-brand" href="#">Haiku Connects Us</a>
@@ -128,26 +142,29 @@
                 <div class="col-12 col-md-5 col-lg-4 offset-0 offset-md-1 offset-lg-0">
                     <div class="posts">
                         <div class="posts-haiku">
-                            <p class="post-title">Tytułowowo</p>
-                            <p class="post-haiku">Jakby co to ten</p>
-                            <p class="post-haiku">działa tylko to</p>
-                            <p class="post-haiku">zacne serducho.</p>
-                            <p class="post-author">~ Taki Testowy</p>
+                            <p class="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.<br />
+                            <p class="post-author">~ sanasndn nkascja njakncn Taki Testowy</p>
                         </div>
                         <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
+                        <div class="lang-switch">
+                            <label class="lang-switcher">
+                                <input type="checkbox">
+                                <span class="lang-slider round"></span>
+                            </label>
+                        </div>
                         <div class="post-nav" id="post-nav">
                             <div class="post-nav-dot"></div>
                             <div class="post-nav-dot"></div>
                             <div class="post-nav-dot"></div>
                             <div class="post-nav-sub" id="post-nav-sub">
-                                <a href="#"><div class="post-nav-sub-option">Report</div></a>
+                                <a href="#"><div class="post-nav-sub-option">Refresh</div></a>
+                                <a href="#"><div class="post-nav-sub-option" id="post-nav-sub-option-report">Report</div></a>
                                 <a href="#"><div class="post-nav-sub-option">Edit</div></a>
                                 <a href="#"><div class="post-nav-sub-option">Delete</div></a>
                             </div>
                         </div>
                         <div class="post-time">12:05 - 01.07.2020</div>
                         <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
-                        <div class="post-error">Something gone wrong...</div>
                     </div>
                     <div class="posts">
                         <div class="posts-haiku">
@@ -314,6 +331,8 @@
     <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/posts.js"></script>
     
 </body>
 </html>
