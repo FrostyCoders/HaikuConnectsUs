@@ -4,16 +4,87 @@
     // SCRIPT CONTAINS:
     // - email encryption
     // - password encryption
+    // - user data encryption
     // ----------------------------------------
     // WARNING: Script requires file with encryption keys!
     // ----------------------------------------
     require_once "keys.php";
     require_once "../functions/random.php";
+    // USER DATA ENCRYPTION
+    function encrypt_data($data, $key)
+    {
+        // CHECK KEY AND DATA
+        if(empty($data) || strlen($key) != 94) return false;
+        // PHASE 1
+        $data_len = strlen($data);
+        if($data_len < 10) $data = $data . random_series(64 - ($data_len + 2)) . "|" . $data_len;
+        else $data = $data . random_series(64 - ($data_len + 3)) . "|" . $data_len;
+        // PHASE 2
+        $key_table = array();
+        for($i=33; $i<=126; $i++)
+        {
+            $key_table[$i] = $key[$i-33];
+        }
+        $data_len = strlen($data);
+        $data = str_split($data);
+        for($i = 0; $i < $data_len; $i++)
+        {
+            $data[$i] = ord($data[$i]);
+            $data[$i] = $key_table[$data[$i]];
+        }
+        // PHASE 3
+        $phase3 = array();
+        for($i = 0; $i < $data_len; $i += 2)
+        {
+            $phase3[$i] = $data[$i+1];
+            $phase3[$i+1] = $data[$i];
+        }
+        $data = $phase3;
+        $data = implode("", $data);
+        // PHASE 4
+        $length = strlen($data);
+        $power = 1;
+        do
+        {
+            $power++;
+        }
+        while($power*$power < $length);
+        $data = str_split($data);
+        $changed_order = array(array());
+        $k = 0;
+        for($i=0; $i<$power; $i++)
+        {
+            for($j=0; $j<$power; $j++)
+            {
+                if(isset($data[$k])){$changed_order[$i][$j] = $data[$k];}
+                else{$changed_order[$i][$j] = "";}
+                $k++;
+            }
+        }
+        $data = "";
+        for($i=0; $i<$power; $i++)
+        {
+            for($j=0; $j<$power; $j++)
+            {
+                 $data .= $changed_order[$j][$i];
+            }
+        }
+        // PHASE 5
+        $data_len = strlen($data);
+        $data = str_split($data);
+        for($i = 0; $i < $data_len; $i++)
+        {
+            $data[$i] = ord($data[$i]);
+            $data[$i] = $key_table[$data[$i]];
+        }
+        $data = implode("", $data);
+        return $data;
+    }
     // EMAIL ENCRYPTION
     function encrypt_email($email, $key)
     {
         // CHECK KEY AND EMAIL
-        if(strlen($key) != 94 || empty($email)){return false;}
+        if(strlen($key) != 94 || empty($email)) return false;
         $key = str_split($key);
         foreach($key as $k => $char)
         {
@@ -120,7 +191,7 @@
     // ENCRYPT PASSWORD
     function encrypt_pass($pass, $key)
     {
-        if(strlen($key) != 94 || empty($pass)){return false;}
+        if(strlen($key) != 94 || empty($pass)) return false;
         $key = str_split($key);
         foreach($key as $k => $char)
         {

@@ -4,10 +4,157 @@
     // SCRIPT CONTAINS:
     // - email decryption
     // - password decryption
+    // - user data decryption
     // ----------------------------------------
     // WARNING: Script requires file with encryption keys!
     // ----------------------------------------
     require_once "keys.php";
+    // USER DATA DECRYPTION
+    function decrypt_data($data, $key)
+    {
+        // CHECK KEY 
+        if(empty($data) || strlen($key) != 94) return false;
+        $length = strlen($data);
+        $key = str_split($key);
+        // CHECK WHETHER VALUES IN KEY REPEATING
+        foreach($key as $k => $char)
+        {
+            for($i=0; $i<94; $i++)
+            {
+                if($k == $i){continue;}
+                else
+                {
+                    if($char === $key[$i])
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        $key_table = array();
+        for($i=33; $i<=126; $i++)
+        {
+            $key_table[$i] = $key[$i-33];
+        }
+        for($i=33; $i<=126; $i++)
+        {
+            $normal_chars[$i] = chr($i);
+        }
+        // PHASE 1
+        $data = str_split($data);
+        $new_code = array();
+        $k = 0;
+        foreach($data as $char)
+        {
+            for($i=33; $i<=126; $i++)
+            {
+                if($key_table[$i] === $char)
+                {
+                    $new_code[$k] = $normal_chars[$i];
+                    $k++;
+                }
+            }
+        }
+        $data = $new_code;
+        // PHASE 2
+        $length = strlen(implode("", $new_code));
+        $power = 0;
+        $code_table = array(array());
+        do
+        {
+            $power++;
+            $size = $power*$power;
+        }
+        while($size < $length);
+        $l = 0;
+        for($i=0; $i<$power; $i++)
+        {
+            for($j=0; $j<$power; $j++)
+            {
+                if($l < $length)
+                {
+                    $code_table[$i][$j] = "1";
+                }
+                else
+                {
+                    $code_table[$i][$j] = "0";
+                }
+                $l++;
+            }
+        }
+        $l = 0;
+        for($j=0; $j<$power; $j++)
+        {
+            for($i=0; $i<$power; $i++)
+            {
+                if($code_table[$i][$j] === "1")
+                {
+                    $code_table[$i][$j] = $data[$l];
+                    $l++;
+                }
+                else
+                {
+                    unset($code_table[$i][$j]);
+                }
+            }
+        }
+        $data = "";
+        for($j=0; $j<$power; $j++)
+        {
+            for($i=0; $i<$power; $i++)
+            {
+                if(isset($code_table[$j][$i]))
+                {
+                    $data .= $code_table[$j][$i];
+                }
+            }
+        }
+        // PHASE 3
+        $data = str_split($data);
+        $phase3 = array();
+        for($i = 0; $i < $length; $i += 2)
+        {
+            $phase3[$i] = $data[$i+1];
+            $phase3[$i+1] = $data[$i];
+        }
+        $data = $phase3;
+        $data = implode("", $data);
+        // PHASE 4
+        $data = str_split($data);
+        $new_code = array();
+        $k = 0;
+        foreach($data as $char)
+        {
+            for($i=33; $i<=126; $i++)
+            {
+                if($key_table[$i] === $char)
+                {
+                    $new_code[$k] = $normal_chars[$i];
+                    $k++;
+                }
+            }
+        }
+        $data = $new_code;
+        // PHASE 5
+        if($data[sizeof($data)-3] != "|")
+        {
+            $data_length = $data[sizeof($data)-1];
+        }
+        else
+        {
+            $data_length = $data[sizeof($data)-2] . $data[sizeof($data)-1];
+        }
+        for($i=0; $i<$length; $i++)
+        {
+            if($i >= $data_length)
+            {
+                unset($data[$i]);
+            }
+        }
+        $data = implode("" ,$data);
+        return $data;
+        
+    }
     // EMAIL DECRYPTION
     function decrypt_email($code, $key)
     {

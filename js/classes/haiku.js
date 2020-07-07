@@ -10,7 +10,6 @@ class Haiku
         this.content = content;
         this.likes = likes;
         this.likeStatus = likeStatus;
-        this.font = font;
         this.textAlign = textAlign;
         this.background = background;
         this.own = own;

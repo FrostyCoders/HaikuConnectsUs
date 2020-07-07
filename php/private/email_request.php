@@ -75,7 +75,180 @@
         {
             $subject = "Activate new e-mail - Haiku Connects Us";
 
-            $massage = '<a href="http://localhost/test/recover_pass.php?rk=' . $key . '">Activate new password!</a>';
+            $message = '
+            <!DOCTYPE html>
+            <html>
+            <head></head>
+            <body>
+            <style>
+                    body
+                    {
+                        font-family: Verdana;
+                        color: #000000;
+                        background-color: #f9f8f4;
+                    }
+                    
+                    .container
+                    {
+                        width: 70%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        background-color: #f9f8f4;
+                    }
+                    
+                    .title
+                    {
+                        width: 12rem;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    
+                    .title h1
+                    {
+                        letter-spacing: 0.2rem;
+                        text-align: center;
+                        font-size: 2rem;
+                        font-weight: 300;
+                        color: #353330;
+                    }
+                    
+                    .subtitle
+                    {
+                        width: 100%;
+                        background-color: #dd3050;
+                        height: 3rem;
+                        border-bottom: 2px solid #353330;
+                    }
+                    
+                    .subtitle h2
+                    {
+                        color: #f9f8f4;
+                        font-size: 1.5rem;
+                        line-height: 3rem;
+                        margin-top: 1rem;
+                        margin-left: 1rem;
+                        font-weight: 200;
+                        letter-spacing: 0.1rem;
+                    }
+                    
+                    .main-text
+                    {
+                        width: 100%;
+                        min-height: 5rem;
+                    }
+                    
+                    .main-text p
+                    {
+                        margin-left: 2rem;
+                        font-size: 1rem;
+                    }
+                    
+                    .main-text a
+                    {
+                        color: #dd3050;
+                        font-weight: bold;
+                        text-decoration: none;
+                    }
+                    
+                    .button-recover
+                    {
+                        position: relative;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        margin-top: 2rem;
+                        margin-bottom: 2rem;
+                        width: 10rem;
+                        height: 3rem;
+                        font-size: 1rem;
+                        text-align: center;
+                        border-radius: 0.5rem;
+                        font-weight: bold;
+                        background-color: #353330;
+                        color: #f9f8f4;
+                        border: 2px solid #353330;
+                        outline: none;
+                        cursor: pointer;
+                        transition-duration: 0.15s;
+                    }
+                    
+                    .button-recover:hover
+                    {
+                        border-color: #dd3050;
+                    }
+                    
+                    .main-info
+                    {
+                        width: 100%;
+                        min-height: 5rem;
+                    }
+                    
+                    .main-info p
+                    {
+                        font-size: 1rem;
+                        margin-left: 2rem;
+                        color: #353330;
+                    }
+                    
+                    .strong
+                    {
+                        font-weight: bold;
+                    }
+                    
+                    .strong a
+                    {
+                        text-decoration: none;
+                        color: #353330;
+                        transition-duration: 0.15s;
+                    }
+                    
+                    .strong a:hover
+                    {
+                        color: #dd3050;
+                    }
+                    
+                    .footer
+                    {
+                        width: 100%;
+                        min-height: 5rem;
+                        border-top: 1px solid #353330;
+                        background-color: #eeeeee;
+                    }
+                    
+                    .footer p
+                    {
+                        font-size: 0.75rem;
+                        color: #353330;
+                        text-align: center;
+                    }
+                <div class="container">
+                    <header>
+                        <div class="title"><h1>Haiku Connects Us</h1></div>
+                        <div class="subtitle"><h2>Change e-mail/h2></div>
+                    </header>
+                    <main>
+                        <div class="main-text">
+                            <p>Hi,</p>
+                            <p>Someone started changing password process on your profile on <a href="localhost/haiku" target="_blank">Haiku Connects Us</a>.</p>
+                            <p>If this person is you and you want continue change your e-mail - click this button and follow the instructions.</p>
+                            <a href="#" target="_blank"></a>
+                            <a href="http://localhost/haiku/php/public/change_email.php?ck=' . $key . '" target="_blank"><button class="button-recover">Continue change</button>!</a>
+                        </div>
+                        <div class="main-info">
+                            <p>If not you started this process, you can ignore this message, but for your confidence check the security of your account.</p><br />
+                            <p>For more info or to ask us, write on this e-mail:</p>
+                            <p class="strong"><a href="mailto:#">XYZ@xyz.xyz</a></p>
+                        </div>
+                    </main>
+                    <footer>
+                        <div class="footer">
+                            <p>This message is automatically generated. Please, do not answer on this e-mail.</p>
+                            <p class="strong">Website admin <a href="localhost/haiku" target="_blank">HaikuConnetsUs</a></p>
+                        </div>
+                    </footer>
+                </div>
+            </body>
+            </html>
+            ';
 
             $header = "From: noreply@gmail.com \nContent-Type:".
             ' text/html;charset="UTF-8"'.

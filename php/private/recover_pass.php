@@ -22,7 +22,7 @@
         if($check->rowCount() == 1)
         {
             $check = $check->fetch();
-            if($check['expire_time'] < date("Y-m-d H:i:s") || $check['user'] == 1)
+            if($check['expire_time'] < date("Y-m-d H:i:s") || $check['used'] == 1)
             {
                 $result = array(false, 'Your recovery link expired, <a href="../../index.php">create new.</a>');
             }
