@@ -75,7 +75,7 @@ body
    left: 50%;
    bottom: 0;
    height: 0.2rem;
-   background-color: var(--light-color);
+   background-color: var(--white-color);
    transform: translate( -50%, 100%);
    transition: 300ms width;
 }
@@ -327,7 +327,7 @@ body
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 1rem;
-    background-color: var(--light-color);
+    background-color: var(--white-color);
     transition: left .25s, background-color .25s;
 }
 
@@ -339,7 +339,7 @@ input[type="radio"]:checked + label span.radio::after
 
 .filter-option input[type="text"]
 {
-    background-color: var(--light-color);
+    background-color: var(--white-color);
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     width: calc(100% - 1.5rem);
@@ -354,7 +354,6 @@ input[type="radio"]:checked + label span.radio::after
 .filter-option input[type="text"]:focus
 {
     outline: none;
-    background-color: var(--light-color);
     border-color: var(--extra-color);
 }
 
@@ -370,7 +369,7 @@ input[type="radio"]:checked + label span.radio::after
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--dark-color);
-    color: var(--light-color);
+    color: var(--white-color);
     border: 2px solid var(--dark-color);
     border-radius: 0.5rem;
     font-weight: 500;
@@ -384,10 +383,45 @@ input[type="radio"]:checked + label span.radio::after
     border-color: var(--extra-color);
 }
 
+.filter-option ul
+{
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border: 1px solid var(--dark-color);
+    width: calc(100% - 1.5rem);
+    min-height: 3.5rem;
+    border-radius: 0.25rem;
+    padding-left: 0;
+}
+
+.filter-option ul li
+{
+    text-align: center;
+    border-bottom: 1px solid var(--dark-color);
+    min-height: 3.5rem;
+    line-height: 3.5rem;
+    list-style: none;
+    width: 100%;
+    cursor: pointer;
+    transition-duration: 0.15s;
+}
+
+.filter-option ul li:hover
+{
+    background-color: var(--extra-light-color);
+    color: var(--extra-color);
+}
+
+.filter-option ul li:last-child
+{
+    border-bottom: 0;
+}
+
 /* POSTS */
 .posts
 {
-    background-color: var(--extra-light-color);
     min-height: 20rem;
     border-radius: 0.5rem;
     position: relative;
@@ -543,6 +577,7 @@ input[type="radio"]:checked + label span.radio::after
     border-right: 1px solid var(--dark-color);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    background-color: var(--white-color);
 }
 
 .post-footer:before
@@ -614,7 +649,53 @@ input[type="radio"]:checked + label span.radio::after
     transition-duration: 0.15s;
 }
 
+.post-nav-dot:before
+{
+    content: "";
+    display: block;
+    width: 0.65rem;
+    height: 0.65rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.25rem;
+    border: 1.25px solid var(--light-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition-duration: 0.15s;
+}
+
+.post-nav-dot:after
+{
+    content: "";
+    display: block;
+    width: 0.65rem;
+    height: 0.65rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.25rem;
+    border: 1.25px solid var(--light-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 86%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition-duration: 0.15s;
+}
+
 .post-nav:hover .post-nav-dot
+{
+    border-color: var(--dark-color);
+}
+
+.post-nav:hover .post-nav-dot:before
+{
+    border-color: var(--dark-color);
+}
+
+.post-nav:hover .post-nav-dot:after
 {
     border-color: var(--dark-color);
 }
@@ -630,7 +711,7 @@ input[type="radio"]:checked + label span.radio::after
     min-height: 5rem;
     border: 1px solid var(--dark-color);
     border-radius: 0.25rem;
-    background-color: var(--light-color);
+    background-color: var(--white-color);
     -webkit-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
     -moz-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
     box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
@@ -844,7 +925,7 @@ input[type="radio"]:checked + label span.radio::after
     text-align: center;
     margin: 1rem;
     background-color: var(--dark-color);
-    color: var(--light-color);
+    color: var(--white-color);
     border: 2px solid var(--dark-color);
     border-radius: 0.5rem;
     font-weight: 500;
@@ -865,7 +946,7 @@ footer
     bottom: 0;
     width: 100%;
     background-color: var(--dark-color);  
-    color: var(--light-color);
+    color: var(--white-color);
 }
 
 footer h4
@@ -889,7 +970,7 @@ footer h4
 
 .footer-a:hover
 {
-    color: var(--light-color);
+    color: var(--white-color);
     text-decoration: none;
 }
 
