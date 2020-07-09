@@ -1,6 +1,7 @@
 .points-loading-container
 {
     position: fixed;
+    display: none;
     bottom: 0.1rem;
     right: 0.1rem;
     transform: translate(-25%, -25%);
