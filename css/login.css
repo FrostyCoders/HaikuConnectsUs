@@ -1,134 +1,266 @@
-@import "variables.css";
-
 body
 {
-    margin: 0;
-    padding: 0;
-    background-image: url(../img/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    background-attachment: fixed;
     /*
     =========================================================================
     This pattern is downloaded from www.toptal.com/designers/subtlepatterns/ 
     If you need more, that's where to get'em.
     ========================================================================
     */
-    font-family: 'Raleway', sans-serif;
-    
+    /* IMAGE SOURCE: GOOGLE GRAPHICS */
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/background.png);
+    background-size: fill;
+    background-repeat: no-repeat;
+    font-family: "Raleway", "sans-serif";
+    overflow: hidden;
 }
 a
 {
-    text-decoration: none;
     color: black;
     transition: 0.3s;
 }
 a:hover
 {
-    color: var(--extra-color);
+    color: rgba(221,48,80,1);
 }
-.window
+#window
 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 320px;
-    min-height: 200px;
-    background-color: white;
-    opacity: 80%;
-    border-radius: 3px;
-    box-shadow: 3px 3px 10px gray;
-    padding-bottom: 75px;
+    width: 0px;
+    height: 400px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0px 3px 10px gray;
+    transition: 0.7s;
 }
-.frame
+#info
 {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+    float: left;
+    width: 350px;
+    height: 400px;
+    background-color: #f1dedd;
+    transition: 0.5s;
 }
 .logo
 {
     text-align: center;
     padding: 20px;
-    padding-bottom: 0;
+    box-sizing: border-box;
 }
 .logo img
 {
     width: 100px;
 }
-form
+.logo h1
+{
+    letter-spacing: 0.2rem;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+.logo h3
+{
+    font-size: 16px;
+    font-weight: 300;
+}
+.logo p
+{
+    font-size: 14px;
+    font-weight: 300;
+}
+.logo .spacer
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-bottom: 1px solid black;
+    opacity: 0.1;
+}
+#form
+{
+    opacity: 0;
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+#login
+{
+    transition: 0.5s;
+}
+#forget_pass
+{
+    display: none;
+    opacity: 0;
+    transition: 0.5s;
+}
+#form h1
+{
+    padding-left: 26px;
+    font-size: 28px;
+}
+#form form
+{
+    padding-top: 30px;
+    text-align: center;
+}
+.input_container
 {
     position: relative;
-    padding: 30px;
-    text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
 }
-.login_label, .password_label, .pass_forget
+input[type="password"], input[type="text"]
 {
-    width: 100%;
-    padding: 0px;
-    text-align: left;
-    font-size: 12px;
-    margin: 0px;
-    padding: 5px;
-}
-.pass_forget
-{
-    text-decoration: none;
-    text-align: center;
-    color: black;
-}
-input
-{
-    width: 90%;
-    height: 25px;
-    border: 1px solid #112D40;
-    margin: 5px;
-    padding: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border: none;
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 14px;
     transition: 0.3s;
+}
+input[type="password"]:focus, input[type="text"]:focus
+{
+    border: 2px solid var(--extra-color);;
+}
+label
+{
+    position: absolute;
+    top: -6px;
     font-size: 12px;
 }
-input[type=submit]
+.forgot, .back_login
 {
     cursor: pointer;
-    height: 30px;
-    font-size: 12px;
-    transition: 0.2s;
-    background-color: white;
-}
-input[type=submit]:hover
-{
-    background-color: var(--extra-color);
-    color: white;
-    border: 2px solid var(--extra-color);
-}
-.reg_p
-{
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 12px;
     position: absolute;
-    bottom: 0;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
-}
-.login_error
-{
-    color: red;
-    text-align: center;
     font-size: 12px;
+    transition: 0.5s;
+}
+.forgot:hover
+{
+    color: rgba(221,48,80,1);
+}
+button
+{
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    height: 2rem;
+    transition-duration: 0.35s;
+}
+button:hover
+{
+    border-color: var(--extra-color);
+    color: var(--light-color);
+    background-color: var(--extra-color);
+}
+#request_result_login, #request_result_forgot
+{
+    width: 100%;
+    text-align: center;
+    min-height: 40px;
+    font-size: 12px;
+    transition: 0.3s;
+    color: red;
+    transition: 0.5s;
 }
 .copy
 {
     position: absolute;
-    bottom: 1%;
-    right: -5%;
+    width: 100%;
+    bottom: 10px;
+    left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    font-size: 12px;
+}
+/* COOKIES */
+.cookies_button
+{
+    cursor: pointer;
+    position: absolute;
+    background-color: white;
     padding: 10px;
+    padding-bottom: 15px;
+    bottom: -5px;
+    left: 10px;
+    font-size: 12px;
+    border-radius: 5px 5px 0 0;
+    transition: 0.3s;
+}
+.cookies_button:hover
+{
+    bottom: 0px !important;
+}
+.cookies_info
+{
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    bottom: -50px;
+    left: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.info_frame
+{
+    position: relative;
+    padding-right: 26px;
+}
+.cookies_info img
+{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2px;
+    width: 16px;
+}
+
+@media only screen and (max-width: 700px)
+{
+    #window
+    {
+        width: 300px !important;
+    }
+    #info
+    {
+        display: none;
+    }
+    .cookies_info
+    {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+/* CHANGE PASS */
+.frame
+{
+    font-size: 13px;
+    padding-top: 20px;
+    text-align: center;
+}
+#request_result_reset
+{
+    color: red;
     font-size: 12px;
 }
