@@ -33,23 +33,5 @@
             $conn->close();
             return $result;
         }
-
-        function changeEmail($conn, $new)
-        {
-            $change = $conn->prepare("UPDATE users SET email = :new_email WHERE id = :id");
-            $change->bindParam(":new_mail", $new);
-            $change->bindParam("id", $this->id);
-            try
-            {
-                $change->execute();
-                $result = array(true, "Successfully changed email.");
-            }
-            catch(Exception $e)
-            {
-                $result = array(false, "There was an error during changing email, try later.");
-            }
-            $conn->close();
-            return $result;
-        }
     }
 ?>

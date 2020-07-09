@@ -23,7 +23,7 @@ document.getElementById("change").addEventListener("click", function(){
                 }
               }
         };
-        request.open("POST", "../private/pass_change.php", true);
+        request.open("POST", "../resources/user_pass_change.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("pass1="+pass1+"&pass2="+pass2);
     }

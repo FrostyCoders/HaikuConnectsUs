@@ -6,7 +6,7 @@
     }
     else
     {
-        require_once "connect.php";
+        require_once "db_connect.php";
         $like = $_POST['like'];
         $haiku_id = $_POST['hid'];
         if($like == true)

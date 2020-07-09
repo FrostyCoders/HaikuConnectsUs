@@ -6,9 +6,10 @@
     }
     else
     {
+        require_once "../config/config.php";
         require_once "../classes/users.php";
-        require_once "connect.php";
-        require_once "decryption.php";
+        require_once "../utils/decryption.php";
+        require_once "db_connect.php";
     
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -46,10 +47,10 @@
             $list = $query->fetchAll();
             foreach($list as $user)
             {
-                $decrypted_email = decrypt_email($user['user_email'], $ckey1);
+                $decrypted_email = decrypt_email($user['user_email'], CKEY1);
                 if($decrypted_email === $email)
                 {
-                    if(password_verify($password, decrypt_pass($user['password'], $ckey2)))
+                    if(password_verify($password, decrypt_pass($user['password'], CKEY2)))
                     {
                         $_SESSION['logged_user'] = new User($user['user_id'], $user['user_name'], $decrypted_email);
                         break;

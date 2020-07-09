@@ -8,8 +8,7 @@
     // ----------------------------------------
     // WARNING: Script requires file with encryption keys!
     // ----------------------------------------
-    require_once "keys.php";
-    require_once "../functions/random.php";
+    require_once "../utils/random.php";
     // USER DATA ENCRYPTION
     function encrypt_data($data, $key)
     {

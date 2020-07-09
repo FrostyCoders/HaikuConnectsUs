@@ -7,7 +7,7 @@
     }
     else
     {   
-        require_once "connect.php";
+        require_once "db_connect.php";
         $haiku_id = $_POST['hid'];
         $reason = $_POST['reason'];
         $report = $conn->prepare("INSERT INTO haiku_reports VALUES (NULL, :hid, :reason);");

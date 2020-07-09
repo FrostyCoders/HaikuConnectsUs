@@ -8,7 +8,6 @@
     // ----------------------------------------
     // WARNING: Script requires file with encryption keys!
     // ----------------------------------------
-    require_once "keys.php";
     // USER DATA DECRYPTION
     function decrypt_data($data, $key)
     {
