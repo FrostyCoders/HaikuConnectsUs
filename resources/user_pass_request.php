@@ -115,7 +115,7 @@
                             <p style="margin-left: 2rem; font-size: 1rem;">Someone started recovering password process on your profile on <a href="' . SITE_URL . '" target="_blank" style="color: #dd3050; font-weight: bold; text-decoration: none;">Haiku Connects Us</a>.</p>
                             <p style="margin-left: 2rem; font-size: 1rem;">If this person is you and you want continue recover your password - click this button and follow the instructions.</p>
                             <div style="text-align: center;">
-                                <a href="' . SITE_URL . '/php/public/change_pass.php?rk=' . $key . '" target="_blank"><button style="position: relative; left: 50%; transform: translateX(-50%); margin-top: 2rem; margin-bottom: 2rem; width: 10rem; height: 3rem; font-size: 1rem; text-align: center; border-radius: 0.5rem; font-weight: bold; background-color: #353330; color: #fff; border: 2px solid #dd3050; outline: none; cursor: pointer;">Continue recover</button></a>
+                                <a href="' . SITE_URL . '/public/change_pass.php?rk=' . $key . '" target="_blank"><button style="position: relative; left: 50%; transform: translateX(-50%); margin-top: 2rem; margin-bottom: 2rem; width: 10rem; height: 3rem; font-size: 1rem; text-align: center; border-radius: 0.5rem; font-weight: bold; background-color: #353330; color: #fff; border: 2px solid #dd3050; outline: none; cursor: pointer;">Continue recover</button></a>
                             </div>
                         </div>
                         <div style="width: 100%; min-height: 5rem;">

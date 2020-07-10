@@ -70,7 +70,7 @@ document.getElementById("login_button").addEventListener("click", function(){
             }
         }
     };
-    request.open("POST", "php/resources/user_login.php", true);
+    request.open("POST", "../resources/user_login.php", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send("email="+email+"&password="+password);
 });
@@ -100,7 +100,7 @@ document.getElementById("forgot_button").addEventListener("click", function(){
                 result.innerHTML = request_result[1];
               }
         };
-        request.open("POST", "php/resources/user_pass_request.php", true);
+        request.open("POST", "../resources/user_pass_request.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("email="+email);
     }

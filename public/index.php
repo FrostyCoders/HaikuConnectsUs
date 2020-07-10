@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haiku Connects Us</title>
     <meta name="author" content="Frosty Coders">
-    <link rel="shortcut icon" href="icons/haiku_normal.svg">
+    <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
@@ -21,7 +21,7 @@
     <div id="window">
         <div id="info">
             <div class="logo">
-                <img src="icons/haiku_normal.svg" alt="Haiku Logo">
+                <img src="img/icons/haiku_logo_normal.svg" alt="Haiku Logo">
                 <h1>Haiku Connects Us</h1>
                 <h3>We are unique and that makes us different. Our work does not have to be underestimated and wait for greater publicity.</h3>
                 <hr class="spacer">
@@ -66,7 +66,7 @@
     <div class="cookies_info">
         <div class="info_frame">
             This website uses cookies to function in proper way. <a href="#" target="_blank">Read more.</a>
-            <img id="close_info" src="icons/close_icon.svg" alt="Close" title="Close">
+            <img id="close_info" src="img/icons/close_icon.svg" alt="Close" title="Close">
         </div>
     </div>
     <script src="js/login.js"></script>

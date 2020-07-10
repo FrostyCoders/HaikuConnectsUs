@@ -33,7 +33,7 @@ class Haiku
         if (db_change.readyState == 4 && db_change.status == 200) {
             result = JSON.parse(db_change.responseText);
         }
-        db_change.open("POST", "../../php/core/likes.php", true);
+        db_change.open("POST", "../resources/haiku_like.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         switch(this.likeStatus)
         {
@@ -86,7 +86,7 @@ class Haiku
             if (reportRequest.readyState == 4 && reportRequest.status == 200) {
                 var result = JSON.parse(reportRequest.responseText);
             }
-            reportRequest.open("POST", "../../php/core/report_haiku.php", true);
+            reportRequest.open("POST", "../resources/haiku_report.php", true);
             reportRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             reportRequest.send("hid="+this.id+"&reason="+reason);
             if(result[0] == true)
@@ -96,27 +96,5 @@ class Haiku
             this.refresh();
         }
         
-    }
-    // REFRESH HAIKU DATA
-    refresh()
-    {
-        var refreshRequest = new XMLHttpRequest;
-        if (refreshRquest.readyState == 4 && refreshRequest.status == 200) {
-            var result = JSON.parse(refreshRequest.responseText);
-        }
-        refreshRequest.open("POST", "../../php/core/refresh_haiku.php", true);
-        reportRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        reportRequest.send("hid="+this.id);
-        if(result[0] == true)
-        {
-            this.title = $result[1]["title"];
-            this.content = $result[1]["content"];
-            this.likes = $result[1]["likes"];
-            document.querySelector("#haiku"+this.id+" .likes").innerHTML = this.likes;
-        }
-        else
-        {
-            displayError("Error, cannot refresh haiku data!");
-        }
     }
 }
