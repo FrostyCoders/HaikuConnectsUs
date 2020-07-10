@@ -1,12 +1,12 @@
 <?php
     // Website url address (e.g. https://mypage.com)
-    define('SITE_URL', '');
+    define('SITE_URL', 'http://localhost/haiku');
     
     // DB info 
-    define('DB_HOST', '');
-    define('DB_USER', '');
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
     define('DB_PASSWORD', '');
-    define('DB_NAME', '');
+    define('DB_NAME', 'haiku');
 
     // ENCRYPTION KEYS
     define('CKEY1', '<[!m]_XW(N\|@c>ET4l-GKO/Sj~}1D?Y'."'".'Ufit.g#aqp&^L"bvwCxH0k7JM2$hR%+Z)AVo93{8,Q:e*Ps;d`nz6IB=yru5F');
