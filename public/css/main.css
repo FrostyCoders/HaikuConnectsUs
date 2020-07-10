@@ -485,18 +485,10 @@ input[type="radio"]:checked + label span.radio::after
 .post-author
 {
     font-size: 1.5rem;
-    padding: 0.5rem;
-    padding-left: 1rem;
+    padding: 1rem;
+    padding-top: 1.25rem;
     color: #444;
     width: 75%;
-}
-
-.post-time
-{
-    font-size: 1rem;
-    color: #555555;
-    padding: 0.5rem;
-    padding-left: 1rem;
 }
 
 .lang-switch
@@ -597,7 +589,7 @@ input[type="radio"]:checked + label span.radio::after
 {
     position: absolute;
     right: 1.5rem;
-    bottom: 2.0rem;
+    bottom: 1.75rem;
     width: 3rem;
     height: 3rem;
     background-image: url(../img/icons/heart_normal.svg);
