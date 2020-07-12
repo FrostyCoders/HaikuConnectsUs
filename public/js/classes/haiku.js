@@ -1,18 +1,16 @@
 class Haiku 
 {
-    constructor(id, authorId, authorName, addTime, title, content, likes, likeStatus, font, textAlign, background, own, reported)
+    constructor(id, authorName, authorCountry, title, content, contentNative, likes, likeStatus, background, reported)
     {
         this.id = id;
-        this.authorId = authorId;
-        this.authorName
-        this.addTime = addTime;
+        this.authorName = authorName;
+        this.authorCountry = authorCountry;
         this.title = title;
         this.content = content;
+        this.contentNative = contentNative;
         this.likes = likes;
         this.likeStatus = likeStatus;
-        this.textAlign = textAlign;
         this.background = background;
-        this.own = own;
         this.reported = reported;
     }
     // DISPLAY HAIKU ON WEBSITE

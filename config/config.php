@@ -13,4 +13,5 @@
     define('CKEY2', '%-\&RAk}?frljv/oy46#u@NQ=C2Wx~|hYesdXSbw."m5+V]$M`>(F!DG)_UIc[P^<z,'."'".'*9a8H;O:0JnTpt1BZ{iK3gE7Lq');
     define('CKEY3', '#1M*_HzPq:0]WZ?w(RvpOsm)JL=[r4yDk\%t-^Xx3KN{eVi|h&f92g<+.",lauGY$SUdoT>}E!@5ncIFCB/8j;'."'".'b`~6AQ7');
     define('CKEY4', 'jNTSd7k}=LA%ntx_^M6.]1KP{gh[a$(><*2UZzB9#3"&5Ds@-q0JRVOY\upo|l:X;~y'."'".'/FCW?Q!f4rGHi+we,mv8I`)cb');
+    define('CKEY5', 'c:+uLz`r=|KFt*o3?Wj84\{R,"wln}hkQfDP!(g/iUqC2$>#9d'."'".'70vJVO-6TH@1SG%sb~)Y;ZamN5y&x.<MX[EBAI^ep_]');
 ?>
