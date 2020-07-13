@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="author" content="FrostyCoders">
+    <meta name="description" content="Website dedicated to the work of Haiku authors from around the world!">
+    <meta name="keywords" content="haiku, connects, us">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Haiku Connects Us</title>
+    
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
+    
+    <!-- SKRYPTY -->
+    
+    <!-- STYLE I CZCIONKI -->
+    
+    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/add_haiku.css" />
+    
+</head>
+<body>
+    <!-- INNE -->
+    <div class="loading-container" id="loading-container">
+        <div class="points-loading-container">
+            <div class="point1"></div>
+            <div class="point2"></div>
+        </div>
+    </div>
+    <div class="post-error" id="post-error">Something gone wrong...</div>
+    <div class="post-report-menu" id="post-report-menu">
+        <div class="post-report-close" id="post-report-close"></div>
+        <p>Report:</p>
+        <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
+        <input type="submit" value="Send" />
+    </div>
+    <!-- PASEK NAWIGACYJNY -->
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" href="#">Haiku Connects Us</a>
+      
+      <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+         <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
+      </button>
+      <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu-close" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+         <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu-close"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="menu">
+       
+           <ul class="navbar-nav ml-auto mg-0">
+              <li class="nav-item active">
+                 <a class="nav-link nav-text" href="#">Start</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link nav-text" href="#">Authors List</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link nav-text" href="#">About The Project</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link nav-text" href="#">Add Haiku</a>
+              </li>
+              <li class="nav-item nav-icon" id="nav-icons">
+                 <a class="nav-link" href="#"><div class="avatar-nav-icon"></div></a>
+                 <div id="nav-link-icon-container">
+                 <a class="nav-link nav-link-icon" id="nav-link-icon1" href="#"><div class="gear-nav-icon" title="settings"></div></a>
+                 <a class="nav-link nav-link-icon" id="nav-link-icon2" href="#"><div class="logout-nav-icon" title="logout"></div></a>
+                 </div>
+              </li>
+           </ul>
+      </div>     
+    </nav>
+
+    <!-- ZAWARTOŚĆ  -->
+    <!--col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2-->
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="w-100 jumbotron-my">
+                        <div class="jumbotron-text">
+                            <h1 class="display-4">Add new Haiku!</h1>
+                            <h3 class="my-4 font-weight-light">Below is the editor for adding a new Haiku to the content of the page with live view.</h3>
+                            <h3 class="my-4 font-weight-light">Have fun!</h3>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-5 offset-0 offset-lg-1 add-inputs">
+                    <h4>Make new Haiku:</h4>
+                    <hr class="mt-2">
+                    <label>Author:</label>
+                    <input type="text" id="author" placeholder="Write author of Haiku..." />
+                    <ul>
+                        <li>John Doe</li>
+                        <li>Everytime</li>
+                    </ul>
+                    <label>In English:</label>
+                    <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
+                    <label>In Native Language (optional):</label>
+                    <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
+                    <label>Background (optional):</label>
+                    <input type="file" id="background-haiku" />
+                    <button id="add-haiku-button" onclick="tak()">Add Haiku</button>
+                </div>
+                <div class="col-12 col-md-5 offset-0 live">
+                    <h4>Live changes:</h4>
+                    <hr class="mt-2">
+                    <div class="posts">
+                        <div class="post-header">
+                            <div class="posts-haiku">
+                                <p class="post-haiku" id="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.
+                            </div>
+                        </div>
+                        <div class="lang-switch">
+                            <label class="lang-switcher">
+                                <input type="checkbox" id="ischecked">
+                                <span class="lang-slider"></span>
+                            </label>
+                        </div>
+                        <div class="post-nav">
+                            <div class="post-nav-dot"></div>
+                        </div>
+                        <div class="post-footer">
+                            <div class="post-author" id="post-author">Taki Testowy</div>
+                            <div class="post-like"><span>Live</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- STOPKA -->     
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                 <h4>Project Partners:</h4>
+            </div>
+            <div class="row text-center justify-content-center pt-5 mb-3">
+                <div class="col-6 col-lg-3 mb-3">
+                    <div class="logo">
+                        <a href="#">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 mb-3">
+                     <div class="logo">
+                        <a href="#">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 mb-3">
+                     <div class="logo">
+                        <a href="#">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 mb-3">
+                     <div class="logo">
+                        <a href="#">
+                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr-footer">
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
+                <div class="col-md-2 mb-3">
+                    <a class="footer-a" href="#">Privacy Policy</a>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <a class="footer-a" href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-4">2020 &copy; FROSTYCODERS</div>
+    <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    
+    <!-- SKRYPTY -->
+    
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/change_icons_menu.js"></script>
+    <script src="js/add_haiku_live.js"></script>
+    
+</body>
+</html>

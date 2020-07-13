@@ -70,7 +70,6 @@ class Haiku
         post_like.setAttribute("class", "post-like");
         var post_like_counter = document.createElement("span");
         post_like_counter.setAttribute("id", "post-like-counter"+this.id);
-        post_like_counter.setAttribute("data-value", this.likes);
         post_like_counter.textContent = this.likes;
         
         var post_error = document.createElement("div");
@@ -192,14 +191,22 @@ class Haiku
     function likeIt()
     {
         var like = document.getElementById("post-like"+this.id);
-        var likecounteradd = document.getElementById("post-like-counter"+this.id).getAttribute("data-value");
-        likecounteradd = parseInt(likecounteradd)+1;
-        var likecounter = document.getElementById("post-like-counter"+this.id);
 
-        like.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
-        likecounter.innerHTML = likecounteradd;
-
-        like.style.animation = "like-it 1s 1";
+         switch(this.likeStatus)
+        {
+            case true:
+            {
+                like.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
+                like.style.animation = "like-it 1s 1";
+                break;
+            }
+            case false:
+            {
+                like.style.backgroundImage = "url('img/icons/heart_normal.svg')";
+                like.style.animation = "like-it 1s 1";
+                break;
+            }
+        }
     }
 
     var like = document.getElementById("post-like"+this.id);

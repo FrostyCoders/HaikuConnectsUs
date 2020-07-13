@@ -604,7 +604,7 @@ input[type="radio"]:checked + label span.radio::after
 {
     position: absolute;
     left: 50%;
-    top: 2.5rem;
+    top: 2.25rem;
     transform: translateX(-50%);
 }
 
@@ -615,8 +615,10 @@ input[type="radio"]:checked + label span.radio::after
 
 @keyframes like-it
 {
-    from {background-image: url(../img/icons/heart_normal.svg);}
-    to {background-image: url(../img/icons/heart_full_normal.svg);}
+    0% {filter: grayscale(0);}
+    25% {filter: grayscale(1);}
+    75% {filter: grayscale(0);}
+    100% {filter: grayscale(0);}
 }
 
 .post-nav

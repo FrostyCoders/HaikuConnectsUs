@@ -1,0 +1,161 @@
+.jumbotron-text
+{
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    min-height: 2rem;
+}
+
+.add-inputs, .live
+{
+    margin-top: 5rem;
+    font-size: 1.6rem;
+}
+
+.add-inputs h4, .live h4
+{
+    text-align: center;
+    font-size: 2.25rem;
+}
+
+.add-inputs hr, .live hr
+{
+    width: 10rem;
+}
+
+.add-inputs label
+{
+    margin-left: 10%;
+    display: block;
+    margin-top: 3rem;
+}
+
+.add-inputs input
+{
+    display: block;
+}
+
+.add-inputs input[type="text"]
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 3.6rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--white-color);
+    border: 1.5px solid var(--dark-color);
+    border-radius: 0.5rem;
+    transition-duration: 0.35s;
+}
+
+.add-inputs input[type="file"]
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 3.6rem;
+    outline: none;
+}
+
+.add-inputs textarea
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 10.1rem;
+    line-height: 3rem;
+    padding: 0.5rem 1rem;
+    resize: none;
+    background-color: var(--white-color);
+    border: 1.5px solid var(--dark-color);
+    border-radius: 0.5rem;
+    transition-duration: 0.35s;
+}
+
+.add-inputs textarea:focus, .add-inputs input[type="text"]:focus
+{
+    outline: none;
+    border-color: var(--extra-color);
+}
+
+.add-inputs button
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 4rem auto;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border: 2px solid var(--dark-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    min-width: 10rem;
+    height: 4rem;
+    transition-duration: 0.35s;
+}
+
+.add-inputs button:hover
+{
+    border-color: var(--extra-color);
+}
+
+.add-inputs ul
+{
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid var(--dark-color);
+    width: 80%;
+    min-height: 3.5rem;
+    border-radius: 0.25rem;
+    padding-left: 0;
+}
+
+.add-inputs ul li
+{
+    text-align: center;
+    border-bottom: 1px solid var(--dark-color);
+    min-height: 3.5rem;
+    line-height: 3.5rem;
+    list-style: none;
+    width: 100%;
+    cursor: pointer;
+    transition-duration: 0.15s;
+}
+
+.add-inputs ul li:hover
+{
+    background-color: var(--extra-light-color);
+    color: var(--extra-color);
+}
+
+.add-inputs ul li:last-child
+{
+    border-bottom: 0;
+}
+
+
+.posts
+{
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.posts .post-header
+{
+    min-height: 24.5rem;
+}
+
+.posts .post-header .post-haiku
+{
+    min-height: 15rem;
+}
+
+.posts .post-like:hover
+{
+    background-image: url(../img/icons/heart_normal.svg);
+    cursor: default;
+}
