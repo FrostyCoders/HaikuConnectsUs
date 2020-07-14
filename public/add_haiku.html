@@ -91,25 +91,28 @@
                 <div class="col-12 col-lg-5 offset-0 offset-lg-1 add-inputs">
                     <h4>Make new Haiku:</h4>
                     <hr class="mt-2">
-                    <label>Author:</label>
+                    <form>
+                    <label for="author">Author:</label>
                     <input type="text" id="author" placeholder="Write author of Haiku..." />
                     <ul>
                         <li>John Doe</li>
                         <li>Everytime</li>
                     </ul>
-                    <label>In English:</label>
+                    <label for="in-english">In English:</label>
                     <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>In Native Language (optional):</label>
+                    <label for="in-native">In Native Language (optional):</label>
                     <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>Background (optional):</label>
-                    <input type="file" id="background-haiku" />
-                    <button id="add-haiku-button" onclick="tak()">Add Haiku</button>
+                    <label>Background (optional in JPG or PNG):</label>
+                    <label for="background-haiku" class="input-button">Upload background</label>
+                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
+                    <input type="submit" id="add-haiku-button" value="Add Haiku" />
+                    </form>
                 </div>
                 <div class="col-12 col-md-5 offset-0 live">
                     <h4>Live changes:</h4>
                     <hr class="mt-2">
                     <div class="posts">
-                        <div class="post-header">
+                        <div class="post-header" id="post-header">
                             <div class="posts-haiku">
                                 <p class="post-haiku" id="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.
                             </div>
@@ -124,7 +127,7 @@
                             <div class="post-nav-dot"></div>
                         </div>
                         <div class="post-footer">
-                            <div class="post-author" id="post-author">Taki Testowy</div>
+                            <div class="post-author" id="post-author"></div>
                             <div class="post-like"><span>Live</span></div>
                         </div>
                     </div>

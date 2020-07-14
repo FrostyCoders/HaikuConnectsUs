@@ -444,6 +444,7 @@ input[type="radio"]:checked + label span.radio::after
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    word-wrap: break-word;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 }
@@ -460,8 +461,9 @@ input[type="radio"]:checked + label span.radio::after
 
 .posts-haiku
 {
-    padding: 10% 0;
+    padding: 10% 2rem;
     width: 100%;
+    word-wrap: break-word;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     border-top: 1px solid var(--dark-color);
