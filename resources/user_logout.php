@@ -4,6 +4,6 @@
     {   
         unset($_SESSION['logged_user']);
     }
-    header("Location: ../../index.php");
+    header("Location: ../public/index.php");
     exit();
 ?>

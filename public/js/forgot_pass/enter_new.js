@@ -1,27 +1,34 @@
-document.getElementById("change").addEventListener("click", function(){
-    var pass1 = document.getElementById("new_pass").value;
-    var pass2 = document.getElementById("repeated_pass").value;
-    var result = document.getElementById("request_result_reset");
-    var frame = document.getElementsByClassName("frame")[0];
+document.getElementById("change_pass_form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const pass1 = document.getElementById("new_pass").value;
+    const pass2 = document.getElementById("repeated_pass").value;
+    const pageResult = document.getElementById("pageResult");
     if(pass1.length == 0 || pass2.length == 0)
     {
-        result.innerHTML = "Enter both passwords!";
+        ShowResult([false, "Enter both passwords!"]);
     }
     else
     {
-        var request = new XMLHttpRequest();
+        Loading(true);  
+        const request = new XMLHttpRequest();
         request.onreadystatechange = function(){
             if (this.readyState == 4 && this.status == 200) {
-                var request_result = JSON.parse(this.responseText);
-                if(request_result[0] == false)
+                pageResult.textContent = "";
+                const response = JSON.parse(this.responseText);
+                if(response[0] == true)
                 {
-                    result.innerHTML = request_result[1];
+                    const frame = document.getElementById("change_pass_form");
+                    let change = document.createElement('p');
+                    change.setAttribute("class", "notification");
+                    change.innerHTML = response[1];
+                    frame.parentNode.replaceChild(change, frame);
                 }
                 else
                 {
-                    frame.innerHTML = request_result[1];
+                    ShowResult(response);
                 }
-              }
+                Loading(false);
+            }
         };
         request.open("POST", "../resources/user_pass_change.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
