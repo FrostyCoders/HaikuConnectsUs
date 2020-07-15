@@ -21,6 +21,27 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/authors_list.css" />
     
+    <script>
+        window.onload = function() {
+            var loading = document.getElementById('loading-container');
+            loading.style.display = "block";
+            var loadAuthors = new XMLHttpRequest();
+            loadAuthors.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                var loadReady = JSON.parse(this.responseText);
+                  
+                var tableResponse = document.getElementById('table-response');
+                tableResponse.innerHTML = "<tr><td>"+loadReady[0]+"</td><td>"+loadReady[1]+"</td></tr>";
+                loading.style.display = "none";
+              }
+            };
+            loadAuthors.open("POST","../resources/download_authors.php",true);
+            loadAuthors.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            loadAuthors.send('search=');
+          
+            
+        }
+</script>
 </head>
 <body>
     <!-- INNE -->
@@ -92,21 +113,11 @@
                     <hr class="mt-2">
                     <div class="table-responsive">
                     <table class="table table-hover table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Firstname</th>
-                        <th>Surname</th>
-                        <th>Country</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>John</td>
-                        <td>Smith</td>
-                        <td>USA</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        <thead>
+                            <tr><th>Authors</th><th>Country</th></tr></thead>
+                        <tbody id="table-response">
+                        </tbody>
+                        </table>
                   </div>
                 </div>
             </div>

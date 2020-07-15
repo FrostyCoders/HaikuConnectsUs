@@ -124,7 +124,7 @@ class Haiku
     }
     
     // SUBMENU IN HAIKU POSTS
-    function postSubMenu()
+    postSubMenu()
     {
         var postnavsub = document.getElementById("post-nav-sub"+this.id);
 
@@ -136,7 +136,6 @@ class Haiku
             {
                 postnavsub.style.display = "block";
                 postnavsub.style.animation = "show-element 1s 1";
-                load.style.display = "block";
             }
     }
 
@@ -192,7 +191,7 @@ class Haiku
         }
     }
     
-    function likeIt()
+    likeIt()
     {
         var like = document.getElementById("post-like"+this.id);
 
@@ -240,25 +239,6 @@ class Haiku
         }
         
     }
-
-    function reportPost()
-    {
-        var postreport = document.getElementById("post-report-menu"+this.id);
-        postreport.style.display = "block";
-        postreport.style.animation = "show-element 0.5s 1";
-    }
-
-    var postreport = document.getElementById("post-nav-sub-option-report"+this.id);
-    postreport.addEventListener('click', reportPost, false);
-
-    function reportPostClose()
-    {
-        var postreport = document.getElementById("post-report-menu"+this.id);
-        postreport.style.display = "none";
-    }
-
-    var postreportclose = document.getElementById("post-report-close"+this.id);
-    postreportclose.addEventListener('click', reportPostClose, false);
 
     // REFRESH HAIKU DATA
     refresh()

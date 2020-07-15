@@ -31,11 +31,13 @@
         </div>
     </div>
     <div class="post-error" id="post-error">Something gone wrong...</div>
-    <div class="post-report-menu" id="post-report-menu">
-        <div class="post-report-close" id="post-report-close"></div>
-        <p>Report:</p>
-        <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
-        <input type="submit" value="Send" />
+    <div class="add-new-author" id="add-new-author">
+        <div class="add-new-author-close" id="add-new-author-close"></div>
+        <p>Add new author:</p>
+        <input type="text" name="author-firstname" id="add-author-firstname" placeholder="Firstname" />
+        <input type="text" name="author-surname" id="add-author-surname" placeholder="Surname" />
+        <input type="text" name="author-country" id="add-author-country" placeholder="Country" />
+        <input type="submit" value="Add author" />
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-md">
@@ -91,15 +93,11 @@
                     <h4>Make new Haiku:</h4>
                     <hr class="mt-2">
                     <form>
-                    <label for="author-firstname">Author firstname:</label>
-                    <input type="text" id="author-firstname" placeholder="Write author's firstname..." />
+                    <label for="author-firstname">Author:</label>
+                    <input type="text" id="author" placeholder="Write author's firstname and surname..." />
                     <ul>
                         <li>John</li>
-                    </ul>
-                    <label for="author-surname">Author surname:</label>
-                    <input type="text" id="author-surname" placeholder="Write author's surname..." />
-                    <ul>
-                        <li>Smith</li>
+                        <li id="add-author">Add new author...</li>
                     </ul>
                     <label for="country">Country:</label>
                     <input type="text" id="country" placeholder="Write the author's country..." />
@@ -110,6 +108,9 @@
                     <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
                     <label for="in-native">In Native Language (optional):</label>
                     <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
+                    <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
+                    <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
+                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png" />
                     <label>Background (optional - JPG or PNG):</label>
                     <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
                     <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
@@ -131,8 +132,12 @@
                                 <span class="lang-slider"></span>
                             </label>
                         </div>
-                        <div class="post-nav">
+                        <div class="post-nav" id="post-nav">
                             <div class="post-nav-dot"></div>
+                            <div class="post-nav-handwriting" id="post-nav-handwriting"></div>
+                            <div class="post-nav-sub" id="post-nav-sub">
+                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
+                            </div>
                         </div>
                         <div class="post-footer">
                             <div class="post-author" id="post-author"></div>
