@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/add_haiku.css" />
+    <link rel="stylesheet" type="text/css" href="css/authors_list.css" />
     
 </head>
 <body>
@@ -80,66 +80,34 @@
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Add new Haiku!</h1>
-                            <h3 class="my-4 font-weight-light">Below is the editor for adding a new Haiku to the content of the page with live view.</h3>
-                            <h3 class="my-4 font-weight-light">Have fun!</h3>
+                            <h1 class="display-4">Authors list</h1>
+                            <h3 class="my-4 font-weight-light">List of all haiku authors belonging to this project.</h3>
+                            <h3 class="my-4 font-weight-bold">Thank you all for the work and help put into the project and the opportunity to share your haiku here!</h3>
                         </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-5 offset-0 offset-md-1 add-inputs">
-                    <h4>Make new Haiku:</h4>
+                <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 authors-list">
+                    <h4>List of authors:</h4>
                     <hr class="mt-2">
-                    <form>
-                    <label for="author-firstname">Author firstname:</label>
-                    <input type="text" id="author-firstname" placeholder="Write author's firstname..." />
-                    <ul>
-                        <li>John</li>
-                    </ul>
-                    <label for="author-surname">Author surname:</label>
-                    <input type="text" id="author-surname" placeholder="Write author's surname..." />
-                    <ul>
-                        <li>Smith</li>
-                    </ul>
-                    <label for="country">Country:</label>
-                    <input type="text" id="country" placeholder="Write the author's country..." />
-                    <ul>
-                        <li>USA</li>
-                    </ul>
-                    <label for="in-english">In English:</label>
-                    <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label for="in-native">In Native Language (optional):</label>
-                    <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>Background (optional - JPG or PNG):</label>
-                    <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
-                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
-                    <input type="submit" id="add-haiku-button" value="Add Haiku" />
-                    </form>
-                </div>
-                <div class="col-12 col-md-5 offset-0 live">
-                    <h4>Live changes:</h4>
-                    <hr class="mt-2">
-                    <div class="posts">
-                        <div class="post-header" id="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
-                            </div>
-                        </div>
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox" id="ischecked">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav">
-                            <div class="post-nav-dot"></div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author" id="post-author"></div>
-                            <div class="post-country" id="post-country"></div>
-                            <div class="post-like"><span>Live</span></div>
-                        </div>
-                    </div>
+                    <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Firstname</th>
+                        <th>Surname</th>
+                        <th>Country</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>John</td>
+                        <td>Smith</td>
+                        <td>USA</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
                 </div>
             </div>
         </div>
@@ -208,7 +176,6 @@
     <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
-    <script src="js/add_haiku_live.js"></script>
     
 </body>
 </html>

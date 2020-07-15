@@ -1,9 +1,24 @@
 // CHANGE AUTHOR ON LIVE
 function liveAuthorHaiku()
 {    
-    var author = document.getElementById("author").value;
+    var authorFirstname = document.getElementById("author-firstname").value;
+    var authorSurname = document.getElementById("author-surname").value;
     var postAuthor = document.getElementById("post-author");
-    postAuthor.textContent = author;
+    var country = document.getElementById("country").value;
+    var postCountry = document.getElementById("post-country");
+    postCountry.textContent = country;
+    var author = authorFirstname + " " + authorSurname;
+    
+    if(author.length <= 1)
+        {
+            postAuthor.textContent = ".";
+            postAuthor.style.visibility = "hidden";
+        }
+    else
+        {
+            postAuthor.textContent = author;
+            postAuthor.style.visibility = "visible";
+        }
     
     liveCheckEnter();
 }
@@ -55,12 +70,16 @@ function liveCheckEnter()
 var pullfiles = function()
 { 
     var fileInput = document.querySelector("#background-haiku");
+    var fileComplete = document.getElementById("file-complete");
     
     var reader = new FileReader();
     reader.onload = function()
     {
         var postHeader = document.getElementById("post-header"); 
         postHeader.style.backgroundImage = 'url('+reader.result+')';
+        fileComplete.textContent = "Upload successfully";
+        fileComplete.style.borderColor = "#2da333";
+        fileComplete.style.color = "#2da333";
     }
     
     reader.readAsDataURL(fileInput.files[0]) 

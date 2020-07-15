@@ -385,12 +385,14 @@ input[type="radio"]:checked + label span.radio::after
 
 .filter-option ul
 {
+    position: absolute;
+    z-index: 2;
     background-color: var(--white-color);
     color: var(--dark-color);
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     border: 1px solid var(--dark-color);
-    width: calc(100% - 1.5rem);
+    width: calc(100% - 4.5rem);
     min-height: 3.5rem;
     border-radius: 0.25rem;
     padding-left: 0;
@@ -487,10 +489,22 @@ input[type="radio"]:checked + label span.radio::after
 .post-author
 {
     font-size: 1.5rem;
-    padding: 1rem;
-    padding-top: 1.25rem;
+    padding-left: 1rem;
+    word-wrap: break-word;
+    padding-top: 0.5rem;
     color: #444;
     width: 75%;
+}
+
+.post-country
+{
+    font-size: 1.15rem;
+    padding-left: 1.1rem;
+    word-wrap: break-word;
+    padding-top: 0.15rem;
+    color: #777;
+    width: 75%;
+    text-transform: uppercase;
 }
 
 .lang-switch
@@ -1016,6 +1030,11 @@ footer h4
         margin-left: auto;
         margin-right: auto;
         width: 50%;
+    }
+    
+    .filter-option ul
+    {
+        width: calc(50% - 3rem);
     }
     
     #filters-form

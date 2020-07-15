@@ -63,8 +63,11 @@ class Haiku
         var post_footer = document.createElement("div");
         post_footer.setAttribute("class", "post-footer");
         var post_author = document.createElement("div");
-        post_footer.setAttribute("class", "post-author");
+        post_author.setAttribute("class", "post-author");
         post_author.textContent = this.authorName;
+        var post_country = document.createElement("div");
+        post_country.setAttribute("class", "post-country");
+        post_country.textContent = this.authorCountry;
         var post_like = document.createElement("div");
         post_like.setAttribute("id", "post-like"+this.id);
         post_like.setAttribute("class", "post-like");
@@ -110,6 +113,7 @@ class Haiku
         
         posts.appendChild(post_footer);
         post_footer.appendChild(post_author);
+        post_footer.appendChild(post_country);
         post_footer.appendChild(post_like);
         post_like.appendChild(post_like_counter);
         

@@ -1,0 +1,36 @@
+.jumbotron-text
+{
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    min-height: 2rem;
+}
+
+.authors-list
+{
+    margin-top: 5rem;
+    font-size: 1.6rem;
+}
+
+.authors-list h4
+{
+    text-align: center;
+    font-size: 2.25rem;
+}
+
+.authors-list hr
+{
+    width: 10rem;
+    margin-bottom: 2.5rem;
+}
+
+.table-responsive
+{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.table-hover tbody tr:hover
+{
+    background-color: #f1dedd;
+}
