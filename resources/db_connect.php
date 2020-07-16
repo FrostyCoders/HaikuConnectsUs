@@ -7,8 +7,6 @@
 	}
 	catch(PDOException $e)
 	{
-		$_SESSION["login_error"] = "Critical error, try later!";
-		header("Location: ../../index.php");
-		exit();
+		die(json_encode([false, "Critical connection error, try later!"]));
 	}
 ?>
