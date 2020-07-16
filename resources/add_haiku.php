@@ -75,6 +75,19 @@
                                 (NULL, :aid, :title, :content, :c_native, 0, :bg, NULL);
         ");
 
+        $content = json_decode($content);
+        if(json_last_error() != 0)
+        {
+            die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
+        }
+        $c_native = json_decode($c_native);
+        if(json_last_error() != 0)
+        {
+            die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
+        }
+        $content = nl2br(implode('', $content));
+        $c_native = nl2br(implode('', $c_native));
+
         try 
         {
             $query->bindParam(":aid", $author);
