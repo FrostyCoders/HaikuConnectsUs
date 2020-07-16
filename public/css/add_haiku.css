@@ -213,7 +213,7 @@
     z-index: 99999;
     width: 40rem;
     min-height: 32rem;
-    background-color: var(--light-color);
+    background-color: #f1dedd;
     border: 1px solid var(--dark-color);
     border-radius: 0.5rem;
     top: 50%;

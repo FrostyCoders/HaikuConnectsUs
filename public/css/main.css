@@ -716,9 +716,10 @@ input[type="radio"]:checked + label span.radio::after
     display: none;
     left: 0;
     top: 0;
+    cursor: default;
     transform: translate(-100%, -100%);
-    width: 30rem;
-    height: 15rem;
+    width: 40rem;
+    height: 25rem;
     border: 1px solid var(--dark-color);
     border-radius: 0.25rem;
     background-color: var(--white-color);
@@ -887,7 +888,7 @@ input[type="radio"]:checked + label span.radio::after
     border-color: var(--extra-color);
 }
 
-.post-report-close
+.post-report-close, .post-nav-handwriting-close
 {
     width: 2rem;
     height: 2rem;
@@ -897,7 +898,7 @@ input[type="radio"]:checked + label span.radio::after
     cursor: pointer;
 }
 
-.post-report-close:before, .post-report-close:after
+.post-report-close:before, .post-report-close:after, .post-nav-handwriting-close:before, .post-nav-handwriting-close:after
 {
     content: "";
     width: 0.3rem;
@@ -909,17 +910,17 @@ input[type="radio"]:checked + label span.radio::after
     transition-duration: 0.35s;
 }
 
-.post-report-close:before
+.post-report-close:before, .post-nav-handwriting-close:before
 {
     transform: rotate(-45deg);
 }
 
-.post-report-close:after
+.post-report-close:after, .post-nav-handwriting-close:after
 {
     transform: rotate(45deg);
 }
 
-.post-report-close:hover::before, .post-report-close:hover::after 
+.post-report-close:hover::before, .post-report-close:hover::after, .post-nav-handwriting-close:hover::before, .post-nav-handwriting-close:hover::after
 { 
     background-color: var(--extra-color);
 }

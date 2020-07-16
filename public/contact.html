@@ -19,8 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/add_haiku.css" />
-    
+    <link rel="stylesheet" type="text/css" href="css/authors_about_contact.css" />
 </head>
 <body>
     <!-- INNE -->
@@ -29,15 +28,6 @@
             <div class="point1"></div>
             <div class="point2"></div>
         </div>
-    </div>
-    <div class="post-error" id="post-error">Something gone wrong...</div>
-    <div class="add-new-author" id="add-new-author">
-        <div class="add-new-author-close" id="add-new-author-close"></div>
-        <p>Add new author:</p>
-        <input type="text" name="author-firstname" id="add-author-firstname" placeholder="Firstname" />
-        <input type="text" name="author-surname" id="add-author-surname" placeholder="Surname" />
-        <input type="text" name="author-country" id="add-author-country" placeholder="Country" />
-        <input type="submit" value="Add author" />
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-md">
@@ -85,71 +75,31 @@
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Add new Haiku!</h1>
-                            <h3 class="my-4 font-weight-light">Below is the editor for adding a new Haiku to the content of the page with live view.</h3>
-                            <h3 class="my-4 font-weight-light">Have fun!</h3>
+                            <h1 class="display-4">Contact</h1>
+                            <h3 class="my-4 font-weight-light">If you want to contact us or send a postcard with the landscape of your immediate surroundings and haiku.</h3>
+                            <h3 class="my-4 font-weight-light">Check the information below.</h3>
                         </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-5 offset-0 offset-md-1 add-inputs">
-                    <h4>Make new Haiku:</h4>
+                <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
+                    <h4>Information about postcard:</h4>
                     <hr class="mt-2">
-                    <form>
-                    <label for="author-firstname">Author:</label>
-                    <input type="text" id="author" placeholder="Write author's firstname and surname..." />
+                    <p class="info-about">Your postcard must have:</p>
                     <ul>
-                        <li>John</li>
-                        <li id="add-author">Add new author...</li>
+                        <li>the landscape of your immediate surroundings or the characteristic building, in any case something that makes your surroundings or location,</li>
+                        <li>handwritten haiku in English,</li>
+                        <li>handwritten haiku in your native language (optional),</li>
+                        <li>postage stamp also with something characteristic,</li>
+                        <li>the most important information for correspondence (firstname, surname, address, country).</li>
                     </ul>
-                    <label for="country">Country:</label>
-                    <input type="text" id="country" placeholder="Write the author's country..." />
-                    <ul>
-                        <li>USA</li>
-                    </ul>
-                    <label for="in-english">In English:</label>
-                    <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label for="in-native">In Native Language (optional):</label>
-                    <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
-                    <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png" />
-                    <label>Background (optional - JPG or PNG):</label>
-                    <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
-                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
-                    <input type="submit" id="add-haiku-button" value="Add Haiku" />
-                    </form>
-                </div>
-                <div class="col-12 col-md-5 offset-0 live">
-                    <h4>Live changes:</h4>
+                    <hr class="hr-big">
+                    <h4>Information about contact:</h4>
                     <hr class="mt-2">
-                    <div class="posts">
-                        <div class="post-header" id="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
-                            </div>
-                        </div>
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox" id="ischecked">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author" id="post-author"></div>
-                            <div class="post-country" id="post-country"></div>
-                            <div class="post-like"><span>Live</span></div>
-                        </div>
-                    </div>
+                    <p class="info-about-big">lorem ipsum</p>
+                    <p class="info-about">lorem ipsum</p>
+                    <p class="info-about-big">lorem ipsum</p>
+                    <p class="info-about">lorem ipsum</p>
                 </div>
             </div>
         </div>
@@ -218,7 +168,6 @@
     <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
-    <script src="js/add_haiku_live.js"></script>
     
 </body>
 </html>
