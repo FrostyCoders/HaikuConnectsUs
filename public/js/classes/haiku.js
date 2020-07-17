@@ -39,6 +39,13 @@ class Haiku
         var lang_slider = document.createElement("span");
         lang_slider.setAttribute("class", "lang-slider");
         
+        var post_nav_handwriting = document.createElement("div");
+        post_nav_handwriting.setAttribute("class", "post-nav-handwriting");
+        post_nav_handwriting.setAttribute("id", "post-nav-handwriting");
+        var post_nav_handwriting_close = document.createElement("div");
+        post_nav_handwriting_close.setAttribute("class", "post-nav-handwriting-close");
+        post_nav_handwriting_close.setAttribute("id", "post-nav-handwriting-close");
+        
         var post_nav = document.createElement("div");
         post_nav.setAttribute("id", "post-nav"+this.id);
         post_nav.setAttribute("class", "post-nav");
@@ -48,14 +55,18 @@ class Haiku
         post_nav_sub.setAttribute("id", "post-nav-sub"+this.id);
         post_nav_sub.setAttribute("class", "post-nav-sub");
         var post_nav_sub_option1 = document.createElement("div");
+        post_nav_sub_option1.setAttribute("id", "post-nav-sub-option-handwriting"+this.id);
+        post_nav_sub_option1.setAttribute("class", "post-nav-sub-option");
+        post_nav_sub_option1.textContent = "Handwriting";
+        var post_nav_sub_option2 = document.createElement("div");
         post_nav_sub_option1.setAttribute("id", "post-nav-sub-option-report"+this.id);
         post_nav_sub_option1.setAttribute("class", "post-nav-sub-option");
         post_nav_sub_option1.textContent = "Report";
-        var post_nav_sub_option2 = document.createElement("div");
+        var post_nav_sub_option3 = document.createElement("div");
         post_nav_sub_option2.setAttribute("id", "post-nav-sub-option-edit"+this.id);
         post_nav_sub_option2.setAttribute("class", "post-nav-sub-option");
         post_nav_sub_option2.textContent = "Edit";
-        var post_nav_sub_option3 = document.createElement("div");
+        var post_nav_sub_option4 = document.createElement("div");
         post_nav_sub_option3.setAttribute("id", "post-nav-sub-option-delete"+this.id);
         post_nav_sub_option3.setAttribute("class", "post-nav-sub-option");
         post_nav_sub_option3.textContent = "Delete";
@@ -87,7 +98,7 @@ class Haiku
         post_report_close.setAttribute("class", "post-report-close");
         post_report_close.setAttribute("id", "post-report-close"+this.id);
         var post_report_p = document.createElement("p");
-        post_report_p.textContent = "Report:";
+        post_report_p.textContent = "Report an error:";
         var post_report_text = document.createElement("textarea");
         post_report_text.setAttribute("name", "text-report");
         post_report_text.setAttribute("placeholder", "Write why you are reporting this haiku...");
@@ -106,10 +117,13 @@ class Haiku
         
         posts.appendChild(post_nav);
         post_nav.appendChild(post_nav_dot);
+        post_nav.appendChild(post_nav_handwriting);
+        post_nav_handwriting.appendChild(post_nav_handwriting_close);
         post_nav.appendChild(post_nav_sub);
         post_nav_sub.appendChild(post_nav_sub_option1);
         post_nav_sub.appendChild(post_nav_sub_option2);
         post_nav_sub.appendChild(post_nav_sub_option3);
+        post_nav_sub.appendChild(post_nav_sub_option4);
         
         posts.appendChild(post_footer);
         post_footer.appendChild(post_author);

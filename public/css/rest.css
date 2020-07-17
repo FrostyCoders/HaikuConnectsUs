@@ -1,0 +1,172 @@
+.jumbotron-text
+{
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    min-height: 2rem;
+}
+
+.first-row
+{
+    margin-top: 5rem;
+    font-size: 1.75rem;
+}
+
+.first-row h4
+{
+    text-align: center;
+    font-size: 2.25rem;
+}
+
+.first-row hr
+{
+    width: 10rem;
+    margin-bottom: 2.5rem;
+}
+
+.first-row .hr-big
+{
+    width: 80%;
+    margin: 3rem auto;
+}
+
+/* AUTHORS LIST */
+.table-responsive
+{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.table-hover tbody tr:hover
+{
+    background-color: #f1dedd;
+}
+
+/* ABOUT THE PROJECT */
+.information
+{
+    padding: 1rem;
+    text-align: center;
+}
+
+.information q
+{
+    color: var(--extra-color);
+    font-weight: bold;
+}
+
+.info-about
+{
+    padding: 1rem;
+    text-align: justify;
+}
+
+.info-about-author
+{
+    padding: 1rem;
+    text-align: right;
+    color: #777;
+}
+
+.info-about-author:last-child
+{
+    margin-bottom: 3rem;
+}
+
+/* AUTHOR MAP */
+
+/* SETTINGS */
+
+.settings-icon
+{
+    background-image: url(../img/icons/avatar_circle_color_normal.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25rem;
+    height: 25rem;
+    margin: 2rem auto 0;
+}
+
+.settings-nickname
+{
+    text-align: center;
+    width: 100%;
+    color: var(--extra-color);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.settings-email
+{
+    text-align: center;
+    width: 100%;
+    color: var(--extra-color);
+    margin-bottom: 2rem;
+}
+
+.settings label
+{
+    width: 80%;
+    margin: 1rem 10%;
+}
+
+.settings label:first-child
+{
+    margin-top: 2rem;
+}
+
+.settings input[type="text"], .settings input[type="password"], .settings input[type="email"]
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0.5rem;
+    height: 3.6rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--white-color);
+    border: 1.5px solid var(--dark-color);
+    border-radius: 0.5rem;
+    transition-duration: 0.35s;
+}
+
+.settings input[type="text"]:focus, .settings input[type="password"]:focus, .settings input[type="email"]:focus
+{
+    outline: none;
+    border-color: var(--extra-color);
+}
+
+.hr-big-space
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#check-password::placeholder
+{
+    color: var(--extra-color);
+}
+
+.settings input[type="submit"]
+{
+    position: relative;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: 2px solid var(--dark-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 7.5rem;
+    width: 10rem;
+    height: 4rem;
+    transition-duration: 0.35s;
+}
+
+.settings input[type="submit"]:hover
+{
+    border-color: var(--extra-color);
+}

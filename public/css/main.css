@@ -344,7 +344,7 @@ input[type="radio"]:checked + label span.radio::after
     margin-right: 0.75rem;
     width: calc(100% - 1.5rem);
     height: 3.5rem;
-    border: 2px solid var(--dark-color);
+    border: 1.5px solid var(--dark-color);
     border-radius: 0.5rem;
     transition-duration: 0.35s;
     padding-left: 0.5rem;
@@ -850,21 +850,51 @@ input[type="radio"]:checked + label span.radio::after
     height: 20rem;
     background-color: var(--light-color);
     color: var(--dark-color);
-    font-size: 1.75rem;
     resize: none;
     outline: none;
     border: none;
     padding: 1rem;
-    border-top: 1px solid var(--dark-color);
-    border-bottom: 1px solid var(--dark-color);
+    border-top: 1.5px solid var(--dark-color);
+    border-bottom: 1.5px solid var(--dark-color);
     transition-duration: 0.35s;
 }
 
 .post-report-menu textarea:focus
 {
-    border-top: 1px solid var(--extra-color);
-    border-bottom: 1px solid var(--extra-color);
+    border-top: 1.5px solid var(--extra-color);
+    border-bottom: 1.5px solid var(--extra-color);
     background-color: var(--extra-light-color);
+}
+
+.post-report-menu label
+{
+    margin: 2rem 5% 1rem;
+}
+
+.post-report-menu input[type="email"]
+{
+    width: 90%;
+    height: 3.6rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    resize: none;
+    outline: none;
+    padding: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--dark-color);
+    transition-duration: 0.35s;
+}
+
+.post-report-menu input[type="email"]:focus
+{
+    border: 1.5px solid var(--extra-color);
+}
+
+.post-report-menu .g-recaptcha
+{
+    margin: 2rem 5% 2rem;
 }
 
 .post-report-menu input[type="submit"]
@@ -872,6 +902,7 @@ input[type="radio"]:checked + label span.radio::after
     position: relative;
     top: 2.5rem;
     left: 50%;
+    margin-bottom: 5rem;
     transform: translateX(-50%);
     background-color: var(--dark-color);
     color: var(--light-color);
@@ -1072,10 +1103,7 @@ footer h4
     {
         width: 80%;
     }
-}
-
-@media only screen and (max-width: 768px) 
-{
+    
     .nav-item
     {
        padding: 0.5rem;
@@ -1093,7 +1121,10 @@ footer h4
         margin-left: auto;
         margin-right: auto;
     }
-    
+}
+
+@media only screen and (max-width: 768px) 
+{    
     .jumbotron-my
     {
         padding: 2.5rem;
@@ -1125,10 +1156,7 @@ footer h4
     {
         display: block !important;
     }
-}
-
-@media only screen and (min-width: 768px) 
-{
+    
     #navbar-toggler-menu
     {
         display: none !important;

@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/authors_about_contact.css" />
+    <link rel="stylesheet" type="text/css" href="css/rest.css" />
 </head>
 <body>
     <!-- INNE -->
@@ -30,7 +30,7 @@
         </div>
     </div>
     <!-- PASEK NAWIGACYJNY -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="main_page.html">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
@@ -50,10 +50,10 @@
                  <a class="nav-link nav-text" href="authors_list.html">Authors List</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link nav-text" href="about_the_project.html">About The Project</a>
+                 <a class="nav-link nav-text" href="map.html">Authors Map</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link nav-text" href="contact.html">Contact</a>
+                 <a class="nav-link nav-text" href="about_the_project.html">About The Project</a>
               </li>
               <li class="nav-item">
                  <a class="nav-link nav-text" href="add_haiku.html">Add Haiku</a>
@@ -61,7 +61,7 @@
               <li class="nav-item nav-icon" id="nav-icons">
                  <a class="nav-link" href="#"><div class="avatar-nav-icon"></div></a>
                  <div id="nav-link-icon-container">
-                 <a class="nav-link nav-link-icon" id="nav-link-icon1" href="#"><div class="gear-nav-icon" title="settings"></div></a>
+                 <a class="nav-link nav-link-icon" id="nav-link-icon1" href="settings.html"><div class="gear-nav-icon" title="settings"></div></a>
                  <a class="nav-link nav-link-icon" id="nav-link-icon2" href="#"><div class="logout-nav-icon" title="logout"></div></a>
                  </div>
               </li>
@@ -75,31 +75,38 @@
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Contact</h1>
-                            <h3 class="my-4 font-weight-light">If you want to contact us or send a postcard with the landscape of your immediate surroundings and haiku.</h3>
-                            <h3 class="my-4 font-weight-light">Check the information below.</h3>
+                            <h1 class="display-4">Settings</h1>
+                            <h3 class="my-4 font-weight-light">Here you can change your profile settings.</h3>
                         </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
-                    <h4>Information about postcard:</h4>
-                    <hr class="mt-2">
-                    <p class="info-about">Your postcard must have:</p>
-                    <ul>
-                        <li>the landscape of your immediate surroundings or the characteristic building, in any case something that makes your surroundings or location,</li>
-                        <li>handwritten haiku in English,</li>
-                        <li>handwritten haiku in your native language (optional),</li>
-                        <li>postage stamp also with something characteristic,</li>
-                        <li>the most important information for correspondence (firstname, surname, address, country).</li>
-                    </ul>
-                    <hr class="hr-big">
-                    <h4>Information about contact:</h4>
-                    <hr class="mt-2">
-                    <p class="info-about-big">lorem ipsum</p>
-                    <p class="info-about">lorem ipsum</p>
-                    <p class="info-about-big">lorem ipsum</p>
-                    <p class="info-about">lorem ipsum</p>
+                    <h4>Your profile:</h4>
+                    <hr class="mt-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 offset-0 offset-md-2 settings">
+                    <div class="settings-icon"></div>
+                    <div class="settings-nickname" id="settings-nickname">Taki_Testowy_1</div>
+                    <div class="settings-email" id="settings-email">takitestowy1@test.test</div>
+                </div>
+                <div class="col-12 col-md-4 offset-0 settings">
+                    <label for="change-nickname">Change your nickname:</label>
+                    <input type="text" id="change-nickname" placeholder="" />
+                    <hr class="hr-big-space">
+                    <label for="change-email">Change your e-mail:</label>
+                    <input type="email" id="change-email" placeholder="" />
+                    <hr class="hr-big-space">
+                    <label for="cchange-password">Change your password:</label>
+                    <input type="password" id="change-password" placeholder="" />
+                    <label for="repeat-password">Repeat new password:</label>
+                    <input type="password" id="repeat-password" placeholder="" />
+                    <hr class="hr-big-space">
+                    <label for="check-password">Write your actually password to confirm:</label>
+                    <input type="password" id="check-password" placeholder="Must have to confirm" />
+                    <input type="submit" value="Confirm" />
                 </div>
             </div>
         </div>
