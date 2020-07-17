@@ -26,10 +26,10 @@
             $user_found = false;
             foreach($list as $user)
             {
-                if(decrypt_email($user['user_email'], CKEY1) === $email)
+                if(decrypt_email($user['email'], CKEY1) === $email)
                 {
                     $user_found = true;
-                    $user_id = $user['user_id'];
+                    $user_id = $user['id'];
                     break;
                 }
             }

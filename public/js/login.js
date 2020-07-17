@@ -1,107 +1,102 @@
-window.onload = function()
-{
-    var loginWindow = document.getElementById("window");
-    var info = document.getElementById("info");
-    var form = document.getElementById("form");
-    loginWindow.style.width = "650px";
-    setTimeout(function(){
-        info.style.opacity = "1";
-    }, 700);
-    setTimeout(function(){
-        form.style.opacity = "1";
-    }, 1200);
+const Loading = (state) => {
+    const container = document.getElementById("loading-container");
+    const frame = document.getElementsByClassName("frame")[0];
+    if(state == true)
+    {
+        container.style.display = "block";
+        frame.style.pointerEvents = "none";
+        frame.style.filter = "blur(8px)";
+    }
+    else
+    {
+        container.style.display = "none";
+        frame.style.pointerEvents = "all";
+        frame.style.filter = "none";
+    }
 };
 
-document.getElementsByClassName("cookies_button")[0].addEventListener("click", function(){
-    var button = document.getElementsByClassName("cookies_button")[0];
-    var cookie_info = document.getElementsByClassName("cookies_info")[0];
-    button.style.bottom = "-50px";
-    cookie_info.style.bottom = "5px";
+const ShowResult = (Message) => {
+    const PageResult = document.getElementById("page_result");
+    if(Message[0] == true) PageResult.style.color = "black";
+    else PageResult.style.color = "red";
+
+    PageResult.textContent = Message[1];
+    PageResult.style.display = "block";
+
+    if(Message[0] == false)
+    {
+        PageResult.animate([
+            { transform: 'translateX(-45%) translateY(-50%)' }, 
+            { transform: 'translateX(-55%) translateY(-50%)' },
+            { transform: 'translateX(-50%) translateY(-50%)' }
+          ], { 
+            duration: 100,
+            iterations: 3
+          });
+    }
+};
+
+document.getElementById("forgot_button").addEventListener("click", () => {
+    const LoginForm = document.getElementById("login_form");
+    const ForgotForm = document.getElementById("forgot_form");
+    LoginForm.style.opacity = "0";
+    document.getElementById("page_result").textContent = "";
+    setTimeout( () => {
+        LoginForm.style.display = "none";
+        ForgotForm.style.display = "block";
+    }, 350);
+    setTimeout( () => {
+        ForgotForm.style.opacity = "1";
+    }, 350);
 });
 
-document.getElementById("close_info").addEventListener("click", function(){
-    var button = document.getElementsByClassName("cookies_button")[0];
-    var cookie_info = document.getElementsByClassName("cookies_info")[0];
-    button.style.bottom = "-5px";
-    cookie_info.style.bottom = "-50px";
+document.getElementById("back_button").addEventListener("click", () => {
+    const LoginForm = document.getElementById("login_form");
+    const ForgotForm = document.getElementById("forgot_form");
+    ForgotForm.style.opacity = "0";
+    document.getElementById("page_result").textContent = "";
+    setTimeout( () => {
+        ForgotForm.style.display = "none";
+        LoginForm.style.display = "block";
+    }, 350);
+    setTimeout( () => {
+        LoginForm.style.opacity = "1";
+    }, 350);
 });
 
-document.getElementsByClassName("forgot")[0].addEventListener("click", function(){
-    var login = document.getElementById("login");
-    var forget = document.getElementById("forget_pass");
-    login.style.opacity = "0";
-    setTimeout(function(){
-        forget.style.display = "block";
-        login.style.display = "none";
-    },500);
-    setTimeout(function(){
-        forget.style.opacity = "1";
-    },600);
-});
-document.getElementsByClassName("back_login")[0].addEventListener("click", function(){
-    var login = document.getElementById("login");
-    var forget = document.getElementById("forget_pass");
-    forget.style.opacity = "0";
-    setTimeout(function(){
-        login.style.display = "block";
-        forget.style.display = "none";
-    },500);
-    setTimeout(function(){
-        login.style.opacity = "1";
-    },600);
-});
+document.getElementById("login_form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const request = new XMLHttpRequest();
 
-// LOGIN 
-document.getElementById("login_button").addEventListener("click", function(){
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var result = document.getElementById("request_result_login");
-    var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200) {
-            var request_result = JSON.parse(this.responseText);
-            if(request_result[0] == false)
-            {
-                result.innerHTML = request_result[1];
-            }
-            else
-            {
-                window.location.href = "main_page.html";
-            }
+        if (this.readyState == 4 && this.status == 200) {   
+            const RequestResult = JSON.parse(this.responseText);
+            if(RequestResult[0] == true) window.location.href = "main_page.php";
+            else ShowResult(RequestResult);
         }
     };
+
     request.open("POST", "../resources/user_login.php", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send("email="+email+"&password="+password);
 });
 
-// FORGOT PASSWORD
-document.getElementById("forgot_button").addEventListener("click", function(){
-    var email = document.getElementById("recover_email").value;
-    var result = document.getElementById("request_result_forgot");
-    if(email.length == 0)
-    {
-        result.innerHTML = "Enter email!";
-    }
-    else
-    {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                request_result = JSON.parse(this.responseText);
-                if(request_result[0] == false)
-                {
-                    result.style.color = "red";
-                }
-                else
-                {
-                    result.style.color = "black";
-                }
-                result.innerHTML = request_result[1];
-              }
-        };
-        request.open("POST", "../resources/user_pass_request.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("email="+email);
-    }
+document.getElementById("forgot_form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    Loading(true);
+    const email = document.getElementById("account_email").value;
+    const request = new XMLHttpRequest();
+
+    request.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {   
+            Loading(false);
+            ShowResult(JSON.parse(this.responseText));
+        }
+    };
+
+    request.open("POST", "../resources/user_pass_request.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send("email="+email);
 });

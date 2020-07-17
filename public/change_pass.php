@@ -14,42 +14,50 @@
         try
         {
             $check->execute();
+            $check_ok = true;
         }
         catch(Exception $e)
         {
             $result = array(false, "Error occured, try later!");
+            $check_ok = false;
         }
-        if($check->rowCount() == 1)
+        if($check_ok == true)
         {
-            $check = $check->fetch();
-            if($check['expire_time'] < date("Y-m-d H:i:s") || $check['used'] == 1)
+            if($check->rowCount() == 1)
             {
-                $result = array(false, 'Your recovery link expired, <a href="../../index.php">create new.</a>');
+                $check = $check->fetch();
+                if($check['expire_time'] < date("Y-m-d H:i:s") || $check['used'] == 1)
+                {
+                    $result = array(false, 'Your recovery link expired,<br> <a href="index.php">create new.</a>');
+                }
+                else
+                {
+                    $_SESSION['user_id'] = $check["user_id"];
+                    $result = array(true, '
+                        <form id="change_pass_form">
+                            <div class="input_frame">
+                                <label class="input_label" for="">New password</label>
+                                <input class="login_input" id="new_pass" type="password">
+                            </div>
+                            <div class="input_frame">
+                                <label class="input_label" for="">Repeat new password</label>
+                                <input class="login_input" id="repeated_pass" type="password">
+                            </div>
+                            <div class="last_input" class="input_frame">
+                                <input type="submit" value="Change Password">
+                            </div>
+                        </form>
+                    ');
+                }
+            }
+            elseif($check->rowCount() == 0)
+            {
+                $result = array(false, "Error, incorrect recovery key!");
             }
             else
             {
-                $_SESSION['user_id'] = $check["user_id"];
-                $result = array(true, '
-                    <div class="input_container">
-                        <label for="new_pass">New password</label>
-                        <input id="new_pass" type="password">
-                    </div>
-                    <div class="input_container">
-                        <label for="repeated_pass">Repeat new password</label>
-                        <input id="repeated_pass" type="password">
-                    </div>
-                    <button id="change" type="button">Change password</button>
-                    <div id="request_result_reset"></div>
-                ');
+                $result = array(false, "Error occured, try later!");
             }
-        }
-        elseif($check->rowCount() == 0)
-        {
-            $result = array(false, "Error, incorrect recovery key!");
-        }
-        else
-        {
-            $result = array(false, "Error occured, try later!");
         }
     }
     unset($conn);
@@ -67,38 +75,32 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <div id="window">
-        <div id="info">
-            <div class="logo">
-                <img src="img/icons/haiku_logo_normal.svg" alt="Haiku Logo">
-                <h1>Haiku Connects Us</h1>
-                <h3>We are unique and that makes us different. Our work does not have to be underestimated and wait for greater publicity.</h3>
-                <hr class="spacer">
-                <p>Let's share it among those who also create haiku!</p>
+    <div class="bg_image"></div>
+    <div class="login_window">
+        <div id="loading-container">
+            <div class="points-loading-container">
+                <div class="point1"></div>
+                <div class="point2"></div>
             </div>
         </div>
-        <div id="form">
-            <h1>Change password</h1>
-            <div class="frame">
-                <?php
-                    if($result[0] == false)
-                    {
-                        echo '<p class="error">'.$result[1].'</p>';
-                    }
-                    else
-                    {
-                        echo $result[1];
-                    }
-                ?>
+        <div class="frame">
+            <img id="haiku_logo" src="img/icons/haiku_logo_normal.svg" alt="Logo">
+            <?php
+                if($result[0] == false)
+                {
+                    echo '<p class="notification">'.$result[1].'</p>';
+                }
+                else
+                {
+                    echo $result[1];
+                }
+            ?>
+            <div class="space">
+                <div id="page_result"></div>
             </div>
-        <div class="copy">Copyright &copy - Frosty Coders 2020</div>
-        </div>
-    </div>
-    <div class="cookies_button">Privacy Policies & Cookies</div>
-    <div class="cookies_info">
-        <div class="info_frame">
-            This website uses cookies to function in proper way. <a href="#" target="_blank">Read more.</a>
-            <img id="close_info" src="img/icons/close_icon.svg" alt="Close" title="Close">
+            <div class="copy">
+                Copyright &copy; - Frosty Coders 2020
+            </div>
         </div>
     </div>
     <script src="js/login.js"></script>
