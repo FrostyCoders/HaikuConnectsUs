@@ -102,6 +102,10 @@ class Haiku
         var post_report_text = document.createElement("textarea");
         post_report_text.setAttribute("name", "text-report");
         post_report_text.setAttribute("placeholder", "Write why you are reporting this haiku...");
+        var post_report_label = document.createElement("label");
+        var post_report_email = document.createElement("input");
+        post_report_email.setAttribute("type", "email");
+        post_report_email.setAttribute("placeholder", "Must have to send");
         var post_report_input = document.createElement("input");
         post_report_input.setAttribute("type", "submit");
         post_report_input.setAttribute("value", "Send");
@@ -134,7 +138,9 @@ class Haiku
         post_report_menu.appendChild(post_report_close);
         post_report_menu.appendChild(post_report_p);
         post_report_menu.appendChild(post_report_text);
-        post_report_menu.appendChild(post_report_input);   
+        post_report_menu.appendChild(post_report_label);
+        post_report_menu.appendChild(post_report_email);
+        post_report_menu.appendChild(post_report_input);
     }
     
     // SUBMENU IN HAIKU POSTS
