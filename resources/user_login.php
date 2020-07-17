@@ -47,12 +47,12 @@
             $list = $query->fetchAll();
             foreach($list as $user)
             {
-                $decrypted_email = decrypt_email($user['user_email'], CKEY1);
+                $decrypted_email = decrypt_email($user['email'], CKEY1);
                 if($decrypted_email === $email)
                 {
                     if(password_verify($password, decrypt_pass($user['password'], CKEY2)))
                     {
-                        $_SESSION['logged_user'] = new User($user['user_id'], $user['user_name'], $decrypted_email);
+                        $_SESSION['logged_user'] = new User($user['id'], $user['name'], $decrypted_email);
                         break;
                     }
                     else

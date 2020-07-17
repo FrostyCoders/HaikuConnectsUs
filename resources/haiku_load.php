@@ -80,7 +80,8 @@
                         $h['haiku.content'],
                         $h['haiku.content_native'],
                         $h['haiku.like_counter'],
-                        $h['haiku.background']
+                        $h['haiku.background'],
+                        $h['handwriting']
                     ));
                 }
                 else break;

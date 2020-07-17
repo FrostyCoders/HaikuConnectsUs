@@ -69,34 +69,68 @@
         }
         else $new_c_native = $edit_haiku['content_native'];
 
-        if(isset($_FILES['haiku_bg']) && !empty($_FILES['haiku_bg']))
+        $allowed_ext = array("jpg", "png", "jpeg", "bmp");
+        if(isset($_FILES['haiku_bg']) && $_FILES['haiku_bg']['error'] != 4)
         {
-            $bg_image = $_FILES['haiku_bg'];
-            if($bg_image['error'] !== 0 || $bg_image['size'] == 0)
+            $background = $_FILES['haiku_bg'];
+            if($background['error'] !== 0 || $background['size'] == 0)
             {
                 die(json_encode([false, "Error, cannot add haiku, try later!"]));
             }
 
-            $allowed_ext = array("jpg", "png", "jpeg", "bmp");
-            $file_ext = strtolower(end(explode('.', $bg_image['name'])));
+            
+            $bg_ext = strtolower(end(explode('.', $background['name'])));
 
-            if(!in_array($file_ext, $allowed_ext))
+            if(!in_array($bg_ext, $allowed_ext))
             {
                 die(json_encode([false, "Error, you cannot add this type of file for background image!"]));
             }
 
-            if($bg_image['size'] < 10485760)
+            if($background['size'] < 10485760)
             {
                 die(json_encode([false, "Error, size of uploaded background image file is too big!"]));
             }
 
-            $file_tmp_name = $bg_image['tmp_name'];
-            $file_new_name = $edit_haiku['background'];
-            $file_destination = "../uploads/" . $file_new_name;
+            $bg_tmp_name = $background['tmp_name'];
+            $bg_new_name = $edit_haiku['background'];
+            $bg_destination = BG_DIR . $bg_new_name;
             
             if(file_exists("../uploads/" . $edit_haiku['background'])) unlink("../uploads/" . $edit_haiku['background']);
 
-            if(!move_uploaded_file($file_tmp_name, $file_destination))
+            if(!move_uploaded_file($bg_tmp_name, $bg_destination))
+            {
+                die(json_encode([false, "Error, cannot update haiku, try later!"]));
+            }
+        }
+
+        if(isset($_FILES['haiku_hw']) && $_FILES['haiku_hw']['error'] != 4)
+        {
+            $handwriting = $_FILES['haiku_hw'];
+            if($handwriting['error'] !== 0 || $handwriting['size'] == 0)
+            {
+                die(json_encode([false, "Error, cannot add haiku, try later!"]));
+            }
+
+            
+            $hw_ext = strtolower(end(explode('.', $handwriting['name'])));
+
+            if(!in_array($hw_ext, $allowed_ext))
+            {
+                die(json_encode([false, "Error, you cannot add this type of file for handwriting image!"]));
+            }
+
+            if($handwriting['size'] < 10485760)
+            {
+                die(json_encode([false, "Error, size of uploaded handwriting image file is too big!"]));
+            }
+
+            $hw_tmp_name = $handwriting['tmp_name'];
+            $hw_new_name = $edit_haiku['handwriting'];
+            $hw_destination = HW_DIR . $hw_new_name;
+            
+            if(file_exists("../uploads/" . $edit_haiku['handwriting'])) unlink("../uploads/" . $edit_haiku['handwriting']);
+
+            if(!move_uploaded_file($hw_tmp_name, $hw_destination))
             {
                 die(json_encode([false, "Error, cannot update haiku, try later!"]));
             }
