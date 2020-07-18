@@ -18,7 +18,7 @@ class Haiku
     {
         var posts = document.createElement("div");
         posts.setAttribute("id", "haiku"+this.id);
-        posts.setAttribute("class", "posts");
+        posts.setAttribute("class", "posts mg-posts");
         
         var post_header = document.createElement("div");
         post_header.setAttribute("class", "post-header");
