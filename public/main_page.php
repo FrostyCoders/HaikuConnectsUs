@@ -148,7 +148,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-lg-9 offset-0">
+                <div id="haiku_box" class="col-12 col-lg-9 offset-0">
                     <div class="posts mg-posts">
                         <div class="post-header">
                             <div class="posts-haiku">
@@ -348,11 +348,11 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     <script src="js/filters.js"></script>
-    <script src="js/posts.js"></script>
-    
+    <script src="js/classes/haiku.js"></script>
+    <script src="js/main_page.js"></script>
+
 </body>
 </html>

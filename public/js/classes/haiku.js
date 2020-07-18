@@ -1,6 +1,6 @@
 class Haiku 
 {
-    constructor(id, authorName, authorCountry, title, content, contentNative, likes, likeStatus, background, reported)
+    constructor(id, authorName, authorCountry, title, content, contentNative, likes, likeStatus, background, handwriting, reported)
     {
         this.id = id;
         this.authorName = authorName;
@@ -11,154 +11,150 @@ class Haiku
         this.likes = likes;
         this.likeStatus = likeStatus;
         this.background = background;
+        this.handwriting = handwriting;
         this.reported = reported;
     }
     // DISPLAY HAIKU ON WEBSITE
     generate()
     {
-        var posts = document.createElement("div");
-        posts.setAttribute("id", "haiku"+this.id);
-        posts.setAttribute("class", "posts mg-posts");
+        this.post = document.createElement("div");
+        this.post.setAttribute("id", "haiku"+this.id);
+        this.post.setAttribute("class", "posts mg-posts");
         
-        var post_header = document.createElement("div");
+        let postElements = [];
+
+        let post_header = document.createElement("div");
         post_header.setAttribute("class", "post-header");
-        var posts_haiku = document.createElement("div");
+        let posts_haiku = document.createElement("div");
         posts_haiku.setAttribute("class", "posts-haiku");
-        var post_haiku = document.createElement("div");
+        let post_haiku = document.createElement("div");
         post_haiku.setAttribute("class", "post-haiku");
         post_haiku.innerHTML = this.content;
-        
-        var lang_switch = document.createElement("div");
-        lang_switch.setAttribute("class", "lang-switch");
-        var lang_switcher = document.createElement("label");
-        lang_switcher.setAttribute("class", "lang-switcher");
-        var lang_input = document.createElement("input");
-        lang_input.setAttribute("type", "checkbox");
-        var lang_slider = document.createElement("span");
-        lang_slider.setAttribute("class", "lang-slider");
-        
-        var post_nav_handwriting = document.createElement("div");
-        post_nav_handwriting.setAttribute("class", "post-nav-handwriting");
-        post_nav_handwriting.setAttribute("id", "post-nav-handwriting");
-        var post_nav_handwriting_close = document.createElement("div");
-        post_nav_handwriting_close.setAttribute("class", "post-nav-handwriting-close");
-        post_nav_handwriting_close.setAttribute("id", "post-nav-handwriting-close");
-        
-        var post_nav = document.createElement("div");
-        post_nav.setAttribute("id", "post-nav"+this.id);
+        posts_haiku.appendChild(post_haiku);
+        post_header.appendChild(posts_haiku);
+        postElements.push(post_header);
+
+        if(this.contentNative != "NO")
+        {
+            let lang_switch = document.createElement("div");
+            lang_switch.setAttribute("class", "lang-switch");
+            let lang_switcher = document.createElement("label");
+            lang_switcher.setAttribute("class", "lang-switcher");
+            let lang_input = document.createElement("input");
+            lang_input.setAttribute("type", "checkbox");
+            lang_input.setAttribute("class", "language-value");
+            let lang_slider = document.createElement("span");
+            lang_slider.setAttribute("class", "lang-slider");
+            lang_switcher.appendChild(lang_input);
+            lang_switcher.appendChild(lang_slider);
+            lang_switch.appendChild(lang_switcher);
+            postElements.push(lang_switch);
+        }
+
+        let post_nav = document.createElement("div");
         post_nav.setAttribute("class", "post-nav");
+
         var post_nav_dot = document.createElement("div");
         post_nav_dot.setAttribute("class", "post-nav-dot");
+        post_nav.appendChild(post_nav_dot);
+
+        let post_nav_handwriting = document.createElement("div");
+        post_nav_handwriting.setAttribute("class", "post-nav-handwriting");
+        post_nav_handwriting.setAttribute("id", "post-nav-handwriting");
+        post_nav_handwriting.setAttribute("style", "background-image: url(../uploads/handwriting/"+ this.handwriting +")");
+        let post_nav_handwriting_close = document.createElement("div");
+        post_nav_handwriting_close.setAttribute("class", "post-nav-handwriting-close");
+        post_nav_handwriting_close.setAttribute("id", "post-nav-handwriting-close");
+        post_nav_handwriting.appendChild(post_nav_handwriting_close);
+        post_nav.appendChild(post_nav_handwriting);
+
         var post_nav_sub = document.createElement("div");
-        post_nav_sub.setAttribute("id", "post-nav-sub"+this.id);
         post_nav_sub.setAttribute("class", "post-nav-sub");
-        var post_nav_sub_option1 = document.createElement("div");
-        post_nav_sub_option1.setAttribute("id", "post-nav-sub-option-handwriting"+this.id);
-        post_nav_sub_option1.setAttribute("class", "post-nav-sub-option");
-        post_nav_sub_option1.textContent = "Handwriting";
-        var post_nav_sub_option2 = document.createElement("div");
-        post_nav_sub_option1.setAttribute("id", "post-nav-sub-option-report"+this.id);
-        post_nav_sub_option1.setAttribute("class", "post-nav-sub-option");
-        post_nav_sub_option1.textContent = "Report";
-        var post_nav_sub_option3 = document.createElement("div");
-        post_nav_sub_option2.setAttribute("id", "post-nav-sub-option-edit"+this.id);
-        post_nav_sub_option2.setAttribute("class", "post-nav-sub-option");
-        post_nav_sub_option2.textContent = "Edit";
-        var post_nav_sub_option4 = document.createElement("div");
-        post_nav_sub_option3.setAttribute("id", "post-nav-sub-option-delete"+this.id);
-        post_nav_sub_option3.setAttribute("class", "post-nav-sub-option");
-        post_nav_sub_option3.textContent = "Delete";
-        
-        var post_footer = document.createElement("div");
+
+        const options = ["Handwriting", "Report"];
+
+        options.forEach(option => {
+            let post_nav_sub_option = document.createElement("div");
+            post_nav_sub_option.setAttribute("class", "post-nav-sub-option");
+            post_nav_sub_option.textContent = option;
+            post_nav_sub.appendChild(post_nav_sub_option);
+        });
+
+        post_nav.appendChild(post_nav_sub);
+
+        postElements.push(post_nav);
+
+        let post_footer = document.createElement('div');
         post_footer.setAttribute("class", "post-footer");
-        var post_author = document.createElement("div");
+
+        let post_author = document.createElement('div');
         post_author.setAttribute("class", "post-author");
         post_author.textContent = this.authorName;
-        var post_country = document.createElement("div");
+        post_footer.appendChild(post_author);
+
+        let post_country = document.createElement('div');
         post_country.setAttribute("class", "post-country");
         post_country.textContent = this.authorCountry;
-        var post_like = document.createElement("div");
-        post_like.setAttribute("id", "post-like"+this.id);
-        post_like.setAttribute("class", "post-like");
-        var post_like_counter = document.createElement("span");
-        post_like_counter.setAttribute("id", "post-like-counter"+this.id);
-        post_like_counter.textContent = this.likes;
-        
-        var post_error = document.createElement("div");
-        post_error.setAttribute("class", "post-error");
-        post_error.setAttribute("id", "post-error"+this.id);
-        post_error.textContent = "Something gone wrong...";
-        
-        var post_report_menu = document.createElement("div");
-        post_report_menu.setAttribute("class", "post-report-menu");
-        post_report_menu.setAttribute("id", "post-report-menu"+this.id);
-        var post_report_close = document.createElement("div");
-        post_report_close.setAttribute("class", "post-report-close");
-        post_report_close.setAttribute("id", "post-report-close"+this.id);
-        var post_report_p = document.createElement("p");
-        post_report_p.textContent = "Report an error:";
-        var post_report_text = document.createElement("textarea");
-        post_report_text.setAttribute("name", "text-report");
-        post_report_text.setAttribute("placeholder", "Write why you are reporting this haiku...");
-        var post_report_label = document.createElement("label");
-        var post_report_email = document.createElement("input");
-        post_report_email.setAttribute("type", "email");
-        post_report_email.setAttribute("placeholder", "Must have to send");
-        var post_report_input = document.createElement("input");
-        post_report_input.setAttribute("type", "submit");
-        post_report_input.setAttribute("value", "Send");
-        
-        posts.appendChild(post_header);
-        post_header.appendChild(posts_haiku);
-        posts_haiku.appendChild(post_haiku);
-        
-        posts.appendChild(lang_switch);
-        lang_switch.appendChild(lang_switcher);
-        lang_switcher.appendChild(lang_input);
-        lang_switcher.appendChild(lang_slider);
-        
-        posts.appendChild(post_nav);
-        post_nav.appendChild(post_nav_dot);
-        post_nav.appendChild(post_nav_handwriting);
-        post_nav_handwriting.appendChild(post_nav_handwriting_close);
-        post_nav.appendChild(post_nav_sub);
-        post_nav_sub.appendChild(post_nav_sub_option1);
-        post_nav_sub.appendChild(post_nav_sub_option2);
-        post_nav_sub.appendChild(post_nav_sub_option3);
-        post_nav_sub.appendChild(post_nav_sub_option4);
-        
-        posts.appendChild(post_footer);
-        post_footer.appendChild(post_author);
         post_footer.appendChild(post_country);
-        post_footer.appendChild(post_like);
+
+        let post_like = document.createElement('div');
+        post_like.setAttribute("class", "post-like");
+        let post_like_counter = document.createElement('span');
+        post_like_counter.setAttribute("data-velue", this.likes);
+        post_like_counter.textContent = this.likes;
         post_like.appendChild(post_like_counter);
-        
-        post_report_menu.appendChild(post_report_close);
-        post_report_menu.appendChild(post_report_p);
-        post_report_menu.appendChild(post_report_text);
-        post_report_menu.appendChild(post_report_label);
-        post_report_menu.appendChild(post_report_email);
-        post_report_menu.appendChild(post_report_input);
+        post_footer.appendChild(post_like);
+
+        postElements.push(post_footer);
+
+        postElements.forEach(element => {
+            this.post.appendChild(element);
+        });
     }
-    
-    // SUBMENU IN HAIKU POSTS
-    postSubMenu()
+    showOnWebsite(boxId)
     {
-        var postnavsub = document.getElementById("post-nav-sub"+this.id);
+        document.getElementById(boxId).appendChild(this.post);
 
-        if(postnavsub.style.display === "block")
+        document.querySelector("#haiku"+this.id+" .post-nav").addEventListener("click", () => {
+            const optionsCon = document.querySelector("#haiku"+this.id+" .post-nav-sub");
+            if(optionsCon.style.display === "block")
             {
-                postnavsub.style.display = "none";
+                optionsCon.style.display = "none";
             }
-        else
+            else
             {
-                postnavsub.style.display = "block";
-                postnavsub.style.animation = "show-element 1s 1";
+                optionsCon.style.display = "block";
+                optionsCon.style.animation = "show-element 1s 1";
             }
+        });
+        
+        const options = document.querySelectorAll("#haiku"+this.id+" .post-nav-sub-option");
+        options[0].addEventListener("click", () => {
+            const hwCon = document.querySelector("#haiku"+this.id+" .post-nav-handwriting");
+            hwCon.style.display = "block";
+            hwCon.style.animation = "show-element 1s 1";
+        });
+
+        document.querySelector("#haiku"+this.id+" .post-nav-handwriting-close").addEventListener("click", () => {
+            document.querySelector("#haiku"+this.id+" .post-nav-handwriting").style.display = "none";
+        });
+
+        options[1].addEventListener("click", () => {
+            reportHaiku(this.id);
+        });
+
+        document.querySelector("#haiku"+this.id+" .lang-switcher").addEventListener("click", () => {
+            if(document.querySelector("#haiku"+this.id+" .language-value").checked == true)
+            {
+                document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.contentNative;
+            }
+            else
+            {
+                document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.content;
+            }
+        });
+
     }
-
-    var postnav = document.getElementById("post-nav"+this.id);
-    postnav.addEventListener('click', postSubMenu, false);
     
     // LIKE OR DISLIKE HAIKU, DEPENDS ON CURRENT LIKE STATUS
     likeOrdislike()
@@ -208,30 +204,6 @@ class Haiku
             displayError($result[1]);
         }
     }
-    
-    likeIt()
-    {
-        var like = document.getElementById("post-like"+this.id);
-
-         switch(this.likeStatus)
-        {
-            case true:
-            {
-                like.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
-                like.style.animation = "like-it 1s 1";
-                break;
-            }
-            case false:
-            {
-                like.style.backgroundImage = "url('img/icons/heart_normal.svg')";
-                like.style.animation = "like-it 1s 1";
-                break;
-            }
-        }
-    }
-
-    var like = document.getElementById("post-like"+this.id);
-    like.addEventListener('click', likeIt, false);
 
     // REPORT HAIKU
     report(reason)
