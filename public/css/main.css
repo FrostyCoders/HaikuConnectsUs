@@ -987,7 +987,7 @@ input[type="radio"]:checked + label span.radio::after
 .pagination
 {
     padding-top: 5rem;
-    margin-top: 4rem;
+    margin-right: 2.5%;
     margin-bottom: 4rem;
     position: static;
     clear: both;
@@ -1165,6 +1165,11 @@ footer h4
         float:none;
         margin-left: 5%;
         margin-right: 5%;
+    }
+    
+    .pagination
+    {
+        margin-right: 0;
     }
 }
 

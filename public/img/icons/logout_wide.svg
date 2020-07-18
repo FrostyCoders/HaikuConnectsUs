@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.2"
-     inkscape:cx="-21.317366"
-     inkscape:cy="20.12985"
+     inkscape:zoom="22.627417"
+     inkscape:cx="6.8136374"
+     inkscape:cy="20.203286"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,6 +52,11 @@
        orientation="0,1"
        id="guide1381"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="4.1000082,9.3906413"
+       orientation="1,0"
+       id="guide817"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata829">
@@ -70,7 +75,7 @@
      id="layer6"
      inkscape:label="circle">
     <path
-       style="opacity:1;fill:#060000;fill-opacity:0;stroke:#ffffff;stroke-width:0.52916667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#000000;fill-opacity:0;stroke:#ffffff;stroke-width:0.52916667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 6.5261175,5.779273 C 6.4267393,5.9263722 6.3135777,6.0633942 6.188486,6.188486 5.9383025,6.4386696 5.6403979,6.6411322 5.3095975,6.781049 4.9787972,6.9209657 4.6151008,6.9983366 4.2333336,6.9983366 c -1.527069,0 -2.765003,-1.237934 -2.765003,-2.765003 0,-1.527069 1.237934,-2.765003 2.765003,-2.765003 0.3817672,0 0.7454636,0.077371 1.0762639,0.2172876 0.3308004,0.1399168 0.628705,0.3423794 0.8788885,0.592563 0.1250917,0.1250918 0.2382533,0.2621138 0.3376315,0.409213"
        id="path1388"
        inkscape:connector-curvature="0"
@@ -82,10 +87,10 @@
      inkscape:label="arrow">
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.89931452;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.89931875;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
        id="path828"
        sodipodi:sides="3"
-       sodipodi:cx="4.2345144"
+       sodipodi:cx="4.1000082"
        sodipodi:cy="4.2321151"
        sodipodi:r1="1.1551023"
        sodipodi:r2="0.57755119"
@@ -94,7 +99,7 @@
        inkscape:flatsided="false"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 5.3896165,4.2321153 -0.8663267,0.500174 -0.8663267,0.5001739 0,-1.000348 0,-1.0003478 0.8663268,0.5001739 z"
+       d="m 5.2551103,4.2321151 -0.8663267,0.500174 -0.8663267,0.5001739 -10e-8,-1.0003479 10e-8,-1.0003479 0.8663267,0.5001739 z"
        inkscape:transform-center-x="-0.28877553" />
   </g>
 </svg>
