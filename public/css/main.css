@@ -424,6 +424,7 @@ input[type="radio"]:checked + label span.radio::after
 /* POSTS */
 .posts
 {
+    width: 40%;
     min-height: 20rem;
     border-radius: 0.5rem;
     position: relative;
@@ -975,11 +976,21 @@ input[type="radio"]:checked + label span.radio::after
     background-color: var(--extra-color); 
 }
 
+.mg-posts
+{
+    margin-left: 5%;
+    margin-right: 2.5%;
+    float: left;
+}
+
 /* PAGINATION */
 .pagination
 {
+    padding-top: 5rem;
     margin-top: 4rem;
     margin-bottom: 4rem;
+    position: static;
+    clear: both;
 }
 
 .pagination .page-item .page-link
@@ -1068,8 +1079,9 @@ footer h4
 
     .jumbotron-img
     {
-        width: 20%;
+        width: 28.333334%;
         margin-left: 3.333333%;
+        background-size: 100%;
     }
     
     .filters #show-filters
@@ -1141,6 +1153,18 @@ footer h4
     .jumbotron-img
     {
         display: none;
+    }
+    
+    .posts
+    {
+        width: 90%;
+    }
+    
+    .mg-posts
+    {
+        float:none;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
 
