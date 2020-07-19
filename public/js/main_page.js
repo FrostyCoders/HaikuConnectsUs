@@ -5,12 +5,12 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
         if (request.readyState == 4 && request.status == 200)
         {
             const haikuData = JSON.parse(request.responseText);
-            //console.log(haikuData);
             if(haikuData[0] !== false)
             {
                 if(haikuData[1] == 0) haikuBox.innerHTML = "No haiku to show!";
                 else
                 {
+                    haikuPosts = [];
                     haikuData[2].forEach(singleHaiku => {
                         haikuPosts.push(new Haiku(
                             singleHaiku['id'],
@@ -51,6 +51,64 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
     );
 };
 
+const getFilters = () => {
+    const sortInput = document.getElementsByName("sort");
+    let sortValue = "newest";
+    sortInput.forEach(input => {
+        if(input.checked == true) sortValue = input.value; 
+    });
+        
+    const quantInput = document.getElementsByName("quantity");
+    let quantValue = "10";
+    quantInput.forEach(input => {
+        if(input.checked == true) quantValue = input.value;
+    });
+
+    loadHaiku(currentPage, sortValue, quantInput, selectedAuthor);
+};
+
+const searchAuthor = () => {
+    const phrase = document.getElementById("author_input").value;
+    const list = document.getElementById("author_list");
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            const authorsList = JSON.parse(request.responseText);
+            list.innerHTML = "";
+            if(authorsList[0] == true)
+            {
+                list.innerText = "";
+                authorsList[1].forEach(author => {
+                    let li = document.createElement("li");
+                    li.textContent = author['fname'] + ", " + author['country'];
+                    li.addEventListener("click", () => {
+                        setAuthorFilter(author['id'], author['fname'] + ", " + author['country']);
+                    });
+                    list.appendChild(li);
+                });
+            }
+            else
+            {
+                let message = document.createElement("li");
+                message.textContent = authorsList[1];
+                list.appendChild(message);
+            }
+        }
+    };
+    request.open("POST", "../resources/author_search.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "search="+phrase
+    );
+};
+
+const setAuthorFilter = (id, data) => {
+    selectedAuthor = id;
+    document.getElementById("author_input").value = data;
+    getFilters();
+};
+
 const reportHaiku = (id) => {
     const ReportBox = document.getElementById("post-report-menu");
     ReportBox.style.display = "block";
@@ -64,8 +122,33 @@ document.getElementById("post-report-close").addEventListener("click", () => {
     reporting = null;
 });
 
+document.querySelectorAll("input[type='radio']").forEach(filter => {
+    filter.addEventListener("change", () => {
+        getFilters();
+    });
+});
+
+document.getElementById("author_input").addEventListener("focusin", () => {
+    document.getElementById("author_list").style.display = "block";
+    document.getElementById("author_input").value = "";
+    selectedAuthor = 0;
+    getFilters();
+});
+
+document.getElementById("author_input").addEventListener("focusout", () => {
+    setTimeout(() => {
+        document.getElementById("author_list").style.display = "none";
+    }, 100);
+});
+
+document.getElementById("author_input").addEventListener("keyup", () => {
+    searchAuthor();
+});
+
 let haikuPosts = [];
 let reporting = null;
+let selectedAuthor = 0;
+let currentPage = 1;
 
 window.onload = () => {
     loadHaiku();

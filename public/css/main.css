@@ -385,6 +385,7 @@ input[type="radio"]:checked + label span.radio::after
 
 .filter-option ul
 {
+    display: none;
     position: absolute;
     z-index: 2;
     background-color: var(--white-color);
@@ -394,8 +395,10 @@ input[type="radio"]:checked + label span.radio::after
     border: 1px solid var(--dark-color);
     width: calc(100% - 4.5rem);
     min-height: 3.5rem;
+    max-height: 10rem;
     border-radius: 0.25rem;
     padding-left: 0;
+    overflow-y: auto;
 }
 
 .filter-option ul li

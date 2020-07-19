@@ -143,17 +143,19 @@ class Haiku
             reportHaiku(this.id);
         });
 
-        document.querySelector("#haiku"+this.id+" .lang-switcher").addEventListener("click", () => {
-            if(document.querySelector("#haiku"+this.id+" .language-value").checked == true)
-            {
-                document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.contentNative;
-            }
-            else
-            {
-                document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.content;
-            }
-        });
-
+        if(this.contentNative != "NO")
+        {
+            document.querySelector("#haiku"+this.id+" .lang-switcher").addEventListener("click", () => {
+                if(document.querySelector("#haiku"+this.id+" .language-value").checked == true)
+                {
+                    document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.contentNative;
+                }
+                else
+                {
+                    document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.content;
+                }
+            });
+        }
     }
     
     // LIKE OR DISLIKE HAIKU, DEPENDS ON CURRENT LIKE STATUS

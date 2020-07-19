@@ -105,42 +105,41 @@
                             <p>Sort by:</p>
                             
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
+                            <input type="radio" name="sort" value="newest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
+                            <input type="radio" name="sort" value="oldest" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="" id="sort3" /><label for="sort3"><span class="radio">Popularity</span></label>
+                            <input type="radio" name="sort" value="popularity" id="sort3" /><label for="sort3"><span class="radio">Popularity</span></label>
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
+                            <input type="radio" name="sort" value="random" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
                             </div>
                         </div>
                         <div class="filter-option">
                             <p>Quantity per page:</p>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity" value="" id="quantity1" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
+                            <input type="radio" name="quantity" id="quantity1" value="10" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity" value="" id="quantity2" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
+                            <input type="radio" name="quantity"  id="quantity2" value="20" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity" value="" id="quantity3" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
+                            <input type="radio" name="quantity"  id="quantity3" value="50" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
                             </div>
                         </div>
                         <div class="filter-option">
                             <p>Or search for author:</p>
-                            <input type="text" placeholder="Search..." />
-                            <ul>
-                                <li>John Doe</li>
-                                <li>Everytime</li>
+                            <input id="author_input" type="text" placeholder="Search..." />
+                            <ul id="author_list">
+                                
                             </ul>
                         </div>
                         <div class="filter-option">
