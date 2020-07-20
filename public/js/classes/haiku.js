@@ -25,6 +25,7 @@ class Haiku
 
         let post_header = document.createElement("div");
         post_header.setAttribute("class", "post-header");
+        post_header.setAttribute("style", "background-image: url('../uploads/background/" + this.background + "');");
         let posts_haiku = document.createElement("div");
         posts_haiku.setAttribute("class", "posts-haiku");
         let post_haiku = document.createElement("div");
@@ -118,9 +119,7 @@ class Haiku
         document.querySelector("#haiku"+this.id+" .post-nav").addEventListener("click", () => {
             const optionsCon = document.querySelector("#haiku"+this.id+" .post-nav-sub");
             if(optionsCon.style.display === "block")
-            {
                 optionsCon.style.display = "none";
-            }
             else
             {
                 optionsCon.style.display = "block";
@@ -140,20 +139,16 @@ class Haiku
         });
 
         options[1].addEventListener("click", () => {
-            reportHaiku(this.id);
+            showReportHaiku(this.id);
         });
 
         if(this.contentNative != "NO")
         {
             document.querySelector("#haiku"+this.id+" .lang-switcher").addEventListener("click", () => {
                 if(document.querySelector("#haiku"+this.id+" .language-value").checked == true)
-                {
                     document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.contentNative;
-                }
                 else
-                {
                     document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.content;
-                }
             });
         }
     }
@@ -211,9 +206,9 @@ class Haiku
     report(email, reason, callback)
     {
         if(this.reported == true) 
-            return "You have already reported this haiku!";
+            callback("You have already reported this haiku!");
         else if (reason.length == 0)
-            return "Report reason can't be empty!";
+            callback("Report reason can't be empty!");
         else
         {
             const reportRequest = new XMLHttpRequest;

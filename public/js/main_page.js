@@ -1,3 +1,5 @@
+// <!--- HAIKU LOADING ---!>
+
 const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
     const haikuBox = document.getElementById("haiku_box");
     const request = new XMLHttpRequest;
@@ -51,21 +53,23 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
     );
 };
 
-const getFilters = () => {
-    const sortInput = document.getElementsByName("sort");
-    let sortValue = "newest";
-    sortInput.forEach(input => {
-        if(input.checked == true) sortValue = input.value; 
-    });
-        
-    const quantInput = document.getElementsByName("quantity");
-    let quantValue = "10";
-    quantInput.forEach(input => {
-        if(input.checked == true) quantValue = input.value;
-    });
+// <!--- AUTHOR FILTER ---!>
+document.getElementById("author_input").addEventListener("focusin", () => {
+    document.getElementById("author_list").style.display = "block";
+    document.getElementById("author_input").value = "";
+    selectedAuthor = 0;
+    getFilters();
+});
 
-    loadHaiku(currentPage, sortValue, quantInput, selectedAuthor);
-};
+document.getElementById("author_input").addEventListener("focusout", () => {
+    setTimeout(() => {
+        document.getElementById("author_list").style.display = "none";
+    }, 100);
+});
+
+document.getElementById("author_input").addEventListener("keyup", () => {
+    searchAuthor();
+});
 
 const searchAuthor = () => {
     const phrase = document.getElementById("author_input").value;
@@ -109,18 +113,7 @@ const setAuthorFilter = (id, data) => {
     getFilters();
 };
 
-const reportHaiku = (id) => {
-    const ReportBox = document.getElementById("post-report-menu");
-    ReportBox.style.display = "block";
-    ReportBox.style.animation = "show-element 0.5s 1";
-    reporting = id;
-};
-
-// EVENT LISTERNERS
-document.getElementById("post-report-close").addEventListener("click", () => {
-    document.getElementById("post-report-menu").style.display = "none";
-    reporting = null;
-});
+// <!--- OTHER FILTERS ---!>
 
 document.querySelectorAll("input[type='radio']").forEach(filter => {
     filter.addEventListener("change", () => {
@@ -128,21 +121,34 @@ document.querySelectorAll("input[type='radio']").forEach(filter => {
     });
 });
 
-document.getElementById("author_input").addEventListener("focusin", () => {
-    document.getElementById("author_list").style.display = "block";
-    document.getElementById("author_input").value = "";
-    selectedAuthor = 0;
-    getFilters();
-});
+const getFilters = () => {
+    const sortInput = document.getElementsByName("sort");
+    let sortValue = "newest";
+    sortInput.forEach(input => {
+        if(input.checked == true) sortValue = input.value; 
+    });
+        
+    const quantInput = document.getElementsByName("quantity");
+    let quantValue = "10";
+    quantInput.forEach(input => {
+        if(input.checked == true) quantValue = input.value;
+    });
 
-document.getElementById("author_input").addEventListener("focusout", () => {
-    setTimeout(() => {
-        document.getElementById("author_list").style.display = "none";
-    }, 100);
-});
+    loadHaiku(currentPage, sortValue, quantInput, selectedAuthor);
+};
 
-document.getElementById("author_input").addEventListener("keyup", () => {
-    searchAuthor();
+// <!--- REPORT ---!>
+const showReportHaiku = (id) => {
+    const ReportBox = document.getElementById("post-report-menu");
+    ReportBox.style.display = "block";
+    ReportBox.style.animation = "show-element 0.5s 1";
+    reporting = id;
+};
+
+document.getElementById("post-report-close").addEventListener("click", () => {
+    document.getElementById("post-report-menu").style.display = "none";
+    document.getElementById("report_form").reset();
+    reporting = null;
 });
 
 document.getElementById("report_form").addEventListener("submit", (event) => {
@@ -156,15 +162,14 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
         else
         {
             let reported = false;
+            const showResult = (result) => {
+                console.log(result);
+                // Potem gdy powstanie funkcja do errorów przekazac ją tutaj!!!
+            };
             haikuPosts.forEach(post => {
                 if(post.id == reporting)
                 {
-                    post.report(email,
-                                reportReason,
-                                function (result) {
-                                    console.log(result);
-                                } // Potem gdy powstanie funkcja do errorów przekazac ją tutaj!!!
-                    );
+                    post.report(email, reportReason, showResult);
                     reported = true;
                 }
             });
@@ -179,6 +184,8 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
     document.getElementById("report_form").reset();
 });
 
+
+// <!--- MAIN ---!>
 let haikuPosts = [];
 let reporting = null;
 let selectedAuthor = 0;
