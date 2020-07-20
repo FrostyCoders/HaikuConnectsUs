@@ -7,7 +7,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             const haikuData = JSON.parse(request.responseText);
             if(haikuData[0] !== false)
             {
-                if(haikuData[1] == 0) haikuBox.innerHTML = "No haiku to show!";
+                if(haikuData[1] == 0) haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
                 else
                 {
                     haikuPosts = [];
@@ -21,8 +21,8 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             singleHaiku['content_native'],
                             singleHaiku['likes'],
                             false,
-                            singleHaiku['background'],
-                            singleHaiku['handwriting'],
+                            singleHaiku['bg'],
+                            singleHaiku['hw'],
                             false
                         ));
                     });
@@ -143,6 +143,40 @@ document.getElementById("author_input").addEventListener("focusout", () => {
 
 document.getElementById("author_input").addEventListener("keyup", () => {
     searchAuthor();
+});
+
+document.getElementById("report_form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    if(reporting == null) console.log("Error occured, refresh site and try again!");
+    else
+    {
+        const reportReason = document.getElementsByName("text-report")[0].value;
+        const email = document.getElementsByName("guest-email")[0].value;
+        if((reportReason.length == 0) || (email.length == 0)) console.log("Fill all inputs!");
+        else
+        {
+            let reported = false;
+            haikuPosts.forEach(post => {
+                if(post.id == reporting)
+                {
+                    post.report(email,
+                                reportReason,
+                                function (result) {
+                                    console.log(result);
+                                } // Potem gdy powstanie funkcja do errorów przekazac ją tutaj!!!
+                    );
+                    reported = true;
+                }
+            });
+            if(reported == false) console.log("Error, cannot find haiku to report, refresh site and try again!");
+            else
+            {
+                document.getElementById("post-report-menu").style.display = "none";
+                reporting = null;
+            }
+        }
+    }
+    document.getElementById("report_form").reset();
 });
 
 let haikuPosts = [];

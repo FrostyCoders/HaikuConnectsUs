@@ -208,26 +208,31 @@ class Haiku
     }
 
     // REPORT HAIKU
-    report(reason)
+    report(email, reason, callback)
     {
-        if(this.reported == true)
-        {
-            var result = "You have already reported this haiku!";
-        }
+        if(this.reported == true) 
+            return "You have already reported this haiku!";
+        else if (reason.length == 0)
+            return "Report reason can't be empty!";
         else
         {
-            var reportRequest = new XMLHttpRequest;
-            if (reportRequest.readyState == 4 && reportRequest.status == 200) {
-                var result = JSON.parse(reportRequest.responseText);
-            }
+            const reportRequest = new XMLHttpRequest;
+            reportRequest.onreadystatechange = () => {
+                if (reportRequest.readyState == 4 && reportRequest.status == 200) {
+                    const result = JSON.parse(reportRequest.responseText);
+                    if(result[0] == true)
+                    {
+                        this.reported = true;
+                    }
+                    if(typeof callback === "function")
+                    {
+                        callback(result[1]);   
+                    }
+                }
+            };
             reportRequest.open("POST", "../resources/haiku_report.php", true);
             reportRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            reportRequest.send("hid="+this.id+"&reason="+reason);
-            if(result[0] == true)
-            {
-                this.reported = true;
-            }
-            this.refresh();
+            reportRequest.send("hid="+this.id+"&email="+email+"&reason="+reason);
         }
     }
 }

@@ -32,11 +32,13 @@
     <div class="post-error" id="post-error">Something gone wrong...</div>
     <div class="post-report-menu" id="post-report-menu">
         <div class="post-report-close" id="post-report-close"></div>
-        <p>Report an error:</p>
-        <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
-        <label>Write your e-mail:</label>
-        <input type="email" placeholder="Must have to send" />
-        <input type="submit" value="Send" />
+        <form id="report_form">
+            <p>Report an error:</p>
+            <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
+            <label>Write your e-mail:</label>
+            <input name="guest-email" type="email" placeholder="Must have to send" />
+            <input type="submit" value="Send" />
+        </form>
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
@@ -148,130 +150,6 @@
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
-                    <div class="posts mg-posts">
-                        <div class="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.</p>
-                            </div>
-                        </div>
-                        <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting" style="background-image: url(img/flower/background.png)">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-report">Report</div>
-                                <div class="post-nav-sub-option">Edit</div>
-                                <div class="post-nav-sub-option">Delete</div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author">Taki Testowy</div>
-                            <div class="post-country">Poland</div>
-                            <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
-                        </div>
-                    </div>
-                    <div class="posts mg-posts">
-                        <div class="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.</p>
-                            </div>
-                        </div>
-                        <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting" style="background-image: url(img/flower/background.png)">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-report">Report</div>
-                                <div class="post-nav-sub-option">Edit</div>
-                                <div class="post-nav-sub-option">Delete</div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author">Taki Testowy</div>
-                            <div class="post-country">Poland</div>
-                            <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
-                        </div>
-                    </div>
-                    <div class="posts mg-posts">
-                        <div class="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku">Jakby co to ten<br />działa tylko to<br />zacne serducho.</p>
-                            </div>
-                        </div>
-                        <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting" style="background-image: url(img/flower/background.png)">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-report">Report</div>
-                                <div class="post-nav-sub-option">Edit</div>
-                                <div class="post-nav-sub-option">Delete</div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author">Taki Testowy</div>
-                            <div class="post-country">Poland</div>
-                            <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
-                        </div>
-                    </div>
-                    <div class="posts mg-posts">
-                        <div class="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku">Test<br />test<br />test.</p>
-                            </div>
-                        </div>
-                        <!--- POKAZOWE JAK DZIAŁA TRZEBA W PHP ZROBIĆ --->
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox">
-                                <span class="lang-slider round"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting" style="background-image: url(img/flower/background.png)">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                                <a href="#"><div class="post-nav-sub-option" id="post-nav-sub-option-report">Report</div></a>
-                                <a href="#"><div class="post-nav-sub-option">Edit</div></a>
-                                <a href="#"><div class="post-nav-sub-option">Delete</div></a>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author">Taki Testowy</div>
-                            <div class="post-country">Poland</div>
-                            <div class="post-like" id="post-like"><span id="post-like-counter" data-value="2222">2222</span></div>
-                        </div>
-                    </div>
                     <nav aria-label="Page pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
