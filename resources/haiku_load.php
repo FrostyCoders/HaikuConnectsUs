@@ -58,7 +58,7 @@
         }
         catch(Exception $e)
         {
-            $result = array(false, "Error, cannot load haiku data!");
+            $result = array(false, '<p class="load-error">Error, cannot load haiku data!</p>');
             $query_ok = false;
         }
         

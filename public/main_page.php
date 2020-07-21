@@ -29,7 +29,7 @@
             <div class="point2"></div>
         </div>
     </div>
-    <div class="post-error" id="post-error">Something gone wrong...</div>
+    <div class="page-communicate" id="post-error">Something gone wrong...</div>
     <div class="post-report-menu" id="post-report-menu">
         <div class="post-report-close" id="post-report-close"></div>
         <form id="report_form">
@@ -138,23 +138,25 @@
                             </div>
                         </div>
                         <div class="filter-option">
-                            <p>Or search for author:</p>
+                            <p>Search author:</p>
                             <input id="author_input" type="text" placeholder="Search..." />
                             <ul id="author_list">
                                 
                             </ul>
                         </div>
-                        <div class="filter-option">
-                            <input type="submit" value="Submit" />
-                        </div>
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
+                </div>
+                <div class="col-12 col-lg-9 offset-0 offset-lg-3">
                     <nav aria-label="Page pagination">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
                                 <a class="page-link" href="#">&laquo;&laquo; Previous</a>
                             </li>
+                            <li class="page-item"><a class="page-link page-link-number" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link page-link-number" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link page-link-number" href="#">3</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#">Next &raquo;&raquo;</a>
                             </li>

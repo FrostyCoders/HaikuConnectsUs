@@ -95,18 +95,22 @@
                 <div class="col-12 col-md-4 offset-0 settings">
                     <label for="change-nickname">Change your nickname:</label>
                     <input type="text" id="change-nickname" placeholder="" />
+                    <span class="settings-notification" id="nickname-notification"></span>
+                    <input type="submit" id="confirm-nickname" value="Confirm"/>
                     <hr class="hr-big-space">
                     <label for="change-email">Change your e-mail:</label>
                     <input type="email" id="change-email" placeholder="" />
+                    <span class="settings-notification" id="email-notification"></span>
+                    <input type="submit" id="confirm-email" value="Confirm"/>
                     <hr class="hr-big-space">
-                    <label for="cchange-password">Change your password:</label>
+                    <label for="check-password">Your current password:</label>
+                    <input type="password" id="check-password" placeholder="" />
+                    <label for="change-password">Your new password:</label>
                     <input type="password" id="change-password" placeholder="" />
                     <label for="repeat-password">Repeat new password:</label>
                     <input type="password" id="repeat-password" placeholder="" />
-                    <hr class="hr-big-space">
-                    <label for="check-password">Write your current password to confirm:</label>
-                    <input type="password" id="check-password" placeholder="Must have to confirm" />
-                    <input type="submit" value="Confirm" />
+                    <span class="settings-notification" id="password-notification">Password must be 8 characters long</span>
+                    <input type="submit" id="confirm-password" value="Confirm"/>
                 </div>
             </div>
         </div>
@@ -172,9 +176,9 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/settings.js"></script>
     
 </body>
 </html>

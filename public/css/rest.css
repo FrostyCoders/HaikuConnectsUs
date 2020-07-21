@@ -76,6 +76,10 @@
 /* AUTHOR MAP */
 
 /* SETTINGS */
+.settings
+{
+    margin-bottom: 5rem;
+}
 
 .settings-icon
 {
@@ -94,7 +98,6 @@
     width: 100%;
     color: var(--extra-color);
     margin-bottom: 2rem;
-    text-transform: uppercase;
     font-weight: bold;
     font-size: 1.75rem;
 }
@@ -151,22 +154,37 @@
 
 .settings input[type="submit"]
 {
+    display: none;
     position: relative;
-    top: 2.5rem;
-    left: 50%;
+    top: 1.5rem;
+    left: 80%;
     transform: translateX(-50%);
     background-color: var(--dark-color);
     color: var(--light-color);
     border: 2px solid var(--dark-color);
     border-radius: 0.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    margin-bottom: 7.5rem;
-    width: 10rem;
-    height: 4rem;
+    width: 7.5rem;
+    height: 3rem;
+    margin-bottom: 3rem;
     transition-duration: 0.35s;
 }
 
 .settings input[type="submit"]:hover
 {
     border-color: var(--extra-color);
+}
+
+.settings-notification
+{
+    position: relative;
+    visibility: hidden;
+    top: 0.75rem;
+    left: 10%;
+}
+
+#password-notification
+{
+    visibility: visible;
 }
