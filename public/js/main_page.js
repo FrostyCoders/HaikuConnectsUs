@@ -1,6 +1,50 @@
-// <!--- HAIKU LOADING ---!>
+// <!--- USER SESSION ---!>
+const checkStorage = () => {
+    if (localStorage.getItem("likes") === null) {
+        localStorage.setItem("likes", JSON.stringify([]));
+    }
+    
+    if (sessionStorage.getItem("reports") === null) {
+        sessionStorage.setItem("reports", JSON.stringify([]));
+    }
+};
 
+const saveLikesData = (value, mode) => {
+    let data = JSON.parse(localStorage.getItem("likes"));
+    value = String(value);
+    if(mode == "add")
+    {
+        data.push(value);
+        localStorage.setItem("likes", JSON.stringify(data));
+    }
+    else if(mode == "remove")
+    {
+        let newData = [];
+        data.forEach(element => {
+            if(element != value)
+            {
+                newData.push(element);
+            }
+        });
+        localStorage.setItem("likes", JSON.stringify(newData));
+    }
+    else
+    {
+        throw new Error("Error, undefined function mode!");
+        return;
+    }
+};
+
+const saveReportsData = (value) => {
+    let data = JSON.parse(sessionStorage.getItem("reports"));
+    value = String(value);
+    data.push(value);
+    sessionStorage.setItem("reports", JSON.stringify(data));
+};
+
+// <!--- HAIKU LOADING ---!>
 const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
+    Loading(true);
     const haikuBox = document.getElementById("haiku_box");
     const request = new XMLHttpRequest;
     request.onreadystatechange = () => {
@@ -13,6 +57,8 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                 else
                 {
                     haikuPosts = [];
+                    const likedPosts = JSON.parse(localStorage.getItem("likes"));
+                    const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
                     haikuData[2].forEach(singleHaiku => {
                         haikuPosts.push(new Haiku(
                             singleHaiku['id'],
@@ -22,10 +68,10 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             singleHaiku['content'],
                             singleHaiku['content_native'],
                             singleHaiku['likes'],
-                            false,
+                            checkArray(likedPosts, singleHaiku['id']),
                             singleHaiku['bg'],
                             singleHaiku['hw'],
-                            false
+                            checkArray(reportedPosts, singleHaiku['id'])
                         ));
                     });
 
@@ -40,7 +86,8 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             else
             {
                 haikuBox.innerHTML = haikuData[1];
-            }   
+            }
+            Loading(false);
         }
     };
     request.open("POST", "../resources/haiku_load.php", true);
@@ -68,6 +115,9 @@ document.getElementById("author_input").addEventListener("focusout", () => {
 });
 
 document.getElementById("author_input").addEventListener("keyup", () => {
+    let phrase = document.getElementById("author_input").value;
+    phrase = phrase.charAt(0).toUpperCase() + phrase.slice(1);
+    document.getElementById("author_input").value = phrase;
     searchAuthor();
 });
 
@@ -153,6 +203,7 @@ document.getElementById("post-report-close").addEventListener("click", () => {
 
 document.getElementById("report_form").addEventListener("submit", (event) => {
     event.preventDefault();
+    Loading(true);
     if(reporting == null) console.log("Error occured, refresh site and try again!");
     else
     {
@@ -163,8 +214,7 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
         {
             let reported = false;
             const showResult = (result) => {
-                console.log(result);
-                // Potem gdy powstanie funkcja do errorów przekazac ją tutaj!!!
+                showCommunicate(result);
             };
             haikuPosts.forEach(post => {
                 if(post.id == reporting)
@@ -179,10 +229,55 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
                 document.getElementById("post-report-menu").style.display = "none";
                 reporting = null;
             }
+            Loading(false);
         }
     }
     document.getElementById("report_form").reset();
 });
+
+// <!--- COMMUNICATES---!>
+const showCommunicate = (message) => {
+    if(message[1].length == 0)
+        return ;
+    const box = document.getElementById("page-communicate");
+    box.textContent = message[1];
+    box.style.display = "block";
+    new Promise((resolve, reject) => {
+        if(message[0] == false)
+            box.style.color = "red";
+        else
+            box.style.color = "var(--dark-color)";
+        resolve();
+    }).then(() => {
+        if(message[0] == false)
+        {
+            box.animate([
+                { transform: 'translateX(-45%)' },
+                { transform: 'translateX(-55%)' },
+                { transform: 'translateX(-50%)' }
+            ], {
+                duration: 100,
+                iterations: 3
+            });
+        }
+        else
+        {
+            box.animate([
+                { top: "6rem" }, 
+                { top: "6.5rem" }
+            ], {
+                duration: 300,
+                iterations: 1
+            });
+        }
+    }).then(() => {
+        setTimeout(() => {
+            box.style.display = "none";
+        }, 5000);
+    });
+};
+
+// <!--- LIKES ---!>
 
 
 // <!--- MAIN ---!>
@@ -192,5 +287,6 @@ let selectedAuthor = 0;
 let currentPage = 1;
 
 window.onload = () => {
+    checkStorage();
     loadHaiku();
 };

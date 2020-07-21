@@ -29,7 +29,7 @@
             <div class="point2"></div>
         </div>
     </div>
-    <div class="post-error" id="post-error">Something gone wrong...</div>
+    <div class="post-error" id="page-communicate">Something gone wrong...</div>
     <div class="post-report-menu" id="post-report-menu">
         <div class="post-report-close" id="post-report-close"></div>
         <form id="report_form">
@@ -230,6 +230,7 @@
     <script src="js/filters.js"></script>
     <script src="js/classes/haiku.js"></script>
     <script src="js/main_page.js"></script>
+    <script src="js/common.js"></script>
 
 </body>
 </html>

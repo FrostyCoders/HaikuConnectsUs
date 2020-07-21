@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_POST['like']) || !isset($_POST['hid']) || !is_bool($_POST['like']) || !is_numeric($_POST['hid']))
+    if(!isset($_POST['like']) || !isset($_POST['hid']) || !is_numeric($_POST['hid']))
     {
         $result = array(false, "Error, missing or wrong data, try later!");
     }
@@ -10,20 +10,24 @@
         require_once "db_connect.php";
         $like = $_POST['like'];
         $haiku_id = $_POST['hid'];
-        if($like == true)
+        if($like == "true")
         {
-            $sql = "UPDATE haiku SET haiku_likes = haiku_likes + 1 WHERE haiku_id = :hid;";
+            $sql = "UPDATE haiku SET like_counter = like_counter + 1 WHERE id = :hid";
+        }
+        else if($like == "false")
+        {
+            $sql = "UPDATE haiku SET like_counter = like_counter - 1 WHERE id = :hid";
         }
         else
         {
-            $sql = "UPDATE haiku SET haiku_likes = haiku_likes - 1 WHERE haiku_id = :hid;";
+            die(json_encode([false, "Error, missing or wrong data, try later!"]));
         }
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":hid", $haiku_id);
         try
         {
+            $stmt->bindParam(":hid", $haiku_id);
             $stmt->execute();
-            $result = array(true, "Like/dislike operation complete!");
+            $result = array(true, "");
         }
         catch(Exception $e)
         {

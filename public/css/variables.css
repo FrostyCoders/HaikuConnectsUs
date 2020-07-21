@@ -1,10 +1,8 @@
 /* FONT */
-@font-face
+@font-face 
 {
-  font-family: "Titilium";
-  src: url("fonts/titilliumweb-regular-webfont.woff") format("woff"),
-       url("fonts/titilliumweb-regular-webfont.woff2") format("woff2"),
-       url("fonts/titilliumweb-regular-webfont.ttf") format("ttf");
+  font-family: TitilliumWeb;
+  src: url(fonts/TitilliumWeb-Regular.ttf);
 }
 
 /* VARIABLES */
@@ -19,8 +17,3 @@
   --extra-light-color: #f7f0ef;
 }
 
-@font-face 
-{
-  font-family: TitilliumWeb;
-  src: url(fonts/TitilliumWeb-Regular.ttf);
-}

@@ -23,7 +23,7 @@
                 }
                 case "popularity":
                 {
-                    $query_order = " ORDER BY haiku.like_counter ASC";
+                    $query_order = " ORDER BY haiku.like_counter DESC";
                     break;
                 }
                 case "random":

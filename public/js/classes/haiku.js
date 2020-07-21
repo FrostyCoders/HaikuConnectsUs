@@ -100,6 +100,9 @@ class Haiku
 
         let post_like = document.createElement('div');
         post_like.setAttribute("class", "post-like");
+        if(this.likeStatus == true)
+            post_like.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
+
         let post_like_counter = document.createElement('span');
         post_like_counter.setAttribute("data-velue", this.likes);
         post_like_counter.textContent = this.likes;
@@ -151,64 +154,61 @@ class Haiku
                     document.querySelector("#haiku"+this.id+" .post-haiku").innerHTML = this.content;
             });
         }
+
+        document.querySelector("#haiku" + this.id + " .post-like").addEventListener("click", () => {
+            this.likeOrdislike();
+        });
     }
     
     // LIKE OR DISLIKE HAIKU, DEPENDS ON CURRENT LIKE STATUS
     likeOrdislike()
     {
-        var db_change = new XMLHttpRequest;
-        var result;
-        if (db_change.readyState == 4 && db_change.status == 200) {
-            result = JSON.parse(db_change.responseText);
-        }
-        db_change.open("POST", "../resources/haiku_like.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        switch(this.likeStatus)
-        {
-            case true:
-            {
-                request.send("like=false&hid="+this.id);
-                break;
-            }
-            case false:
-            {
-                request.send("like=true&hid="+this.id);
-                break;
-            }
-        }
-        if(result[0] == true)
-        {
-            switch(this.likeStatus)
-            {
-                case true:
+        const dbChange = new XMLHttpRequest;
+        dbChange.onreadystatechange = () => {
+            if (dbChange.readyState == 4 && dbChange.status == 200) {
+                const result = JSON.parse(dbChange.responseText);
+                if(result[0] == true)
                 {
-                    this.likeStatus = false;
-                    this.likes--;
-                    this.refresh();
-                    break;
+                    const icon = document.querySelector("#haiku"+this.id+" .post-like");
+                    switch(this.likeStatus)
+                    {
+                        case true:
+                        {
+                            this.likeStatus = false;
+                            this.likes--;
+                            icon.style.backgroundImage = "url('img/icons/heart_normal.svg')";
+                            saveLikesData(this.id, "remove");
+                            break;
+                        }
+                        case false:
+                        {
+                            this.likeStatus = true;
+                            this.likes++;
+                            icon.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
+                            saveLikesData(this.id, "add");
+                            break;
+                        }
+                    }
+                    document.querySelector("#haiku"+this.id+" .post-like span").textContent = this.likes;
                 }
-                case false:
-                {
-                    this.likeStatus = true;
-                    this.likes++;
-                    this.refresh();
-                    break;
-                }
+                showCommunicate(result);
             }
-        }
+        };
+        dbChange.open("POST", "../resources/haiku_like.php", true);
+        dbChange.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        if(this.likeStatus == true)
+            dbChange.send("like=false&hid="+this.id);
         else
-        {
-            displayError($result[1]);
-        }
+            dbChange.send("like=true&hid="+this.id);
     }
 
     // REPORT HAIKU
     report(email, reason, callback)
     {
         if(this.reported == true) 
-            callback("You have already reported this haiku!");
+            callback([false, "You have already reported this haiku!"]);
         else if (reason.length == 0)
-            callback("Report reason can't be empty!");
+            callback([false, "Report reason can't be empty!"]);
         else
         {
             const reportRequest = new XMLHttpRequest;
@@ -218,10 +218,11 @@ class Haiku
                     if(result[0] == true)
                     {
                         this.reported = true;
+                        saveReportsData(this.id);
                     }
                     if(typeof callback === "function")
                     {
-                        callback(result[1]);   
+                        callback(result);
                     }
                 }
             };

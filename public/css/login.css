@@ -1,3 +1,5 @@
+@import "variables.css";
+
 html 
 {
     width: 100%;
@@ -9,7 +11,7 @@ body
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "TitilliumWeb", "sans-serif";
+    font-family: TitilliumWeb, sans-serif;
     overflow: hidden;
 }
 .bg_image
