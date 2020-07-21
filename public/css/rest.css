@@ -179,12 +179,111 @@
 .settings-notification
 {
     position: relative;
-    visibility: hidden;
+    display: none;
     top: 0.75rem;
     left: 10%;
 }
 
 #password-notification
 {
-    visibility: visible;
+    display: block;
+}
+
+/* REPORTS LIST */
+.report-content
+{
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.report-container
+{
+    float: left;
+    position: relative;
+    width: 45%;
+    min-height: 5rem;
+    margin: 2.5rem 2.5%;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    border: 1.5px solid var(--dark-color);
+    transition-duration: 0.35s;
+}
+
+.report-container:hover
+{
+    -webkit-box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
+    -moz-box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
+    box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
+}
+
+.report-container hr
+{
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
+    width: 60%;
+}
+
+.report-sender
+{
+    text-align: center;
+    padding: 1rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-all;
+}
+
+.report-sender span, .report-desc span
+{
+    color: var(--extra-color);
+    display: block;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.report-desc
+{
+    text-align: justify;
+    padding: 1.5rem;
+}
+
+.report-time
+{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.25rem;
+    color: #777;
+}
+
+.report-done
+{
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border: 2px solid var(--dark-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    width: 6rem;
+    height: 3.5rem;
+    transition-duration: 0.35s;
+}
+
+.report-done:hover
+{
+    border-color: var(--extra-color);
+    outline: none;
+}
+
+@media only screen and (max-width: 768px) 
+{    
+   .report-container
+    {
+        float: none;
+        width: 90%;
+        margin-left: 5%;
+    }
 }

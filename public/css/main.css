@@ -1201,6 +1201,12 @@ footer h4
     {
         margin-right: 0;
     }
+    
+    .report-container
+    {
+        float: none;
+        width: 90%;
+    }
 }
 
 /* ROBOCZE MEDIA QUERY MIN */

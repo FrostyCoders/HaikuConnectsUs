@@ -6,9 +6,10 @@ function changeNickname()
     let nicknameConfirm = document.getElementById("confirm-nickname");
     let nicknameNotification = document.getElementById("nickname-notification");
     
-    nicknameNotification.style.visibility = "visible";
+    nicknameNotification.style.display = "block";
     nicknameNotification.textContent = "The nickname is available";
     nicknameNotification.style.color = "#000000";
+    nicknameConfirm.style.display = "block";
     
     if(nicknameNew == nicknameOld)
         {
@@ -21,10 +22,9 @@ function changeNickname()
        
     if(nicknameNew.length < 1)
         {
-            nicknameNotification.style.visibility = "hidden";
+            nicknameNotification.style.display = "none";
+            nicknameConfirm.style.display = "none";
         }
-    
-    nicknameConfirm.style.display = "block";
 }
 
 document.getElementById("change-nickname").addEventListener("keyup", changeNickname, false);
@@ -37,9 +37,10 @@ function changeEmail()
     let emailConfirm = document.getElementById("confirm-email");
     let emailNotification = document.getElementById("email-notification");
     
-    emailNotification.style.visibility = "visible";
+    emailNotification.style.display = "block";
     emailNotification.textContent = "The email is available";
     emailNotification.style.color = "#000000";
+    emailConfirm.style.display = "block";
     
     if(emailNew == emailOld)
         {
@@ -52,10 +53,9 @@ function changeEmail()
        
     if(emailNew.length < 1)
         {
-            emailNotification.style.visibility = "hidden";
+            emailNotification.style.display = "none";
+            emailConfirm.style.display = "none";
         }
-    
-    emailConfirm.style.display = "block";
 }
 
 document.getElementById("change-email").addEventListener("keyup", changeEmail, false);
