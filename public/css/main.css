@@ -118,6 +118,7 @@ body
 .navbar-nav .nav-link-icon
 {
     display: inline-block;
+    padding: 0.5rem;
 }
 
 #nav-link-icon-container
