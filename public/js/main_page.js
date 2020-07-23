@@ -1,3 +1,5 @@
+import Haiku from './haiku.class.js';
+
 // <!--- USER SESSION ---!>
 const checkStorage = () => {
     if (localStorage.getItem("likes") === null) {
@@ -56,6 +58,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                 if(haikuData[1] == 0) haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
                 else
                 {
+                    generatePages(currentPage, haikuData[1]);
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
@@ -173,18 +176,18 @@ document.querySelectorAll("input[type='radio']").forEach(filter => {
 
 const getFilters = () => {
     const sortInput = document.getElementsByName("sort");
-    let sortValue = "newest";
     sortInput.forEach(input => {
-        if(input.checked == true) sortValue = input.value; 
+        if(input.checked == true) order = input.value; 
     });
         
     const quantInput = document.getElementsByName("quantity");
-    let quantValue = "10";
     quantInput.forEach(input => {
-        if(input.checked == true) quantValue = input.value;
+        if(input.checked == true) ammount = input.value;
     });
 
-    loadHaiku(currentPage, sortValue, quantInput, selectedAuthor);
+    currentPage = 1;
+
+    loadHaiku(currentPage, order, ammount, selectedAuthor);
 };
 
 // <!--- REPORT ---!>
@@ -277,16 +280,53 @@ const showCommunicate = (message) => {
     });
 };
 
-// <!--- LIKES ---!>
+// <!--- PAGES ---!>
+const changePage = (page) => {
+    currentPage = page;
+    loadHaiku(currentPage, order, ammount, selectedAuthor);
+};
 
+const generatePages = (cPage, pageAmmount) => {
+    const previous = document.getElementById("previous_button");
+    const next = document.getElementById("next_button");
+    const pageNumber = document.querySelector("#page_number a");
+
+    if(cPage > 1 && pageAmmount > 1)
+    {
+        previous.style.display = "block";
+        previous.addEventListener("click", () => {
+            changePage(cPage - 1);
+        });
+    }
+    else
+    {
+        previous.style.display = "none";
+    }
+
+    pageNumber.textContent = cPage + "/" + pageAmmount;
+
+    if(cPage < pageAmmount && pageAmmount > 1)
+    {
+        next.style.display = "block";
+        next.addEventListener("click", () => {
+            changePage(cPage + 1);
+        });
+    }
+    else
+    {
+        next.style.display = "none";
+    }
+};
 
 // <!--- MAIN ---!>
 let haikuPosts = [];
 let reporting = null;
 let selectedAuthor = 0;
 let currentPage = 1;
+let order = "newest";
+let ammount = 10;
 
 window.onload = () => {
     checkStorage();
-    loadHaiku();
+    loadHaiku(currentPage, order, ammount, selectedAuthor);
 };

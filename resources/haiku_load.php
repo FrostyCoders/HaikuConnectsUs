@@ -39,8 +39,8 @@
             }
         }
 
-        if(!isset($_POST['ammount']) || empty($_POST['ammount']) || $_POST['ammount'] != 10 || $_POST['ammount'] != 20 || $_POST['ammount'] != 50) $query_ammount = 10;
-        else $query_ammount = $_POST['ammmount'];
+        if(!isset($_POST['ammount']) || empty($_POST['ammount'])) $query_ammount = 10;
+        else $query_ammount = $_POST['ammount'];
 
         if(isset($_POST['author']) && $_POST['author'] != 0) $query_author = " WHERE author = " . $_POST['author'];
         else $query_author = "";
@@ -65,11 +65,45 @@
         if($query_ok == true)
         {
             $pages_ammount = ceil($query->rowCount()/$query_ammount);
+            $page_range_begin = ($_POST['page'] - 1) * $query_ammount;
+            $page_range_end = $_POST['page'] * $query_ammount;
+            
+            $haiku = $query->fetchAll();
+            $current_haiku = 0;
+            $exported_haiku = array();
+
+            foreach($haiku as $h)
+            {
+                if($current_haiku >= $page_range_begin && $current_haiku < $page_range_end)
+                {
+                    $full_name = decrypt_data($h['name'], CKEY4) . " " . @decrypt_data($h['surname'], CKEY5);
+                    array_push($exported_haiku, array(
+                        'id' => $h['id'],
+                        'author' => $full_name,
+                        'country' => $h['country'],
+                        'title' => $h['title'],
+                        'content' => $h['content'],
+                        'content_native' => $h['content_native'],
+                        'likes' => $h['like_counter'],
+                        'bg' => $h['background'],
+                        'hw' => $h['handwriting']
+                    ));
+                }
+                $current_haiku++;
+            }
+            $result = array(true, $pages_ammount, $exported_haiku);
+
+            /* $current_haiku = 0;
+            $pages_ammount = ceil($query->rowCount()/$query_ammount);
             $haiku = $query->fetchAll();
             $how_many = 0;
             $exported_haiku = array();
             foreach($haiku as $h)
             {
+                if($current_haiku > $page_range_begin && $current_haiku < $page_range_end)
+                {
+
+                }
                 if($how_many < $query_ammount)
                 {
                     $full_name = decrypt_data($h['name'], CKEY4) . " " . @decrypt_data($h['surname'], CKEY5);
@@ -86,8 +120,9 @@
                     ));
                 }
                 else break;
+                $how_many++;
             }
-            $result = array(true, $pages_ammount, $exported_haiku);
+            $result = array(true, $pages_ammount, $exported_haiku); */
         }
     }
     echo json_encode($result);

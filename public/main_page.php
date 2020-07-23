@@ -55,7 +55,7 @@
        
            <ul class="navbar-nav ml-auto mg-0">
               <li class="nav-item active">
-                 <a class="nav-link nav-text" href="main_page.html">Start</a>
+                 <a class="nav-link nav-text" href="main_page.php">Start</a>
               </li>
               <li class="nav-item">
                  <a class="nav-link nav-text" href="authors_list.html">Authors List</a>
@@ -154,14 +154,12 @@
                 <div class="col-12 col-lg-9 offset-0 offset-lg-3">
                     <nav aria-label="Page pagination">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#">&laquo;&laquo; Previous</a>
+                            <li id="previous_button" class="page-item">
+                                <a class="page-link">&laquo;&laquo; Previous</a>
                             </li>
-                            <li class="page-item"><a class="page-link page-link-number" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link page-link-number" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link page-link-number" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next &raquo;&raquo;</a>
+                            <li id="page_number" class="page-item"><a class="page-link page-link-number"></a></li>
+                            <li id="next_button" class="page-item">
+                                <a class="page-link" >Next &raquo;&raquo;</a>
                             </li>
                         </ul>
                     </nav>
@@ -233,8 +231,7 @@
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     <script src="js/filters.js"></script>
-    <script src="js/classes/haiku.js"></script>
-    <script src="js/main_page.js"></script>
+    <script type="module" src="js/main_page.js"></script>
     <script src="js/common.js"></script>
 
 </body>

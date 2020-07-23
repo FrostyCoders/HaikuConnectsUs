@@ -1028,6 +1028,7 @@ input[type="radio"]:checked + label span.radio::after
     height: 4rem;
     line-height: 2.5rem;
     transition-duration: 0.35s;
+    cursor: pointer;
 }
 
 .pagination .page-item .page-link-number

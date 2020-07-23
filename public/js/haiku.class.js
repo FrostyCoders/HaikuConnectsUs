@@ -232,3 +232,5 @@ class Haiku
         }
     }
 }
+
+export default Haiku;
