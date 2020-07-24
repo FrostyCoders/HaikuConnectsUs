@@ -20,26 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/rest.css" />
-    
-    <script>
-        window.onload = function() {
-            var loading = document.getElementById('loading-container');
-            loading.style.display = "block";
-            var loadAuthors = new XMLHttpRequest();
-            loadAuthors.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                var loadReady = JSON.parse(this.responseText);
-                  
-                var tableResponse = document.getElementById('table-response');
-                tableResponse.innerHTML = "<tr><td>"+loadReady[0]+"</td><td>"+loadReady[1]+"</td></tr>";
-                loading.style.display = "none";
-              }
-            };
-            loadAuthors.open("POST","../resources/download_authors.php",true);
-            loadAuthors.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            loadAuthors.send('search=');
-        }
-</script>
+
 </head>
 <body>
     <!-- INNE -->
@@ -181,9 +162,10 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/author_list.js"></script>
     
 </body>
 </html>

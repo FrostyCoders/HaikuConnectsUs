@@ -8,12 +8,8 @@
         require_once "../config/config.php";
         require_once "../utils/decryption.php";
         require_once "db_connect.php";
-        $phrase = $_POST['search'];
 
-        if(empty($phrase))
-        {
-            die(json_encode([false, "Type to search author."]));
-        }
+        empty($_POST['search']) ? $phrase = " " : $phrase = $_POST['search'];
 
         $query = $conn->prepare("SELECT * FROM authors");
 
@@ -44,8 +40,6 @@
                     ));
                 }
             }
-
-            //array_multisort($authors_list, SORT_REGULAR, );
 
             if(count($authors_list) == 0)
             {
