@@ -231,7 +231,8 @@
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     <script src="js/filters.js"></script>
-    <script type="module" src="js/main_page.js"></script>
+    <script src="js/haiku.class.js"></script>
+    <script src="js/main_page.js"></script>
     <script src="js/common.js"></script>
 
 </body>

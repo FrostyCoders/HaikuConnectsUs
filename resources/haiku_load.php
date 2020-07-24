@@ -92,37 +92,6 @@
                 $current_haiku++;
             }
             $result = array(true, $pages_ammount, $exported_haiku);
-
-            /* $current_haiku = 0;
-            $pages_ammount = ceil($query->rowCount()/$query_ammount);
-            $haiku = $query->fetchAll();
-            $how_many = 0;
-            $exported_haiku = array();
-            foreach($haiku as $h)
-            {
-                if($current_haiku > $page_range_begin && $current_haiku < $page_range_end)
-                {
-
-                }
-                if($how_many < $query_ammount)
-                {
-                    $full_name = decrypt_data($h['name'], CKEY4) . " " . @decrypt_data($h['surname'], CKEY5);
-                    array_push($exported_haiku, array(
-                        'id' => $h['id'],
-                        'author' => $full_name,
-                        'country' => $h['country'],
-                        'title' => $h['title'],
-                        'content' => $h['content'],
-                        'content_native' => $h['content_native'],
-                        'likes' => $h['like_counter'],
-                        'bg' => $h['background'],
-                        'hw' => $h['handwriting']
-                    ));
-                }
-                else break;
-                $how_many++;
-            }
-            $result = array(true, $pages_ammount, $exported_haiku); */
         }
     }
     echo json_encode($result);

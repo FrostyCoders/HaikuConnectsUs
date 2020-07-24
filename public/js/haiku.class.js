@@ -104,7 +104,6 @@ class Haiku
             post_like.style.backgroundImage = "url('img/icons/heart_full_normal.svg')";
 
         let post_like_counter = document.createElement('span');
-        post_like_counter.setAttribute("data-velue", this.likes);
         post_like_counter.textContent = this.likes;
         post_like.appendChild(post_like_counter);
         post_footer.appendChild(post_like);
@@ -232,5 +231,3 @@ class Haiku
         }
     }
 }
-
-export default Haiku;

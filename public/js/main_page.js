@@ -1,5 +1,3 @@
-import Haiku from './haiku.class.js';
-
 // <!--- USER SESSION ---!>
 const checkStorage = () => {
     if (localStorage.getItem("likes") === null) {
