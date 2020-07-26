@@ -326,5 +326,12 @@ let ammount = 10;
 
 window.onload = () => {
     checkStorage();
+    if((sessionStorage.getItem("author") !== null))
+    {
+        author = JSON.parse(sessionStorage.getItem("author"));
+        selectedAuthor = author[0];
+        setAuthorFilter(author[0], author[1] + ", " + author[2]);
+        sessionStorage.removeItem("author");
+    }
     loadHaiku(currentPage, order, ammount, selectedAuthor);
 };

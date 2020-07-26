@@ -12,7 +12,7 @@ window.onload = () => {
                 tr.setAttribute("title", "Click to see author haiku.");
                 tr.innerHTML = '<td>'+author['fname']+'</td><td>'+author['country']+'</td>';
                 tr.addEventListener("click", () => {
-                    showAuthorsHaiku(author['id']);
+                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
                 });
                 tableResponse.appendChild(tr);
             });
@@ -27,6 +27,9 @@ window.onload = () => {
     loadAuthors.send('search=');
 }
 
-const showAuthorsHaiku = (id) => {
-    window.location.href = "main_page.php?author=" + id;
+const showAuthorsHaiku = (id, fname, country) => {
+    let data = JSON.stringify([id, fname, country]);
+    console.log(data);
+    sessionStorage.setItem("author", data);
+    window.location.href = "main_page.php";
 };
