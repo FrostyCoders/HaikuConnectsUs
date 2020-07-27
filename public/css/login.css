@@ -63,6 +63,7 @@ body
     border-radius: 5px;
     background: none;
     padding: 4px;
+    outline: none;
     transition: 0.35s;
 }
 .login_input:hover, .login_input:focus
