@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/add_haiku.css" />
     
 </head>
 <body>
@@ -31,17 +30,19 @@
         </div>
     </div>
     <div class="page-communicate" id="post-error">Something gone wrong...</div>
-    <div class="add-new-author" id="add-new-author">
-        <div class="add-new-author-close" id="add-new-author-close"></div>
-        <p>Add new author:</p>
-        <input type="text" name="author-firstname" id="add-author-firstname" placeholder="Firstname" />
-        <input type="text" name="author-surname" id="add-author-surname" placeholder="Surname" />
-        <input type="text" name="author-country" id="add-author-country" placeholder="Country" />
-        <input type="submit" value="Add author" />
+    <div class="post-report-menu" id="post-report-menu">
+        <div class="post-report-close" id="post-report-close"></div>
+        <form id="report_form">
+            <p>Report an error:</p>
+            <textarea name="text-report" placeholder="Write why you are reporting this haiku..."></textarea>
+            <label>Write your e-mail:</label>
+            <input name="guest-email" type="email" placeholder="Must have to send" />
+            <input type="submit" value="Send" />
+        </form>
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="main_page.php">Haiku Connects Us</a>
+      <a class="navbar-brand" href="main_page.html">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -83,71 +84,85 @@
     </nav>
 
     <!-- ZAWARTOŚĆ  -->
+    <!--col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2-->
     <main>
         <div class="container-fluid">
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Add new Haiku!</h1>
-                            <h3 class="my-4 font-weight-light">Below is the editor for adding a new Haiku to the content of the page with live view.</h3>
-                            <h3 class="my-4 font-weight-bold">Have fun!</h3>
+                            <h1 class="display-4">Haiku Connects Us!</h1>
+                            <h3 class="my-4 font-weight-light">We are unique and that makes us different. <br/>Our work does not have to be underestimated and wait for greater publicity.</h3>
+                            <hr class="my-4">
+                            <p class="m-1 mb-4">Let's share it among those who also create haiku!</p>
+                        </div>
+                        <div class="jumbotron-img">
                         </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-5 offset-0 offset-md-1 add-inputs">
-                    <h4>Make new Haiku:</h4>
+                <div class="col-12 col-lg-2 offset-0 offset-lg-1 filters">
+                    <h4>Filters:</h4>
                     <hr class="mt-3">
-                    <form>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" placeholder="Write author's firstname and surname..." />
-                    <ul>
-                        <li>John</li>
-                        <li id="add-author">Add new author...</li>
-                    </ul>
-                    <label for="in-english">In English:</label>
-                    <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label for="in-native">In Native Language (optional):</label>
-                    <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>Background (JPG or PNG):</label>
-                    <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
-                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
-                    <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
-                    <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png" />
-                    <input type="submit" id="add-haiku-button" value="Add Haiku" />
+                    <p id="show-filters">Show filters</p>
+                    <p id="hide-filters">Hide filters</p>
+                    <form id="filters-form">
+                        <div class="filter-option">
+                            <p>Sort by:</p>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="newest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="oldest" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="popularity" id="sort3" /><label for="sort3"><span class="radio">Popularity</span></label>
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="sort" value="random" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
+                            </div>
+                        </div>
+                        <div class="filter-option">
+                            <p>Quantity per page:</p>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity" id="quantity1" value="10" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity"  id="quantity2" value="20" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
+                            </div>
+                            
+                            <div class="radio-container">
+                            <input type="radio" name="quantity"  id="quantity3" value="50" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
+                            </div>
+                        </div>
+                        <div class="filter-option">
+                            <p>Search author:</p>
+                            <input id="author_input" type="text" placeholder="Search..." />
+                            <ul id="author_list">
+                                
+                            </ul>
+                        </div>
                     </form>
                 </div>
-                <div class="col-12 col-md-5 offset-0 live">
-                    <h4>Live changes:</h4>
-                    <hr class="mt-3">
-                    <div class="posts">
-                        <div class="post-header" id="post-header">
-                            <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
-                            </div>
-                        </div>
-                        <div class="lang-switch">
-                            <label class="lang-switcher">
-                                <input type="checkbox" id="ischecked">
-                                <span class="lang-slider"></span>
-                            </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                            </div>
-                        </div>
-                        <div class="post-footer">
-                            <div class="post-author" id="post-author"></div>
-                            <div class="post-country" id="post-country"></div>
-                            <div class="post-like"><span>Live</span></div>
-                        </div>
-                    </div>
+                <div id="haiku_box" class="col-12 col-lg-9 offset-0">
+                </div>
+                <div class="col-12 col-lg-9 offset-0 offset-lg-3">
+                    <nav aria-label="Page pagination">
+                        <ul class="pagination justify-content-center">
+                            <li id="previous_button" class="page-item">
+                                <a class="page-link">&laquo;&laquo; Previous</a>
+                            </li>
+                            <li id="page_number" class="page-item"><a class="page-link page-link-number"></a></li>
+                            <li id="next_button" class="page-item">
+                                <a class="page-link" >Next &raquo;&raquo;</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -215,7 +230,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
-    <script src="js/add_haiku_live.js"></script>
-    
+    <script src="js/filters.js"></script>
+    <script src="js/haiku.class.js"></script>
+    <script src="js/main_page.js"></script>
+    <script src="js/common.js"></script>
+
 </body>
 </html>

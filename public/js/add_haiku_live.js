@@ -3,9 +3,9 @@ function liveAuthorHaiku()
 {    
     var authorName = document.getElementById("author").value;
     var postAuthor = document.getElementById("post-author");
-    var country = document.getElementById("country").value;
+    //var country = document.getElementById("country").value;
     var postCountry = document.getElementById("post-country");
-    postCountry.textContent = country;
+    //postCountry.textContent = country;
     
     if(authorName.length <= 1)
         {
@@ -144,3 +144,21 @@ function postSubMenu()
 
 var postnav = document.getElementById("post-nav");
 postnav.addEventListener('click', postSubMenu, false);
+
+function showHandwriting()
+{
+    var handwritingContainer = document.getElementById("post-nav-handwriting");
+    handwritingContainer.style.display = "block";
+}
+
+var handwritingNav = document.getElementById("post-nav-sub-option-handwriting");
+handwritingNav.addEventListener('click', showHandwriting, false);
+
+function hideHandwriting()
+{
+    var handwritingContainer = document.getElementById("post-nav-handwriting");
+    handwritingContainer.style.display = "none";
+}
+
+var handwritingClose = document.getElementById("post-nav-handwriting-close");
+handwritingClose.addEventListener('click', hideHandwriting, false);

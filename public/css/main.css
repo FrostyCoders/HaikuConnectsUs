@@ -118,6 +118,7 @@ body
 .navbar-nav .nav-link-icon
 {
     display: inline-block;
+    padding: 0.5rem;
 }
 
 #nav-link-icon-container
@@ -360,6 +361,7 @@ input[type="radio"]:checked + label span.radio::after
 .filter-option:last-child
 {
     position: relative;
+    margin-bottom: 5rem;
 }
 
 .filter-option input[type="submit"]
@@ -385,6 +387,7 @@ input[type="radio"]:checked + label span.radio::after
 
 .filter-option ul
 {
+    display: none;
     position: absolute;
     z-index: 2;
     background-color: var(--white-color);
@@ -392,10 +395,12 @@ input[type="radio"]:checked + label span.radio::after
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     border: 1px solid var(--dark-color);
-    width: calc(100% - 4.5rem);
+    width: calc(100% - 1.5rem);
     min-height: 3.5rem;
+    max-height: 10rem;
     border-radius: 0.25rem;
     padding-left: 0;
+    overflow-y: auto;
 }
 
 .filter-option ul li
@@ -422,8 +427,25 @@ input[type="radio"]:checked + label span.radio::after
 }
 
 /* POSTS */
+.load-error
+{
+    text-align: center;
+    font-size: 2.5rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#haiku_box
+{
+    min-height: 5rem;
+}
+
 .posts
 {
+    width: 40%;
     min-height: 20rem;
     border-radius: 0.5rem;
     position: relative;
@@ -622,6 +644,7 @@ input[type="radio"]:checked + label span.radio::after
     left: 50%;
     top: 2.25rem;
     transform: translateX(-50%);
+    user-select: none;
 }
 
 .post-like:hover
@@ -746,6 +769,7 @@ input[type="radio"]:checked + label span.radio::after
     -webkit-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
     -moz-box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
     box-shadow: 2.5px 2.5px 10px -5px rgba(53,51,48,1);
+    user-select: none;
 }
 
 .post-nav-sub a:link
@@ -768,8 +792,9 @@ input[type="radio"]:checked + label span.radio::after
     color: var(--extra-color);
 }
 
-.post-error
+.page-communicate
 {
+    display: none;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -781,17 +806,16 @@ input[type="radio"]:checked + label span.radio::after
     text-align: center;
     color: var(--dark-color);
     font-size: 1.5rem;
-    background-color: var(--extra-light-color);
+    background-color: #ffffff;
     letter-spacing: 0.1rem;
     z-index: 99999;
-    -webkit-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
-    box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
-    display: none;
-  /*  animation: show-hide-error 5s infinite; */
+    -webkit-box-shadow: 0px 5px 25px -10px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 5px 25px -10px rgba(0,0,0,1);
+    box-shadow: 0px 5px 25px -10px rgba(0,0,0,1);
+  /*  animation: show-hide-communicate 5s infinite; */
 }
 
-@keyframes show-hide-error
+@keyframes show-hide-communicate
 {
     0% {
         opacity: 0;
@@ -975,11 +999,21 @@ input[type="radio"]:checked + label span.radio::after
     background-color: var(--extra-color); 
 }
 
+.mg-posts
+{
+    margin-left: 5%;
+    margin-right: 2.5%;
+    float: left;
+}
+
 /* PAGINATION */
 .pagination
 {
-    margin-top: 4rem;
+    padding-top: 5rem;
+    margin-right: 2.5%;
     margin-bottom: 4rem;
+    position: static;
+    clear: both;
 }
 
 .pagination .page-item .page-link
@@ -995,6 +1029,15 @@ input[type="radio"]:checked + label span.radio::after
     height: 4rem;
     line-height: 2.5rem;
     transition-duration: 0.35s;
+    cursor: pointer;
+}
+
+.pagination .page-item .page-link-number
+{
+    width: 0;
+    min-width: 4.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }
 
 .pagination .page-item .page-link:hover
@@ -1068,8 +1111,9 @@ footer h4
 
     .jumbotron-img
     {
-        width: 20%;
+        width: 28.333334%;
         margin-left: 3.333333%;
+        background-size: 100%;
     }
     
     .filters #show-filters
@@ -1141,6 +1185,29 @@ footer h4
     .jumbotron-img
     {
         display: none;
+    }
+    
+    .posts
+    {
+        width: 90%;
+    }
+    
+    .mg-posts
+    {
+        float:none;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .pagination
+    {
+        margin-right: 0;
+    }
+    
+    .report-container
+    {
+        float: none;
+        width: 90%;
     }
 }
 

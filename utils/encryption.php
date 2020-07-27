@@ -257,4 +257,7 @@
         $crypt_pass = implode("", $crypt_pass);
         return $crypt_pass;
     }
+
+    //require_once "../config/config.php";
+    //echo encrypt_data("Wojciech", CKEY4);
 ?>

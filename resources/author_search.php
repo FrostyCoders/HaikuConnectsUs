@@ -5,10 +5,11 @@
     }
     else
     {
-        require_once "../config/condif.php";
+        require_once "../config/config.php";
         require_once "../utils/decryption.php";
         require_once "db_connect.php";
-        $phrase = $_POST['search'];
+
+        empty($_POST['search']) ? $phrase = " " : $phrase = $_POST['search'];
 
         $query = $conn->prepare("SELECT * FROM authors");
 
@@ -25,11 +26,11 @@
 
         if($query_ok == true)
         {
-            $authors = $query->fetch();
+            $authors = $query->fetchAll();
             $authors_list = array();
             foreach($authors as $a)
             {
-                $full_name = $name . " " . $surname;
+                $full_name = decrypt_data($a['name'], CKEY4) . " " . decrypt_data($a['surname'], CKEY5);
                 if(strstr($full_name, $phrase))
                 {   
                     array_push($authors_list, array(
@@ -40,11 +41,9 @@
                 }
             }
 
-            usort($authors_list, "fname");
-
-            if(count($authors_list == 0))
+            if(count($authors_list) == 0)
             {
-                $result = array(false, "Cannot find this author!");
+                $result = array(false, "Nobody was found!");
             }
             else
             {
