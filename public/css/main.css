@@ -443,6 +443,11 @@ input[type="radio"]:checked + label span.radio::after
     min-height: 5rem;
 }
 
+.box-clear
+{
+    clear: both;
+}
+
 .posts
 {
     width: 40%;

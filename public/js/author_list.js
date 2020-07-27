@@ -6,19 +6,32 @@ window.onload = () => {
         const loadReady = JSON.parse(this.responseText);
         if(loadReady[0] == true)
         {
-            const tableResponse = document.getElementById('table-response');
+            const tableResponse1 = document.getElementById('table-response1');
+            const tableResponse2 = document.getElementById('table-response2');
+            let count = 0;
             loadReady[1].forEach(author => {
                 const tr = document.createElement("tr");
                 tr.setAttribute("title", "Click to see author haiku.");
                 tr.innerHTML = '<td>'+author['fname']+'</td><td>'+author['country']+'</td>';
                 tr.addEventListener("click", () => {
-                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                showAuthorsHaiku(author['id'], author['fname'], author['country']);
                 });
-                tableResponse.appendChild(tr);
+                if(count%2 == 0)
+                {
+                    tableResponse1.appendChild(tr);
+                }
+                else
+                {
+                    tableResponse2.appendChild(tr);
+                }       
+                count = count + 1;
             });
         }
         else
-            console.log("Cannot load haiku authors!");
+        {
+            const tableBox = document.getElementById('table-box');
+            tableBox.innerHTML = '<p class="load-error">Cannot load haiku authors!</p>';
+        }
         Loading(false);
       }
     };

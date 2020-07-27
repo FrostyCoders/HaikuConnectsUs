@@ -53,13 +53,15 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             const haikuData = JSON.parse(request.responseText);
             if(haikuData[0] !== false)
             {
-                if(haikuData[1] == 0) haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
+                if(haikuData[1] == 0) haikuBox.innerHTML = '<p class="load-error">Error, cannot load haiku data!</p>';
                 else
                 {
                     generatePages(currentPage, haikuData[1]);
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
+                    //const boxClear = document.createElement('div');
+                    //boxClear.setAttribute('class','box-clear');
                     haikuData[2].forEach(singleHaiku => {
                         haikuPosts.push(new Haiku(
                             singleHaiku['id'],
