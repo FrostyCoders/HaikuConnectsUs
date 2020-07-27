@@ -185,19 +185,22 @@
 
 .posts .post-header
 {
-    min-height: 15rem;
+    min-height: 27.5rem;
     background-image: none;
 }
 
 .posts .post-header .posts-haiku
 {
     backdrop-filter: blur(1rem);
+    min-height: 100%;
 }
 
 .posts .post-header .posts-haiku .post-haiku
 {
-    min-height: 15rem;
     position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 1;
 }
 

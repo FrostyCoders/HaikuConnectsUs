@@ -60,8 +60,6 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
-                    //const boxClear = document.createElement('div');
-                    //boxClear.setAttribute('class','box-clear');
                     haikuData[2].forEach(singleHaiku => {
                         haikuPosts.push(new Haiku(
                             singleHaiku['id'],

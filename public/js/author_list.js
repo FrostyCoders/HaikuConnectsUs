@@ -30,7 +30,7 @@ window.onload = () => {
         else
         {
             const tableBox = document.getElementById('table-box');
-            tableBox.innerHTML = '<p class="load-error">Cannot load haiku authors!</p>';
+            tableBox.innerHTML = '<p class="load-error">Error, cannot load haiku authors!</p>';
         }
         Loading(false);
       }
