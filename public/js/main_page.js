@@ -53,10 +53,12 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             const haikuData = JSON.parse(request.responseText);
             if(haikuData[0] !== false)
             {
-                if(haikuData[1] == 0) haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
+                if(haikuData[1] == 0)
+                {
+                    haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
+                } 
                 else
                 {
-                    generatePages(currentPage, haikuData[1]);
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
@@ -65,7 +67,6 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             singleHaiku['id'],
                             singleHaiku['author'],
                             singleHaiku['country'],
-                            singleHaiku['title'],
                             singleHaiku['content'],
                             singleHaiku['content_native'],
                             singleHaiku['likes'],
@@ -83,6 +84,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                         haikuObject.showOnWebsite("haiku_box");
                     });
                 }
+                generatePages(currentPage, haikuData[1]);
             }
             else
             {
@@ -301,7 +303,11 @@ const generatePages = (cPage, pageAmmount) => {
         previous.style.display = "none";
     }
 
-    pageNumber.textContent = cPage + "/" + pageAmmount;
+    if(pageAmmount != 0)
+    {
+        pageNumber.textContent = cPage + "/" + pageAmmount;
+        pageNumber.style.display = "block";
+    }   
 
     if(cPage < pageAmmount && pageAmmount > 1)
     {
@@ -313,6 +319,13 @@ const generatePages = (cPage, pageAmmount) => {
     else
     {
         next.style.display = "none";
+    }
+
+    if(pageAmmount == 0)
+    {
+        previous.style.display = "none";
+        next.style.display = "none";
+        pageNumber.style.display = "none";
     }
 };
 

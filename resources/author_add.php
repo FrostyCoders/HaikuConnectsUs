@@ -1,6 +1,7 @@
 <?php
     session_start();
-    if($_SESSION['logged_user']) $result = array(false, "Error, you need to log in!");
+    if(!isset($_SESSION['logged_user'])) 
+        die(json_encode([false, "Error, you need to log in!"]));
     else if(
         !isset($_POST['name']) ||
         !isset($_POST['surname']) || 
@@ -8,28 +9,41 @@
         empty($_POST['name']) ||
         empty($_POST['surname']) || 
         empty($_POST['country'])
-    ) $result = array(false, "Error, missing or wrong data, try later!");
+    ) 
+        die(json_encode([false, "Error, missing or wrong data, try later!"]));
     else
     {
         require_once "../config/config.php";
+        require_once "db_connect.php";
         require_once "../utils/encryption.php";
         $name = encrypt_data($_POST['name'], CKEY4);
         $surname = encrypt_data($_POST['surname'], CKEY5);
         $country = $_POST['country'];
 
         $query = $conn->prepare("INSERT INTO authors VALUES (NULL, :name, :surname, :country)");
-        $query = bindParam(":name", $name);
-        $query = bindParam(":surname", $surname);
-        $query = bindParam(":country", $country);
+        $get_id = $conn->prepare("SELECT id FROM authors ORDER BY id DESC LIMIT 1");
 
         try
         {
+            $query->bindParam(":name", $name);
+            $query->bindParam(":surname", $surname);
+            $query->bindParam(":country", $country);
             $query->execute();
-            $result = array(true, "New author created succsessfully.");
         }
         catch(Exception $e)
         {
-            $result = array(false, "Error, cannot add new author!");
+            die(json_encode([false, "Error, cannot add new author!"]));
+        }
+
+        try
+        {
+            $get_id->execute();
+            $id = $get_id->fetchAll();
+            $result = array(true, "New author created succsessfully.", $id[0]['id']);
+        }
+        catch(Exception $e)
+        {  
+            $result = array(true, "New author created succsessfully. Cannot get new author data!", false);
         }
     }
     echo json_encode($result);

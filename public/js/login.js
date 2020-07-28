@@ -73,7 +73,7 @@ document.getElementById("login_form").addEventListener("submit", (event) => {
     request.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {   
             const RequestResult = JSON.parse(this.responseText);
-            if(RequestResult[0] == true) window.location.href = "main_page.php";
+            if(RequestResult[0] == true) window.location.href = "index.php";
             else ShowResult(RequestResult);
         }
     };
