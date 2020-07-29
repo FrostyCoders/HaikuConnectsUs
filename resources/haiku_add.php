@@ -76,7 +76,7 @@
 
             $background = $_FILES['bg_image'];
 
-            if($background['error'] !== 0 || $background['error'] !== 4)
+            if($background['error'] !== 0 && $background['error'] !== 4)
             {
                 die(json_encode([false, "Error, problem with background image, check it and try again!"]));
             }

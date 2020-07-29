@@ -73,7 +73,8 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             checkArray(likedPosts, singleHaiku['id']),
                             singleHaiku['bg'],
                             singleHaiku['hw'],
-                            checkArray(reportedPosts, singleHaiku['id'])
+                            checkArray(reportedPosts, singleHaiku['id']),
+                            adminLogged
                         ));
                     });
 
@@ -242,7 +243,7 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
 const showCommunicate = (message) => {
     if(message[1].length == 0)
         return ;
-    const box = document.getElementById("page-communicate");
+    const box = document.getElementById("post-error");
     box.textContent = message[1];
     box.style.display = "block";
     new Promise((resolve, reject) => {

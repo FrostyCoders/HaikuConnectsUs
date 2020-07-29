@@ -20,6 +20,10 @@
             </div>
         </li>
         ';
+
+        $status = "<script>
+            let adminLogged = true;
+        </script>";
     }
     else
     {
@@ -35,7 +39,13 @@
             <a class="nav-link" href="login.php"><div class="avatar-nav-icon"></div></a>
         </li>
         ';
+
+        $status = "<script>
+            let adminLogged = false;
+        </script>";
     }
+
+    echo $status;
 
     foreach ($menu_positions as $name => $link) {
         echo '<li class="nav-item active"><a class="nav-link nav-text" href="' . $link . '">' . $name . '</a></li>';

@@ -155,7 +155,6 @@ function showCommunicate(message) {
 const addHaikuFrom = document.getElementById("haiku_data");
 addHaikuFrom.addEventListener("submit", (event) => {
     event.preventDefault();
-    Loading(true);
     const content = document.getElementById("in-english").value;
     const contentNative = document.getElementById("in-native").value;
     if(selectedAuthor == 0)
@@ -164,6 +163,7 @@ addHaikuFrom.addEventListener("submit", (event) => {
         showCommunicate([false, "Haiku text in english is required!"]);
     else
     {
+        Loading(true);
         let formData = new FormData(addHaikuFrom);
         formData.set("author", selectedAuthor);
         formData.set("content", JSON.stringify(content.split('')));
@@ -171,6 +171,7 @@ addHaikuFrom.addEventListener("submit", (event) => {
         const request = new XMLHttpRequest;
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
+                console.log(request.responseText);
                 const response = JSON.parse(request.responseText);
                 if(response[0] == true)
                     addHaikuFrom.reset();
