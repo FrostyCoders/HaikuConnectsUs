@@ -153,7 +153,8 @@ function showCommunicate(message) {
 
 // <!--- ADD NEW HAIKU ---!>
 const addHaikuFrom = document.getElementById("haiku_data");
-addHaikuFrom.addEventListener("submit", (event) => {
+
+const addNewHaiku = (event) => {
     event.preventDefault();
     const content = document.getElementById("in-english").value;
     const contentNative = document.getElementById("in-native").value;
@@ -171,7 +172,6 @@ addHaikuFrom.addEventListener("submit", (event) => {
         const request = new XMLHttpRequest;
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
-                console.log(request.responseText);
                 const response = JSON.parse(request.responseText);
                 if(response[0] == true)
                     addHaikuFrom.reset();
@@ -184,6 +184,8 @@ addHaikuFrom.addEventListener("submit", (event) => {
         request.open("POST","../resources/haiku_add.php",true);
         request.send(formData);
     }
-});
+};
+
+addHaikuFrom.addEventListener("submit", addNewHaiku, false);
 
 let selectedAuthor = 0;

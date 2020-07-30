@@ -249,7 +249,8 @@ class Haiku
 
     editHaiku()
     {
-
+        sessionStorage.setItem("toEdit", this.id);
+        window.location.href = "add_haiku.php";
     }
 
     deleteHaiku()

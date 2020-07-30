@@ -199,6 +199,7 @@
     <script src="js/common.js"></script>
     <script src="js/add_haiku_live.js"></script>
     <script src="js/add_haiku.js"></script>
+    <script src="js/edit_haiku.js"></script>
     
 </body>
 </html>
