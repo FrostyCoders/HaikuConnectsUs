@@ -29,7 +29,7 @@
             <div class="point2"></div>
         </div>
     </div>
-    <div class="page-communicate" id="post-error">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="post-report-menu" id="post-report-menu">
         <div class="post-report-close" id="post-report-close"></div>
         <form id="report_form">

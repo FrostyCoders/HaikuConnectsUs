@@ -53,7 +53,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             const haikuData = JSON.parse(request.responseText);
             if(haikuData[0] !== false)
             {
-                if(haikuData[1] == 0) haikuBox.innerHTML = '<div class="notification">No haiku to show!</div>';
+                if(haikuData[1] == 0) haikuBox.innerHTML = '<p class="load-error">Error, cannot load haiku data!</p>';
                 else
                 {
                     generatePages(currentPage, haikuData[1]);
