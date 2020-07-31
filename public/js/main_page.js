@@ -335,3 +335,43 @@ window.onload = () => {
     }
     loadHaiku(currentPage, order, ammount, selectedAuthor);
 };
+
+// <!--- GRID OF POSTS ---!>
+const gridSwitch1 = document.getElementById("quantity1");
+const gridSwitch2 = document.getElementById("quantity2");
+const gridSwitch3 = document.getElementById("quantity3");
+
+gridSwitch1.addEventListener('click', function(e) { 
+    let gridPosts = document.getElementsByClassName("posts");
+    if(gridSwitch1.checked == true)
+        {
+            for (let i=0; i<gridPosts.length; i++) 
+            {
+                gridPosts[i].classList.add('mg-posts3');
+                gridPosts[i].classList.remove('mg-posts1');
+            }
+        }
+})
+
+gridSwitch2.addEventListener('click', function(e) { 
+    let gridPosts = document.getElementsByClassName("posts");
+    if(gridSwitch2.checked == true)
+        {
+            for (let i=0; i<gridPosts.length; i++) 
+            {
+                gridPosts[i].classList.remove('mg-posts3 mg-posts1');
+            }
+        }
+})
+
+gridSwitch3.addEventListener('click', function(e) { 
+    let gridPosts = document.getElementsByClassName("posts");
+    if(gridSwitch3.checked == true)
+        {
+            for (let i=0; i<gridPosts.length; i++) 
+            {
+                gridPosts[i].classList.add('mg-posts1');
+                gridPosts[i].classList.remove('mg-posts3');
+            }
+        }
+})

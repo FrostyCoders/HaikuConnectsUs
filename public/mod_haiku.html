@@ -111,10 +111,10 @@
                     <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
                     <label>Background (JPG or PNG):</label>
                     <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
-                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
+                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png,image/jpg,image/bmp" />
                     <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
                     <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png" />
+                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png,image/jpg,image/bmp" />
                     <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
                 </div>
@@ -124,10 +124,10 @@
                     <div class="posts">
                         <div class="post-header" id="post-header">
                             <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
+                                <p class="post-haiku" id="post-haiku"><br /></p>
                             </div>
                         </div>
-                        <div class="lang-switch">
+                        <div class="lang-switch" id="lang-switch">
                             <label class="lang-switcher">
                                 <input type="checkbox" id="ischecked">
                                 <span class="lang-slider"></span>
