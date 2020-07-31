@@ -31,14 +31,14 @@
             die(json_encode([false, "Error, cannot find searched haiku to edit!"]));
         }
 
-        $edit_haiku = $haiku_exist->fetch();
+        $old_data = $haiku_exist->fetch();
         
         if(isset($_POST['haiku_author']))
         {
-            if($_POST['haiku_author'] != $edit_haiku['author']) $new_author = $_POST['haiku_author'];
-            else $new_author = $edit_haiku['author'];
+            if($_POST['haiku_author'] != $old_data['author']) $new_author = $_POST['haiku_author'];
+            else $new_author = $old_data['author'];
         }
-        else $new_author = $edit_haiku['author'];
+        else $new_author = $old_data['author'];
 
         if(isset($_POST['haiku_content']))
         {
@@ -50,10 +50,10 @@
             if(count($content) != 0)
                 $new_content = nl2br(implode('', $content));
             else
-                $new_content = $edit_haiku['content'];
+                $new_content = $old_data['content'];
         }
         else 
-            $new_content = $edit_haiku['content'];
+            $new_content = $old_data['content'];
 
         if(isset($_POST['haiku_c_native']))
         {
@@ -67,7 +67,7 @@
             else
                 $new_c_native = "NO";
         }
-        else $new_c_native = $edit_haiku['content_native'];
+        else $new_c_native = $old_data['content_native'];
 
         $allowed_ext = array("jpg", "png", "jpeg", "bmp");
         if(isset($_FILES['bg_image']) && $_FILES['bg_image']['error'] !== 4)
@@ -75,7 +75,7 @@
             $background = $_FILES['bg_image'];
             if($background['error'] !== 0 || $background['size'] == 0)
             {
-                die(json_encode([false, "Error, cannot add haiku, try later!"]));
+                die(json_encode([false, "Error, problem with background image, check it and try later!"]));
             }
             
             $bg_ext = explode('.', $background['name']);
@@ -95,15 +95,16 @@
             $bg_tmp_name = $background['tmp_name'];
             $bg_new_name = uniqid('', true) . "." . $bg_ext;
             $bg_destination = BG_DIR . $bg_new_name;
-            
-            if(file_exists(BG_DIR . $edit_haiku['background']) && $edit_haiku['background'] != "default.png") unlink(BG_DIR . $edit_haiku['background']);
 
             if(!move_uploaded_file($bg_tmp_name, $bg_destination))
             {
                 die(json_encode([false, "Error, cannot update haiku, try later!"]));
             }
+
+            if(file_exists(BG_DIR . $old_data['background']) && $old_data['background'] != "default.png") unlink(BG_DIR . $old_data['background']);
         }
-        else $bg_new_name = $edit_haiku['background'];
+        else 
+            $bg_new_name = $old_data['background'];
             
 
         if(isset($_FILES['hw_image']) && $_FILES['hw_image']['error'] !== 4)
@@ -131,16 +132,16 @@
             $hw_tmp_name = $handwriting['tmp_name'];
             $hw_new_name = uniqid('', true) . "." . $hw_ext;
             $hw_destination = HW_DIR . $hw_new_name;
-            
-            if(file_exists(HW_DIR . $edit_haiku['handwriting']) && $edit_haiku['handwriting'] != "no_hw.jpg") unlink(HW_DIR . $edit_haiku['handwriting']);
 
             if(!move_uploaded_file($hw_tmp_name, $hw_destination))
             {
                 die(json_encode([false, "Error, cannot update haiku, try later!"]));
             }
+
+            if(file_exists(HW_DIR . $old_data['handwriting']) && $old_data['handwriting'] != "no_hw.jpg") unlink(HW_DIR . $old_data['handwriting']);
         }
         else
-            $hw_new_name = $edit_haiku['handwriting'];
+            $hw_new_name = $old_data['handwriting'];
 
         $query_update = $conn->prepare("UPDATE haiku SET
                                         author = :aid,

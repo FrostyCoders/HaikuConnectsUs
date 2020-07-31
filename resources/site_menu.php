@@ -8,7 +8,7 @@
             'Authors Map' => 'authors_map.php',
             'About The Project' => 'about_the_project.php',
             'Reports' => 'reports_list.php',
-            'Add Haiku' => 'add_haiku.php'
+            'Add Haiku' => 'haiku_editor.php'
         );
 
         $user = '
