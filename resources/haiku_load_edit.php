@@ -14,7 +14,16 @@
         require_once "../utils/decryption.php";
         require_once "db_connect.php";
         
-        $haiku_exist = $conn->prepare("SELECT haiku.*, authors.*
+        $haiku_exist = $conn->prepare("SELECT
+                                         haiku.id as haiku_id,
+                                         authors.id as author_id,
+                                         authors.name,
+                                         authors.surname,
+                                         authors.country,
+                                         haiku.content,
+                                         haiku.content_native,
+                                         haiku.background,
+                                         haiku.handwriting
                                         FROM haiku
                                         INNER JOIN authors ON haiku.author = authors.id
                                         WHERE haiku.id = :hid");
@@ -33,21 +42,21 @@
             die(json_encode([false, "Error, cannot find searched haiku to edit!"]));
         }
 
-        $haiku = $haiku_exist->fetch();
+        $haiku = $haiku_exist->fetchAll();
+        $haiku = $haiku[0];
         
         $result = array(
             true,
             array(
-                $haiku['haiku.id'],
-                $haiku['author.id'],
-                decrypt_data($haiku['author.name'], CKEY4),
-                decrypt_data($haiku['author.surname'], CKEY4),
-                $haiku['author.country'],
-                $haiku['haiku_title'],
-                $haiku['haiku.content'],
-                $haiku['haiku.content_native'],
-                $haiku['haiku.like_counter'],
-                $haiku['haiku.backdround']
+                $haiku['haiku_id'],
+                $haiku['author_id'],
+                decrypt_data($haiku['name'], CKEY4),
+                decrypt_data($haiku['surname'], CKEY5),
+                $haiku['country'],
+                str_ireplace("<br />", "\r", $haiku['content']),
+                $haiku['content_native'] != "NO" ?  str_ireplace("<br />", "\r", $haiku['content_native']) : "", 
+                $haiku['background'],
+                $haiku['handwriting']
             )
         );
     

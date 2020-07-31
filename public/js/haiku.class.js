@@ -1,11 +1,10 @@
 class Haiku 
 {
-    constructor(id, authorName, authorCountry, title, content, contentNative, likes, likeStatus, background, handwriting, reported)
+    constructor(id, authorName, authorCountry, content, contentNative, likes, likeStatus, background, handwriting, reported, loggedIn)
     {
         this.id = id;
         this.authorName = authorName;
         this.authorCountry = authorCountry;
-        this.title = title;
         this.content = content;
         this.contentNative = contentNative;
         this.likes = likes;
@@ -13,6 +12,7 @@ class Haiku
         this.background = background;
         this.handwriting = handwriting;
         this.reported = reported;
+        this.loggedIn = loggedIn;
     }
     // DISPLAY HAIKU ON WEBSITE
     generate()
@@ -72,8 +72,11 @@ class Haiku
         var post_nav_sub = document.createElement("div");
         post_nav_sub.setAttribute("class", "post-nav-sub");
 
-        const options = ["Handwriting", "Report"];
+        let options = ["Handwriting", "Report"];
 
+        if(this.loggedIn == true)
+            options = ["Handwriting", "Edit", "Delete"];
+            
         options.forEach(option => {
             let post_nav_sub_option = document.createElement("div");
             post_nav_sub_option.setAttribute("class", "post-nav-sub-option");
@@ -140,9 +143,24 @@ class Haiku
             document.querySelector("#haiku"+this.id+" .post-nav-handwriting").style.display = "none";
         });
 
-        options[1].addEventListener("click", () => {
-            showReportHaiku(this.id);
-        });
+
+        if(this.loggedIn == true)
+        {
+            options[1].addEventListener("click", () => {
+                this.editHaiku();
+            });
+
+            options[2].addEventListener("click", () => {
+                this.deleteHaiku();
+            });
+        }
+        else
+        {
+            options[1].addEventListener("click", () => {
+                showReportHaiku(this.id);
+            });
+        }
+        
 
         if(this.contentNative != "NO")
         {
@@ -220,14 +238,55 @@ class Haiku
                         saveReportsData(this.id);
                     }
                     if(typeof callback === "function")
-                    {
                         callback(result);
-                    }
                 }
             };
             reportRequest.open("POST", "../resources/haiku_report.php", true);
             reportRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             reportRequest.send("hid="+this.id+"&email="+email+"&reason="+reason);
         }
+    }
+
+    editHaiku()
+    {
+        sessionStorage.setItem("toEdit", this.id);
+        window.location.href = "haiku_editor.php";
+    }
+
+    deleteHaiku()
+    {
+        if(confirm("Are you sure, this operation will delete haiku penamently!"))
+        {
+            Loading(true);
+            const request = new XMLHttpRequest;
+
+            request.onreadystatechange = () => {
+                if(request.readyState == 4 && request.status == 200)
+                {
+                    console.log(request.responseText);
+                    const response = JSON.parse(request.responseText);
+                    if(response[0] == true)
+                    {
+                        if(haikuPosts.length <= 1)
+                            loadHaiku(currentPage, order, ammount, selectedAuthor);
+                        else
+                            this.destroyPost();
+                            
+                        saveLikesData(this.id, "remove");
+                    }
+                    showCommunicate(response);
+                    Loading(false);
+                }
+            };
+
+            request.open("POST", "../resources/haiku_delete.php", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("haiku_id="+this.id);
+        }
+    }
+
+    destroyPost()
+    {
+        this.post.remove();
     }
 }

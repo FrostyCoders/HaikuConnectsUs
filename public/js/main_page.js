@@ -53,10 +53,10 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
             const haikuData = JSON.parse(request.responseText);
             if(haikuData[0] !== false)
             {
-                if(haikuData[1] == 0) haikuBox.innerHTML = '<p class="load-error">Error, cannot load haiku data!</p>';
+                if(haikuData[1] == 0) 
+                    haikuBox.innerHTML = '<p class="load-error">Error, cannot load haiku data!</p>';
                 else
                 {
-                    generatePages(currentPage, haikuData[1]);
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
@@ -65,14 +65,14 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             singleHaiku['id'],
                             singleHaiku['author'],
                             singleHaiku['country'],
-                            singleHaiku['title'],
                             singleHaiku['content'],
                             singleHaiku['content_native'],
                             singleHaiku['likes'],
                             checkArray(likedPosts, singleHaiku['id']),
                             singleHaiku['bg'],
                             singleHaiku['hw'],
-                            checkArray(reportedPosts, singleHaiku['id'])
+                            checkArray(reportedPosts, singleHaiku['id']),
+                            adminLogged
                         ));
                     });
 
@@ -83,6 +83,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                         haikuObject.showOnWebsite("haiku_box");
                     });
                 }
+                generatePages(currentPage, haikuData[1]);
             }
             else
             {
@@ -236,48 +237,6 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
     document.getElementById("report_form").reset();
 });
 
-// <!--- COMMUNICATES---!>
-const showCommunicate = (message) => {
-    if(message[1].length == 0)
-        return ;
-    const box = document.getElementById("page-communicate");
-    box.textContent = message[1];
-    box.style.display = "block";
-    new Promise((resolve, reject) => {
-        if(message[0] == false)
-            box.style.color = "red";
-        else
-            box.style.color = "var(--dark-color)";
-        resolve();
-    }).then(() => {
-        if(message[0] == false)
-        {
-            box.animate([
-                { transform: 'translateX(-45%)' },
-                { transform: 'translateX(-55%)' },
-                { transform: 'translateX(-50%)' }
-            ], {
-                duration: 100,
-                iterations: 3
-            });
-        }
-        else
-        {
-            box.animate([
-                { top: "6rem" }, 
-                { top: "6.5rem" }
-            ], {
-                duration: 300,
-                iterations: 1
-            });
-        }
-    }).then(() => {
-        setTimeout(() => {
-            box.style.display = "none";
-        }, 5000);
-    });
-};
-
 // <!--- PAGES ---!>
 const changePage = (page) => {
     currentPage = page;
@@ -301,7 +260,11 @@ const generatePages = (cPage, pageAmmount) => {
         previous.style.display = "none";
     }
 
-    pageNumber.textContent = cPage + "/" + pageAmmount;
+    if(pageAmmount != 0)
+    {
+        pageNumber.textContent = cPage + "/" + pageAmmount;
+        pageNumber.style.display = "block";
+    }   
 
     if(cPage < pageAmmount && pageAmmount > 1)
     {
@@ -313,6 +276,13 @@ const generatePages = (cPage, pageAmmount) => {
     else
     {
         next.style.display = "none";
+    }
+
+    if(pageAmmount == 0)
+    {
+        previous.style.display = "none";
+        next.style.display = "none";
+        pageNumber.style.display = "none";
     }
 };
 

@@ -81,7 +81,6 @@
                         'id' => $h['id'],
                         'author' => $full_name,
                         'country' => $h['country'],
-                        'title' => $h['title'],
                         'content' => $h['content'],
                         'content_native' => $h['content_native'],
                         'likes' => $h['like_counter'],

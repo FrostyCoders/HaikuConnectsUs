@@ -34,7 +34,7 @@
                 {
                     $query2->execute();
                     $query->execute();
-                    $result = array(true, 'Password changed! Now you can <a href="index.php">login.</a>');
+                    $result = array(true, 'Password changed! Now you can <a href="login.php">login.</a>');
                 }
                 catch(Exception $e)
                 {

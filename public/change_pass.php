@@ -28,7 +28,7 @@
                 $check = $check->fetch();
                 if($check['expire_time'] < date("Y-m-d H:i:s") || $check['used'] == 1)
                 {
-                    $result = array(false, 'Your recovery link expired,<br> <a href="index.php">create new.</a>');
+                    $result = array(false, 'Your recovery link expired,<br> <a href="login.php">create new.</a>');
                 }
                 else
                 {

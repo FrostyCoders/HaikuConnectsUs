@@ -34,14 +34,16 @@
     <div class="add-new-author" id="add-new-author">
         <div class="add-new-author-close" id="add-new-author-close"></div>
         <p>Add new author:</p>
-        <input type="text" name="author-firstname" id="add-author-firstname" placeholder="Firstname" />
-        <input type="text" name="author-surname" id="add-author-surname" placeholder="Surname" />
-        <input type="text" name="author-country" id="add-author-country" placeholder="Country" />
-        <input type="submit" value="Add author" />
+        <form id="add_author_form">
+            <input type="text" id="author-firstname" placeholder="Firstname" />
+            <input type="text" id="author-surname" placeholder="Surname" />
+            <input type="text" id="author-country" placeholder="Country" />
+            <input type="submit" value="Add author" />
+        </form>
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="main_page.php">Haiku Connects Us</a>
+      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -52,36 +54,15 @@
       
       <div class="collapse navbar-collapse" id="menu">
        
-           <ul class="navbar-nav ml-auto mg-0">
-              <li class="nav-item active">
-                 <a class="nav-link nav-text" href="main_page.php">Start</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="authors_list.html">Authors List</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="authors_map.html">Authors Map</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="about_the_project.html">About The Project</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="reports_list.html">Reports List</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="add_haiku.html">Add Haiku</a>
-              </li>
-              <li class="nav-item nav-icon" id="nav-icons">
-                 <a class="nav-link" href="#"><div class="avatar-nav-icon"></div></a>
-                 <div id="nav-link-icon-container">
-                 <a class="nav-link nav-link-icon" id="nav-link-icon1" href="settings.html"><div class="gear-nav-icon" title="settings"></div></a>
-                 <a class="nav-link nav-link-icon" id="nav-link-icon2" href="#"><div class="logout-nav-icon" title="logout"></div></a>
-                 </div>
-              </li>
-           </ul>
+            <ul class="navbar-nav ml-auto mg-0">
+                <?php
+                    require_once "../resources/site_menu.php";
+                    if(!isset($_SESSION['logged_user']))
+                        header("Location: login.php");
+                ?>
+            </ul>
       </div>     
     </nav>
-
     <!-- ZAWARTOŚĆ  -->
     <main>
         <div class="container-fluid">
@@ -98,24 +79,24 @@
                 <div class="col-12 col-md-5 offset-0 offset-md-1 add-inputs">
                     <h4>Make new Haiku:</h4>
                     <hr class="mt-3">
-                    <form>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" placeholder="Write author's firstname and surname..." />
-                    <ul>
-                        <li>John</li>
-                        <li id="add-author">Add new author...</li>
-                    </ul>
-                    <label for="in-english">In English:</label>
-                    <textarea id="in-english" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label for="in-native">In Native Language (optional):</label>
-                    <textarea id="in-native" placeholder="Separate the lines with the ENTER..."></textarea>
-                    <label>Background (JPG or PNG):</label>
-                    <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
-                    <input type="file" id="background-haiku" size="1" accept="image/jpeg,image/png" />
-                    <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
-                    <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                    <input type="file" id="handwriting-haiku" size="1" accept="image/jpeg,image/png" />
-                    <input type="submit" id="add-haiku-button" value="Add Haiku" />
+                    <form id="haiku_data">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" placeholder="Write author's firstname and surname..." autocomplete="off" />
+                        <ul id="author_list">
+                            <li>Start typing to search author...</li>
+                            <li id="add-author">Add new author</li>
+                        </ul>
+                        <label for="in-english">In English:</label>
+                        <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
+                        <label for="in-native">In Native Language (optional):</label>
+                        <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
+                        <label>Background (JPG or PNG):</label>
+                        <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
+                        <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png"/>
+                        <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
+                        <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
+                        <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png" />
+                        <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
                 </div>
                 <div class="col-12 col-md-5 offset-0 live">
@@ -215,7 +196,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/add_haiku_live.js"></script>
-    
+    <script src="js/haiku_editor.js"></script>
 </body>
 </html>

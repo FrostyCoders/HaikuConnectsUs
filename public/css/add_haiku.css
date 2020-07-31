@@ -138,6 +138,7 @@
 
 .add-inputs ul
 {
+    display: none;
     position: absolute;
     background-color: var(--white-color);
     color: var(--dark-color);
@@ -146,6 +147,8 @@
     border: 1px solid var(--dark-color);
     width: calc(80% - 3rem);
     min-height: 3.5rem;
+    max-height: 11rem;
+    overflow-y: auto;
     border-radius: 0.25rem;
     padding-left: 0;
 }

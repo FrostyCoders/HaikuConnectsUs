@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION['logged_user'] = true;
     if(!isset($_SESSION['logged_user']))
     {
         die(json_encode([false, "Error, you need to login in order to add haiku!"]));
@@ -10,7 +9,7 @@
         require_once "../config/config.php";
         require_once "db_connect.php";
 
-        if(!isset($_POST['author']) || !isset($_POST['title']) || !isset($_POST['content']) || !isset($_POST['content_native']) || !isset($_FILES['background']) || !isset($_FILES['handwriting']))
+        if(!isset($_POST['author']) || !isset($_POST['content']) || !isset($_POST['content_native']) || !isset($_FILES['bg_image']) || !isset($_FILES['hw_image']))
         {
             die(json_encode([false, "Error, missing data, fill all required inputs!"]));
         }
@@ -23,20 +22,19 @@
                 die(json_encode([false, "Error, you must choose haiku author from search list!"]));
             }
 
-            $title = $_POST['title'];
             $content = $_POST['content'];
 
-            if(empty($title) || empty($content))
+            if(empty($content))
             {
                 die(json_encode([false, "Error, fill all required data!"]));
             }
 
-            if(empty($_POST['content_native'])) $c_native = json_encode(["N", "O"]);
+            if(count(json_decode($_POST['content_native'])) == 0) $c_native = json_encode(["N", "O"]);
             else $c_native = $_POST['content_native'];
 
             $allowed_ext = array("jpg", "png", "jpeg", "bmp");
 
-            $handwriting = $_FILES['handwriting'];
+            $handwriting = $_FILES['hw_image'];
 
             if($handwriting['error'] !== 0 && $handwriting['error'] !== 4)
             {
@@ -44,17 +42,19 @@
             }
             else if($handwriting['error'] === 4)
             {
-                $hw_new_name = "none";
+                $hw_new_name = "no_hw.jpg";
             }
             else
             {
-                $hw_ext = strtolower(end(explode('.', $handwriting['name'])));
+                $hw_ext = explode('.', $handwriting['name']);
+                $hw_ext = end($hw_ext);
+                $hw_ext = strtolower($hw_ext);
                 if(!in_array($hw_ext, $allowed_ext))
                 {
                     die(json_encode([false, "Error, you cannot add this type of file in handwriting image!"]));
                 }
 
-                if($handwriting['size'] < 10485760)
+                if($handwriting['size'] > 10485760)
                 {
                     die(json_encode([false, "Error, size of uploaded handwriting image file is too big!"]));
                 }
@@ -82,17 +82,19 @@
             }
             else if($background['error'] === 4)
             {
-                $bg_new_name = "none";
+                $bg_new_name = "default.png";
             }
             else
             {
-                $bg_ext = strtolower(end(explode('.', $background['name'])));
+                $bg_ext = explode('.', $background['name']);
+                $bg_ext = end($bg_ext);
+                $bg_ext = strtolower($bg_ext);
                 if(!in_array($bg_ext, $allowed_ext))
                 {
                     die(json_encode([false, "Error, you cannot add this type of file in background image!"]));
                 }
 
-                if($background['size'] < 10485760)
+                if($background['size'] > 10485760)
                 {
                     die(json_encode([false, "Error, size of uploaded background image file is too big!"]));
                 }
@@ -129,8 +131,10 @@
             die(json_encode([false, "Error, cannot find given author!"]));
         }
         
+        $current_time = date('Y-m-d H:i:s');
+
         $query = $conn->prepare("INSERT INTO haiku VALUES
-                                (NULL, :aid, :title, :content, :c_native, 0, :bg, :hw, NULL);
+                                (NULL, :aid, :content, :c_native, 0, :bg, :hw, :time);
         ");
 
         $content = json_decode($content);
@@ -149,11 +153,11 @@
         try 
         {
             $query->bindParam(":aid", $author);
-            $query->bindParam(":title", $title);
             $query->bindParam(":content", $content);
             $query->bindParam(":c_native", $c_native);
-            $query->bindParam(":bg", $hw_new_name);
             $query->bindParam(":bg", $bg_new_name);
+            $query->bindParam(":hw", $hw_new_name);
+            $query->bindParam(":time", $current_time);
             $query->execute();
         }
         catch(Exception $e)
@@ -161,6 +165,6 @@
             die(json_encode([false, "Error, cannot add haiku due to the connection error, try later!"]));
         }
         
-        echo json_encode(true, "New haiku added succsessfully.");
+        echo json_encode([true, "New haiku added succsessfully."]);
     }
 ?>
