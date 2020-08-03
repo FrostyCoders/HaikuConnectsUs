@@ -90,12 +90,18 @@
                         <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
                         <label for="in-native">In Native Language (optional):</label>
                         <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
-                        <label>Background (JPG or PNG):</label>
+                        <label class="file-position">Background (JPG or PNG):
+                            <div class="file-delete" id="file-delete-background" title="Delete"></div>
+                        </label>
                         <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
+                        <div class="file-name" id="background-name"></div>
                         <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png"/>
-                        <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
+                        <label class="file-position">Handwritten letter from haiku (optional - JPG or PNG):
+                            <div class="file-delete" id="file-delete-handwriting" title="Delete"></div>
+                        </label>
                         <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
                         <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png" />
+                        <div class="file-name" id="handwriting-name"></div>
                         <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
                 </div>
@@ -105,7 +111,7 @@
                     <div class="posts">
                         <div class="post-header" id="post-header">
                             <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
+                                <p class="post-haiku" id="post-haiku"><br /></p>
                             </div>
                         </div>
                         <div class="lang-switch">

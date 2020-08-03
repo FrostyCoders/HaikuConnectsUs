@@ -42,6 +42,9 @@
                     <div id="forgot_button" class="additional_option">
                         Forgot Password
                     </div>
+                    <a href="index.php"><div class="additional_option">
+                        Back to the page
+                    </div></a>
                 </div>
             </form>
             <form id="forgot_form">

@@ -14,6 +14,11 @@ body
     font-family: TitilliumWeb, sans-serif;
     overflow: hidden;
 }
+a
+{
+    text-decoration: none;
+    color: #000;
+}
 .bg_image
 {
     width: 100%;
@@ -92,7 +97,7 @@ input[type='submit']:hover
     cursor: pointer;
     transition: 0.35s;
     padding: 1px;
-    padding-top: 5px;
+    padding-top: 1rem;
 }
 .additional_option:hover
 {

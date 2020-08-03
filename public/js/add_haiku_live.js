@@ -3,25 +3,37 @@ function liveAuthorHaiku()
 {    
     var authorName = document.getElementById("author").value;
     var postAuthor = document.getElementById("post-author");
-    //var country = document.getElementById("country").value;
     var postCountry = document.getElementById("post-country");
-    //postCountry.textContent = country;
     
-    if(authorName.length <= 1)
+    if(authorName.length < 1)
         {
             postAuthor.textContent = ".";
             postAuthor.style.visibility = "hidden";
         }
     else
         {
+            var n = authorName.search(",");
+            var authorCountry = "";
+            if(n<0)
+                {
+                    authorCountry = "";
+                }
+            else
+                {
+                    authorCountry = authorName.substr(n+2, authorName.length);
+                    var toDelete = authorName.substr(n, authorName.length);
+                    authorName = authorName.replace(toDelete, "");
+                }
+            
             postAuthor.textContent = authorName;
             postAuthor.style.visibility = "visible";
+            postCountry.textContent = authorCountry;
         }
     
     liveCheckEnter();
 }
 
-liveAuthorHaiku();
+document.addEventListener('keyup', liveAuthorHaiku, false);
 
 // CHANGE HAIKU POST ON LIVE
 function liveCheckEnter()
@@ -38,6 +50,10 @@ function liveCheckEnter()
     
     if(isChecked == false)
         {
+            if(inEnglish.length < 1)
+                {
+                    postHaiku.innerHTML = "<br />";
+                }
             inEnglishArray.forEach(element => {
             if(element.charCodeAt(0) == 10)
                 {
@@ -51,6 +67,10 @@ function liveCheckEnter()
         }
     else if(isChecked == true)
         {
+            if(inNative.length < 1)
+                {
+                    postHaiku.innerHTML = "<br />";
+                }
             inNativeArray.forEach(element => {
             if(element.charCodeAt(0) == 10)
                 {
@@ -83,6 +103,23 @@ var pullFileBackground = function()
     }
     
     reader.readAsDataURL(fileInput.files[0]);
+    
+    let fullPath = document.getElementById('background-haiku').value;
+    let backgroundName = document.getElementById('background-name');
+    if (fullPath) 
+    {
+        let startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        let filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) 
+        {
+            filename = filename.substring(1);
+        }
+        backgroundName.textContent = "Nazwa pliku: "+filename;
+        backgroundName.style.display = "block";
+    }
+    
+    const buttonBgDelete = document.getElementById("file-delete-background");
+    buttonBgDelete.style.display = "block";
 }
 
 var pullFileHandwriting = function()
@@ -101,6 +138,23 @@ var pullFileHandwriting = function()
     }
     
     reader.readAsDataURL(fileInputHand.files[0]);
+    
+    let fullPath = document.getElementById('handwriting-haiku').value;
+    let handwritingName = document.getElementById('handwriting-name');
+    if (fullPath) 
+    {
+        let startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        let filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) 
+        {
+            filename = filename.substring(1);
+        }
+        handwritingName.textContent = "Nazwa pliku: "+filename;
+        handwritingName.style.display = "block";
+    }
+    
+    const buttonHwDelete = document.getElementById("file-delete-handwriting");
+    buttonHwDelete.style.display = "block";
 }
 
 document.querySelector("#background-haiku").onchange=pullFileBackground;
@@ -162,3 +216,39 @@ function hideHandwriting()
 
 var handwritingClose = document.getElementById("post-nav-handwriting-close");
 handwritingClose.addEventListener('click', hideHandwriting, false);
+
+function deleteBackground()
+{
+    const buttonBgDelete = document.getElementById("file-delete-background");
+    const fileComplete = document.getElementById("file-complete");
+    const postHeader = document.getElementById("post-header");
+    const backgroundName = document.getElementById('background-name');
+    
+    buttonBgDelete.style.display = "none";
+    backgroundName.style.display = "none";
+    postHeader.style.backgroundImage = "none";
+    fileComplete.textContent = "Upload background";
+    fileComplete.style.borderColor = "var(--dark-color)";
+    fileComplete.style.color = "var(--dark-color)";
+}
+
+const buttonBgDelete = document.getElementById("file-delete-background");
+buttonBgDelete.addEventListener('click', deleteBackground, false);
+
+function deleteHandwriting()
+{
+    const buttonHwDelete = document.getElementById("file-delete-handwriting");
+    const fileCompleteHand = document.getElementById("file-complete-hand");
+    const postHeaderHand = document.getElementById("post-nav-handwriting");
+    const handwritingName = document.getElementById('handwriting-name');
+    
+    buttonHwDelete.style.display = "none";
+    handwritingName.style.display = "none";
+    postHeaderHand.style.backgroundImage = "none";
+    fileCompleteHand.textContent = "Upload handwriting";
+    fileCompleteHand.style.borderColor = "var(--dark-color)";
+    fileCompleteHand.style.color = "var(--dark-color)";
+}
+
+const buttonHwDelete = document.getElementById("file-delete-handwriting");
+buttonHwDelete.addEventListener('click', deleteHandwriting, false);
