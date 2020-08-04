@@ -2,8 +2,7 @@
     // EMAIL CHECKER
     if(!isset($_POST['email']))
     {
-        $result = array(false, "Error, missing or wrong data, try later!");
-        echo json_encode($result);
+        die(json_encode([false, "Error, missing or wrong data, try later!"]));
     }
     else
     {
@@ -22,23 +21,21 @@
         }
         catch(Exception $e)
         {
-            $result = array(0, "Error, Cannot load users data!");
-            $query_ok = false;
+            die(json_encode([0, "Error, Cannot load users data!"]));
         }
-
-        if($query_ok == true)
+            
+        $useremail = $query->fetchAll();
+        //print_r($useremail);
+        foreach($useremail as $email)
         {
-            $useremail = $query->fetchAll();
-            foreach($useremail as $email)
+            echo decrypt_email($email['email'], CKEY1);
+            if(decrypt_email($email['email'], CKEY1) === $email)
             {
-                if(decrypt_email($email['email'], CKEY1) == $email)
-                {
-                    $result = array(2, "The e-mail already exists!");
-                }
-                else
-                {
-                    $result = array(1, "The e-mail is available!");
-                }
+                die(json_encode([2, "The e-mail already exists!"]));
+            }
+            else
+            {
+                die(json_encode([1, "The e-mail is available!"]));
             }
         }
         echo json_encode($result);

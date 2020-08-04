@@ -69,6 +69,7 @@ function changeEmail()
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200)
         {
+            console.log(request.responseText);
             const email = JSON.parse(request.responseText);
             if(email[0] == 1)
             {

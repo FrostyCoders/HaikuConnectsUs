@@ -1,6 +1,3 @@
-<?php
-    require_once "../classes/users.php";
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +43,7 @@
        
             <ul class="navbar-nav ml-auto mg-0">
                 <?php
+                    require_once "../classes/users.php";
                     require_once "../resources/site_menu.php";
                     if(!isset($_SESSION['logged_user']))
                         header("Location: login.php");
@@ -74,8 +72,8 @@
             <div class="row">
                 <div class="col-12 col-md-4 offset-0 offset-md-2 settings">
                     <div class="settings-icon"></div>
-                    <div class="settings-nickname" id="settings-nickname"><?php echo $_SESSION['logged_user']->showName; ?></div>
-                    <div class="settings-email" id="settings-email"><?php echo $_SESSION['logged_user']->showEmail; ?></div>
+                    <div class="settings-nickname" id="settings-nickname"><?php echo $_SESSION['logged_user']->showName(); ?></div>
+                    <div class="settings-email" id="settings-email"><?php echo $_SESSION['logged_user']->showEmail(); ?></div>
                 </div>
                 <div class="col-12 col-md-4 offset-0 settings">
                     <form id="form-nickname">
