@@ -27,7 +27,6 @@
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
-            <div class="point2"></div>
         </div>
     </div>
     <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
