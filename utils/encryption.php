@@ -259,5 +259,5 @@
     }
 
     //require_once "../config/config.php";
-    //echo encrypt_data("Wojciech", CKEY4);
+
 ?>
