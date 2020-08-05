@@ -105,10 +105,10 @@
                     <div class="posts">
                         <div class="post-header" id="post-header">
                             <div class="posts-haiku">
-                                <p class="post-haiku" id="post-haiku"></p>
+                                <p class="post-haiku" id="post-haiku"><br /></p>
                             </div>
                         </div>
-                        <div class="lang-switch">
+                        <div class="lang-switch" id="lang-switch">
                             <label class="lang-switcher">
                                 <input type="checkbox" id="ischecked">
                                 <span class="lang-slider"></span>

@@ -448,10 +448,7 @@ input[type="radio"]:checked + label span.radio::after
 }
 
 .posts
-{
-   
-    float: left;
-    width: 40%;
+{ 
     min-height: 20rem;
     margin-bottom: 5rem;
     border-radius: 0.5rem;
@@ -472,7 +469,7 @@ input[type="radio"]:checked + label span.radio::after
     width: 100%;
     height: 100%;
     background-color: var(--extra-color);
-    background-image: url(../img/background.png);
+    background-image: url(../../uploads/background/default.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1003,8 +1000,25 @@ input[type="radio"]:checked + label span.radio::after
 
 .mg-posts
 {
+    width: 40%;
     margin-left: 5%;
     margin-right: 2.5%;
+    float: left;
+}
+
+.mg-posts1
+{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: none;
+}
+
+.mg-posts3
+{
+    width: 30%;
+    margin-left: 2.5%;
+    margin-right: 0.833333%;
     float: left;
 }
 
@@ -1016,6 +1030,7 @@ input[type="radio"]:checked + label span.radio::after
     margin-bottom: 4rem;
     position: static;
     clear: both;
+    user-select: none;
 }
 
 .pagination .page-item .page-link
@@ -1189,14 +1204,10 @@ footer h4
         display: none;
     }
     
-    .posts
-    {
-        width: 90%;
-    }
-    
     .mg-posts
     {
-        float:none;
+        width: 90%;
+        float: none;
         margin-left: 5%;
         margin-right: 5%;
     }
@@ -1210,6 +1221,11 @@ footer h4
     {
         float: none;
         width: 90%;
+    }
+    
+    #grid-option
+    {
+        display: none;
     }
 }
 

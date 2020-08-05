@@ -30,14 +30,28 @@ function liveCheckEnter()
     var inNative = document.getElementById("in-native").value;
     var postHaiku = document.getElementById("post-haiku");
     var isChecked = document.getElementById("ischecked").checked;
+    var isCheckedSwitch = document.getElementById("lang-switch");
    
     var inEnglishArray = Array.from(inEnglish);
     var inNativeArray = Array.from(inNative);
     
     postHaiku.textContent = "";
     
+    if(inNative.length < 1)
+        {
+            isCheckedSwitch.style.display = "none";
+        }
+    else
+        {
+            isCheckedSwitch.style.display = "block";
+        }
+    
     if(isChecked == false)
         {
+            if(inEnglish.length < 1)
+                {
+                    postHaiku.innerHTML = "<br />";
+                }
             inEnglishArray.forEach(element => {
             if(element.charCodeAt(0) == 10)
                 {
@@ -51,6 +65,10 @@ function liveCheckEnter()
         }
     else if(isChecked == true)
         {
+            if(inNative.length < 1)
+                {
+                    postHaiku.innerHTML = "<br />";
+                }
             inNativeArray.forEach(element => {
             if(element.charCodeAt(0) == 10)
                 {
