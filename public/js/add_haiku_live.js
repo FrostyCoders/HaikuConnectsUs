@@ -42,11 +42,21 @@ function liveCheckEnter()
     var inNative = document.getElementById("in-native").value;
     var postHaiku = document.getElementById("post-haiku");
     var isChecked = document.getElementById("ischecked").checked;
+    var isCheckedSwitch = document.getElementById("lang-switch");
    
     var inEnglishArray = Array.from(inEnglish);
     var inNativeArray = Array.from(inNative);
     
     postHaiku.textContent = "";
+    
+    if(inNative.length < 1)
+        {
+            isCheckedSwitch.style.display = "none";
+        }
+    else
+        {
+            isCheckedSwitch.style.display = "block";
+        }
     
     if(isChecked == false)
         {

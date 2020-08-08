@@ -113,7 +113,7 @@
                                 <p class="post-haiku" id="post-haiku"><br /></p>
                             </div>
                         </div>
-                        <div class="lang-switch">
+                        <div class="lang-switch" id="lang-switch">
                             <label class="lang-switcher">
                                 <input type="checkbox" id="ischecked">
                                 <span class="lang-slider"></span>

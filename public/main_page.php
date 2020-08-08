@@ -124,19 +124,19 @@
                             <input type="radio" name="sort" value="random" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
                             </div>
                         </div>
-                        <div class="filter-option">
-                            <p>Quantity per page:</p>
+                        <div class="filter-option" id="grid-option">
+                            <p>Grid of posts:</p>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity" id="quantity1" value="10" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
+                            <input type="radio" name="quantity" id="quantity1" value="3" /><label for="quantity1"><span class="radio">3 posts in grid</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity2" value="20" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
+                            <input type="radio" name="quantity"  id="quantity2" value="2" checked /><label for="quantity2"><span class="radio">2 posts in grid</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity3" value="50" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
+                            <input type="radio" name="quantity"  id="quantity3" value="1" /><label for="quantity3"><span class="radio">1 posts in grid</span></label><br />
                             </div>
                         </div>
                         <div class="filter-option">
