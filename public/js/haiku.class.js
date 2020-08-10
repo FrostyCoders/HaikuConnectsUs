@@ -1,6 +1,6 @@
 class Haiku 
 {
-    constructor(id, authorName, authorCountry, content, contentNative, likes, likeStatus, background, handwriting, reported, loggedIn)
+    constructor(id, authorName, authorCountry, content, contentNative, likes, likeStatus, background, handwriting, reported, gridClass, loggedIn)
     {
         this.id = id;
         this.authorName = authorName;
@@ -12,6 +12,7 @@ class Haiku
         this.background = background;
         this.handwriting = handwriting;
         this.reported = reported;
+        this.gridClass = gridClass;
         this.loggedIn = loggedIn;
     }
     // DISPLAY HAIKU ON WEBSITE
@@ -19,7 +20,7 @@ class Haiku
     {
         this.post = document.createElement("div");
         this.post.setAttribute("id", "haiku"+this.id);
-        this.post.setAttribute("class", "posts mg-posts");
+        this.post.setAttribute("class", "posts " + this.gridClass);
         
         let postElements = [];
 

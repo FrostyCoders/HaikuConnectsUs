@@ -1204,7 +1204,7 @@ footer h4
         display: none;
     }
     
-    .mg-posts
+    .mg-posts, .mg-posts3
     {
         width: 90%;
         float: none;

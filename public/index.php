@@ -28,7 +28,7 @@
             <div class="point1"></div>
         </div>
     </div>
-    <div class="page-communicate" id="post-error">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="post-report-menu" id="post-report-menu">
         <div class="post-report-close" id="post-report-close"></div>
         <form id="report_form">
@@ -41,7 +41,7 @@
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
+      <a class="navbar-brand" href="main_page.html">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -53,7 +53,7 @@
       <div class="collapse navbar-collapse" id="menu">
        
            <ul class="navbar-nav ml-auto mg-0">
-                <?php
+            <?php
                     require_once "../resources/site_menu.php";
                 ?>
            </ul>
@@ -102,19 +102,19 @@
                             <input type="radio" name="sort" value="random" id="sort4" /><label for="sort4"><span class="radio">Randomness</span></label>
                             </div>
                         </div>
-                        <div class="filter-option">
-                            <p>Quantity per page:</p>
+                        <div class="filter-option" id="grid-option">
+                            <p>Grid of posts:</p>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity" id="quantity1" value="10" checked /><label for="quantity1"><span class="radio">10 haiku per page</span></label><br />
+                            <input type="radio" name="posts_grid" id="quantity1" value="3" /><label for="quantity1"><span class="radio">3 posts in grid</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity2" value="20" /><label for="quantity2"><span class="radio">20 haiku per page</span></label><br />
+                            <input type="radio" name="posts_grid"  id="quantity2" value="2" checked /><label for="quantity2"><span class="radio">2 posts in grid</span></label><br />
                             </div>
                             
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity3" value="50" /><label for="quantity3"><span class="radio">50 haiku per page</span></label><br />
+                            <input type="radio" name="posts_grid"  id="quantity3" value="1" /><label for="quantity3"><span class="radio">1 posts in grid</span></label><br />
                             </div>
                         </div>
                         <div class="filter-option">
