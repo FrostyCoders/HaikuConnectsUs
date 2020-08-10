@@ -7,10 +7,10 @@
     else
     {
         require_once "../config/config.php";
-        require_once "db_connect.php";
         require_once "../utils/decryption.php";
+        require_once "db_connect.php";
         
-        $email = $_POST['email'];
+        $email = strtolower($_POST['email']);
 
         $query = $conn->prepare("SELECT email FROM users");
 
@@ -25,19 +25,14 @@
         }
             
         $useremail = $query->fetchAll();
-        //print_r($useremail);
-        foreach($useremail as $email)
+        foreach($useremail as $uemail)
         {
-            echo decrypt_email($email['email'], CKEY1);
-            if(decrypt_email($email['email'], CKEY1) === $email)
+            $decrypted = decrypt_email($uemail['email'], CKEY1);
+            if($decrypted === $email)
             {
-                die(json_encode([2, "The e-mail already exists!"]));
-            }
-            else
-            {
-                die(json_encode([1, "The e-mail is available!"]));
+                die(json_encode([2, "This e-mail is already in use by other user!"]));
             }
         }
-        echo json_encode($result);
-    }    
+        echo json_encode([1, "This e-mail is available!"]);
+    }
 ?>

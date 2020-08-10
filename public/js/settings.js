@@ -63,13 +63,12 @@ function changeEmail()
     const emailNew = document.getElementById("change-email").value;
     const emailConfirm = document.getElementById("confirm-email");
     const emailNotification = document.getElementById("email-notification");
-    
+
     Loading(true);
     const request = new XMLHttpRequest;
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200)
         {
-            console.log(request.responseText);
             const email = JSON.parse(request.responseText);
             if(email[0] == 1)
             {
