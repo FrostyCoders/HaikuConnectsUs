@@ -28,6 +28,7 @@
             <div class="point1"></div>
         </div>
     </div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="index.php">Haiku Connects Us</a>

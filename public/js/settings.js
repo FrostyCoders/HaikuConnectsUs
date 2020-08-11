@@ -29,7 +29,7 @@ function changeNickname()
             {
                     nicknameNotification.style.display = "none";
                     nicknameConfirm.style.display = "none";
-                // tutaj jeszcze blad do boxa z bledem
+                    showCommunicate([false, nickname[1]]);
             }
             else
             {
@@ -53,6 +53,32 @@ function changeNickname()
 
 document.getElementById("form-nickname").addEventListener("submit", (event) => {
     event.preventDefault();
+    const nicknameNew = document.getElementById("change-nickname").value;
+    const nicknameSettings = document.getElementById("settings-nickname");
+    Loading(true);
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            const nickname = JSON.parse(request.responseText);
+            console.log(nickname);
+            if(nickname[0] == true)
+            {
+                showCommunicate([true, nickname[1]]);
+                nicknameSettings.textContent = nicknameNew;
+            }
+            else
+            {
+                showCommunicate([false, nickname[1]]);
+            }
+            Loading(false);
+        }
+    };
+    request.open("POST", "../resources/user_nickname_change.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "nickname="+nicknameNew
+    );
 });
 
 document.getElementById("change-nickname").addEventListener("keyup", changeNickname, false);
@@ -88,7 +114,7 @@ function changeEmail()
             {
                     emailNotification.style.display = "none";
                     emailConfirm.style.display = "none";
-                // tutaj jeszcze blad do boxa z bledem
+                    showCommunicate([false, email[1]]);
             }
             else
             {

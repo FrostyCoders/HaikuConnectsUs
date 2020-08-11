@@ -29,7 +29,7 @@
             <div class="point1"></div>
         </div>
     </div>
-    <div class="page-communicate" id="post-error">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="add-new-author" id="add-new-author">
         <div class="add-new-author-close" id="add-new-author-close"></div>
         <p>Add new author:</p>

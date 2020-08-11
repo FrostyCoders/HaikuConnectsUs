@@ -25,8 +25,8 @@ const checkArray = (array, value) => {
 function showCommunicate(message) {
     if(message[1].length == 0)
         return ;
-    const box = document.getElementById("post-error");
-    box.textContent = message[1];
+    const box = document.getElementById("page-communicate");
+    box.innerText = message[1];
     box.style.display = "block";
     new Promise((resolve, reject) => {
         if(message[0] == false)
