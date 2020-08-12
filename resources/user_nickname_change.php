@@ -32,6 +32,7 @@
         if($query_ok == true)
         {
             $result = array(true, "The nickname is change!");
+            $_SESSION['logged_user']->changeUsername($_POST['nickname']);
         }
         echo json_encode($result);
     }    
