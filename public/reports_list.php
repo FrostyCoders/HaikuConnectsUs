@@ -25,6 +25,7 @@
 </head>
 <body>
     <!-- INNE -->
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
@@ -78,10 +79,10 @@
                             <input type="radio" name="sort" value="oldest" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
                             </div>
                             <div class="radio-container">
-                            <input type="radio" name="quantity" id="quantity1" value="1" checked /><label for="quantity1"><span class="radio">Undone</span></label><br />
+                            <input type="radio" name="done" id="quantity1" value="0" checked /><label for="quantity1"><span class="radio">Undone</span></label><br />
                             </div>
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity2" value="2" /><label for="quantity2"><span class="radio">Done</span></label><br />
+                            <input type="radio" name="done"  id="quantity2" value="1" /><label for="quantity2"><span class="radio">Done</span></label><br />
                             </div>
                         </div>
                     </div>
@@ -204,9 +205,11 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/reports.js"></script>
+
     
 </body>
 </html>
