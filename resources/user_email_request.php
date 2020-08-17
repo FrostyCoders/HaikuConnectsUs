@@ -30,7 +30,7 @@
     // CHANGE KEY IF ALREADY EXIST
     function validate_key($change_key, $conn)
     {
-        $query = $conn->prepare("SELECT * FROM change_email WHERE key_series = :key_series");
+        $query = $conn->prepare("SELECT * FROM change_email_requests WHERE key_series = :key_series");
         $query->bindParam(":key_series", $change_key);
         try
         {

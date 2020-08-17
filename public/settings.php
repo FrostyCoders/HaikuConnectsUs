@@ -79,25 +79,25 @@
                 <div class="col-12 col-md-4 offset-0 settings">
                     <form id="form-nickname">
                     <label for="change-nickname">Change your nickname:</label>
-                    <input type="text" id="change-nickname" placeholder="" />
+                    <input type="text" id="change-nickname" placeholder="Letters and numbers only..." pattern="[A-Za-z0-9]+"/>
                     <span class="settings-notification" id="nickname-notification"></span>
                     <input type="submit" id="confirm-nickname" value="Confirm"/>
                     </form>
                     <hr class="hr-big-space">
                     <form id="form-email">
                     <label for="change-email">Change your e-mail:</label>
-                    <input type="email" id="change-email" placeholder="" />
+                    <input type="email" id="change-email" placeholder="New e-mail..." />
                     <span class="settings-notification" id="email-notification"></span>
                     <input type="submit" id="confirm-email" value="Confirm"/>
                     </form>
                     <hr class="hr-big-space">
                     <form id="form-pass">
                     <label for="check-password">Your current password:</label>
-                    <input type="password" id="check-password" placeholder="" />
+                    <input type="password" id="check-password" placeholder="Write current password..." />
                     <label for="change-password">Your new password:</label>
-                    <input type="password" id="change-password" placeholder="" />
+                    <input type="password" id="change-password" placeholder="Password must be 8 characters long..." />
                     <label for="repeat-password">Repeat new password:</label>
-                    <input type="password" id="repeat-password" placeholder="" />
+                    <input type="password" id="repeat-password" placeholder="Repeat new password..." />
                     <span class="settings-notification" id="password-notification">Password must be 8 characters long</span>
                     <input type="submit" id="confirm-password" value="Confirm"/>
                     </form>

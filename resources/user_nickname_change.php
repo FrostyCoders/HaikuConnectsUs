@@ -1,6 +1,6 @@
 <?php
     // NICKNAME CHANGE
-    if(!isset($_POST['nickname']))
+    if(!isset($_POST['nickname']) || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_POST['nickname']))
     {
         $result = array(false, "Error, missing or wrong data, try later!");
         echo json_encode($result);

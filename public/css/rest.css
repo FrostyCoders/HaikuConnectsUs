@@ -172,11 +172,6 @@
     margin-bottom: 2rem;
 }
 
-#check-password::placeholder
-{
-    color: var(--extra-color);
-}
-
 .settings input[type="submit"]
 {
     display: none;

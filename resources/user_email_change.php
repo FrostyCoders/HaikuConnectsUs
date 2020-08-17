@@ -24,7 +24,7 @@
             if($query->rowCount() == 1)
             {
                 $query = $query->fetch();
-                $change_email = $conn->prepare("UPDATE users SET user_email = :new_email WHERE user_id = :uid");
+                $change_email = $conn->prepare("UPDATE users SET email = :new_email WHERE id = :uid");
                 $change_email->bindParam(":new_email", encrypt_email($query['new_email'], CKEY1));
                 $change_email->bindParam(":uid", $query['user_id']);
                 $link_used = $conn->prepare("UPDATE change_email_requests SET used = 1 WHERE request_id = :rid");
