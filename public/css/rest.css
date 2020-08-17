@@ -69,7 +69,7 @@
     text-align: center;
 }
 
-.information q
+.information q, .info-about q
 {
     color: var(--extra-color);
     font-weight: bold;

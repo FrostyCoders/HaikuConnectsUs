@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/rest.css" />
-
 </head>
 <body>
     <!-- INNE -->
@@ -29,7 +28,6 @@
             <div class="point1"></div>
         </div>
     </div>
-    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
@@ -57,47 +55,63 @@
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Authors list</h1>
-                            <h3 class="my-4 font-weight-light">List of all haiku authors creating this project.</h3>
-                            <h3 class="my-4 font-weight-bold">Thank you for all work put into the project and the opportunity to read your haiku here!</h3>
+                            <h1 class="display-4">Cookies policy</h1>
+                            <h3 class="my-4 font-weight-light">Some information about our cookies policy.</h3>
                         </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
-                    <h4>List of authors:</h4>
+                    <p class="information"><strong>By using <q>Haiku Connects Us</q>, you agree to the session mechanism and storage of cookies and files in local storage (if the browser's privacy settings for cookies and local storage have not been changed).</strong></p>
+                    <hr class="hr-big">
+                    <h4>What are cookies?</h4>
                     <hr class="mt-3">
-                </div>
-            </div>    
-            <div class="row" id="table-box"> 
-                <div class="col-12 col-lg-6 offset-0 table-con">
+                    <p class="info-about">Cookies are small files stored in the browser's memory (locally) that contain text content. Such files are created when you use your browser and visit websites that use cookies. They are often necessary to remember the user's preferences on a given website.</p>
+                    <p class="info-about">Cookies contain little information - the name, content, URL of the website that created the cookie, the lifetime or the lifetime of the cookie. Normally, they cannot be used to reveal personal information, but can be used, for example, to tailor advertising to your preferences.</p>
+                    <p class="info-about">You can disable cookies at any time in the privacy settings of your browser.</p>
+                    <h4>Cookies used by us:</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">We do not want to hide from you what cookies we use, so below is a list of cookies used by <q>Haiku Connects Us</q>:</p>
                     <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
+                    <table class="table table-striped table-bordered">
                         <thead>
-                            <tr><th>Authors</th><th>Country</th></tr>
+                            <tr><th>Name</th><th>Content</th><th>Lifetime</th><th>Destiny</th></tr>
                         </thead>
-                        <tbody id="table-response1">
+                        <tbody>
+                            <tr><td>PHPSESSID</td><td>Randomly generated string</td><td>Until the end of the browser session</td><td>Create a unique user session</td></tr>
                         </tbody>
                     </table>
                     </div>
-                </div>
-                 <div class="col-12 col-lg-6 offset-0 table-con">
+                    <hr class="hr-big">
+                    <h4>What is a local and session storage?</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">Local storage is an area in the browser's memory, inaccessible to the server, where it stores data that does not have an expiry date, i.e. it remains even after closing the browser.</p>
+                    <p class="info-about">Session storage is the equivalent of cookies, but with a larger size, that the server can access. Data in session storage is deleted after the session is terminated.</p>
+                    <h4>Data in local and session storage used by us:</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">Below is a list of data in use by <q>Haiku Connects Us</q> stored in local and session storage:</p>
                     <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
+                    <table class="table table-striped table-bordered">
                         <thead>
-                            <tr><th>Authors</th><th>Country</th></tr>
+                            <tr><th>Name</th><th>Content</th><th>Destiny</th></tr>
                         </thead>
-                        <tbody id="table-response2">
+                        <tbody>
+                            <tr><td>likes</td><td>Id of the haiku you liked</td><td>Check which haiku have been liked</td></tr>
+                            <tr><td>reports</td><td>Id of the haiku you reported</td><td>Check which haiku have been reported</td></tr>
                         </tbody>
                     </table>
-                 </div>
+                    </div>
+                    <hr class="hr-big">
+                    <h4>What is a session?</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">The session mechanism and session variables are stored on the server side, while the session id is on the user's local device. It makes it possible to transfer parameters between subpages of a given website in an easy way. Thanks to the session, it is possible, for example, to leave the same filters selected before reloading the website or to remain logged in, maneuvering between the subpages of a given website.</p>
+                    <h4>Session used by us:</h4>
+                    <hr class="mt-3">
+                    <p class="info-about"><q>Haiku Connects Us</q> uses the session mechanism to provide the user with a better experience when using the website, remembering filters when refreshing a given subpage with filters and remembering the logged in user on a given local device.</p>
                 </div>
-                        
-                  
             </div>
         </div>
-    </main>
-    
+    </main>   
     <!-- STOPKA -->     
     <footer class="page-footer">
         <div class="container">
@@ -158,10 +172,9 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/author_list.js"></script>
     
 </body>
 </html>
