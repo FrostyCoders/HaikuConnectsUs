@@ -141,6 +141,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-lg-8 offset-0 offset-lg-2">
+                    <nav aria-label="Page pagination">
+                        <ul class="pagination justify-content-center">
+                            <li id="previous_button" class="page-item">
+                                <a class="page-link">&laquo;&laquo; Previous</a>
+                            </li>
+                            <li id="page_number" class="page-item"><a class="page-link page-link-number"></a></li>
+                            <li id="next_button" class="page-item">
+                                <a class="page-link" >Next &raquo;&raquo;</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </main>
