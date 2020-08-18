@@ -1,5 +1,4 @@
-.points-loading-container
-{
+.points-loading-container{
     display: none;
     position: fixed;
     bottom: 0.1rem;
@@ -10,8 +9,7 @@
     z-index: 9999;
 }
 
-.point1, .point1:before, .point1:after
-{
+.point1, .point1:before, .point1:after{
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
@@ -21,16 +19,14 @@
     border-radius: 0.1rem;
     -moz-border-radius: 0.1rem;
     -webkit-border-radius: 0.1rem;
-    background-color: var(--extra-color);
+    background-color: $extra-color;
 }
 
-.point1
-{
+.point1{
     animation: 2s infinite point1;
 }
 
-.point1:before
-{
+.point1:before{
     content: "";
     display: block;
     left: -125%;
@@ -38,8 +34,7 @@
     animation: 2.5s infinite point1;
 }
 
-.point1:after
-{
+.point1:after{
     content: "";
     display: block;
     left: 225%;
@@ -48,8 +43,7 @@
 }
 
 
-@keyframes point1
-{
+@keyframes point1{
     0%, 100% {
         height: 0;
     }
