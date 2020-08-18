@@ -1,5 +1,6 @@
 <?php
     require_once "../config/config.php";
+    require_once "../config/encryption.php";
     require_once "db_connect.php";
     if(!isset($_GET['ck']) || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_GET['ck']))
     {
@@ -24,7 +25,7 @@
             {
                 $query = $query->fetch();
                 $change_email = $conn->prepare("UPDATE users SET user_email = :new_email WHERE user_id = :uid");
-                $change_email->bindParam(":new_email", $query['new_email']);
+                $change_email->bindParam(":new_email", encrypt_email($query['new_email'], CKEY1));
                 $change_email->bindParam(":uid", $query['user_id']);
                 $link_used = $conn->prepare("UPDATE change_email_requests SET used = 1 WHERE request_id = :rid");
                 $link_used->bindParam(":rid", $query['request_id']);

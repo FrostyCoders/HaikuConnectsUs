@@ -25,10 +25,10 @@
 </head>
 <body>
     <!-- INNE -->
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
-            <div class="point2"></div>
         </div>
     </div>
     <!-- PASEK NAWIGACYJNY -->
@@ -73,16 +73,16 @@
                         <div class="filter-option">
                             <p>Filters:</p>
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="newest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
+                            <input type="radio" name="sort" value="latest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
                             </div>
                             <div class="radio-container">
                             <input type="radio" name="sort" value="oldest" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
                             </div>
                             <div class="radio-container">
-                            <input type="radio" name="quantity" id="quantity1" value="1" checked /><label for="quantity1"><span class="radio">Undone</span></label><br />
+                            <input type="radio" name="done" id="quantity1" value="0" checked /><label for="quantity1"><span class="radio">Undone</span></label><br />
                             </div>
                             <div class="radio-container">
-                            <input type="radio" name="quantity"  id="quantity2" value="2" /><label for="quantity2"><span class="radio">Done</span></label><br />
+                            <input type="radio" name="done"  id="quantity2" value="1" /><label for="quantity2"><span class="radio">Done</span></label><br />
                             </div>
                         </div>
                     </div>
@@ -140,6 +140,19 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-12 col-lg-8 offset-0 offset-lg-2">
+                    <nav aria-label="Page pagination">
+                        <ul class="pagination justify-content-center">
+                            <li id="previous_button" class="page-item">
+                                <a class="page-link">&laquo;&laquo; Previous</a>
+                            </li>
+                            <li id="page_number" class="page-item"><a class="page-link page-link-number"></a></li>
+                            <li id="next_button" class="page-item">
+                                <a class="page-link" >Next &raquo;&raquo;</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -205,9 +218,11 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/reports.js"></script>
+
     
 </body>
 </html>

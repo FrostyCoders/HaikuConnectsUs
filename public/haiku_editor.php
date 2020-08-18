@@ -27,10 +27,9 @@
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
-            <div class="point2"></div>
         </div>
     </div>
-    <div class="page-communicate" id="post-error">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="add-new-author" id="add-new-author">
         <div class="add-new-author-close" id="add-new-author-close"></div>
         <p>Add new author:</p>
@@ -90,12 +89,18 @@
                         <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
                         <label for="in-native">In Native Language (optional):</label>
                         <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
-                        <label>Background (JPG or PNG):</label>
+                        <label class="file-position">Background (JPG or PNG):
+                            <div class="file-delete" id="file-delete-background" title="Delete"></div>
+                        </label>
                         <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
+                        <div class="file-name" id="background-name"></div>
                         <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png"/>
-                        <label>Handwritten letter from haiku (optional - JPG or PNG):</label>
+                        <label class="file-position">Handwritten letter from haiku (optional - JPG or PNG):
+                            <div class="file-delete" id="file-delete-handwriting" title="Delete"></div>
+                        </label>
                         <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
                         <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png" />
+                        <div class="file-name" id="handwriting-name"></div>
                         <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
                 </div>

@@ -26,9 +26,9 @@
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
-            <div class="point2"></div>
         </div>
     </div>
+    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
@@ -44,6 +44,7 @@
        
             <ul class="navbar-nav ml-auto mg-0">
                 <?php
+                    require_once "../classes/users.php";
                     require_once "../resources/site_menu.php";
                     if(!isset($_SESSION['logged_user']))
                         header("Location: login.php");
@@ -72,20 +73,25 @@
             <div class="row">
                 <div class="col-12 col-md-4 offset-0 offset-md-2 settings">
                     <div class="settings-icon"></div>
-                    <div class="settings-nickname" id="settings-nickname">Taki_Testowy_1</div>
-                    <div class="settings-email" id="settings-email">takitestowy1@test.test</div>
+                    <div class="settings-nickname" id="settings-nickname"><?php echo $_SESSION['logged_user']->showName(); ?></div>
+                    <div class="settings-email" id="settings-email"><?php echo $_SESSION['logged_user']->showEmail(); ?></div>
                 </div>
                 <div class="col-12 col-md-4 offset-0 settings">
+                    <form id="form-nickname">
                     <label for="change-nickname">Change your nickname:</label>
                     <input type="text" id="change-nickname" placeholder="" />
                     <span class="settings-notification" id="nickname-notification"></span>
                     <input type="submit" id="confirm-nickname" value="Confirm"/>
+                    </form>
                     <hr class="hr-big-space">
+                    <form id="form-email">
                     <label for="change-email">Change your e-mail:</label>
                     <input type="email" id="change-email" placeholder="" />
                     <span class="settings-notification" id="email-notification"></span>
                     <input type="submit" id="confirm-email" value="Confirm"/>
+                    </form>
                     <hr class="hr-big-space">
+                    <form id="form-pass">
                     <label for="check-password">Your current password:</label>
                     <input type="password" id="check-password" placeholder="" />
                     <label for="change-password">Your new password:</label>
@@ -94,6 +100,7 @@
                     <input type="password" id="repeat-password" placeholder="" />
                     <span class="settings-notification" id="password-notification">Password must be 8 characters long</span>
                     <input type="submit" id="confirm-password" value="Confirm"/>
+                    </form>
                 </div>
             </div>
         </div>
@@ -162,6 +169,7 @@
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/common.js"></script>
     
 </body>
 </html>

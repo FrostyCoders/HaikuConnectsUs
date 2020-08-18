@@ -176,6 +176,75 @@
     border-bottom: 0;
 }
 
+.file-position
+{
+    position: relative;
+}
+
+.file-name
+{
+    word-break: break-word;
+    margin-left: 10%;
+    margin-top: 0.5rem;
+    width: 80%;
+    display: none;
+}
+
+.file-delete
+{
+    position: absolute;
+    left: 15.5rem;
+    top: 3.2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1.5px solid var(--dark-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition-duration: 0.35s;
+    display: none;
+}
+
+.file-delete:before
+{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    left: 0.6rem;
+    transform: translate(-50%, -50%);
+    transform: rotate(-45deg);
+    width: 2rem;
+    height: 0.3rem;
+    
+    background: #000;
+    transition-duration: 0.35s;
+}
+
+.file-delete:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    left: 0.6rem;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    height: 0.3rem;
+    transform: rotate(45deg);
+    background: #000;
+    transition-duration: 0.35s;
+}
+
+.file-delete:hover::before, .file-delete:hover::after
+{
+    background: var(--extra-color);
+}
+
+.file-delete:hover
+{
+    border-color: var(--extra-color);
+}
+
 .posts
 {
     position: relative;

@@ -26,7 +26,6 @@
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
-            <div class="point2"></div>
         </div>
     </div>
     <!-- PASEK NAWIGACYJNY -->
@@ -62,9 +61,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
+                <div class="col-12 col-md-8 offset-0 offset-md-2 first-row">
                     <h4>Map of authors:</h4>
                     <hr class="mt-3">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1Icga6Elg0lJYg24wjIJDoHNY37s1nnGV" width="100%" height="500px"></iframe>
+                    <div class="nothing"></div>
                 </div>
             </div>
         </div>
@@ -130,7 +131,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     

@@ -33,5 +33,10 @@
             $conn->close();
             return $result;
         }
+
+        function changeUsername($newUsername)
+        {
+            $this->username = $newUsername;
+        }
     }
 ?>

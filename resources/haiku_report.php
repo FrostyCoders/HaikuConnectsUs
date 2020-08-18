@@ -29,7 +29,7 @@
             $reason = $_POST['reason'];
             $current_time = date('Y-m-d H:i:s');
             $report = $conn->prepare("INSERT INTO haiku_reports(`report_id`, `guest_email`, `haiku_id`, `reason`, `solved`, `add_time`)
-                                      VALUES (NULL, :email, :hid, :reason, 0, :time);");
+                                      VALUES (NULL, :email, :hid, :reason, 'F', :time);");
             try
             {
                 $report->bindParam(":hid", $haiku_id);

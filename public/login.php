@@ -23,7 +23,6 @@
         <div id="loading-container">
             <div class="points-loading-container">
                 <div class="point1"></div>
-                <div class="point2"></div>
             </div>
         </div>
         <div class="frame">
@@ -42,6 +41,9 @@
                     <div id="forgot_button" class="additional_option">
                         Forgot Password
                     </div>
+                    <a href="index.php"><div class="additional_option">
+                        Back to the page
+                    </div></a>
                 </div>
             </form>
             <form id="forgot_form">

@@ -1,66 +1,148 @@
-// CHANGE NICKNAME
+// CHECK NICKNAME
 function changeNickname()
 {
     const nicknameNew = document.getElementById("change-nickname").value;
-    const nicknameOld = document.getElementById("settings-nickname").textContent;
-    let nicknameConfirm = document.getElementById("confirm-nickname");
-    let nicknameNotification = document.getElementById("nickname-notification");
+    const nicknameConfirm = document.getElementById("confirm-nickname");
+    const nicknameNotification = document.getElementById("nickname-notification");
     
-    nicknameNotification.style.display = "block";
-    nicknameNotification.textContent = "The nickname is available";
-    nicknameNotification.style.color = "#000000";
-    nicknameConfirm.style.display = "block";
-    
-    if(nicknameNew == nicknameOld)
+    Loading(true);
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
         {
-            nicknameNotification.textContent = "Nicknames are the same";
-            nicknameNotification.style.color = "#ff0000";
+            const nickname = JSON.parse(request.responseText);
+            if(nickname[0] == 1)
+            {
+                    nicknameNotification.style.display = "block";
+                    nicknameNotification.textContent = nickname[1];
+                    nicknameNotification.style.color = "#000000";
+                    nicknameConfirm.style.display = "block";
+            }
+            else if(nickname[0] == 2)
+            {
+                    nicknameNotification.style.display = "block";
+                    nicknameNotification.textContent = nickname[1];
+                    nicknameNotification.style.color = "#ff0000";
+                    nicknameConfirm.style.display = "none";
+            }
+            else if(nickname[0] == 0)
+            {
+                    nicknameNotification.style.display = "none";
+                    nicknameConfirm.style.display = "none";
+                    showCommunicate([false, nickname[1]]);
+            }
+            else
+            {
+                    nicknameNotification.style.display = "none";
+                    nicknameConfirm.style.display = "none";
+            }
+            Loading(false);
+            if(nicknameNew.length < 1)
+            {
+                nicknameNotification.style.display = "none";
+                nicknameConfirm.style.display = "none";
+            }
         }
-    
-    //Tak samo ze sprawdzaniem z bazą czy jest już taki
-    //if()
-       
-    if(nicknameNew.length < 1)
-        {
-            nicknameNotification.style.display = "none";
-            nicknameConfirm.style.display = "none";
-        }
+    };
+    request.open("POST", "../resources/user_nickname_checker.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "nickname="+nicknameNew
+    );
 }
+
+document.getElementById("form-nickname").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const nicknameNew = document.getElementById("change-nickname").value;
+    const nicknameSettings = document.getElementById("settings-nickname");
+    Loading(true);
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            const nickname = JSON.parse(request.responseText);
+            console.log(nickname);
+            if(nickname[0] == true)
+            {
+                showCommunicate([true, nickname[1]]);
+                nicknameSettings.textContent = nicknameNew;
+            }
+            else
+            {
+                showCommunicate([false, nickname[1]]);
+            }
+            Loading(false);
+        }
+    };
+    request.open("POST", "../resources/user_nickname_change.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "nickname="+nicknameNew
+    );
+});
 
 document.getElementById("change-nickname").addEventListener("keyup", changeNickname, false);
 
-// CHANGE EMAIL
+// CHECK EMAIL
 function changeEmail()
 {
     const emailNew = document.getElementById("change-email").value;
-    const emailOld = document.getElementById("settings-email").textContent;
-    let emailConfirm = document.getElementById("confirm-email");
-    let emailNotification = document.getElementById("email-notification");
-    
-    emailNotification.style.display = "block";
-    emailNotification.textContent = "The email is available";
-    emailNotification.style.color = "#000000";
-    emailConfirm.style.display = "block";
-    
-    if(emailNew == emailOld)
+    const emailConfirm = document.getElementById("confirm-email");
+    const emailNotification = document.getElementById("email-notification");
+
+    Loading(true);
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
         {
-            emailNotification.textContent = "Emails are the same";
-            emailNotification.style.color = "#ff0000";
+            const email = JSON.parse(request.responseText);
+            if(email[0] == 1)
+            {
+                    emailNotification.style.display = "block";
+                    emailNotification.textContent = email[1];
+                    emailNotification.style.color = "#000000";
+                    emailConfirm.style.display = "block";
+            }
+            else if(email[0] == 2)
+            {
+                    emailNotification.style.display = "block";
+                    emailNotification.textContent = email[1];
+                    emailNotification.style.color = "#ff0000";
+                    emailConfirm.style.display = "none";
+            }
+            else if(email[0] == 0)
+            {
+                    emailNotification.style.display = "none";
+                    emailConfirm.style.display = "none";
+                    showCommunicate([false, email[1]]);
+            }
+            else
+            {
+                    emailNotification.style.display = "none";
+                    emailConfirm.style.display = "none";
+            }
+            Loading(false);
+            if(emailNew.length < 1)
+            {
+                emailNotification.style.display = "none";
+                emailConfirm.style.display = "none";
+            }
         }
-    
-    //Tak samo ze sprawdzaniem z bazą czy jest już taki
-    //if()
-       
-    if(emailNew.length < 1)
-        {
-            emailNotification.style.display = "none";
-            emailConfirm.style.display = "none";
-        }
+    };
+    request.open("POST", "../resources/user_email_checker.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "email="+emailNew
+    );
 }
+
+document.getElementById("form-email").addEventListener("submit", (event) => {
+    event.preventDefault();
+});
 
 document.getElementById("change-email").addEventListener("keyup", changeEmail, false);
 
-// CHANGE PASSWORD
+// CHECK PASSWORD
 function changePassword()
 {
     const passwordOld = document.getElementById("check-password").value;
@@ -144,6 +226,10 @@ function changePassword()
                }
         }
 }
+
+document.getElementById("form-pass").addEventListener("submit", (event) => {
+    event.preventDefault();
+});
 
 document.getElementById("check-password").addEventListener("keyup", changePassword, false);
 document.getElementById("change-password").addEventListener("keyup", changePassword, false);

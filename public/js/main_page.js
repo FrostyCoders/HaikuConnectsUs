@@ -43,7 +43,7 @@ const saveReportsData = (value) => {
 };
 
 // <!--- HAIKU LOADING ---!>
-const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
+const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 0) => {
     Loading(true);
     const haikuBox = document.getElementById("haiku_box");
     const request = new XMLHttpRequest;
@@ -60,6 +60,30 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
+                    let gridClass = "mg-posts";
+                    switch(grid)
+                    {
+                        case "1":
+                            {
+                                gridClass = "mg-posts1";
+                                break;
+                            }
+                        case "2":
+                            {
+                                gridClass = "mg-posts";
+                                break;
+                            }
+                        case "3":
+                            {
+                                gridClass = "mg-posts3";
+                                break;
+                            }
+                        default:
+                            {
+                                gridClass = "mg-posts";
+                                break;
+                            }
+                    }
                     haikuData[2].forEach(singleHaiku => {
                         haikuPosts.push(new Haiku(
                             singleHaiku['id'],
@@ -72,6 +96,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, author = 0) => {
                             singleHaiku['bg'],
                             singleHaiku['hw'],
                             checkArray(reportedPosts, singleHaiku['id']),
+                            gridClass,
                             adminLogged
                         ));
                     });
@@ -179,14 +204,38 @@ const getFilters = () => {
         if(input.checked == true) order = input.value; 
     });
         
-    const quantInput = document.getElementsByName("quantity");
-    quantInput.forEach(input => {
-        if(input.checked == true) ammount = input.value;
+    const gridInput = document.getElementsByName("posts_grid");
+    gridInput.forEach(input => {
+        if(input.checked == true) grid = input.value;   
     });
+
+    switch(grid)
+    {
+        case "1":
+        {
+            ammount = 6;
+            break;
+        }
+        case "2":
+        {
+            ammount = 10;
+            break;
+        }
+        case "3":
+        {
+            ammount = 12;
+            break;
+        }
+        default:
+        {
+            ammount = 10;
+            break;
+        }
+    }
 
     currentPage = 1;
 
-    loadHaiku(currentPage, order, ammount, selectedAuthor);
+    loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
 // <!--- REPORT ---!>
@@ -240,7 +289,7 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
 // <!--- PAGES ---!>
 const changePage = (page) => {
     currentPage = page;
-    loadHaiku(currentPage, order, ammount, selectedAuthor);
+    loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
 const generatePages = (cPage, pageAmmount) => {
@@ -292,6 +341,7 @@ let reporting = null;
 let selectedAuthor = 0;
 let currentPage = 1;
 let order = "newest";
+let grid = 2;
 let ammount = 10;
 
 window.onload = () => {
@@ -303,11 +353,11 @@ window.onload = () => {
         setAuthorFilter(author[0], author[1] + ", " + author[2]);
         sessionStorage.removeItem("author");
     }
-    loadHaiku(currentPage, order, ammount, selectedAuthor);
+    loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
 // <!--- GRID OF POSTS ---!>
-const gridSwitch1 = document.getElementById("quantity1");
+/* const gridSwitch1 = document.getElementById("quantity1");
 const gridSwitch2 = document.getElementById("quantity2");
 const gridSwitch3 = document.getElementById("quantity3");
 
@@ -344,4 +394,4 @@ gridSwitch3.addEventListener('click', function(e) {
                 gridPosts[i].classList.remove('mg-posts3');
             }
         }
-})
+}) */

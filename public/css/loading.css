@@ -10,82 +10,50 @@
     z-index: 9999;
 }
 
-.point1, .point2
+.point1, .point1:before, .point1:after
 {
-    width: 1.5rem;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1.25rem;
     height: 1.5rem;
     position: absolute;
-    background-color: black;
-    border-radius: 50%;
-    -moz-border-radius:50%;
-    -webkit-border-radius:50%;
+    border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    -webkit-border-radius: 0.1rem;
+    background-color: var(--extra-color);
 }
 
 .point1
 {
-    background-color: var(--extra-color);
+    animation: 2s infinite point1;
+}
+
+.point1:before
+{
+    content: "";
+    display: block;
+    left: -125%;
+    height: 2rem;
     animation: 2.5s infinite point1;
 }
 
-.point2
+.point1:after
 {
-    background-color: var(--extra-color);
-    animation: 2.5s infinite point2;
+    content: "";
+    display: block;
+    left: 225%;
+    height: 2.5rem;
+    animation: 3s infinite point1;
 }
+
 
 @keyframes point1
 {
-    0% {
-        top: 0;
-        left: 0;
-    }
-    25% {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    0%, 100% {
+        height: 0;
     }
     50% {
-        top: 0;
-        left: 0;
-        transform: translate(0, 0);
-    }
-    75% {
-        top: 100%;
-        left: 100%;
-        transform: translate(-100%, -100%);
-    } 
-    100% {
-        top: 0;
-        left: 0;
+        height: 4.5rem;
     } 
 }
-
-@keyframes point2
-{
-    0% {
-        top: 0;
-        left: 100%;
-        transform: translateX(-100%);
-    }
-    25% {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    50% {
-        top: 0;
-        left: 100%;
-        transform: translateX(-100%);
-    }
-    75% {
-        top: 100%;
-        left: 0;
-        transform: translateY(-100%);
-    } 
-    100% {
-        top: 0;
-        left: 100%;
-        transform: translateX(-100%);
-    } 
-}
-

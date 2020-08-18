@@ -94,6 +94,11 @@
 }
 
 /* AUTHOR MAP */
+.nothing
+{
+    height: 5rem;
+    width: 100%;
+}
 
 /* SETTINGS */
 .settings
