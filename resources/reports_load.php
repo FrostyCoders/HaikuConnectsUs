@@ -13,27 +13,17 @@
                 $order = " ORDER BY add_time ASC";
                 break;
             }
-            case "latest":
-            {
-                $order = " ORDER BY add_time DESC";
-                break;
-            }
             default:
             {
-                $order = " ORDER BY add_time ASC";
+                $order = " ORDER BY add_time DESC";
                 break;
             }
         }
         switch($_POST['done'])
         {
-            case "1":
+            case '1':
             {
                 $done = " WHERE solved = 1";
-                break;
-            }
-            case "0":
-            {
-                $done = " WHERE solved = 0";
                 break;
             }
             default:
@@ -46,13 +36,17 @@
         $ammount = (intval($_POST['page']) - 1) * 6;
         $limit = " LIMIT 6 OFFSET " . $ammount;
 
-        $sql = "SELECT * FROM haiku_reports" . $done . $order . $limit;
+        $pages_sql = "SELECT * FROM haiku_reports" . $done;
+        $pages_query = $conn->prepare($pages_sql);
 
+        $sql = "SELECT * FROM haiku_reports" . $done . $order . $limit;
         $query = $conn->prepare($sql);
+        
 
         try
         {
             $query->execute();
+            $pages_query->execute();
         }
         catch(Exception $e)
         {
@@ -63,7 +57,7 @@
             die(json_encode([false, "No reports to show!"]));
         else
         {
-            $pages = $query->rowCount();
+            $pages = $pages_query->rowCount();
             $pages = ceil($pages / 6);
             $reports = $query->fetchAll();
             $list = array();

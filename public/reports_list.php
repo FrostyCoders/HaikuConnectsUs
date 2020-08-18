@@ -73,7 +73,7 @@
                         <div class="filter-option">
                             <p>Filters:</p>
                             <div class="radio-container">
-                            <input type="radio" name="sort" value="newest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
+                            <input type="radio" name="sort" value="latest" id="sort1" checked /><label for="sort1"><span class="radio">From the newest</span></label>
                             </div>
                             <div class="radio-container">
                             <input type="radio" name="sort" value="oldest" id="sort2" /><label for="sort2"><span class="radio">From the oldest</span></label>
