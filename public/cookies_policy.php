@@ -62,7 +62,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
-                    <p class="information"><strong>By using <q>Haiku Connects Us</q>, you agree to the session mechanism and storage of cookies and files in local storage (if the browser's privacy settings for cookies and local storage have not been changed).</strong></p>
+                    <p class="information"><strong>By using <q>Haiku Connects Us</q>, you agree to the session mechanism and storage of cookies and data in local storage (if the browser's privacy settings for cookies and local/session storage have not been changed).</strong></p>
                     <hr class="hr-big">
                     <h4>What are cookies?</h4>
                     <hr class="mt-3">
@@ -71,36 +71,15 @@
                     <p class="info-about">You can disable cookies at any time in the privacy settings of your browser.</p>
                     <h4>Cookies used by us:</h4>
                     <hr class="mt-3">
-                    <p class="info-about">We do not want to hide from you what cookies we use, so below is a list of cookies used by <q>Haiku Connects Us</q>:</p>
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr><th>Name</th><th>Content</th><th>Lifetime</th><th>Destiny</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>PHPSESSID</td><td>Randomly generated string</td><td>Until the end of the browser session</td><td>Create a unique user session</td></tr>
-                        </tbody>
-                    </table>
-                    </div>
+                    <p class="info-about"><q>Haiku Connects Us</q> uses cookies to provide a unique session for the local user's device.</p>
                     <hr class="hr-big">
-                    <h4>What is a local and session storage?</h4>
+                    <h4>What are a local and session storage?</h4>
                     <hr class="mt-3">
                     <p class="info-about">Local storage is an area in the browser's memory, inaccessible to the server, where it stores data that does not have an expiry date, i.e. it remains even after closing the browser.</p>
                     <p class="info-about">Session storage is the equivalent of cookies, but with a larger size, that the server can access. Data in session storage is deleted after the session is terminated.</p>
-                    <h4>Data in local and session storage used by us:</h4>
+                    <h4>Local and session storage used by us:</h4>
                     <hr class="mt-3">
-                    <p class="info-about">Below is a list of data in use by <q>Haiku Connects Us</q> stored in local and session storage:</p>
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr><th>Name</th><th>Content</th><th>Destiny</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>likes</td><td>Id of the haiku you liked</td><td>Check which haiku have been liked</td></tr>
-                            <tr><td>reports</td><td>Id of the haiku you reported</td><td>Check which haiku have been reported</td></tr>
-                        </tbody>
-                    </table>
-                    </div>
+                    <p class="info-about"><q>Haiku Connects Us</q> uses data stored in local and session storage for the mechanism of likes and reports.</p>
                     <hr class="hr-big">
                     <h4>What is a session?</h4>
                     <hr class="mt-3">

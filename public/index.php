@@ -39,6 +39,15 @@
             <input type="submit" value="Send" />
         </form>
     </div>
+    <?php
+        if (!isset($_COOKIE['cookie_alert']))
+        {
+            echo '<div class="cookie-alert" id="cookie-alert">
+            <div class="cookie-alert-close" id="cookie-alert-close"></div>
+            <p><span>Hello There!</span> By using this website, you read and agree to our <a href="privacy_policy.php" target="_blank">privacy policy</a> and <a href="cookies_policy.php" target="_blank">cookie policy</a>.</p>
+            </div>';
+        }
+    ?>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="main_page.html">Haiku Connects Us</a>
