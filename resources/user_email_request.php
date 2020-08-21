@@ -8,7 +8,7 @@
     // CHECK NEW EMAIL
     function email_repeated($new_email, $conn)
     {
-        $query = $conn->prepare("SELECT user_email FROM users");
+        $query = $conn->prepare("SELECT email FROM users");
         try
         {
             $query->execute();
@@ -20,7 +20,7 @@
         $list = $query->fetchAll();
         foreach($list as $email)
         {
-            if(decrypt_email($email['user_email'], CKEY1) == $new_email)
+            if(decrypt_email($email['email'], CKEY1) == $new_email)
             {
                 return true;
             }
@@ -30,7 +30,7 @@
     // CHANGE KEY IF ALREADY EXIST
     function validate_key($change_key, $conn)
     {
-        $query = $conn->prepare("SELECT * FROM change_email WHERE key_series = :key_series");
+        $query = $conn->prepare("SELECT * FROM change_email_requests WHERE key_series = :key_series");
         $query->bindParam(":key_series", $change_key);
         try
         {
@@ -53,18 +53,19 @@
     function create_request($user_id, $new_email, $conn, $key)
     {
         $query = $conn->prepare("INSERT INTO change_email_requests VALUES (NULL, :uid, :rkey, :expire_time, 0, :new_email);");
-        $query->bindParam(":uid", $user_id);
-        $query->bindParam(":rkey", $rkey);
-        $now = date('Y-m-d H:i:s',strtotime('+15 minutes',strtotime(date("Y-m-d H:i:s"))));
-        $query->bindParam(":expire_time", $now);
-        $query->bindParam(":new_email", $new_email);
         try
         {
+            $query->bindParam(":uid", $user_id);
+            $query->bindParam(":rkey", $key);
+            $now = date('Y-m-d H:i:s',strtotime('+15 minutes',strtotime(date("Y-m-d H:i:s"))));
+            $query->bindParam(":expire_time", $now);
+            $query->bindParam(":new_email", $new_email);
             $query->execute();
             $result = array(true, "");
         }
         catch(Exception $e)
         {
+            echo $e;
             $result = array(false, "Error occured, try later!");
         }
         return $result;
@@ -120,7 +121,7 @@
             $header = "From: noreply@gmail.com \nContent-Type:".
             ' text/html;charset="UTF-8"'.
             "\nContent-Transfer-Encoding: 8bit";
-            if(mail($email, $subject, $massage, $header))
+            if(mail($email, $subject, $message, $header))
             {
                 return true;
             }
@@ -133,14 +134,14 @@
     // MAIN
     if(!isset($_POST['new_email']))
     {
-        $result = array(false, "You must enter email address!");
+        $result = array(false, "You must enter e-mail address!");
     }
     else
     {
         $new_email = $_POST['new_email'];
         if(!filter_var($new_email, FILTER_VALIDATE_EMAIL))
         {
-            $result = array(false, "You entered incorrect email address!");
+            $result = array(false, "You entered incorrect e-mail address!");
         }
         else
         {
@@ -149,7 +150,7 @@
             $email = $_SESSION['logged_user']->showEmail();
             if(email_repeated($new_email, $conn) == true)
             {
-                $result = array(false, "Your new email address already belongs to other user!");
+                $result = array(false, "Your new e-mail address already belongs to other user!");
             }
             elseif(email_repeated($new_email, $conn) == "error")
             {
@@ -168,12 +169,12 @@
                 }
                 else
                 {
-                    $db_ok = create_request($user_exist[1], encrypt_email($new_email, CKEY2), $conn, $change_key);
+                    $db_ok = create_request($_SESSION['logged_user']->showId(), encrypt_email($new_email, CKEY1), $conn, $change_key);
                     if($db_ok[0] == true)
                     {
                         if(send_mail($email, $change_key) == true)
                         {
-                            $result = array(true, "The activation link has been sent, you have 15 min accept new email on your old previous email account.");
+                            $result = array(true, "The activation link has been sent, you have 15 min accept new e-mail on your old previous e-mail account.");
                         }
                         else
                         {

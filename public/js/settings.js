@@ -61,16 +61,10 @@ document.getElementById("form-nickname").addEventListener("submit", (event) => {
         if (request.readyState == 4 && request.status == 200)
         {
             const nickname = JSON.parse(request.responseText);
-            console.log(nickname);
             if(nickname[0] == true)
-            {
-                showCommunicate([true, nickname[1]]);
                 nicknameSettings.textContent = nicknameNew;
-            }
-            else
-            {
-                showCommunicate([false, nickname[1]]);
-            }
+
+            showCommunicate(nickname);
             Loading(false);
         }
     };
@@ -138,6 +132,25 @@ function changeEmail()
 
 document.getElementById("form-email").addEventListener("submit", (event) => {
     event.preventDefault();
+    const newMail = document.getElementById("change-email").value;
+    const request = new XMLHttpRequest;
+    Loading(true);
+    
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            console.log(request.responseText);
+            const response = JSON.parse(request.responseText);
+            Loading(false);
+            showCommunicate(response);
+        }
+    };
+
+    request.open("POST", "../resources/user_email_request.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "new_email="+newMail
+    );
 });
 
 document.getElementById("change-email").addEventListener("keyup", changeEmail, false);
@@ -229,6 +242,36 @@ function changePassword()
 
 document.getElementById("form-pass").addEventListener("submit", (event) => {
     event.preventDefault();
+    const inputs = [
+        document.getElementById("check-password"),
+        document.getElementById("change-password"),
+        document.getElementById("repeat-password")
+    ];
+    
+    
+    const request = new XMLHttpRequest;
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            console.log(request.responseText);
+            const response = JSON.parse(request.responseText);
+            if(response[0] == true)
+            {
+                inputs.forEach(element => {
+                    element.value = "";
+                });
+            }
+            showCommunicate(response);
+        }
+    };
+
+    request.open("POST", "../resources/user_pass_logged.php", true);
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(
+        "current="+inputs[0].value+"&"+
+        "pass1="+inputs[1].value+"&"+
+        "pass2="+inputs[2].value
+    );
 });
 
 document.getElementById("check-password").addEventListener("keyup", changePassword, false);

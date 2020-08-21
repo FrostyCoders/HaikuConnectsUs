@@ -1,39 +1,28 @@
 <?php
     // NICKNAME CHANGE
-    if(!isset($_POST['nickname']))
+    require_once "../classes/users.php";
+    session_start();
+    if(!isset($_POST['nickname']) && isset($_POST['logged_user']))
     {
-        $result = array(false, "Error, missing or wrong data, try later!");
-        echo json_encode($result);
+        die(json_encode([false, "Error, missing or wrong data, try later!"]));
     }
     else
     {
         require_once "../config/config.php";
         require_once "db_connect.php";
-        require_once "../classes/users.php";
-        session_start();
 
-        $sessionId = $_SESSION['logged_user']->showId();
+        $nick = $_POST['nickname'];
+        if(empty($nick) || strlen($nick) < 3)
+            die(json_encode([false, "Error, new nickname must have at least 3 characters!"]));
 
-        $query = $conn->prepare("UPDATE users SET `name` = :new_username WHERE `id` = :uid");
-        $query->bindParam(":new_username", $_POST['nickname']);
-        $query->bindParam(":uid", $sessionId);
+        if(strlen($nick) > 15)
+            die(json_encode([false, "Error, new nickname cannot have more than 15 characters long!"]));
 
-        try
-        {
-            $query->execute();
-            $query_ok = true;
-        }
-        catch(Exception $e)
-        {
-            $result = array(false, "Error, Cannot change nickname!");
-            $query_ok = false;
-        }
+        if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $nick) == true)
+            die(json_encode([false, "Error, new nickname cannot have special characters!"]));
 
-        if($query_ok == true)
-        {
-            $result = array(true, "The nickname is change!");
-            $_SESSION['logged_user']->changeUsername($_POST['nickname']);
-        }
-        echo json_encode($result);
-    }    
+        $operation = $_SESSION['logged_user']->changeUsername($conn, $nick);
+
+        echo json_encode($operation);
+    }
 ?>
