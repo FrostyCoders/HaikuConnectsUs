@@ -23,28 +23,37 @@
             if($query->rowCount() == 1)
             {
                 $query = $query->fetch();
-                $change_email = $conn->prepare("UPDATE users SET user_email = :new_email WHERE user_id = :uid");
-                $change_email->bindParam(":new_email", $query['new_email']);
-                $change_email->bindParam(":uid", $query['user_id']);
-                $link_used = $conn->prepare("UPDATE change_email_requests SET used = 1 WHERE request_id = :rid");
-                $link_used->bindParam(":rid", $query['request_id']);
-                try
+                if($query['expire_time'] < date("Y-m-d H:i:s") || $query['used'] == 1)
                 {
-                    $change_email->execute();
+                    $result = array(false, 'Your link expired, you can create new on settings page.');
+                }
+                else
+                {
+                    $change_email = $conn->prepare("UPDATE users SET email = :new_email WHERE id = :uid");
+                    $change_email->bindParam(":new_email", $query['new_email']);
+                    $change_email->bindParam(":uid", $query['user_id']);
+                    $link_used = $conn->prepare("UPDATE change_email_requests SET used = 1 WHERE request_id = :rid");
+                    $link_used->bindParam(":rid", $query['request_id']);
                     try
                     {
-                        $link_used->execute();
-                        $result = array(true, "Email changed successfully.");
+                        $change_email->execute();
+                        try
+                        {
+                            $link_used->execute();
+                            $result = array(true, "Email changed successfully.");
+                            session_destroy();
+                        }
+                        catch(Exception $e)
+                        {
+                            $result = array(true, "Email changed with errors, now you can log in with new email.");
+                        }
                     }
                     catch(Exception $e)
                     {
-                        $result = array(true, "Email changed with errors, now you can log in with new email.");
+                        $result = array(false, "Error during changing e-mail, try later!");
                     }
                 }
-                catch(Exception $e)
-                {
-                    $result = array(false, "Error during changing e-mail, try later!");
-                }
+                
             }
             else
             {

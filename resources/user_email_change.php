@@ -36,6 +36,7 @@
                     {
                         $link_used->execute();
                         $result = array(true, "Email changed successfully.");
+                        session_destroy();
                     }
                     catch(Exception $e)
                     {

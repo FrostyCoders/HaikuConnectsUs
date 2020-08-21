@@ -260,4 +260,7 @@
 
     //require_once "../config/config.php";
 
+    //echo encrypt_email("wojtek9631@gmail.com", CKEY1);
+
+
 ?>
