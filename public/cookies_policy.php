@@ -71,7 +71,7 @@
                     <p class="info-about">You can disable cookies at any time in the privacy settings of your browser.</p>
                     <h4>Cookies used by us:</h4>
                     <hr class="mt-3">
-                    <p class="info-about"><q>Haiku Connects Us</q> uses cookies to provide a unique session for the local user's device.</p>
+                    <p class="info-about"><q>Haiku Connects Us</q> uses cookies to provide a unique session for the local user's device and to display an alert cookie.</p>
                     <hr class="hr-big">
                     <h4>What are a local and session storage?</h4>
                     <hr class="mt-3">
@@ -130,10 +130,10 @@
             <hr class="hr-footer">
             <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Privacy Policy</a>
+                    <a class="footer-a" href="privacy_policy.php">Privacy Policy</a>
                 </div>
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Cookies Policy</a>
+                    <a class="footer-a" href="cookies_policy.php">Cookies Policy</a>
                 </div>
             </div>
         </div>

@@ -138,6 +138,7 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="nothing"></div>
                     </div>
                 </div>
             </div>
@@ -183,10 +184,10 @@
             <hr class="hr-footer">
             <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Privacy Policy</a>
+                    <a class="footer-a" href="privacy_policy.php">Privacy Policy</a>
                 </div>
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Cookies Policy</a>
+                    <a class="footer-a" href="cookies_policy.php">Cookies Policy</a>
                 </div>
             </div>
         </div>

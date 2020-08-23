@@ -71,6 +71,10 @@
     text-align: justify;
 }
 
+.info-about:last-child{
+    margin-bottom: 5rem;
+}
+
 .info-about-author{
     padding: 1rem;
     text-align: right;
@@ -172,16 +176,28 @@
     margin-bottom: 2rem;
 }
 
-.settings-notification{
-    position: relative;
+.password-checker{
+    width: 80%;
+    height: 1rem;
+    margin: 3rem 10% 1rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     display: none;
-    top: 0.75rem;
-    left: 10%; 
+
+    .password-weak, .password-medium, .password-strong{
+        height: 100%;
+        width: 100%;
+        border-radius: 2.5px;
+        margin: 0 1rem;
+        background-color: #777;
+    }
 }
 
-#password-notification{
-    display: block;
-    color: #f00;
+.settings-notification{
+    display: none;
+    top: 0.75rem;
+    text-align: center;
 }
 
 // REPORTS LIST

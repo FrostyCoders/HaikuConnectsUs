@@ -98,7 +98,12 @@
                     <input type="password" id="change-password" placeholder="Password must be 8 characters long..." />
                     <label for="repeat-password">Repeat new password:</label>
                     <input type="password" id="repeat-password" placeholder="Repeat new password..." />
-                    <span class="settings-notification" id="password-notification">Password must be 8 characters long</span>
+                    <div class="password-checker">
+                        <div class="password-weak" id="password-weak"></div>
+                        <div class="password-medium" id="password-medium"></div>
+                        <div class="password-strong" id="password-strong"></div>
+                    </div>
+                    <span class="settings-notification" id="password-notification"></span>
                     <input type="submit" id="confirm-password" value="Confirm"/>
                     </form>
                 </div>
@@ -145,10 +150,10 @@
             <hr class="hr-footer">
             <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Privacy Policy</a>
+                    <a class="footer-a" href="privacy_policy.php">Privacy Policy</a>
                 </div>
                 <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Cookies Policy</a>
+                    <a class="footer-a" href="cookies_policy.php">Cookies Policy</a>
                 </div>
             </div>
         </div>
