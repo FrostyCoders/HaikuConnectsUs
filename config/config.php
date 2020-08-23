@@ -18,4 +18,7 @@
     // FILE UPLOADS DIRECTORIES
     define('HW_DIR', realpath("../uploads/handwriting/") . '\\');
     define('BG_DIR', realpath("../uploads/background/") . '\\');
+
+    // ERR LOG DIRECTORY
+    define('ERR_DIR', realpath("../logs/") . '\\');
 ?>
