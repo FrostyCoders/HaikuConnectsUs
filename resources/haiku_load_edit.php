@@ -34,6 +34,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot get haiku info: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot edit haiku, try later!"]));
         }
 

@@ -31,6 +31,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot like haiku: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             $result = array(false, "Error, problem with connection occured!");
         }
     }

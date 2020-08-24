@@ -19,6 +19,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot get info about post images: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot delete haiku, try later!"]));
         }
 
@@ -28,7 +29,7 @@
         }
 
         $query = $conn->prepare("DELETE FROM haiku WHERE id = :hid");
-        $query2 = $conn->prepare("UPDATE haiku_reports SET solved = 1 WHERE haiku_id = :hid");
+        $query2 = $conn->prepare("DELETE FROM haiku_reports WHERE haiku_id = :hid");
         
         try
         {
@@ -40,6 +41,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot delete haiku from DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot delete haiku, try later!"]));
         }
 

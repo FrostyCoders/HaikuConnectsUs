@@ -18,6 +18,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot check key: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             $result = array(false, "Error occured, try later!");
             $check_ok = false;
         }

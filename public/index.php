@@ -41,7 +41,7 @@
     </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="main_page.html">Haiku Connects Us</a>
+      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>

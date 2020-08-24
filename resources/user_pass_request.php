@@ -19,6 +19,7 @@
             }
             catch(Exception $e)
             {
+                saveToLog(0, "Cannot check that user exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 $result = array(false, "Error occured, try later!");
                 return $result;
             }
@@ -56,6 +57,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot validate key: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             return 2;
         }
         if($query->rowCount() != 0)
@@ -82,6 +84,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot create request: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             $result = array(false, "Error occured, try later!");
             echo $e;
         }
@@ -141,12 +144,14 @@
             $header .= 'From: <noreply@gmail.com>' . "\r\n";
             $header .= 'Cc: noreply@example.com' . "\r\n";
 
-            if(mail($email, $subject, $message, $header))
+            try
             {
+                mail($email, $subject, $message, $header);
                 return true;
             }
-            else
+            catch(Exception $e)
             {
+                saveToLog(0, "Cannot send mail: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 return false;
             }
         }

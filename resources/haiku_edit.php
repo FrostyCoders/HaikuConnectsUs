@@ -15,7 +15,7 @@
         
         $haiku_exist = $conn->prepare("SELECT *
                                         FROM haiku
-                                        WHERE haiku.id = :hid");
+                                        WHERE id = :hid");
         try
         {
             $haiku_exist->bindParam(":hid", $_POST['haiku_id']);
@@ -23,6 +23,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot get info about haiku: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot edit haiku, try later!"]));
         }
 
@@ -98,6 +99,7 @@
 
             if(!move_uploaded_file($bg_tmp_name, $bg_destination))
             {
+                saveToLog(0, "Cannot move uploaded file: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 die(json_encode([false, "Error, cannot update haiku, try later!"]));
             }
 
@@ -135,6 +137,7 @@
 
             if(!move_uploaded_file($hw_tmp_name, $hw_destination))
             {
+                saveToLog(0, "Cannot move uploaded file: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 die(json_encode([false, "Error, cannot update haiku, try later!"]));
             }
 
@@ -165,6 +168,7 @@
         }
         catch(Exception $e)
         {   
+            saveToLog(0, "Cannot modify haiku: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot update haiku content, try later!"]));
         }
     }

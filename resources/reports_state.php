@@ -17,6 +17,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot change report state: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot set demanded report state, try later!"]));
         }
 

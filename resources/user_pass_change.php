@@ -39,6 +39,7 @@
                 catch(Exception $e)
                 {
                     $result = array(false, "Error cannot change password, try later!");
+                    saveToLog(0, "Cannot password in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 }
                 unset($conn);
             }

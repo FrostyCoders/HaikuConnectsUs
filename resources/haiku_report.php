@@ -46,6 +46,7 @@
         }
         else
         {
+            saveToLog(0, "Cannot report haiku: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "You recently reported problem with this haiku and it waits for solve. You cannot report this haiku right now!"]));
         }
     }

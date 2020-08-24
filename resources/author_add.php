@@ -33,6 +33,7 @@
         catch(Exception $e)
         {
             die(json_encode([false, "Error, cannot add new author!"]));
+            saveToLog(0, "Cannot add new author: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
         }
 
         try
@@ -44,6 +45,7 @@
         catch(Exception $e)
         {  
             $result = array(true, "New author created succsessfully. Cannot get new author data!", false);
+            saveToLog(1, "Cannot get new author id: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
         }
     }
     echo json_encode($result);

@@ -22,6 +22,7 @@
         {
             $result = array(false, "Error, Cannot load authors data!");
             $query_ok = false;
+            saveToLog(0, "Cannot search author: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
         }
 
         if($query_ok == true)

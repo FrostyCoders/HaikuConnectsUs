@@ -7,6 +7,7 @@
 	}
 	catch(PDOException $e)
 	{
+		saveToLog(0, "Problem with DB connection: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
 		die(json_encode([false, "Critical connection error, try later!"]));
 	}
 ?>

@@ -28,6 +28,7 @@
             }
             catch(Exception $e)
             {
+                saveToLog(0, "Cannot change password: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 $result = array(false, "There was an error during changing password, try later.");
             }
             unset($conn);
@@ -46,6 +47,7 @@
             }
             catch(Exception $e)
             {
+                saveToLog(0, "Cannot change username: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 $change_ok = false;
             }
             if($change_ok == true)

@@ -45,11 +45,13 @@
                         }
                         catch(Exception $e)
                         {
+                            saveToLog(0, "Cannot change that link is used in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                             $result = array(true, "Email changed with errors, now you can log in with new email.");
                         }
                     }
                     catch(Exception $e)
                     {
+                        saveToLog(0, "Cannot change email in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                         $result = array(false, "Error during changing e-mail, try later!");
                     }
                 }

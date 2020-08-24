@@ -60,6 +60,7 @@
         {
             $result = array(false, '<p class="load-error">Error, cannot load haiku data!</p>');
             $query_ok = false;
+            saveToLog(0, "Cannot get haiku from DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
         }
         
         if($query_ok == true)

@@ -15,6 +15,7 @@
         }
         catch(Exception $e)
         {   
+            saveToLog(0, "Cannot check email in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             return "error";
         }
         $list = $query->fetchAll();
@@ -38,6 +39,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot validate key in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             return 2;
         }
         if($query->rowCount() != 0)
@@ -65,7 +67,7 @@
         }
         catch(Exception $e)
         {
-            echo $e;
+            saveToLog(0, "Cannot create request: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             $result = array(false, "Error occured, try later!");
         }
         return $result;
@@ -121,12 +123,15 @@
             $header = "From: noreply@gmail.com \nContent-Type:".
             ' text/html;charset="UTF-8"'.
             "\nContent-Transfer-Encoding: 8bit";
-            if(mail($email, $subject, $message, $header))
+
+            try
             {
+                mail($email, $subject, $message, $header);
                 return true;
             }
-            else
+            catch(Exception $e)
             {
+                saveToLog(0, "Cannot send mail: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 return false;
             }
         }

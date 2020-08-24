@@ -27,6 +27,7 @@
         {
             $result = array(false, "Error, cannot change user data! Try later!");
             $load_ok = false;
+            saveToLog(0, "Cannot load author data: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
         }
 
         if($load_ok == true)
@@ -49,6 +50,7 @@
             catch(Exception $e)
             {
                 $result = array(false, "Error, cannot modify author!");
+                saveToLog(0, "Cannot change author data: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             }
         }
     }

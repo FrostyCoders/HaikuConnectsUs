@@ -9,6 +9,7 @@
         require_once "../config/config.php";
         require_once "../classes/users.php";
         require_once "../utils/decryption.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
     
         $email = $_POST['email'];
@@ -43,6 +44,7 @@
             catch(Exception $e)
             {
                 $result = array(false, "Error, try later!");
+                saveToLog(0, "Cannot get users list " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             }
             $list = $query->fetchAll();
             foreach($list as $user)

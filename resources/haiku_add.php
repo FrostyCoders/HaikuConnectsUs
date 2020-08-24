@@ -65,11 +65,13 @@
 
                 if(file_exists($hw_destination))
                 {
+                    saveToLog(1, "File already exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                     die(json_encode([false, "Error, something went wrong during file upload, try again!"]));
                 }
 
                 if(!move_uploaded_file($hw_tmp_name, $hw_destination))
                 {
+                    saveToLog(0, "Cannot move uploaded file: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                     die(json_encode([false, "Error, cannot add haiku, try later!"]));
                 }
             }
@@ -105,11 +107,13 @@
 
                 if(file_exists($bg_destination))
                 {
+                    saveToLog(1, "File already exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                     die(json_encode([false, "Error, something went wrong during file upload, try again!"]));
                 }
 
                 if(!move_uploaded_file($bg_tmp_name, $bg_destination))
                 {
+                    saveToLog(0, "Cannot move uploaded file: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                     die(json_encode([false, "Error, cannot add haiku, try later!"]));
                 }
             }
@@ -123,6 +127,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot check that author exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku due to the connection error, try later!"]));
         }
 
@@ -140,11 +145,13 @@
         $content = json_decode($content);
         if(json_last_error() != 0)
         {
+            saveToLog(0, "Problem with json decoding: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
         $c_native = json_decode($c_native);
         if(json_last_error() != 0)
         {
+            saveToLog(0, "Problem with json decoding: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
         $content = nl2br(implode('', $content));
@@ -162,6 +169,7 @@
         }
         catch(Exception $e)
         {
+            saveToLog(0, "Cannot add new haiku to DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku due to the connection error, try later!"]));
         }
         
