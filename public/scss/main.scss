@@ -361,6 +361,16 @@ input[type="radio"]:checked + label span.radio::after{
     }
 }
 
+.author-logo{
+    margin: 2rem 0;
+    width: 100%;
+    height: 10rem;
+    background-image: url("../img/frosty_coders.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150%;
+}
+
 // POSTS
 .load-error{
     text-align: center;
@@ -1000,7 +1010,8 @@ footer{
         background-color: $white-color;
         height: 0.25rem;
         width: 2rem;
-        transition-duration: 0.35s;
+        transition-duration: 0.35s
+    
     }
 
     &-close:hover::before, &-close:hover::after{

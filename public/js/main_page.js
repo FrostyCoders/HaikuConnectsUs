@@ -407,9 +407,11 @@ function cookieAlert(name,value,time){
     document.cookie = name + "=" + (value || "")  + cookieTime + "; path=/";
 }
 
-const cookieAlertBar = document.getElementById("cookie-alert-close");
+if (document.cookie.indexOf("cookie_alert=") < 0) {
+    const cookieAlertBar = document.getElementById("cookie-alert-close");
 
-cookieAlertBar.addEventListener('click', function() {
+    cookieAlertBar.addEventListener('click', function() {
     document.getElementById("cookie-alert").style.display = "none";
     cookieAlert('cookie_alert','1',1);
-});
+    });
+}

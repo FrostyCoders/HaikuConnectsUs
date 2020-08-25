@@ -155,10 +155,9 @@ function checkPassword()
     const medium = document.getElementById("password-medium");
     const strong = document.getElementById("password-strong");
 
-    let checkWeak = /[a-z]/;
-    let checkWeak2 = /[A-Z]/;
+    let checkWeak = /[a-zA-Z]/;
     let checkMedium = /[0-9]/;
-    let checkStrong = /.[~,`,!,@,#,$,%,^,&,*,(,),-,+,\[,\],\{,\},\:,\;,\',\",=,_,?,\/,<,>,\\,|,\.,\,]/;
+    let checkStrong = /[~,`,!,@,#,$,%,^,&,*,(,),-,+,\[,\],\{,\},\:,\;,\',\",=,_,?,\/,<,>,\\,|,\.,\,]/;
     let num = 0;
     
     if(passwordNew != ""){
@@ -169,18 +168,18 @@ function checkPassword()
         passwordNotification.style.display = "none";
     }
 
-    if(passwordNew.length <=3 && (passwordNew.match(checkWeak) || passwordNew.match(checkWeak2) || passwordNew.match(checkMedium) || passwordNew.match(checkStrong))){
+    if(passwordNew.length <=3 && (passwordNew.match(checkWeak) || passwordNew.match(checkMedium) || passwordNew.match(checkStrong))){
         num = 1;
     }
 
-    if(passwordNew.length >=3 && (((passwordNew.match(checkWeak) || passwordNew.match(checkWeak2)) && passwordNew.match(checkMedium)) || (passwordNew.match(checkMedium) && passwordNew.match(checkStrong)) || ((passwordNew.match(checkWeak) || passwordNew.match(checkWeak2)) && passwordNew.match(checkStrong)))){
+    if(passwordNew.length >=3 && ((passwordNew.match(checkWeak) && passwordNew.match(checkMedium)) || (passwordNew.match(checkMedium) && passwordNew.match(checkStrong)) || (passwordNew.match(checkWeak) && passwordNew.match(checkStrong)))){
         num = 2;
     }
 
-    if(passwordNew.length >=8 && (passwordNew.match(checkWeak) && passwordNew.match(checkWeak2) && passwordNew.match(checkMedium) && passwordNew.match(checkStrong))){
+    if(passwordNew.length >=8 && (passwordNew.match(checkWeak) && passwordNew.match(checkMedium) && passwordNew.match(checkStrong))){
         num = 3;
     }
-
+    
     if(num == 1){
         passwordNotification.style.display = "block";
         passwordNotification.textContent = "New password is weak";
