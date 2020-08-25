@@ -1,5 +1,6 @@
 <?php
     require_once "../config/config.php";
+    require_once "../utils/logs.php";
     require_once "../utils/decryption.php";
     require_once "db_connect.php";
     

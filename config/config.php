@@ -20,5 +20,5 @@
     define('BG_DIR', realpath("../uploads/background/") . '\\');
 
     // ERR LOG DIRECTORY
-    define('ERR_DIR', realpath("../logs/") . '\\');
+    define('ERR_DIR', "../logs/");
 ?>

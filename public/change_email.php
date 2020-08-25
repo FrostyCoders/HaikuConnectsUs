@@ -1,5 +1,6 @@
 <?php
     require_once "../config/config.php";
+    require_once "../utils/logs.php";
     require_once "../resources/db_connect.php";
     if(!isset($_GET['ck']) || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_GET['ck']))
     {

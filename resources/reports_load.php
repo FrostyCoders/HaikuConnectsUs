@@ -1,9 +1,11 @@
 <?php
+    
     if(!isset($_POST['order']) || !isset($_POST['done']) || !isset($_POST['page']))
         die(json_encode([false, "Error, missing or wrong data!"]));
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
 
         switch($_POST['order'])

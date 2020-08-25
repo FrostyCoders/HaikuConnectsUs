@@ -8,6 +8,7 @@
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
 
         $query = $conn->prepare("SELECT name FROM users WHERE name LIKE :username");

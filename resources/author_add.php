@@ -14,6 +14,7 @@
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
         require_once "../utils/encryption.php";
         $name = encrypt_data($_POST['name'], CKEY4);

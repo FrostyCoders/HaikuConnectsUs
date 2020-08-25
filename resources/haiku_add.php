@@ -7,6 +7,7 @@
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
 
         if(!isset($_POST['author']) || !isset($_POST['content']) || !isset($_POST['content_native']) || !isset($_FILES['bg_image']) || !isset($_FILES['hw_image']))

@@ -4,6 +4,7 @@
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "db_connect.php";
         
         $sql = "UPDATE haiku_reports SET solved = :state WHERE report_id = :id";

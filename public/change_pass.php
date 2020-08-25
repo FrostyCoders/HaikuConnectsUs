@@ -8,6 +8,7 @@
         session_start();
         $recovery_key = $_GET['rk'];
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "../resources/db_connect.php";
         $check = $conn->prepare("SELECT * FROM pass_change_requests WHERE key_series = :rkey");
         $check->bindParam(":rkey", $recovery_key);

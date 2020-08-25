@@ -1,6 +1,9 @@
-<?php
+<?php  
     function saveToLog($type = 2, $msg = "Unknown error", $file = "unknown file", $line = 0)
     {
+        if(!file_exists(ERR_DIR))
+            mkdir(ERR_DIR);
+
         $fileName = realpath("../logs/"). "\\" . "errlog_" . date("d-m-Y") . ".txt";
         $logFile = fopen($fileName, "a");
         switch($type)
@@ -37,7 +40,7 @@
             $who = "";
         }
 
-        $line = "\n" . date('H:i:s') . $type . $msg . $who . " - in " . $file . " in line " . $line;
+        $line = "\n\n" . date('H:i:s') . $type . $msg . $who . " - in " . $file . " in line " . $line;
         fwrite($logFile, $line);
         fclose($logFile);
     }

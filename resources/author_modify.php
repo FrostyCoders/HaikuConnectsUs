@@ -14,6 +14,7 @@
     else
     {
         require_once "../config/config.php";
+        require_once "../utils/logs.php";
         require_once "../utils/encryption.php";
 
         $load = $conn->prepare("SELECT * FROM authors WHERE id = :aid");
