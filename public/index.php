@@ -39,6 +39,15 @@
             <input type="submit" value="Send" />
         </form>
     </div>
+    <?php
+        if (!isset($_COOKIE['cookie_alert']))
+        {
+            echo '<div class="cookie-alert" id="cookie-alert">
+            <div class="cookie-alert-close" id="cookie-alert-close"></div>
+            <p><span>Hello There!</span> By using this website, you read and agree to our <a href="privacy_policy.php" target="_blank">privacy policy</a> and <a href="cookies_policy.php" target="_blank">cookie policy</a>.</p>
+            </div>';
+        }
+    ?>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
@@ -124,6 +133,7 @@
                                 
                             </ul>
                         </div>
+                        <a href="https://github.com/FrostyCoders" target="_blank" title="Check out our projects!"><div class="author-logo"></div></a>
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
@@ -147,58 +157,11 @@
     
     <!-- STOPKA -->     
     <footer class="page-footer">
-        <div class="container">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-                 <h4>Project Partners:</h4>
-            </div>
-            <div class="row text-center justify-content-center pt-5 mb-3">
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Privacy Policy</a>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Cookies Policy</a>
-                </div>
-            </div>
-        </div>
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-4">2020 &copy; FROSTYCODERS</div>
-    <!-- Copyright -->
-
+        <?php
+            require_once "../resources/site_footer.php";
+        ?>
     </footer>
     <!-- Footer -->
-
     
     <!-- SKRYPTY -->
     

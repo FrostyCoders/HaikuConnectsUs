@@ -214,6 +214,22 @@ const enterData = (id) => {
                 document.getElementById("in-native").value = haikuData[6];
                 document.getElementById("post-header").style.backgroundImage = "url(../uploads/background/" + haikuData[7] + ")";
                 document.getElementById("post-nav-handwriting").style.backgroundImage = "url(../uploads/handwriting/" + haikuData[8] + ")";
+
+
+                liveAuthorHaiku();
+                if (haikuData[8] != ""){
+                    const fileCompleteHand = document.getElementById("file-complete-hand");
+                    fileCompleteHand.textContent = "Upload successfully";
+                    fileCompleteHand.style.borderColor = "#2da333";
+                    fileCompleteHand.style.color = "#2da333";
+                    document.getElementById("file-delete-handwriting").style.display = "block";
+                    document.getElementById("lang-switch").style.display = "block";
+                }
+                const fileComplete = document.getElementById("file-complete");
+                fileComplete.textContent = "Upload successfully";
+                fileComplete.style.borderColor = "#2da333";
+                fileComplete.style.color = "#2da333";
+                document.getElementById("file-delete-background").style.display = "block";
             }
             else
             {

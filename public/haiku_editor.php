@@ -89,17 +89,17 @@
                         <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
                         <label for="in-native">In Native Language (optional):</label>
                         <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
-                        <label class="file-position">Background (JPG or PNG):
+                        <label class="file-position">Background (JPG, JPEG, PNG or BMP):
                             <div class="file-delete" id="file-delete-background" title="Delete"></div>
                         </label>
                         <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
                         <div class="file-name" id="background-name"></div>
-                        <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png"/>
-                        <label class="file-position">Handwritten letter from haiku (optional - JPG or PNG):
+                        <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg"/>
+                        <label class="file-position">Handwritten letter from haiku (optional - JPG, JPEG, PNG or BMP):
                             <div class="file-delete" id="file-delete-handwriting" title="Delete"></div>
                         </label>
                         <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                        <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png" />
+                        <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg" />
                         <div class="file-name" id="handwriting-name"></div>
                         <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
@@ -139,61 +139,14 @@
         </div>
     </main>
     
-    <!-- STOPKA -->     
+    <!-- FOOTER -->     
     <footer class="page-footer">
-        <div class="container">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-                 <h4>Project Partners:</h4>
-            </div>
-            <div class="row text-center justify-content-center pt-5 mb-3">
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Privacy Policy</a>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="#">Cookies Policy</a>
-                </div>
-            </div>
-        </div>
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-4">2020 &copy; FROSTYCODERS</div>
-    <!-- Copyright -->
-
+        <?php
+            require_once "../resources/site_footer.php";
+        ?>
     </footer>
-    <!-- Footer -->
+    <!-- FOOTER -->
 
-    
     <!-- SKRYPTY -->
     
     <script src="js/popper.min.js"></script>

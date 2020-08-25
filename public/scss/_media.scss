@@ -1,0 +1,118 @@
+// MEDIA WIDTH MAX
+@media only screen and (max-width: 992px){
+   .jumbotron-text{
+        width: 60%;
+        margin-left: 8.333333%;
+    }
+
+    .jumbotron-img{
+        width: 28.333334%;
+        margin-left: 3.333333%;
+        background-size: 100%;
+    }
+    
+    .filters #show-filters{
+        display: block;
+    }
+    
+    .filter-option{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    
+    .filter-option ul{
+        width: calc(50% - 3rem);
+    }
+    
+    #filters-form{
+        display: none;
+    }
+
+    .author-logo{
+        background-size: 50%;
+    }
+    
+    .logo{
+        margin-bottom: 3rem;
+    }
+    
+    .post-report-menu{
+        width: 80%;
+    }
+    
+    .nav-item{
+       padding: 0.5rem;
+       text-align: center;
+       margin-left: 0rem;
+    }  
+    
+    .nav-link:hover::before{
+       width: 30%;
+    }
+    
+    .navbar-nav .nav-icon{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 768px){    
+    .jumbotron-my{
+        padding: 2.5rem;
+    }
+    
+    .jumbotron-text{
+        text-align: center;
+        width: 83.333333%;
+        min-height: 10rem;
+        margin-left: 8.333333%;
+    }
+
+    .jumbotron-img{
+        display: none;
+    }
+    
+    .author-logo{
+        background-size: 75%;
+    }
+
+    .mg-posts, .mg-posts3{
+        width: 90%;
+        float: none;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .pagination{
+        margin-right: 0;
+    }
+    
+    .report-container{
+        float: none;
+        width: 90%;
+    }
+    
+    #grid-option{
+        display: none;
+    }
+}
+
+// MEDIA WIDTH MIN
+@media only screen and (min-width: 992px){
+    .filters #show-filters, .filters #hide-filters{
+        display: none !important;
+    }
+    
+    #filters-form{
+        display: block !important;
+    }
+    
+    #navbar-toggler-menu{
+        display: none !important;
+    }  
+    
+    #navbar-toggler-menu-close{
+        display: none !important;
+    }
+}

@@ -395,3 +395,23 @@ gridSwitch3.addEventListener('click', function(e) {
             }
         }
 }) */
+
+// COOKIE ALERT
+function cookieAlert(name,value,time){
+    let cookieTime = "";
+    if (time){
+        let date = new Date();
+        date.setTime(date.getTime() + (time*24*60*60*99999));
+        cookieTime = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + cookieTime + "; path=/";
+}
+
+if (document.cookie.indexOf("cookie_alert=") < 0) {
+    const cookieAlertBar = document.getElementById("cookie-alert-close");
+
+    cookieAlertBar.addEventListener('click', function() {
+    document.getElementById("cookie-alert").style.display = "none";
+    cookieAlert('cookie_alert','1',1);
+    });
+}

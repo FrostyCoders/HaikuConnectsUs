@@ -78,7 +78,7 @@ document.getElementById("form-nickname").addEventListener("submit", (event) => {
 document.getElementById("change-nickname").addEventListener("keyup", changeNickname, false);
 
 // CHECK EMAIL
-function changeEmail()
+function checkEmail()
 {
     const emailNew = document.getElementById("change-email").value;
     const emailConfirm = document.getElementById("confirm-email");
@@ -153,91 +153,77 @@ document.getElementById("form-email").addEventListener("submit", (event) => {
     );
 });
 
-document.getElementById("change-email").addEventListener("keyup", changeEmail, false);
+document.getElementById("change-email").addEventListener("keyup", checkEmail, false);
 
 // CHECK PASSWORD
-function changePassword()
+function checkPassword()
 {
     const passwordOld = document.getElementById("check-password").value;
     const passwordNew = document.getElementById("change-password").value;
     const passwordNewRepeat = document.getElementById("repeat-password").value;
-    let passwordConfirm = document.getElementById("confirm-password");
-    let passwordNotification = document.getElementById("password-notification");
-    
-    let passwordArray = new Array();
-    passwordArray.push("[A-Z]");
-    passwordArray.push("[a-z]");
-    passwordArray.push("[0-9]");
-    passwordArray.push("[$@$!%*#?&]");
-    
-    passwordNotification.style.visibility = "visible";
-    passwordNotification.textContent = "Write the new password";
-    passwordNotification.style.color = "#ff0000";
-    passwordConfirm.style.display = "none";
-    
-    // SPRAWDZIC CZY HASLO SIE Z BAZA ZGADZA
-    
-    if(passwordNew.length<1 && passwordOld.length<1 && passwordNewRepeat.length<1)
-        {
-            passwordNotification.textContent = "Write the new password";
-            passwordNotification.style.color = "#ff0000";
-        }
-    
-    else if(passwordNew == passwordOld)
-        {
-            passwordNotification.textContent = "Old password and new are the same";
-            passwordNotification.style.color = "#ff0000";
-            passwordConfirm.style.display = "none";
-        }
-    
-    else if(passwordNew.length>=1 && passwordNew != passwordOld)
-        {
-            let passed = 0;
+    const passwordConfirm = document.getElementById("confirm-password");
+    const passwordNotification = document.getElementById("password-notification");
+    const passwordChecker = document.querySelector(".password-checker");
+    const weak = document.getElementById("password-weak");
+    const medium = document.getElementById("password-medium");
+    const strong = document.getElementById("password-strong");
 
-            for (let i = 0; i < passwordArray.length; i++) 
-            {
-                if (new RegExp(passwordArray[i]).test(passwordNew)) 
-                {
-                    passed++;
-                }
-            }
+    let checkWeak = /[a-zA-Z]/;
+    let checkMedium = /[0-9]/;
+    let checkStrong = /[~,`,!,@,#,$,%,^,&,*,(,),-,+,\[,\],\{,\},\:,\;,\',\",=,_,?,\/,<,>,\\,|,\.,\,]/;
+    let num = 0;
+    
+    if(passwordNew != ""){
+        passwordChecker.style.display = "flex";
+    }
+    else{
+        passwordChecker.style.display = "none";
+        passwordNotification.style.display = "none";
+    }
 
-            if (passed > 2 && passwordNew.length > 8) 
-            {
-                passed++;
-            }
+    if(passwordNew.length <=3 && (passwordNew.match(checkWeak) || passwordNew.match(checkMedium) || passwordNew.match(checkStrong))){
+        num = 1;
+    }
 
-            let color = "";
-            let strength = "";
-            switch (passed) 
-            {
-                case 0:
-                case 1:
-                    strength = "Weak";
-                    color = "ff0000";
-                    break;
-                case 2:
-                    strength = "Good";
-                    color = "#e57702";
-                    break;
-                case 3:
-                case 4:
-                    strength = "Strong";
-                    color = "#05b225";
-                    break;
-                case 5:
-                    strength = "Very Strong";
-                    color = "#07a301";
-                    break;
-            }
-            passwordNotification.textContent = strength;
-            passwordNotification.style.color = color;
-            
-            if((passwordNew.length>=8 && passwordNewRepeat.length>=8) && (passwordNew.length==passwordNewRepeat.length) && (passwordNew == passwordNewRepeat) && passwordNew != passwordOld)
-               {
-                    passwordConfirm.style.display = "block";
-               }
-        }
+    if(passwordNew.length >=3 && ((passwordNew.match(checkWeak) && passwordNew.match(checkMedium)) || (passwordNew.match(checkMedium) && passwordNew.match(checkStrong)) || (passwordNew.match(checkWeak) && passwordNew.match(checkStrong)))){
+        num = 2;
+    }
+
+    if(passwordNew.length >=8 && (passwordNew.match(checkWeak) && passwordNew.match(checkMedium) && passwordNew.match(checkStrong))){
+        num = 3;
+    }
+    
+    if(num == 1){
+        passwordNotification.style.display = "block";
+        passwordNotification.textContent = "New password is weak";
+        weak.style.backgroundColor = "#dd3050";
+    }
+
+    if(num == 2){
+        passwordNotification.style.display = "block";
+        passwordNotification.textContent = "New password is medium";
+        medium.style.backgroundColor = "#dd3050";
+    }
+    else{
+        medium.style.backgroundColor = "#777";
+    }
+
+    if(num == 3){
+        passwordNotification.style.display = "block";
+        passwordNotification.textContent = "New password is strong";
+        medium.style.backgroundColor = "#dd3050";
+        strong.style.backgroundColor = "#dd3050";
+    }
+    else{
+        strong.style.backgroundColor = "#777";
+    }
+
+    if((num == 3 && passwordNew != passwordOld && passwordNew == passwordNewRepeat) && (passwordOld.length>=1 && passwordNewRepeat.length>=1 && passwordNew.length>=1)){
+        passwordConfirm.style.display = "block";
+    }
+    else{
+        passwordConfirm.style.display = "none";
+    }
 }
 
 document.getElementById("form-pass").addEventListener("submit", (event) => {
@@ -274,6 +260,6 @@ document.getElementById("form-pass").addEventListener("submit", (event) => {
     );
 });
 
-document.getElementById("check-password").addEventListener("keyup", changePassword, false);
-document.getElementById("change-password").addEventListener("keyup", changePassword, false);
-document.getElementById("repeat-password").addEventListener("keyup", changePassword, false);
+document.getElementById("check-password").addEventListener("keyup", checkPassword, false);
+document.getElementById("change-password").addEventListener("keyup", checkPassword, false);
+document.getElementById("repeat-password").addEventListener("keyup", checkPassword, false);

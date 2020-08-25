@@ -37,13 +37,13 @@
                     <input class="login_input" id="password" type="password">
                 </div>
                 <div class="last_input" class="input_frame">
-                    <input type="submit" value="Login">
+                    <div class="button_container">
+                        <a href="index.php" title="Back to the page"><div class="back_page"></div></a>
+                        <input type="submit" value="Login">
+                    </div>
                     <div id="forgot_button" class="additional_option">
                         Forgot Password
                     </div>
-                    <a href="index.php"><div class="additional_option">
-                        Back to the page
-                    </div></a>
                 </div>
             </form>
             <form id="forgot_form">
@@ -52,7 +52,9 @@
                     <input class="login_input" id="account_email" type="text">
                 </div>
                 <div class="last_input" class="input_frame">
-                    <input id="login_button" type="submit" value="Send">
+                    <div class="button_container">
+                        <input id="login_button" type="submit" value="Send">
+                    </div>
                     <div id="back_button" class="additional_option">
                         Go Back
                     </div>
