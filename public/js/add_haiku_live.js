@@ -242,9 +242,6 @@ function deleteBackground()
     fileComplete.style.color = "var(--dark-color)";
 }
 
-const buttonBgDelete = document.getElementById("file-delete-background");
-buttonBgDelete.addEventListener('click', deleteBackground, false);
-
 function deleteHandwriting()
 {
     const buttonHwDelete = document.getElementById("file-delete-handwriting");
@@ -259,6 +256,3 @@ function deleteHandwriting()
     fileCompleteHand.style.borderColor = "var(--dark-color)";
     fileCompleteHand.style.color = "var(--dark-color)";
 }
-
-const buttonHwDelete = document.getElementById("file-delete-handwriting");
-buttonHwDelete.addEventListener('click', deleteHandwriting, false);

@@ -186,6 +186,46 @@ const sendEdited = (event) => {
     }
 };
 
+const deleteImage = (which) => {
+    if(confirm("Are you sure, image will be deleted pernamently!") == true)
+    {
+        Loading(true);
+        const request = new XMLHttpRequest;
+        request.onreadystatechange = () => {
+            if(request.readyState == 4 && request.status == 200)
+            {
+                console.log(request.responseText);
+                const response = JSON.parse(request.responseText)
+                if(response[0] == true)
+                {
+                    switch(which)
+                    {
+                        case "bg":
+                        {
+                            deleteBackground();
+                            break;
+                        }
+                        case "hw":
+                        {
+                            deleteHandwriting();
+                            break;
+                        }
+                        default:
+                        {
+                            break;
+                        }
+                    }
+                }
+                showCommunicate(response);
+                Loading(false);
+            }
+        }
+        request.open("POST", "../resources/img_delete.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send("hid="+editingHaiku+"&image="+which);
+    }
+};
+
 const changeContent = () => {
     document.getElementsByClassName("display-4")[0].textContent = "Edit exsisting Haiku!";
     document.getElementsByClassName("my-4 font-weight-light")[0].textContent = "Below is the editor to edit existing haiku with live preview.";
@@ -215,21 +255,34 @@ const enterData = (id) => {
                 document.getElementById("post-header").style.backgroundImage = "url(../uploads/background/" + haikuData[7] + ")";
                 document.getElementById("post-nav-handwriting").style.backgroundImage = "url(../uploads/handwriting/" + haikuData[8] + ")";
 
-
                 liveAuthorHaiku();
-                if (haikuData[8] != ""){
+
+
+                if (haikuData[7] != "default.png"){
+                    const fileComplete = document.getElementById("file-complete");
+                    const deleteButtonBg = document.getElementById("file-delete-background");
+                    fileComplete.textContent = "Image choosed";
+                    fileComplete.style.borderColor = "#2da333";
+                    fileComplete.style.color = "#2da333";
+                    deleteButtonBg.style.display = "block";
+                    deleteButtonBg.addEventListener("click", () => {
+                        deleteImage("bg");
+                    });
+                    
+                }
+                if(haikuData[8] != "no_hw.jpg")
+                {
                     const fileCompleteHand = document.getElementById("file-complete-hand");
-                    fileCompleteHand.textContent = "Upload successfully";
+                    const deleteButtonHw = document.getElementById("file-delete-handwriting");
+                    fileCompleteHand.textContent = "Image choosed";
                     fileCompleteHand.style.borderColor = "#2da333";
                     fileCompleteHand.style.color = "#2da333";
-                    document.getElementById("file-delete-handwriting").style.display = "block";
+                    deleteButtonHw.style.display = "block";
+                    deleteButtonHw.addEventListener("click", () => {
+                        deleteImage("hw");
+                    });
                     document.getElementById("lang-switch").style.display = "block";
                 }
-                const fileComplete = document.getElementById("file-complete");
-                fileComplete.textContent = "Upload successfully";
-                fileComplete.style.borderColor = "#2da333";
-                fileComplete.style.color = "#2da333";
-                document.getElementById("file-delete-background").style.display = "block";
             }
             else
             {
