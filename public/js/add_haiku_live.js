@@ -124,7 +124,7 @@ var pullFileBackground = function()
         {
             filename = filename.substring(1);
         }
-        backgroundName.textContent = "Nazwa pliku: "+filename;
+        backgroundName.textContent = "Filename: "+filename;
         backgroundName.style.display = "block";
     }
     
@@ -159,7 +159,7 @@ var pullFileHandwriting = function()
         {
             filename = filename.substring(1);
         }
-        handwritingName.textContent = "Nazwa pliku: "+filename;
+        handwritingName.textContent = "Filename: "+filename;
         handwritingName.style.display = "block";
     }
     

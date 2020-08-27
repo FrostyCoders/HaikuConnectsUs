@@ -167,14 +167,7 @@ const sendEdited = (event) => {
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
                 console.log(request.responseText);
-                const response = JSON.parse(request.responseText);
-                if(response[0] == true)
-                {
-                    addHaikuFrom.reset();
-                    setTimeout(() => {
-                        window.location.href = "index.php";
-                    }, 500);
-                }   
+                const response = JSON.parse(request.responseText);  
 
                 showCommunicate(response);
                 Loading(false);
@@ -308,6 +301,5 @@ window.onload = () => {
     {
         editingHaiku = sessionStorage.getItem("toEdit");
         enterData(editingHaiku);
-        sessionStorage.removeItem("toEdit");
     }
 }

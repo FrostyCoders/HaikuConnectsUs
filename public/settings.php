@@ -128,6 +128,5 @@
     <script src="js/change_icons_menu.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/common.js"></script>
-    
 </body>
 </html>

@@ -83,7 +83,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/change_icons_menu.js"></script>
     

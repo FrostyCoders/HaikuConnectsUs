@@ -62,3 +62,13 @@ function showCommunicate(message) {
         }, 5000);
     });
 };
+
+const menuPos = document.getElementsByClassName("nav-link");
+Array.from(menuPos).forEach(element => {
+    element.addEventListener("click", () => {
+        if(sessionStorage.getItem("toEdit") !== null)
+        {
+            sessionStorage.removeItem("toEdit");
+        }
+    });
+});
