@@ -39,6 +39,8 @@
                     array_push($authors_list, array(
                         "id" => $a['id'],
                         "fname" => $full_name,
+                        "firstname" => decrypt_data($a['name'], CKEY4),
+                        "surname" => decrypt_data($a['surname'], CKEY5),
                         "country" => $a['country']
                     ));
                 }

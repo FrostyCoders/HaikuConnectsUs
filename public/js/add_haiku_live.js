@@ -24,7 +24,6 @@ function liveAuthorHaiku()
                     var toDelete = authorName.substr(n, authorName.length);
                     authorName = authorName.replace(toDelete, "");
                 }
-            
             postAuthor.textContent = authorName;
             postAuthor.style.visibility = "visible";
             postCountry.textContent = authorCountry;

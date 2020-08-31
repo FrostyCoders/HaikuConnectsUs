@@ -32,12 +32,12 @@
     <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
     <div class="add-new-author" id="add-new-author">
         <div class="add-new-author-close" id="add-new-author-close"></div>
-        <p>Add new author:</p>
+        <p id="author-p">Add new author:</p>
         <form id="add_author_form">
             <input type="text" id="author-firstname" placeholder="Firstname" />
             <input type="text" id="author-surname" placeholder="Surname" />
             <input type="text" id="author-country" placeholder="Country" />
-            <input type="submit" value="Add author" />
+            <input type="submit" id="author-submit" value="Add author" />
         </form>
     </div>
     <!-- PASEK NAWIGACYJNY -->
