@@ -33,18 +33,11 @@ const searchAuthor = () => {
                 list.innerText = "";
                 authorsList[1].forEach(author => {
                     let li = document.createElement("li");
-                    let edit = document.createElement("div");
                     li.textContent = author['fname'] + ", " + author['country'];
                     li.addEventListener("click", () => {
                         setAuthorFilter(author['id'], author['fname'] + ", " + author['country']);
                     });
-                    edit.setAttribute("class", "author-edit");
                     list.appendChild(li);
-                    li.appendChild(edit);
-
-                    //edit.addEventListener("click", () => {
-                    //    editAuthor(author['id'], author['firstname'], author['surname'], author['country']);
-                    //});
                 });
             }
             else
@@ -75,18 +68,6 @@ const searchAuthor = () => {
 const setAuthorFilter = (id, data) => {
     selectedAuthor = id;
     document.getElementById("author").value = data;
-};
-
-const editAuthor  = (id, fname, sname, country) => {
-    const addPopUp = document.getElementById('add-new-author');
-    addPopUp.hidden = false;
-    addPopUp.style.animation = 'show-element 1s';
-    const authorP = document.getElementById('author-p');
-    authorP.textContent = "Edit author:";
-    document.getElementById('author-firstname').value = fname;
-    document.getElementById('author-surname').value = sname;
-    document.getElementById('author-country').value = country;
-    document.getElementById('author-submit').value = "Edit author";
 };
 
 // <!--- ADD NEW AUTHOR ---!>
