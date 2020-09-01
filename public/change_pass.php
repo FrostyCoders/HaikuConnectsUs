@@ -73,7 +73,6 @@
     <title>Haiku ConnectUs - Change Password</title>
     <meta name="author" content="Frosty Coders">
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg">
-    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>

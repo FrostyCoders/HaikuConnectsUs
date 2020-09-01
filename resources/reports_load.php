@@ -6,6 +6,7 @@
     {
         require_once "../config/config.php";
         require_once "../utils/logs.php";
+        require_once "../utils/decryption.php";
         require_once "db_connect.php";
 
         switch($_POST['order'])
@@ -69,7 +70,7 @@
                 array_push($list,
                         array(
                             "id" => $report['report_id'],
-                            "email" => $report['guest_email'],
+                            "email" => decrypt_email($report['guest_email'], CKEY1),
                             "hid" => $report['haiku_id'],
                             "reason" => $report['reason'],
                             "solved" => $report['solved'],

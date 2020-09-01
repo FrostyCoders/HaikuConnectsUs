@@ -17,9 +17,13 @@
         require_once "../utils/logs.php";
         require_once "db_connect.php";
         require_once "../utils/encryption.php";
-        $name = encrypt_data($_POST['name'], CKEY4);
-        $surname = encrypt_data($_POST['surname'], CKEY5);
-        $country = $_POST['country'];
+
+        $name = htmlentities($_POST['name']);
+        $surname = htmlentities($_POST['surname']);
+        $country = htmlentities($_POST['country']);
+
+        $name = encrypt_data($name, CKEY4);
+        $surname = encrypt_data($surname, CKEY5);
 
         $query = $conn->prepare("INSERT INTO authors VALUES (NULL, :name, :surname, :country)");
         $get_id = $conn->prepare("SELECT id FROM authors ORDER BY id DESC LIMIT 1");

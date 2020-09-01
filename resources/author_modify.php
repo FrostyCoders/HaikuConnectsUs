@@ -33,9 +33,12 @@
 
         if($load_ok == true)
         {
-            $name = encrypt_data($_POST['name'], CKEY4);
-            $surname = encrypt_data($_POST['surname'], CKEY5);
-            $country = $_POST['country'];
+            $name = htmlentities($_POST['name']);
+            $surname = htmlentities($_POST['surname']);
+            $country = htmlentities($_POST['country']);
+
+            $name = encrypt_data($name, CKEY4);
+            $surname = encrypt_data($surname, CKEY5);
 
             $query = $conn->prepare("UPDATE authors SET name = :name, surname = :surname, country = :country WHERE id = :aid");
             $query = bindParam(":name", $name);

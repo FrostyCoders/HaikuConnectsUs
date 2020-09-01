@@ -77,7 +77,6 @@ class report
         request.onreadystatechange = () => {
             if(request.readyState == 4 && request.status == 200)
             {
-                console.log(request.responseText);
                 let response = JSON.parse(request.responseText);
                 if(response[0] == false)
                 {

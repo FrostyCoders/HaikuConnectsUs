@@ -50,7 +50,11 @@
                 die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
             }
             if(count($content) != 0)
-                $new_content = nl2br(implode('', $content));
+            {
+                $new_content = implode('', $content);
+                $new_content = htmlentities($new_content);
+                $new_content = nl2br($new_content);
+            }
             else
                 $new_content = $old_data['content'];
         }
@@ -65,7 +69,11 @@
                 die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
             }
             if(count($c_native) != 0)
-                $new_c_native = nl2br(implode('', $c_native));
+            {
+                $new_c_native = implode('', $c_native);
+                $new_c_native = htmlentities($new_c_native);
+                $new_c_native = nl2br($new_c_native);   
+            }
             else
                 $new_c_native = "NO";
         }

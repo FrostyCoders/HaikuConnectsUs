@@ -23,7 +23,7 @@
                 die(json_encode([false, "Error, you must choose haiku author from search list!"]));
             }
 
-            $content = $_POST['content'];
+            $content = htmlentities($_POST['content']);
 
             if(empty($content))
             {
@@ -31,7 +31,7 @@
             }
 
             if(count(json_decode($_POST['content_native'])) == 0) $c_native = json_encode(["N", "O"]);
-            else $c_native = $_POST['content_native'];
+            else $c_native = htmlentities($_POST['content_native']);
 
             $allowed_ext = array("jpg", "png", "jpeg", "bmp");
 

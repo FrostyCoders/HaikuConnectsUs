@@ -175,7 +175,12 @@
                 }
                 else
                 {
-                    $db_ok = create_request($_SESSION['logged_user']->showId(), encrypt_email($new_email, CKEY1), $conn, $change_key);
+                    do
+                    {
+                        $newMail = encrypt_email($new_email, CKEY1);
+                    }
+                    while(strcmp(decrypt_email($newMail, CKEY1), $new_email) != 0);
+                    $db_ok = create_request($_SESSION['logged_user']->showId(), $newMail, $conn, $change_key);
                     if($db_ok[0] == true)
                     {
                         if(send_mail($email, $change_key) == true)

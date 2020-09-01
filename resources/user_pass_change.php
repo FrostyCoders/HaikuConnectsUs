@@ -2,6 +2,7 @@
     require_once "../config/config.php";
     require_once "../utils/logs.php";
     require_once "../utils/encryption.php";
+    require_once "../utils/decryption.php";
     require_once "../utils/password.php";
     require_once "db_connect.php";
     
@@ -25,10 +26,14 @@
             $result = validate_passwords($pass1, $pass2);
             if($result[0] == true)
             {
-                $pass1 = encrypt_pass($pass1, CKEY2);
+                do
+                {
+                    $newPass = encrypt_pass($pass1, CKEY2);
+                }
+                while(password_verify($pass1, decrypt_pass($newPass, CKEY2)) != true);
                 $query = $conn->prepare("UPDATE users SET password = :new_pass WHERE id = :user_id");
                 $query2 = $conn->prepare("UPDATE pass_change_requests SET used = 1 WHERE user_id = :user_id");
-                $query->bindParam(":new_pass", $pass1);
+                $query->bindParam(":new_pass", $newPass);
                 $query->bindParam(":user_id", $user_id);
                 $query2->bindParam(":user_id", $user_id);
                 try

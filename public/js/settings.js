@@ -139,7 +139,6 @@ document.getElementById("form-email").addEventListener("submit", (event) => {
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200)
         {
-            console.log(request.responseText);
             const response = JSON.parse(request.responseText);
             Loading(false);
             showCommunicate(response);
@@ -239,7 +238,6 @@ document.getElementById("form-pass").addEventListener("submit", (event) => {
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200)
         {
-            console.log(request.responseText);
             const response = JSON.parse(request.responseText);
             if(response[0] == true)
             {
