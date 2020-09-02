@@ -23,7 +23,7 @@
                 die(json_encode([false, "Error, you must choose haiku author from search list!"]));
             }
 
-            $content = htmlentities($_POST['content']);
+            $content = $_POST['content'];
 
             if(empty($content))
             {
@@ -146,13 +146,13 @@
         $content = json_decode($content);
         if(json_last_error() != 0)
         {
-            saveToLog(0, "Problem with json decoding: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+            saveToLog(0, "Problem with json decoding: ", realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
         $c_native = json_decode($c_native);
         if(json_last_error() != 0)
         {
-            saveToLog(0, "Problem with json decoding: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+            saveToLog(0, "Problem with json decoding: ", realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
         $content = nl2br(implode('', $content));
