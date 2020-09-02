@@ -255,12 +255,15 @@ document.getElementById("post-report-close").addEventListener("click", () => {
 document.getElementById("report_form").addEventListener("submit", (event) => {
     event.preventDefault();
     Loading(true);
-    if(reporting == null) console.log("Error occured, refresh site and try again!");
+    if(reporting == null) showCommunicate([false, "Error occured, refresh site and try again!"]);
     else
     {
         const reportReason = document.getElementsByName("text-report")[0].value;
         const email = document.getElementsByName("guest-email")[0].value;
-        if((reportReason.length == 0) || (email.length == 0)) console.log("Fill all inputs!");
+        if((reportReason.length == 0) || (email.length == 0)){
+            showCommunicate([false, "Fill all inputs!"]);
+            Loading(false);
+        } 
         else
         {
             let reported = false;
@@ -274,7 +277,7 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
                     reported = true;
                 }
             });
-            if(reported == false) console.log("Error, cannot find haiku to report, refresh site and try again!");
+            if(reported == false) showCommunicate([false, "Error, cannot find haiku to report, refresh site and try again!"]);
             else
             {
                 document.getElementById("post-report-menu").style.display = "none";
@@ -355,46 +358,6 @@ window.onload = () => {
     }
     loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
-
-// <!--- GRID OF POSTS ---!>
-/* const gridSwitch1 = document.getElementById("quantity1");
-const gridSwitch2 = document.getElementById("quantity2");
-const gridSwitch3 = document.getElementById("quantity3");
-
-gridSwitch1.addEventListener('click', function(e) { 
-    let gridPosts = document.getElementsByClassName("posts");
-    if(gridSwitch1.checked == true)
-        {
-            for (let i=0; i<gridPosts.length; i++) 
-            {
-                gridPosts[i].classList.add('mg-posts3');
-                gridPosts[i].classList.remove('mg-posts1');
-            }
-        }
-})
-
-gridSwitch2.addEventListener('click', function(e) { 
-    let gridPosts = document.getElementsByClassName("posts");
-    if(gridSwitch2.checked == true)
-        {
-            for (let i=0; i<gridPosts.length; i++) 
-            {
-                gridPosts[i].classList.remove('mg-posts3 mg-posts1');
-            }
-        }
-})
-
-gridSwitch3.addEventListener('click', function(e) { 
-    let gridPosts = document.getElementsByClassName("posts");
-    if(gridSwitch3.checked == true)
-        {
-            for (let i=0; i<gridPosts.length; i++) 
-            {
-                gridPosts[i].classList.add('mg-posts1');
-                gridPosts[i].classList.remove('mg-posts3');
-            }
-        }
-}) */
 
 // COOKIE ALERT
 function cookieAlert(name,value,time){
