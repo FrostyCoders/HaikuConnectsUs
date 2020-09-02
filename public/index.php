@@ -133,7 +133,6 @@
                                 
                             </ul>
                         </div>
-                        <a href="https://github.com/FrostyCoders" target="_blank" title="Check out our projects!"><div class="author-logo"></div></a>
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
