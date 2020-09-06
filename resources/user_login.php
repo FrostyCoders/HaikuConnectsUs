@@ -54,7 +54,7 @@
                 {
                     if(password_verify($password, decrypt_pass($user['password'], CKEY2)))
                     {
-                        $_SESSION['logged_user'] = new User($user['id'], $user['name'], $decrypted_email);
+                        $_SESSION['logged_user'] = new User($user['id'], $user['name'], $decrypted_email, $user['last_email_change']);
                         break;
                     }
                     else

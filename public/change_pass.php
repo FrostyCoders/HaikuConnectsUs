@@ -105,6 +105,6 @@
         </div>
     </div>
     <script src="js/login.js"></script>
-    <script src="js/forgot_pass/enter_new.js"></script>
+    <script src="js/enter_new.js"></script>
 </body>
 </html>

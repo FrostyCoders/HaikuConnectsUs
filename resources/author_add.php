@@ -18,9 +18,13 @@
         require_once "db_connect.php";
         require_once "../utils/encryption.php";
 
-        $name = htmlentities($_POST['name']);
-        $surname = htmlentities($_POST['surname']);
-        $country = htmlentities($_POST['country']);
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $country = $_POST['country'];
+
+        $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
+        if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
+            die(json_encode([false, "New author data could not contain special characters!"]));
 
         $name = encrypt_data($name, CKEY4);
         $surname = encrypt_data($surname, CKEY5);

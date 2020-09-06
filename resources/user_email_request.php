@@ -101,7 +101,7 @@
                             <p style="margin-left: 2rem; font-size: 1rem;">Someone started changing e-mail process on your profile on <a href="' . SITE_URL . '" target="_blank" style="color: #dd3050; font-weight: bold; text-decoration: none;">Haiku Connects Us</a>.</p>
                             <p style="margin-left: 2rem; font-size: 1rem;">If this person is you and you want to continue this process - click this button and follow the instructions.</p>
                             <div style="text-align: center;">
-                                <a href="' . SITE_URL . '/public/change_email.php?ck=' . $key . '" target="_blank"><button style="position: relative; left: 50%; transform: translateX(-50%); margin-top: 2rem; margin-bottom: 2rem; width: 10rem; height: 3rem; font-size: 1rem; text-align: center; border-radius: 0.5rem; font-weight: bold; background-color: #353330; color: #fff; border: 2px solid #dd3050; outline: none; cursor: pointer;">Continue recover</button></a>
+                                <a href="' . SITE_URL . '/public/change_email.php?ck=' . $key . '" target="_blank"><button style="position: relative; left: 50%; transform: translateX(-50%); margin-top: 2rem; margin-bottom: 2rem; width: 10rem; height: 3rem; font-size: 1rem; text-align: center; border-radius: 0.5rem; font-weight: bold; background-color: #353330; color: #fff; border: 2px solid #dd3050; outline: none; cursor: pointer;">Activate new</button></a>
                             </div>
                         </div>
                         <div style="width: 100%; min-height: 5rem;">
@@ -154,6 +154,11 @@
             session_start();
             $user_id = $_SESSION['logged_user']->showId();
             $email = $_SESSION['logged_user']->showEmail();
+            $last_change = $_SESSION['logged_user']->lastEmailChange();
+
+            if(date("Y-m-d") == $last_change)
+                die(json_encode([false, "You have changed email recently, try tomorrow."]));
+
             if(email_repeated($new_email, $conn) == true)
             {
                 $result = array(false, "Your new e-mail address already belongs to other user!");
@@ -185,7 +190,7 @@
                     {
                         if(send_mail($email, $change_key) == true)
                         {
-                            $result = array(true, "The activation link has been sent, you have 15 min accept new e-mail on your old previous e-mail account.");
+                            $result = array(true, "The activation link has been sent, you have 15 min to accept new e-mail on your current e-mail account.");
                         }
                         else
                         {
