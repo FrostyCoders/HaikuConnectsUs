@@ -5,31 +5,31 @@ echo '<div class="container">
             <h4>Project Partners:</h4>
         </div>
         <div class="row text-center justify-content-center pt-5 mb-3">
-            <div class="col-6 col-lg-3 mb-3">
-                <div class="logo">
+            <div class="col-6 col-lg-3 mb-4">
+                <div class="logo-footer">
                     <a href="#">
-                        <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
+                        <img class="logo-tooltip" src="img/icons/menu_close_normal.svg" title="Biblioteka w Nowym Targu">
                     </a>
                 </div>
             </div>
-            <div class="col-6 col-lg-3 mb-3">
-                <div class="logo">
+            <div class="col-6 col-lg-3 mb-4">
+                <div class="logo-footer">
                     <a href="#">
-                        <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
+                        <img class="logo-tooltip" src="img/icons/menu_close_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
                     </a>
                 </div>
             </div>
-            <div class="col-6 col-lg-3 mb-3">
-                <div class="logo">
-                    <a href="#">
-                        <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
+            <div class="col-6 col-lg-3 mb-4">
+                <div class="logo-footer">
+                    <a href="https://github.com/FrostyCoders" target="_blank">
+                        <div class="logo-tooltip logo-tooltip-3" title="FrostyCoders"></div>
                     </a>
                 </div>
             </div>
-            <div class="col-6 col-lg-3 mb-3">
-                <div class="logo">
+            <div class="col-6 col-lg-3 mb-4">
+                <div class="logo-footer">
                     <a href="#">
-                        <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
+                        <img class="logo-tooltip" src="img/icons/menu_close_normal.svg" title="Others">
                     </a>
                 </div>
             </div>
@@ -45,6 +45,6 @@ echo '<div class="container">
         </div>
         </div>
 
-        <div class="footer-copyright text-center py-4">2020 &copy; FROSTYCODERS</div>'
-
+        <div class="footer-copyright text-center pt-4 pb-2">2020 &copy; FROSTYCODERS</div>
+        <div class="footer-copyright text-center pb-4">All rights reserved</div>'
 ?>

@@ -30,6 +30,16 @@
         </div>
     </div>
     <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
+    <div class="add-new-author" id="add-new-author">
+        <div class="add-new-author-close" id="add-new-author-close"></div>
+        <p id="author-p">Edit author:</p>
+        <form id="add_author_form">
+            <input type="text" id="author-firstname" placeholder="Firstname" />
+            <input type="text" id="author-surname" placeholder="Surname" />
+            <input type="text" id="author-country" placeholder="Country" />
+            <input type="submit" id="author-submit" value="Edit author" />
+        </form>
+    </div>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="index.php">Haiku Connects Us</a>

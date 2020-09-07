@@ -64,7 +64,25 @@
                 <div class="col-12 col-md-8 col-lg-6 offset-0 offset-md-2 offset-lg-3 first-row">
                     <h4>Information:</h4>
                     <hr class="mt-3">
-                    <p class="information"><strong>By using <q>Haiku Connects Us</q>, you agree privacy policy.</strong></p>
+                    <p class="information"><strong>By using <q>Haiku Connects Us</q>, you agree privacy policy and cookies policy.</strong></p>
+                    <hr class="hr-big">
+                    <p class="info-about">1. The administrator of data contained on the <q>Haiku Connects Us</q> website is: ... .</p>
+                    <p class="info-about">2. Sensitive data related to the use of the website <q>Haiku Connects Us</q> are encrypted.</p>
+                    <p class="info-about">3. Creators of haiku on the website <q>Haiku Connects Us</q> have given their full consent for the publication of their work with data:</p>
+                    <ul>
+                        <li>firstname</li>
+                        <li>surname</li>
+                        <li>country</li>
+                        <li>created haiku</li>
+                        <li>postcard background</li>
+                        <li>handwritten haiku on postcard</li>
+                    </ul>
+                    <p class="info-about">4. It is not allowed to copy, distribute, sell haiku located on the website <q>Haiku Connects Us</q> without the prior consent of the creator of this haiku.</p>
+                    <p class="info-about">5. On website <q>Haiku Connects Us</q> it is not possible to create an account in order to log in, without consent the administrator of data and make by him account.</p>
+                    <p class="info-about">6. In order to edit or delete of the post with haiku, please notify to the administrator of data by report this haiku with the appropriate button in the post menu.</p>
+                    <p class="info-about">7. When reporting post with haiku you must not use vulgar language, make so-called spam, advertise.</p>
+                    <p class="info-about">8. Any errors that occurred while using the website <q>Haiku Connects Us</q> are recording and saving to provide you with a better website experience and possibility to fix errors.</p>
+                    <p class="info-about">9. Website <q>Haiku Connects Us</q> is provided as is. Creators of this website not be held responsible for errors while using website <q>Haiku Connects Us</q>, errors of security are not responsible for any damage caused by the applications and website <q>Haiku Connects Us</q>.</p>
                 </div>
             </div>
         </div>

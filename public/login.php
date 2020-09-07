@@ -18,13 +18,13 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <div id="loading-container">
+        <div class="points-loading-container">
+            <div class="point1"></div>
+        </div>
+    </div>
     <div class="bg_image"></div>
     <div class="login_window">
-        <div class="loading-container" id="loading-container">
-            <div class="points-loading-container">
-                <div class="point1"></div>
-            </div>
-        </div>
         <div class="frame">
             <img id="haiku_logo" src="img/icons/haiku_logo_normal.svg" alt="Logo">
             <form id="login_form">
@@ -69,5 +69,6 @@
         </div>
     </div>
     <script src="js/login.js"></script>
+    <script src="js/common.js"></script>
 </body>
 </html>

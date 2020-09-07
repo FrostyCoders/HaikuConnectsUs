@@ -37,6 +37,126 @@
 }
 
 // AUTHORS LIST
+.author-edit{
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    left: 3.5rem;
+    top: 50%;
+    transform: translateY(-20%);
+    background-image: url(../img/icons/edit_normal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    transition-duration: 0.15s;
+}
+
+.author-edit:hover{
+    box-shadow: inset 2px 0px 30px 1px rgba(221,48,80,0.75);
+}
+
+#table-response1 tr, #table-response2 tr
+{
+    position: relative;
+}
+
+.add-new-author{
+    position: fixed;
+    display: none;
+    z-index: 99999;
+    width: 40rem;
+    min-height: 32rem;
+    background-color: $light-color;
+    border: 1px solid $dark-color;
+    border-radius: 0.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
+    box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
+
+    p{
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.2rem;
+    }
+
+    input[type="text"]{
+        display: block;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2.5rem;
+        height: 3.6rem;
+        padding: 0.5rem 1rem;
+        background-color: $white-color;
+        border: 1.5px solid $dark-color;
+        border-radius: 0.5rem;
+        transition-duration: 0.35s;
+    }
+
+    input[type="submit"]{
+        position: relative;
+        top: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $dark-color;
+        color: $light-color;
+        border: 2px solid $dark-color;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        width: 10rem;
+        height: 4rem;
+        transition-duration: 0.35s;
+    }
+
+    input[type="text"]:focus{
+        outline: none;
+        border-color: $extra-color;
+    }
+
+    input[type="submit"]:hover{
+        border-color: $extra-color;
+        outline: none;
+    }
+}
+
+.add-new-author-close{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.add-new-author-close:before, .add-new-author-close:after{
+    content: "";
+    width: 0.3rem;
+    height: 2rem;
+    background-color: $dark-color;
+    position: absolute;
+    left: 40%;
+    transform: translateX(-50%);
+    transition-duration: 0.35s;
+}
+
+.add-new-author-close:before{
+    transform: rotate(-45deg);
+}
+
+.add-new-author-close:after{
+    transform: rotate(45deg);
+}
+
+.add-new-author-close:hover::before, .add-new-author-close:hover::after { 
+    background-color: $extra-color;
+}
+
 .table-con{
     padding: 2.5rem;
 }

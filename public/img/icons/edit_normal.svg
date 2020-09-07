@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- By Farriven -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none" stroke="#000">
+  <path d="m1.3643 2.1518" stroke-width=".26458px"/>
+  <g stroke-width=".39688">
+   <circle cx="5.6434" cy="2.1518" r=".57878" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" style="paint-order:normal"/>
+   <path d="m5.0436 2.1518h-3.6794z"/>
+   <path d="m6.2177 2.1518h0.89814z"/>
+  </g>
+  <g transform="translate(0 4.223)" stroke-width=".39687">
+   <circle cx="5.6434" cy="2.1518" r=".57878" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" style="paint-order:normal"/>
+   <path d="m5.0436 2.1518h-3.6794z"/>
+   <path d="m6.2177 2.1518h0.89814z"/>
+  </g>
+  <g transform="rotate(180 4.2401 3.2091)" stroke-width=".39687">
+   <circle cx="5.6434" cy="2.1518" r=".57878" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" style="paint-order:normal"/>
+   <path d="m5.0436 2.1518h-3.6794z"/>
+   <path d="m6.2177 2.1518h0.89814z"/>
+  </g>
+ </g>
+</svg>

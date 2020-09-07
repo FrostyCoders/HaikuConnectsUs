@@ -32,7 +32,7 @@ function showCommunicate(message) {
         if(message[0] == false)
             box.style.color = "red";
         else
-            box.style.color = "var(--dark-color)";
+            box.style.color = "#353330";
         resolve();
     }).then(() => {
         if(message[0] == false)
