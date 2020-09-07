@@ -18,32 +18,26 @@ const showAuthors = () => {
                 td1.innerHTML = author['fname'];
                 td2.innerHTML = author['country'];
                 td1.addEventListener("click", () => {
-                showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
                 });
                 td2.addEventListener("click", () => {
-                showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
                 });
                 const editBtn = document.createElement("div");
                 editBtn.setAttribute("class", "author-edit");
                 editBtn.setAttribute("title", "Click to edit author.");
                 editBtn.addEventListener("click", () => {
-                editAuthor(author['id'], author['firstname'], author['surname'], author['country']);
+                    editAuthor(author['id'], author['firstname'], author['surname'], author['country']);
                 });
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(editBtn);
                 if(count%2 == 0)
-                {
                     tableResponse1.appendChild(tr);
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(editBtn);
-                }
                 else
-                {
                     tableResponse2.appendChild(tr);
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(editBtn);
-                }       
-                count = count + 1;
+                    
+                count++;
             });
         }
         else
@@ -73,12 +67,12 @@ const editAuthor = (id, fname, sname, country) => {
     document.getElementById('author-firstname').value = fname;
     document.getElementById('author-surname').value = sname;
     document.getElementById('author-country').value = country;
-    const editSubmit = document.getElementById('author-submit');
+    const editSubmit = document.getElementById('add_author_form');
 
-    editSubmit.addEventListener("click", () => {
+    editSubmit.addEventListener("submit", () => {
         event.preventDefault();
         sendAuthor(id);
-        });
+    });
 };
 
 const sendAuthor = (id) => {
@@ -88,14 +82,17 @@ const sendAuthor = (id) => {
     Loading(true);
     const loadAuthors = new XMLHttpRequest();
     loadAuthors.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        const loadReady = JSON.parse(this.responseText);
-        showCommunicate(loadReady);
-        Loading(false);
-        const trAll = document.querySelectorAll('.trAll').forEach(tr => tr.remove());
-        document.getElementById('add-new-author').style.display = "none";
-        showAuthors();
-      }
+        if (this.readyState == 4 && this.status == 200) {
+            const loadReady = JSON.parse(this.responseText);
+            showCommunicate(loadReady);
+            Loading(false);
+            if(loadReady[0] == true)
+            {
+                const trAll = document.querySelectorAll('.trAll').forEach(tr => tr.remove());
+                document.getElementById('add-new-author').style.display = "none";
+                showAuthors();
+            }
+        }
     };
     loadAuthors.open("POST","../resources/author_edit.php",true);
     loadAuthors.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

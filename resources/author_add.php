@@ -26,9 +26,6 @@
         if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
             die(json_encode([false, "New author data could not contain special characters!"]));
 
-        $name = encrypt_data($name, CKEY4);
-        $surname = encrypt_data($surname, CKEY5);
-
         $query = $conn->prepare("INSERT INTO authors VALUES (NULL, :name, :surname, :country)");
         $get_id = $conn->prepare("SELECT id FROM authors ORDER BY id DESC LIMIT 1");
 

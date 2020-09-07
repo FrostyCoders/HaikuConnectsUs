@@ -78,7 +78,7 @@
             {
                 if($current_haiku >= $page_range_begin && $current_haiku < $page_range_end)
                 {
-                    $full_name = decrypt_data($h['name'], CKEY4) . " " . @decrypt_data($h['surname'], CKEY5);
+                    $full_name = $h['name'] . " " . $h['surname'];
                     array_push($exported_haiku, array(
                         'id' => $h['id'],
                         'author' => $full_name,

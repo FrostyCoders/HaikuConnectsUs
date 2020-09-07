@@ -54,7 +54,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 
             if(haikuData[0] !== false)
             {
                 if(haikuData[1] == 0) 
-                    haikuBox.innerHTML = '<p class="load-error">Error, cannot load haiku data!</p>';
+                    haikuBox.innerHTML = '<p class="load-error">No haiku to show.</p>';
                 else
                 {
                     haikuPosts = [];
@@ -292,6 +292,7 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
 // <!--- PAGES ---!>
 const changePage = (page) => {
     currentPage = page;
+    document.getElementById("haiku_box").scrollIntoView({behavior: 'smooth', block: 'start'});
     loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 

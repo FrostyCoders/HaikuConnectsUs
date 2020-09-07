@@ -125,6 +125,5 @@
     <script src="js/change_icons_menu.js"></script>
     <script src="js/common.js"></script>
     <script src="js/author_list.js"></script>
-    
 </body>
 </html>

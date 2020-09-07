@@ -52,8 +52,8 @@
             array(
                 $haiku['haiku_id'],
                 $haiku['author_id'],
-                decrypt_data($haiku['name'], CKEY4),
-                decrypt_data($haiku['surname'], CKEY5),
+                $haiku['name'],
+                $haiku['surname'],
                 $haiku['country'],
                 str_ireplace("<br />", "\r", $haiku['content']),
                 $haiku['content_native'] != "NO" ?  str_ireplace("<br />", "\r", $haiku['content_native']) : "", 

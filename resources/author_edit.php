@@ -19,10 +19,15 @@
         require_once "../utils/logs.php";
         require_once "db_connect.php";
         require_once "../utils/encryption.php";
-        $name = encrypt_data($_POST['name'], CKEY4);
-        $surname = encrypt_data($_POST['surname'], CKEY5);
+
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
         $country = $_POST['country'];
         $id = $_POST['id'];
+
+        $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
+        if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
+            die(json_encode([false, "New author data could not contain special characters!"]));
 
         $query = $conn->prepare("UPDATE authors SET name=:name, surname=:surname, country=:country WHERE id=:id");
 
@@ -33,7 +38,7 @@
             $query->bindParam(":country", $country);
             $query->bindParam(":id", $id);
             $query->execute();
-            $result = array(true, "Author edit succsessfully.");
+            $result = array(true, "Author edited succsessfully.");
         }
         catch(Exception $e)
         {

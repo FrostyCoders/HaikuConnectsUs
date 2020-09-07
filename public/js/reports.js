@@ -204,6 +204,7 @@ class reportsSite
         else
             showCommunicate([false, "Error during page change, try later!"]);
 
+        document.getElementsByClassName("filters-form")[0].scrollIntoView({behavior: 'smooth', block: 'start'});
         this.getReports();
     }
 

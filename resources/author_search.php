@@ -33,14 +33,14 @@
             $authors_list = array();
             foreach($authors as $a)
             {
-                $full_name = decrypt_data($a['name'], CKEY4) . " " . decrypt_data($a['surname'], CKEY5);
+                $full_name = $a['name'] . " " . $a['surname'];
                 if(strstr($full_name, $phrase))
                 {   
                     array_push($authors_list, array(
                         "id" => $a['id'],
                         "fname" => $full_name,
-                        "firstname" => decrypt_data($a['name'], CKEY4),
-                        "surname" => decrypt_data($a['surname'], CKEY5),
+                        "firstname" => $a['name'],
+                        "surname" => $a['surname'],
                         "country" => $a['country']
                     ));
                 }
