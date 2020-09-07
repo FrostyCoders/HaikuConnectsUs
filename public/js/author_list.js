@@ -63,7 +63,6 @@ window.onload = showAuthors;
 
 const showAuthorsHaiku = (id, fname, country) => {
     let data = JSON.stringify([id, fname, country]);
-    console.log(data);
     sessionStorage.setItem("author", data);
     window.location.href = "index.php";
 };

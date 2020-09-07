@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "../config/config.php";
     require_once "../utils/logs.php";
     require_once "../resources/db_connect.php";
@@ -30,7 +31,7 @@
                 }
                 else
                 {
-                    $change_email = $conn->prepare("UPDATE users SET email = :new_email WHERE id = :uid");
+                    $change_email = $conn->prepare("UPDATE users SET email = :new_email, last_email_change = NOW() WHERE id = :uid");
                     $change_email->bindParam(":new_email", $query['new_email']);
                     $change_email->bindParam(":uid", $query['user_id']);
                     $link_used = $conn->prepare("UPDATE change_email_requests SET used = 1 WHERE request_id = :rid");
@@ -42,7 +43,7 @@
                         {
                             $link_used->execute();
                             $result = array(true, "Email changed successfully.");
-                            session_destroy();
+                            unset($_SESSION['logged_user']);
                         }
                         catch(Exception $e)
                         {

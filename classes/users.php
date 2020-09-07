@@ -4,17 +4,21 @@
         private $id;
         private $username;
         private $email;
+        private $pass_change;
+        private $email_change;
 
-        function __construct($id, $username, $email)
+        function __construct($id, $username, $email, $email_change)
         {
             $this->id = $id;
             $this->username = $username;
             $this->email = $email;
+            $this->email_change = $email_change;
         }
 
         function showId(){return $this->id;}
         function showName(){return $this->username;}
         function showEmail(){return $this->email;}
+        function lastEmailChange(){return $this->email_change;}
 
         function changePass($conn, $new)
         {

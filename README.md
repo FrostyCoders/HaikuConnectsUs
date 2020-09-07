@@ -2,7 +2,7 @@
 
 ## Work Progress
 
-Works on project are still in early phase, currently we are merging back-end scripts with UI in order to provide menagement of haiku. 
+Code corrections and adding and improving app features.
 
 ## Overview
 

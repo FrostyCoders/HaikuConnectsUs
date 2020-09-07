@@ -2,7 +2,7 @@ document.getElementById("change_pass_form").addEventListener("submit", (event) =
     event.preventDefault();
     const pass1 = document.getElementById("new_pass").value;
     const pass2 = document.getElementById("repeated_pass").value;
-    const pageResult = document.getElementById("pageResult");
+    const pageResult = document.getElementById("page_result");
     if(pass1.length == 0 || pass2.length == 0)
     {
         ShowResult([false, "Enter both passwords!"]);

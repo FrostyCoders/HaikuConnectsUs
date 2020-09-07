@@ -49,7 +49,12 @@
                 }
                 if($result[0] == true)
                 {
-                    echo json_encode($_SESSION['logged_user']->changePass($conn, encrypt_pass($pass1, CKEY2)));
+                    do
+                    {
+                        $newPass = encrypt_pass($pass1, CKEY2);
+                    }
+                    while(password_verify($pass1, decrypt_pass($newPass, CKEY2)) != true);
+                    echo json_encode($_SESSION['logged_user']->changePass($conn, $newPass));
                 }
             }
             else

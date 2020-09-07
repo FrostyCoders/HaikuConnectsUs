@@ -13,6 +13,7 @@
         require_once "db_connect.php";
 
         $nick = $_POST['nickname'];
+
         if(empty($nick) || strlen($nick) < 3)
             die(json_encode([false, "Error, new nickname must have at least 3 characters!"]));
 
