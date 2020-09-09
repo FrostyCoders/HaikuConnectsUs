@@ -31,7 +31,7 @@
             }
 
             if(count(json_decode($_POST['content_native'])) == 0) $c_native = json_encode(["N", "O"]);
-            else $c_native = htmlentities($_POST['content_native']);
+            else $c_native = $_POST['content_native'];
 
             $allowed_ext = array("jpg", "png", "jpeg", "bmp");
 
@@ -142,19 +142,32 @@
         $query = $conn->prepare("INSERT INTO haiku VALUES
                                 (NULL, :aid, :content, :c_native, 0, :bg, :hw, :time);
         ");
-
+        
         $content = json_decode($content);
         if(json_last_error() != 0)
         {
-            saveToLog(0, "Problem with json decoding: ", realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+            saveToLog(0, "Problem with json decoding: "  . json_last_error_msg(), realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
         $c_native = json_decode($c_native);
         if(json_last_error() != 0)
         {
-            saveToLog(0, "Problem with json decoding: ", realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+            saveToLog(0, "Problem with json decoding: " . json_last_error_msg(), realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
         }
+
+        $specials = "/[\^£$%&*()}{@#~><>|=_+¬]/";
+        foreach($content as $char)
+        {
+            if(preg_match($specials, $char))
+                die(json_encode([false, "Error, haiku text in english should not contain special characters except punctuation marks!]"]));
+        }
+        foreach($c_native as $char)
+        {
+            if(preg_match($specials, $char))
+                die(json_encode([false, "Error, haiku text in native language should not contain special characters except punctuation marks!"]));
+        }
+
         $content = nl2br(implode('', $content));
         $c_native = nl2br(implode('', $c_native));
 

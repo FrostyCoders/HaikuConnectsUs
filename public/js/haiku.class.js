@@ -256,7 +256,7 @@ class Haiku
 
     deleteHaiku()
     {
-        if(confirm("Are you sure, this operation will delete haiku penamently!"))
+        if(confirm("Are you sure, this operation will delete haiku and reports related to it pernamently!"))
         {
             Loading(true);
             const request = new XMLHttpRequest;

@@ -42,17 +42,24 @@
         }
         else $new_author = $old_data['author'];
 
+        $specials = "/[\^£$%&*()}{@#~><>|=_+¬]/";
+
         if(isset($_POST['haiku_content']))
         {
             $content = json_decode($_POST['haiku_content']);
             if(json_last_error() != 0)
             {
-                die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
+                saveToLog(0, "Problem with json decoding: "  . json_last_error_msg(), realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+                die(json_encode([false, "Error, cannot edit haiku in right way, try later!"]));
             }
             if(count($content) != 0)
             {
+                foreach($content as $char)
+                {
+                    if(preg_match($specials, $char))
+                        die(json_encode([false, "Error, haiku text in english should not contain special characters except punctuation marks!]"]));
+                }
                 $new_content = implode('', $content);
-                $new_content = htmlentities($new_content);
                 $new_content = nl2br($new_content);
             }
             else
@@ -66,12 +73,17 @@
             $c_native = json_decode($_POST['haiku_c_native']);
             if(json_last_error() != 0)
             {
-                die(json_encode([false, "Error, cannot add haiku in right way, try later!"]));
+                saveToLog(0, "Problem with json decoding: "  . json_last_error_msg(), realpath(".") . "\\" .  basename(__FILE__), __LINE__);
+                die(json_encode([false, "Error, cannot edit haiku in right way, try later!"]));
             }
             if(count($c_native) != 0)
             {
+                foreach($c_native as $char)
+                {
+                    if(preg_match($specials, $char))
+                        die(json_encode([false, "Error, haiku text in native language should not contain special characters except punctuation marks!"]));
+                }
                 $new_c_native = implode('', $c_native);
-                $new_c_native = htmlentities($new_c_native);
                 $new_c_native = nl2br($new_c_native);   
             }
             else
