@@ -46,7 +46,9 @@
                                 <input class="login_input" id="repeated_pass" type="password">
                             </div>
                             <div class="last_input" class="input_frame">
-                                <input type="submit" value="Change Password">
+                                <div class="button_container">
+                                    <input type="submit" value="Change Password">
+                                </div>
                             </div>
                         </form>
                     ');
@@ -81,7 +83,6 @@
         <div id="loading-container">
             <div class="points-loading-container">
                 <div class="point1"></div>
-                <div class="point2"></div>
             </div>
         </div>
         <div class="frame">
@@ -96,6 +97,12 @@
                     echo $result[1];
                 }
             ?>
+            <div class="button_container">
+                <a href="index.php" title="Back to the page">
+                    <div class="back_page"></div>
+                    <div class="back_page_text">Back to the page</div>
+                </a>
+            </div>
             <div class="space">
                 <div id="page_result"></div>
             </div>
@@ -106,5 +113,6 @@
     </div>
     <script src="js/login.js"></script>
     <script src="js/enter_new.js"></script>
+    <script src="js/common.js"></script>
 </body>
 </html>

@@ -76,7 +76,6 @@
     <title>Haiku ConnectUs - Change E-mail</title>
     <meta name="author" content="Frosty Coders">
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg">
-    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
@@ -85,7 +84,6 @@
         <div id="loading-container">
             <div class="points-loading-container">
                 <div class="point1"></div>
-                <div class="point2"></div>
             </div>
         </div>
         <div class="frame">
@@ -93,6 +91,12 @@
             <?php
                 echo '<p class="notification">'.$result[1].'</p>';
             ?>
+            <div class="button_container">
+                <a href="index.php" title="Back to the page">
+                    <div class="back_page"></div>
+                    <div class="back_page_text">Back to the page</div>
+                </a>
+            </div>
             <div class="space">
                 <div id="page_result"></div>
             </div>
@@ -102,5 +106,6 @@
         </div>
     </div>
     <script src="js/login.js"></script>
+    <script src="js/common.js"></script>
 </body>
 </html>

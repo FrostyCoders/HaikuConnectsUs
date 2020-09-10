@@ -97,17 +97,17 @@
                     </header>
                     <main>
                         <div style="width: 100%; min-height: 5rem;">
-                            <p style="margin-left: 2rem; font-size: 1rem;">Hi,</p>
-                            <p style="margin-left: 2rem; font-size: 1rem;">Someone started changing e-mail process on your profile on <a href="' . SITE_URL . '" target="_blank" style="color: #dd3050; font-weight: bold; text-decoration: none;">Haiku Connects Us</a>.</p>
-                            <p style="margin-left: 2rem; font-size: 1rem;">If this person is you and you want to continue this process - click this button and follow the instructions.</p>
+                            <p style="margin: 0 2rem; font-size: 1rem;">Hi,</p>
+                            <p style="margin: 0 2rem; font-size: 1rem;">Someone started changing e-mail process on your profile on <a href="' . SITE_URL . '" target="_blank" style="color: #dd3050; font-weight: bold; text-decoration: none;">Haiku Connects Us</a>.</p>
+                            <p style="margin: 0 2rem; font-size: 1rem;">If this person is you and you want to continue this process - click this button and follow the instructions.</p>
                             <div style="text-align: center;">
                                 <a href="' . SITE_URL . '/public/change_email.php?ck=' . $key . '" target="_blank"><button style="position: relative; left: 50%; transform: translateX(-50%); margin-top: 2rem; margin-bottom: 2rem; width: 10rem; height: 3rem; font-size: 1rem; text-align: center; border-radius: 0.5rem; font-weight: bold; background-color: #353330; color: #fff; border: 2px solid #dd3050; outline: none; cursor: pointer;">Activate new</button></a>
                             </div>
                         </div>
                         <div style="width: 100%; min-height: 5rem;">
-                            <p style="font-size: 1rem; margin-left: 2rem; color: #353330;">If not you started this process, you can ignore this message, but for your confidence check the security of your account.</p><br />
-                            <p style="font-size: 1rem; margin-left: 2rem; color: #353330;">For more info or to ask us, write on this e-mail:</p>
-                            <p style="font-size: 1rem; margin-left: 2rem; color: #353330; font-weight: bold;"><a href="mailto:#" style="text-decoration: none; color: #dd3050;">XYZ@xyz.xyz</a></p>
+                            <p style="font-size: 1rem; margin: 0 2rem; color: #353330;">If not you started this process, you can ignore this message, but for your confidence check the security of your account.</p><br />
+                            <p style="font-size: 1rem; margin: 0 2rem; color: #353330;">For more info or to ask us, write on this e-mail:</p>
+                            <p style="font-size: 1rem; margin: 0 2rem; color: #353330; font-weight: bold;"><a href="mailto:#" style="text-decoration: none; color: #dd3050;">XYZ@xyz.xyz</a></p>
                         </div>
                     </main>
                     <footer>

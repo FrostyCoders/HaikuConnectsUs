@@ -37,7 +37,11 @@
             <input type="text" id="author-firstname" placeholder="Firstname" />
             <input type="text" id="author-surname" placeholder="Surname" />
             <input type="text" id="author-country" placeholder="Country" />
+            <div class="author-submit-container">
+            <input type="button" id="author-show-haiku" value="Show haiku" />
             <input type="submit" id="author-submit" value="Edit author" />
+            </div>
+            
         </form>
     </div>
     <!-- PASEK NAWIGACYJNY -->

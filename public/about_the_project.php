@@ -66,25 +66,26 @@
                     <hr class="mt-3">
                     <p class="information">The project <q>Haiku Connects Us</q> aims to bring together haiku writers from around the world.</p>
                     <hr class="hr-big">
-                    <p class="info-about">The idea of a project of sending postcards from your local place with a word haiku -
-                        handwritten on the reverse side - has been on my mind for some time. However, I did not
-                        have courage to make it real. When I finally made a decision, I was only thinking about my
-                        close friends I was in touch with.</p>
-                    <p class="info-about">Yet, fate was different. Human kindness and the pandemic
-                        overlapped with one another.</p>
-                    <p class="info-about"> My friends popularized the project worldwide without my
-                        knowledge. The first postcard came on February the 1st, later on came many more. Since
-                        March there has been a breakdown due to the pandemic. I get postcards that were on their
-                        way for 100 days, they are tattered and worn out but victorious.</p>
+                    <h4>English:</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">About the project <q>Haiku Connects Us</q>:</p>
+                    <p class="info-about">The idea of a project of sending postcards from your local place with a word haiku - handwritten on the reverse side - has been on my mind for some time. However, I did not have courage to make it real. When I finally made a decision, I was only thinking about my close friends I was in touch with.</p>
+                    <p class="info-about">Yet, fate was different. Human kindness and the pandemic overlapped with one another.</p>
+                    <p class="info-about"> My friends popularized the project worldwide without my knowledge. The first postcard came on February the 1st, later on came many more. Since March there has been a breakdown due to the pandemic. I get postcards that were on their way for 100 days, they are tattered and worn out but victorious.</p>
                     <p class="info-about">I wonder how many of them are there left in post bags?</p>
-                    <p class="info-about">Sending a postcard seems to be a simple act but in fact it isn&#39;t. Apart from             financial aspect there is also time devoted to it and finally finding a postbox. Sometimes buying a             postcard may be a challenge! For me the most interesting was a human factor. Who would be eager
-                        to give a litttle heart, thought or emphaty? I wasn&#39;t let down. The postcards I received speak
-                        to me with their image and handwritten haiku. Handwriting, stamp, postmark, sometimes
-                        earmarks are all precious to me, they make me become mentally closer to their sender. I can
-                        tell a lot about each and every postcad and I am very moved. Man is victorious, haiku is
-                        victorious, in the end we are all victorious and for that I thank you cordially.</p>
-                    <p class="info-about-author">By: Krzysztof Kokot</p>
+                    <p class="info-about">Sending a postcard seems to be a simple act but in fact it isn&#39;t. Apart from financial aspect there is also time devoted to it and finally finding a postbox. Sometimes buying a postcard may be a challenge! For me the most interesting was a human factor. Who would be eager to give a litttle heart, thought or emphaty? I wasn&#39;t let down. The postcards I received speak to me with their image and handwritten haiku. Handwriting, stamp, postmark, sometimes earmarks are all precious to me, they make me become mentally closer to their sender. I can tell a lot about each and every postcad and I am very moved. Man is victorious, haiku is victorious, in the end we are all victorious and for that I thank you cordially.</p>
+                    <p class="info-about-author">Author: Krzysztof Kokot</p>
                     <p class="info-about-author">Translation: Dariusz Klich</p>
+                    <hr class="hr-big">
+                    <h4>Polish:</h4>
+                    <hr class="mt-3">
+                    <p class="info-about">O projekcie <q>Łączy nas haiku</q>:</p>
+                    <p class="info-about">Pomysł projektu, polegającego na wysyłaniu widokówek ze swojego miejsca zamieszkania z dodanym na rewersie własnym – odręcznie napisanym - haiku chodził mi po głowie od dłuższego czasu. Nie miałem jednak odwagi na jego realizację. Kiedy podjąłem decyzję, myślałem tylko o bliskich znajomych z którymi utrzymywałem bieżący kontakt.</p>
+                    <p class="info-about">Los chciał inaczej. Nałożyły się na siebie życzliwość ludzka i pandemia koronawirusa.</p>
+                    <p class="info-about">Bez moich próśb, przyjaciele rozpropagowali projekt na cały świat. Pierwsza kartka nadeszła 1 lutego, potem następne. W marcu nastąpiło załamanie spowodowane pandemią, które trwa do dziś. Przychodzą kartki, które w drodze były 100 dni, zmęczone, biedne, ale zwycięskie.</p>
+                    <p class="info-about">Ile ich jeszcze tkwi w pocztowych workach?</p>
+                    <p class="info-about">Wysłanie pocztówki, to prosta czynność, jednak to się tylko tak wydaje. Prócz wydatku natury finansowej dochodzi jeszcze poświęcony czas na napisanie i znalezienie skrzynki pocztowej. Czasem sam zakup widokówki jest wyzwaniem! Mnie najbardziej interesował aspekt ludzki. Komu się będzie chciało przekazać mi odrobinę swego serca, myśli, swojej empatii? Nie zawiodłem się. Otrzymane widokówki przemawiają do mnie swoim obrazem, napisanym odręcznie haiku. Charakter pisma, znaczek i stempel pocztowy, czasem pozaginane rogi są dla mnie cenne, zbliżają mentalnie z nadawcą. O każdej pojedynczej kartce mogę sporo powiedzieć i zawsze bardzo się wzruszam. Wygrał człowiek, wygrało haiku, a ostatecznie wygraliśmy wszyscy, za co Wam serdecznie dziękuję.</p>
+                    <p class="info-about-author">Autor: Krzysztof Kokot</p>
                 </div>
             </div>
         </div>

@@ -13,25 +13,30 @@ const showAuthors = () => {
                 const tr = document.createElement("tr");
                 const td1 = document.createElement("td");
                 const td2 = document.createElement("td");
-                tr.setAttribute("title", "Click to see author haiku.");
+                tr.setAttribute("title", "Click to show haiku or edit author.");
                 tr.setAttribute("class", "trAll");
                 td1.innerHTML = author['fname'];
                 td2.innerHTML = author['country'];
                 td1.addEventListener("click", () => {
-                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
                 });
                 td2.addEventListener("click", () => {
-                    showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
                 });
-                const editBtn = document.createElement("div");
-                editBtn.setAttribute("class", "author-edit");
-                editBtn.setAttribute("title", "Click to edit author.");
-                editBtn.addEventListener("click", () => {
-                    editAuthor(author['id'], author['firstname'], author['surname'], author['country']);
-                });
+
+                /* DLA UŻYTKOWNIKÓW
+                    tr.setAttribute("title", "Click to show haiku.");
+
+                    td1.addEventListener("click", () => {
+                        showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    });
+                    td2.addEventListener("click", () => {
+                        showAuthorsHaiku(author['id'], author['fname'], author['country']);
+                    });
+                */
+               
                 tr.appendChild(td1);
                 tr.appendChild(td2);
-                tr.appendChild(editBtn);
                 if(count%2 == 0)
                     tableResponse1.appendChild(tr);
                 else
@@ -61,17 +66,22 @@ const showAuthorsHaiku = (id, fname, country) => {
     window.location.href = "index.php";
 };
 
-const editAuthor = (id, fname, sname, country) => {
+const editAuthor = (id, fullname, fname, sname, country) => {
     document.getElementById('add-new-author').style.display = "block";
     document.getElementById('add-new-author').style.animation = "show-element 0.5s";
     document.getElementById('author-firstname').value = fname;
     document.getElementById('author-surname').value = sname;
     document.getElementById('author-country').value = country;
     const editSubmit = document.getElementById('add_author_form');
+    const authorShow = document.getElementById('author-show-haiku');
 
     editSubmit.addEventListener("submit", () => {
         event.preventDefault();
         sendAuthor(id);
+    });
+
+    authorShow.addEventListener("click", () => {
+        showAuthorsHaiku(id, fullname, country);
     });
 };
 
