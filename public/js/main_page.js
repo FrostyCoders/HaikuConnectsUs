@@ -112,7 +112,11 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 
             }
             else
             {
-                haikuBox.innerHTML = haikuData[1];
+                haikuBox.innerHTML = '<p class="load-error">' + haikuData[1] + '</p>';
+                const pageButtons = document.querySelectorAll(".page-item");
+                Array.from(pageButtons).forEach(element => {
+                    element.style.display = "none";
+                });
             }
             Loading(false);
         }

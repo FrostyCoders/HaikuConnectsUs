@@ -2,7 +2,7 @@
 
 ## Work Progress
 
-Code corrections and adding and improving app features.
+Released stable app version.
 
 ## Overview
 
