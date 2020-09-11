@@ -87,58 +87,6 @@
                         </div>
                     </div>
                     <div class="report-content">
-                        <div class="report-container">
-                            <div class="report-sender"><span>Sender: </span>testowy@test.ojdfhsdfkjbdsfkjsdfjkdsfsdfkjtest</div>
-                            <hr>
-                            <div class="report-desc"><span>Report: </span>Asperiores architecto sit sint aut. Soluta impedit pariatur eum dignissimos natus sint labore. Rerum non sed et tempora vel beatae quia architecto. Iste deleniti autem veniam. Repellat voluptas molestias eos magnam porro et enim alias. Inventore tenetur dolores voluptates voluptatem impedit vitae quo. Quibusdam cum provident perspiciatis et facilis sunt earum. Ratione vel est reprehenderit ipsam quod ea animi ea dsflnj nNSDJNASN asndasdj sdfnbdvkd ndfgdnkfvn njdgkdgvdnv.</div>
-                            <div class="report-time">12:00 30.03.20</div>
-                            <div class="report-to-haiku">Check haiku</div>
-                            <div class="report-switch">
-                                <label class="report-switcher">
-                                    <input type="checkbox" class="report-value" />
-                                    <span class="report-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="report-container">
-                            <div class="report-sender"><span>Sender: </span>testowy@test.test</div>
-                            <hr>
-                            <div class="report-desc"><span>Report: </span>Asperiores architecto sit sint aut. Soluta impedit pariatur eum dignissimos natus sint labore. Rerum non sed et tempora vel beatae quia architecto. Iste deleniti autem veniam. Repellat voluptas molestias eos magnam porro et enim alias. Inventore tenetur dolores voluptates voluptatem impedit vitae quo. Quibusdam cum provident perspiciatis et facilis sunt earum. Ratione vel est reprehenderit ipsam quod ea animi ea.</div>
-                            <div class="report-time">12:00 30.03.20</div>
-                            <div class="report-to-haiku">Check haiku</div>
-                            <div class="report-switch">
-                                <label class="report-switcher">
-                                    <input type="checkbox" class="report-value" />
-                                    <span class="report-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="report-container">
-                            <div class="report-sender"><span>Sender: </span>testowy@test.test</div>
-                            <hr>
-                            <div class="report-desc"><span>Report: </span>Asperiores architecto sit sint aut. Soluta impedit pariatur eum dignissimos natus sint labore. Rerum non sed et tempora vel beatae quia architecto. Iste deleniti autem veniam. Repellat voluptas molestias eos magnam porro et enim alias. Inventore tenetur dolores voluptates voluptatem impedit vitae quo. Quibusdam cum provident perspiciatis et facilis sunt earum. Ratione vel est reprehenderit ipsam quod ea animi ea.</div>
-                            <div class="report-time">12:00 30.03.20</div>
-                            <div class="report-to-haiku">Check haiku</div>
-                            <div class="report-switch">
-                                <label class="report-switcher">
-                                    <input type="checkbox" class="report-value" />
-                                    <span class="report-slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="report-container">
-                            <div class="report-sender"><span>Sender: </span>testowy@test.test</div>
-                            <hr>
-                            <div class="report-desc"><span>Report: </span>Asperiores architecto sit sint aut. Soluta impedit pariatur eum dignissimos natus sint labore. Rerum non sed et tempora vel beatae quia architecto. Iste deleniti autem veniam. Repellat voluptas molestias eos magnam porro et enim alias. Inventore tenetur dolores voluptates voluptatem impedit vitae quo. Quibusdam cum provident perspiciatis et facilis sunt earum. Ratione vel est reprehenderit ipsam quod ea animi ea.</div>
-                            <div class="report-time">12:00 30.03.20</div>
-                            <div class="report-to-haiku">Check haiku</div>
-                            <div class="report-switch">
-                                <label class="report-switcher">
-                                    <input type="checkbox" class="report-value" />
-                                    <span class="report-slider"></span>
-                                </label>
-                            </div>
-                        </div>
                         <div class="nothing"></div>
                     </div>
                 </div>
