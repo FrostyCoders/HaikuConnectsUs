@@ -579,7 +579,7 @@ input[type="radio"]:checked + label span.radio::after{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.25rem;
-    border: 1.25px solid $light-color;
+    border: 1.5px solid $light-color;
     border-radius: 50%;
     transition-duration: 0.15s;
 }
@@ -592,7 +592,7 @@ input[type="radio"]:checked + label span.radio::after{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.25rem;
-    border: 1.25px solid $light-color;
+    border: 1.5px solid $light-color;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -609,7 +609,7 @@ input[type="radio"]:checked + label span.radio::after{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.25rem;
-    border: 1.25px solid $light-color;
+    border: 1.5px solid $light-color;
     border-radius: 50%;
     position: absolute;
     top: 86%;
@@ -631,14 +631,15 @@ input[type="radio"]:checked + label span.radio::after{
 }
 
 .post-nav-handwriting{
-    position: absolute;
+    position: fixed;
     display: none;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     cursor: default;
-    transform: translate(-100%, -100%);
-    width: 40rem;
-    height: 25rem;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 25vw;
+    z-index: 998;
     border: 1px solid $dark-color;
     border-radius: 0.25rem;
     background-color: $white-color;

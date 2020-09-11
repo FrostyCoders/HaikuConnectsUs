@@ -47,6 +47,9 @@
                             </div>
                             <div class="last_input" class="input_frame">
                                 <div class="button_container">
+                                <a href="index.php" title="Back to the page">
+                                    <div class="back_page"></div>
+                                </a>
                                     <input type="submit" value="Change Password">
                                 </div>
                             </div>
@@ -81,7 +84,7 @@
     <div class="bg_image"></div>
     <div class="login_window">
         <div id="loading-container">
-            <div class="points-loading-container">
+            <div id="points-loading-container" class="points-loading-container">
                 <div class="point1"></div>
             </div>
         </div>
@@ -91,18 +94,18 @@
                 if($result[0] == false)
                 {
                     echo '<p class="notification">'.$result[1].'</p>';
+                    echo '<div class="button_container">
+                            <a href="index.php" title="Back to the page">
+                                <div class="back_page"></div>
+                                <div class="back_page_text">Back to the page</div>
+                            </a>
+                        </div>';
                 }
                 else
                 {
                     echo $result[1];
                 }
             ?>
-            <div class="button_container">
-                <a href="index.php" title="Back to the page">
-                    <div class="back_page"></div>
-                    <div class="back_page_text">Back to the page</div>
-                </a>
-            </div>
             <div class="space">
                 <div id="page_result"></div>
             </div>
@@ -113,6 +116,5 @@
     </div>
     <script src="js/login.js"></script>
     <script src="js/enter_new.js"></script>
-    <script src="js/common.js"></script>
 </body>
 </html>

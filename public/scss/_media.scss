@@ -55,6 +55,11 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .post-nav-handwriting{
+        width: 60vw;
+        height: 37.5vw;
+    }
 }
 
 @media only screen and (max-width: 768px){    
@@ -95,6 +100,11 @@
     
     #grid-option{
         display: none;
+    }
+
+    .post-nav-handwriting{
+        width: 80vw;
+        height: 50vw;
     }
 }
 

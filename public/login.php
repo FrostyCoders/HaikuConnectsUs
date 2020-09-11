@@ -21,7 +21,7 @@
     <div class="bg_image"></div>
     <div class="login_window">
         <div id="loading-container">
-            <div class="points-loading-container">
+            <div id="points-loading-container" class="points-loading-container">
                 <div class="point1"></div>
             </div>
         </div>
@@ -69,6 +69,5 @@
         </div>
     </div>
     <script src="js/login.js"></script>
-    <script src="js/common.js"></script>
 </body>
 </html>

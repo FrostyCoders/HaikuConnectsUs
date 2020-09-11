@@ -359,4 +359,18 @@
     display: none;
 }
 
+@media only screen and (max-width: 992px){
+     .post-nav-handwriting{
+         width: 40vw;
+         height: 25vw;
+     }
+}
+
+@media only screen and (max-width: 768px){
+    .post-nav-handwriting{
+        width: 80vw;
+        height: 50vw;
+    }
+}
+
 @import "loading";

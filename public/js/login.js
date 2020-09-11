@@ -1,8 +1,12 @@
 const Loading = (state) => {
-    const container = document.getElementById("loading-container");
+    const loadContainer = document.getElementById("loading-container");
+    const container = document.getElementById("points-loading-container");
     const frame = document.getElementsByClassName("frame")[0];
     if(state == true)
     {
+        container.style.bottom = "35%";
+        container.style.right = "20%";
+     
         container.style.display = "block";
         frame.style.pointerEvents = "none";
         frame.style.filter = "blur(8px)";
