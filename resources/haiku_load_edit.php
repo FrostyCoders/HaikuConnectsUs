@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION['logged_user']))
     {
-        die(json_encode([false, "Error, you need to login before edit haiku!"]));
+        die(json_encode([false, "Error, you need to login before editing haiku!"]));
     }
     else if(!isset($_POST['haiku_id']) || !is_numeric($_POST['haiku_id']))
     {   

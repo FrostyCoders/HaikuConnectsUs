@@ -10,7 +10,7 @@
 
     if(!isset($_SESSION['user_id']))
     {
-        $result = array(false, "Can't change password, no authorization!");
+        $result = array(false, "Error, missing or wrong data, try later!");
     }
     else
     {
@@ -44,7 +44,7 @@
                 }
                 catch(Exception $e)
                 {
-                    $result = array(false, "Error cannot change password, try later!");
+                    $result = array(false, "Error, cannot change password, try later!");
                     saveToLog(0, "Cannot password in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
                 }
                 unset($conn);

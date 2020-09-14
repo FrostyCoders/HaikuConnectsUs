@@ -22,7 +22,7 @@
         catch(Exception $e)
         {
             saveToLog(0, "Cannot check nickname unique: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-            $result = array(0, "Error, Cannot load users data!");
+            $result = array(0, "Error, cannot load users data!");
             $query_ok = false;
         }
 

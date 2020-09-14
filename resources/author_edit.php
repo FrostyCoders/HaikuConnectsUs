@@ -27,7 +27,7 @@
 
         $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
         if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
-            die(json_encode([false, "New author data could not contain special characters!"]));
+            die(json_encode([false, "Error, new author data could not contain special characters!"]));
 
         $query = $conn->prepare("UPDATE authors SET name=:name, surname=:surname, country=:country WHERE id=:id");
 

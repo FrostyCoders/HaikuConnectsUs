@@ -18,7 +18,7 @@
         }
         catch(Exception $e)
         {
-            $result = array(false, "Error occured, try later!");
+            $result = array(false, "Error, cannot check key, try later!");
         }
         if($result[0] == true)
         {
@@ -42,19 +42,19 @@
                         try
                         {
                             $link_used->execute();
-                            $result = array(true, "Email changed successfully.");
+                            $result = array(true, "E-mail changed successfully.");
                             unset($_SESSION['logged_user']);
                         }
                         catch(Exception $e)
                         {
                             saveToLog(0, "Cannot change that link is used in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                            $result = array(true, "Email changed with errors, now you can log in with new email.");
+                            $result = array(true, "E-mail changed with errors, now you can log in with new email.");
                         }
                     }
                     catch(Exception $e)
                     {
                         saveToLog(0, "Cannot change email in DB: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                        $result = array(false, "Error during changing e-mail, try later!");
+                        $result = array(false, "Error, cannot change e-mail, try later!");
                     }
                 }
                 

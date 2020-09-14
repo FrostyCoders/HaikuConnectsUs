@@ -69,7 +69,7 @@
         catch(Exception $e)
         {
             saveToLog(0, "Cannot create request: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-            $result = array(false, "Error occured, try later!");
+            $result = array(false, "Error, connection failed, try later!");
         }
         return $result;
     }
@@ -140,14 +140,14 @@
     // MAIN
     if(!isset($_POST['new_email']))
     {
-        $result = array(false, "You must enter e-mail address!");
+        $result = array(false, "Error, you must enter e-mail address!");
     }
     else
     {
         $new_email = $_POST['new_email'];
         if(!filter_var($new_email, FILTER_VALIDATE_EMAIL))
         {
-            $result = array(false, "You entered incorrect e-mail address!");
+            $result = array(false, "Error, you entered incorrect e-mail address!");
         }
         else
         {
@@ -157,11 +157,11 @@
             $last_change = $_SESSION['logged_user']->lastEmailChange();
 
             if(date("Y-m-d") == $last_change)
-                die(json_encode([false, "You have changed email recently, try tomorrow."]));
+                die(json_encode([false, "Error, you have changed email recently, try tomorrow."]));
 
             if(email_repeated($new_email, $conn) == true)
             {
-                $result = array(false, "Your new e-mail address already belongs to other user!");
+                $result = array(false, "Error, your new e-mail address already belongs to other user!");
             }
             elseif(email_repeated($new_email, $conn) == "error")
             {
@@ -194,7 +194,7 @@
                         }
                         else
                         {
-                            $result = array(false, "Error occured, try later!");
+                            $result = array(false, "Error, cannot send activation e-mail, try later!");
                         }
                     }
                     else

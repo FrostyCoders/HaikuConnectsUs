@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_POST) || !isset($_POST['email']) || !isset($_POST['password']))
     {
-       $result = array(false, "Error, try later!");
+       $result = array(false, "Error, missing or wrong data, try later!");
     }
     else
     {
@@ -18,19 +18,19 @@
     
         if(empty($email) || empty($password))
         {
-            $result = array(false, "Both inputs must be filled!");
+            $result = array(false, "Error, both inputs must be filled!");
         }
         else
         {
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
-                $result = array(false, "Wrong e-mail form!");
+                $result = array(false, "Error, wrong e-mail form!");
             }
             else
             {
                 if(strlen($password) < 8)
                 {
-                    $result = array(false, "Password must have at least 8 characters!");
+                    $result = array(false, "Error, password must have at least 8 characters!");
                 }
             }
         }
@@ -43,7 +43,7 @@
             }
             catch(Exception $e)
             {
-                $result = array(false, "Error, try later!");
+                $result = array(false, "Error, connection failed, try later!");
                 saveToLog(0, "Cannot get users list " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
             }
             $list = $query->fetchAll();

@@ -23,7 +23,7 @@
         catch(Exception $e)
         {
             saveToLog(0, "Cannot check email: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-            die(json_encode([0, "Error, Cannot load users data!"]));
+            die(json_encode([0, "Error, cannot load users data!"]));
         }
             
         $useremail = $query->fetchAll();

@@ -9,7 +9,7 @@
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
-            $result = array(false, "Entered email is incorrect!");
+            $result = array(false, "Error, entered e-mail is incorrect!");
         }
         else
         {
@@ -21,7 +21,7 @@
             catch(Exception $e)
             {
                 saveToLog(0, "Cannot check that user exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                $result = array(false, "Error occured, try later!");
+                $result = array(false, "Error, connection failed, try later!");
                 return $result;
             }
             $list = $query->fetchAll();
@@ -41,7 +41,7 @@
             }
             else
             {
-                $result = array(false, "There's no account with this email address!");
+                $result = array(false, "Error, there's no account with this e-mail address!");
             }
             unset($conn);
         }
@@ -160,7 +160,7 @@
     // MAIN
     if(!isset($_POST) || empty($_POST['email']))
     {
-        $result = array(false, "You need to enter email!");
+        $result = array(false, "Error, you need to enter e-mail!");
     }
     else
     {
@@ -188,7 +188,7 @@
                     }
                     else
                     {
-                        $result = array(false, "Error occured, try later!");
+                        $result = array(false, "Error, cannot send activation e-mail, try later!");
                     }
                 }
                 else

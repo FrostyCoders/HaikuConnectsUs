@@ -11,7 +11,7 @@
 
     if(!isset($_SESSION['logged_user']))
     {
-        die(json_encode([false, "Can't change password, no authorization!"]));
+        die(json_encode([false, "Error, you must log in!"]));
     }
     else
     {

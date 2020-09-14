@@ -137,7 +137,7 @@ class reportsSite
                 else if(response != false && response[0] == false)
                     showCommunicate(response);
                 else
-                    showCommunicate([false, "Error, something went wrong, try later!"]);
+                    showCommunicate([false, "Error, cannot load reports, try later!"]);
 
                 this.displayReports();
                 this.displayPages();
@@ -202,7 +202,7 @@ class reportsSite
         else if(where == true && this.page < this.pages)
             this.page++;
         else
-            showCommunicate([false, "Error during page change, try later!"]);
+            showCommunicate([false, "Error, cannot change page, try later!"]);
 
         document.getElementsByClassName("filters-form")[0].scrollIntoView({behavior: 'smooth', block: 'start'});
         this.getReports();

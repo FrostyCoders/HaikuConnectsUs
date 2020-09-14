@@ -80,7 +80,7 @@ document.getElementById("add_author_form").addEventListener("submit", (event) =>
     const country = document.getElementById("author-country").value;
     if(firstName.length == 0 || surName.length == 0 || country.length == 0)
     {
-        showCommunicate([false, "Fill all inputs in add author form!"]);
+        showCommunicate([false, "Error, fill all inputs in add author form!"]);
         return 0;
     }
     else
@@ -118,9 +118,9 @@ const addNewHaiku = (event) => {
     const content = document.getElementById("in-english").value;
     const contentNative = document.getElementById("in-native").value;
     if(selectedAuthor == 0)
-        showCommunicate([false, "Select haiku author!"]);
+        showCommunicate([false, "Error, select haiku author!"]);
     else if(content.length == 0)
-        showCommunicate([false, "Haiku text in english is required!"]);
+        showCommunicate([false, "Error, haiku text in english is required!"]);
     else
     {
         Loading(true);
@@ -152,9 +152,9 @@ const sendEdited = (event) => {
     const content = document.getElementById("in-english").value;
     const contentNative = document.getElementById("in-native").value;
     if(selectedAuthor == 0)
-        showCommunicate([false, "Select haiku author!"]);
+        showCommunicate([false, "Error, select haiku author!"]);
     else if(content.length == 0)
-        showCommunicate([false, "Haiku text in english is required!"]);
+        showCommunicate([false, "Error, haiku text in english is required!"]);
     else
     {
         Loading(true);

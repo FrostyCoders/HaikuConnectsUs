@@ -224,9 +224,9 @@ class Haiku
     report(email, reason, callback)
     {
         if(this.reported == true) 
-            callback([false, "You have already reported this haiku!"]);
+            callback([false, "Error, you have already reported this haiku!"]);
         else if (reason.length == 0)
-            callback([false, "Report reason can't be empty!"]);
+            callback([false, "Error, report reason can't be empty!"]);
         else
         {
             const reportRequest = new XMLHttpRequest;

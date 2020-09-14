@@ -20,7 +20,7 @@
         catch(Exception $e)
         {
             saveToLog(0, "Cannot check key: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-            $result = array(false, "Error occured, try later!");
+            $result = array(false, "Error, cannot check key, try later!");
             $check_ok = false;
         }
         if($check_ok == true)
@@ -63,7 +63,7 @@
             }
             else
             {
-                $result = array(false, "Error occured, try later!");
+                $result = array(false, "Error, incorrect recovery key!");
             }
         }
     }

@@ -259,13 +259,13 @@ document.getElementById("post-report-close").addEventListener("click", () => {
 document.getElementById("report_form").addEventListener("submit", (event) => {
     event.preventDefault();
     Loading(true);
-    if(reporting == null) showCommunicate([false, "Error occured, refresh site and try again!"]);
+    if(reporting == null) showCommunicate([false, "Error, refresh site and try again!"]);
     else
     {
         const reportReason = document.getElementsByName("text-report")[0].value;
         const email = document.getElementsByName("guest-email")[0].value;
         if((reportReason.length == 0) || (email.length == 0)){
-            showCommunicate([false, "Fill all inputs!"]);
+            showCommunicate([false, "Error, fill all inputs!"]);
             Loading(false);
         } 
         else

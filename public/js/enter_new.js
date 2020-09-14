@@ -5,7 +5,7 @@ document.getElementById("change_pass_form").addEventListener("submit", (event) =
     const pageResult = document.getElementById("page_result");
     if(pass1.length == 0 || pass2.length == 0)
     {
-        ShowResult([false, "Enter both passwords!"]);
+        ShowResult([false, "Error, enter both passwords!"]);
     }
     else
     {

@@ -33,7 +33,7 @@
             catch(Exception $e)
             {
                 saveToLog(0, "Cannot change password: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                $result = array(false, "There was an error during changing password, try later.");
+                $result = array(false, "Error, cannot change password right now, try later.");
             }
             unset($conn);
             return $result;
@@ -60,7 +60,7 @@
                 $this->username = $newUsername;
             }
             else
-                $result = array(false, "There was an error during changing username, try later.");
+                $result = array(false, "Error, cannot change username right now, try later.");
             
             unset($conn);
             return $result;
