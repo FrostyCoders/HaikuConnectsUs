@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haiku Connects Us - Admin Login</title>
+    <title>International Picture Postcard Project - Admin Login</title>
     <meta name="author" content="Frosty Coders">
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg">
     <link rel="stylesheet" href="css/variables.css">

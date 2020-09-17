@@ -1,5 +1,20 @@
 const showAuthors = () => {
     Loading(true);
+    const checkLogin = new XMLHttpRequest();
+    checkLogin.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        const loadReady = JSON.parse(this.responseText);
+        if(loadReady[0] == true)
+        {
+            let adminLogged = loadReady[1];
+        }
+        Loading(false);
+      }
+    };
+    checkLogin.open("POST","../resources/author_checker.php",true);
+    checkLogin.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    checkLogin.send('check=');
+
     const loadAuthors = new XMLHttpRequest();
     loadAuthors.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -13,18 +28,19 @@ const showAuthors = () => {
                 const tr = document.createElement("tr");
                 const td1 = document.createElement("td");
                 const td2 = document.createElement("td");
-                tr.setAttribute("title", "Click to show haiku or edit author.");
                 tr.setAttribute("class", "trAll");
                 td1.innerHTML = author['fname'];
                 td2.innerHTML = author['country'];
-                td1.addEventListener("click", () => {
-                    editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
-                });
-                td2.addEventListener("click", () => {
-                    editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
-                });
-
-                /* DLA UŻYTKOWNIKÓW
+                if(adminLogged == true){
+                    tr.setAttribute("title", "Click to show haiku or edit author.");
+                    td1.addEventListener("click", () => {
+                        editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
+                    });
+                    td2.addEventListener("click", () => {
+                        editAuthor(author['id'], author['fname'], author['firstname'], author['surname'], author['country']);
+                    });
+                }
+                else{
                     tr.setAttribute("title", "Click to show haiku.");
 
                     td1.addEventListener("click", () => {
@@ -33,8 +49,7 @@ const showAuthors = () => {
                     td2.addEventListener("click", () => {
                         showAuthorsHaiku(author['id'], author['fname'], author['country']);
                     });
-                */
-               
+                }
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 if(count%2 == 0)

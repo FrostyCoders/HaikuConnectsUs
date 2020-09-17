@@ -364,22 +364,30 @@ window.onload = () => {
     loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
-// COOKIE ALERT
-function cookieAlert(name,value,time){
-    let cookieTime = "";
-    if (time){
-        let date = new Date();
-        date.setTime(date.getTime() + (time*24*60*60*99999));
-        cookieTime = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + cookieTime + "; path=/";
+// SHOW & HIDE FILTERS IN MAIN PAGE
+function showFilters()
+{
+    const showfiltersbutton = document.getElementById("show-filters");
+    const hidefiltersbutton = document.getElementById("hide-filters");
+    const filtersform = document.getElementById("filters-form");
+
+    filtersform.style.display = "block";
+    showfiltersbutton.style.display = "none";
+    hidefiltersbutton.style.display = "block";
+    filtersform.style.animation = "show-element 1s 1";
 }
 
-if (document.cookie.indexOf("cookie_alert=") < 0) {
-    const cookieAlertBar = document.getElementById("cookie-alert-close");
+function hideFilters()
+{
+    const showfiltersbutton = document.getElementById("show-filters");
+    const hidefiltersbutton = document.getElementById("hide-filters");
+    const filtersform = document.getElementById("filters-form");
 
-    cookieAlertBar.addEventListener('click', function() {
-    document.getElementById("cookie-alert").style.display = "none";
-    cookieAlert('cookie_alert','1',1);
-    });
+    filtersform.style.display = "none";
+    hidefiltersbutton.style.display = "none";
+    showfiltersbutton.style.display = "block";
 }
+const showfiltersbutton = document.getElementById("show-filters");
+showfiltersbutton.addEventListener('click', showFilters, false);
+const hidefiltersbutton = document.getElementById("hide-filters");
+hidefiltersbutton.addEventListener('click', hideFilters, false);

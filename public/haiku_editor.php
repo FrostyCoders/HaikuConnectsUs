@@ -7,15 +7,12 @@
     <meta name="description" content="Website dedicated to the work of Haiku authors from around the world!">
     <meta name="keywords" content="haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Haiku Connects Us</title>
+    <title>International Picture Postcard Project</title>
     
     <!-- FAVICON -->
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
     
-    <!-- SKRYPTY -->
-    
-    <!-- STYLE I CZCIONKI -->
-    
+    <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -29,7 +26,10 @@
             <div class="point1"></div>
         </div>
     </div>
-    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">
+    <div class="page-communicate-icon" id="page-communicate-icon"></div>
+    <div class="page-communicate-text" id="page-communicate-text"></div>
+    </div>
     <div class="add-new-author" id="add-new-author">
         <div class="add-new-author-close" id="add-new-author-close"></div>
         <p id="author-p">Add new author:</p>
@@ -40,9 +40,18 @@
             <input type="submit" id="author-submit" value="Add author" />
         </form>
     </div>
+    <?php
+        if (!isset($_COOKIE['cookie_alert']))
+        {
+            echo '<div class="cookie-alert" id="cookie-alert">
+            <div class="cookie-alert-close" id="cookie-alert-close"></div>
+            <p><span>Hello There!</span> By using this website, you read and agree to our <a href="privacy_policy.php" target="_blank">privacy policy</a> and <a href="cookies_policy.php" target="_blank">cookie policy</a>.</p>
+            </div>';
+        }
+    ?>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
+      <a class="navbar-brand" href="index.php">International Picture Postcard Project</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -89,13 +98,13 @@
                         <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
                         <label for="in-native">In Native Language (optional):</label>
                         <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
-                        <label class="file-position">Background (JPG, JPEG, PNG or BMP):
+                        <label class="file-position">Background (JPG, JPEG, PNG or BMP - max. 10MB):
                             <div class="file-delete" id="file-delete-background" title="Delete"></div>
                         </label>
                         <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
                         <div class="file-name" id="background-name"></div>
                         <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg"/>
-                        <label class="file-position">Handwritten letter from haiku (optional - JPG, JPEG, PNG or BMP):
+                        <label class="file-position">Handwritten letter (JPG, JPEG, PNG or BMP - max. 10MB - optional):
                             <div class="file-delete" id="file-delete-handwriting" title="Delete"></div>
                         </label>
                         <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
@@ -152,8 +161,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/change_icons_menu.js"></script>
     <script src="js/common.js"></script>
     <script src="js/add_haiku_live.js"></script>
     <script src="js/haiku_editor.js"></script>

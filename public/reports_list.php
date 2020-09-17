@@ -7,15 +7,12 @@
     <meta name="description" content="Website dedicated to the work of Haiku authors from around the world!">
     <meta name="keywords" content="haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Haiku Connects Us</title>
+    <title>International Picture Postcard Project</title>
     
     <!-- FAVICON -->
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
     
-    <!-- SKRYPTY -->
-    
-    <!-- STYLE I CZCIONKI -->
-    
+    <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -25,15 +22,27 @@
 </head>
 <body>
     <!-- INNE -->
-    <div class="page-communicate" id="page-communicate">Something gone wrong...</div>
+    <div class="page-communicate" id="page-communicate">
+    <div class="page-communicate-icon" id="page-communicate-icon"></div>
+    <div class="page-communicate-text" id="page-communicate-text"></div>
+    </div>
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
         </div>
     </div>
+    <?php
+        if (!isset($_COOKIE['cookie_alert']))
+        {
+            echo '<div class="cookie-alert" id="cookie-alert">
+            <div class="cookie-alert-close" id="cookie-alert-close"></div>
+            <p><span>Hello There!</span> By using this website, you read and agree to our <a href="privacy_policy.php" target="_blank">privacy policy</a> and <a href="cookies_policy.php" target="_blank">cookie policy</a>.</p>
+            </div>';
+        }
+    ?>
     <!-- PASEK NAWIGACYJNY -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
+      <a class="navbar-brand" href="index.php">International Picture Postcard Project</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -120,8 +129,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/change_icons_menu.js"></script>
     <script src="js/common.js"></script>
     <script src="js/reports.js"></script>
 

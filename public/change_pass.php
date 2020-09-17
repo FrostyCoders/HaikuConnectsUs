@@ -75,7 +75,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Haiku ConnectUs - Change Password</title>
+    <title>International Picture Postcard Project - Change Password</title>
     <meta name="author" content="Frosty Coders">
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg">
     <link rel="stylesheet" href="css/login.css">

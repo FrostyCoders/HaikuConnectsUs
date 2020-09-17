@@ -7,15 +7,15 @@ echo '<div class="container">
         <div class="row text-center justify-content-center pt-5 mb-3">
             <div class="col-6 col-lg-4 mb-4">
                 <div class="logo-footer">
-                    <a href="#">
-                        <img class="logo-tooltip" src="img/icons/menu_close_normal.svg" title="Biblioteka w Nowym Targu">
+                    <a href="http://www.mbp.nowytarg.pl/" target="_blank">
+                        <div class="logo-tooltip logo-tooltip-1" title="Biblioteka Publiczna w Nowym Targu"></div>
                     </a>
                 </div>
             </div>
             <div class="col-6 col-lg-4 mb-4">
                 <div class="logo-footer">
-                    <a href="#">
-                        <img class="logo-tooltip" src="img/icons/menu_close_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
+                    <a href="https://zs1.nowotarski.edu.pl/" target="_blank">
+                        <div class="logo-tooltip logo-tooltip-2" title="Zespół Szkół im. Władysława Orkana w Nowym Targu"></div>
                     </a>
                 </div>
             </div>

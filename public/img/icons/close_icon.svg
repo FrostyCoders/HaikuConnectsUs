@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Creator: CorelDRAW X7 -->
-<svg width="50px" height="50px" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 500 500" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
- <defs>
-  <style type="text/css">
-   <![CDATA[
-    .str0 {stroke:black;stroke-width:19.9985;stroke-linecap:round;stroke-linejoin:round}
-    .fil0 {fill:none}
-   ]]>
-  </style>
- </defs>
- 
-  
-  <line class="fil0 str0" x1="80" x2="420" y1="80" y2="420"/>
-  <line class="fil0 str0" x1="80" x2="420" y1="420" y2="80"/>
- 
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- By Farriven -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none">
+  <path d="m-1.5875 3.2577" stroke="#000" stroke-width=".26458px"/>
+  <rect transform="rotate(45)" x="5.9708" y="-4.3247" width=".032035" height="8.6494" ry=".016017" stroke="#fff" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" stroke-width=".51256" style="paint-order:normal"/>
+  <rect transform="rotate(135)" x="-.016017" y="-10.312" width=".032035" height="8.6494" ry=".016017" stroke="#fff" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" stroke-width=".51256" style="paint-order:normal"/>
+ </g>
 </svg>

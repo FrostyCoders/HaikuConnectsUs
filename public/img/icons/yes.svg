@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- By Farriven -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none">
+  <path d="m-1.5875 3.2577" stroke="#000" stroke-width=".26458px"/>
+  <g transform="translate(.56353 .30299)" stroke="#353330" stroke-dashoffset=".75" stroke-linecap="round" stroke-linejoin="round" stroke-width=".52917">
+   <g transform="translate(-.83546 -1.4607)">
+    <g transform="translate(-.84218 -1.4585)">
+     <g transform="translate(-1.6852 -.00013901)">
+      <path d="m6.1899 9.7668 3.3689-5.8345c-1.1201 2.0547-2.3525 4.1323-3.3689 5.8345z" style="paint-order:normal"/>
+      <path d="m6.1898 9.7668-1.6843-2.9174c0.56757 0.98939 1.2093 2.0283 1.6843 2.9174z" style="paint-order:normal"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
