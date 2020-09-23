@@ -23,6 +23,8 @@ const showAuthors = () => {
         {
             const tableResponse1 = document.getElementById('table-response1');
             const tableResponse2 = document.getElementById('table-response2');
+            tableResponse1.innerHTML = "";
+            tableResponse2.innerHTML = "";
             let count = 0;
             loadReady[1].forEach(author => {
                 const tr = document.createElement("tr");
@@ -90,7 +92,7 @@ const editAuthor = (id, fullname, fname, sname, country) => {
     const editSubmit = document.getElementById('add_author_form');
     const authorShow = document.getElementById('author-show-haiku');
 
-    editSubmit.addEventListener("submit", () => {
+    editSubmit.addEventListener("submit", (event) => {
         event.preventDefault();
         sendAuthor(id);
     });
@@ -101,6 +103,7 @@ const editAuthor = (id, fullname, fname, sname, country) => {
 };
 
 const sendAuthor = (id) => {
+    id = parseInt(id);
     const firstname = document.getElementById('author-firstname').value;
     const surname = document.getElementById('author-surname').value;
     const country = document.getElementById('author-country').value;
