@@ -9,6 +9,7 @@ function liveAuthorHaiku()
         {
             postAuthor.textContent = ".";
             postAuthor.style.visibility = "hidden";
+            postCountry.style.visibility = "hidden";
         }
     else
         {
@@ -26,6 +27,7 @@ function liveAuthorHaiku()
                 }
             postAuthor.textContent = authorName;
             postAuthor.style.visibility = "visible";
+            postCountry.style.visibility = "visible";
             postCountry.textContent = authorCountry;
         }
     

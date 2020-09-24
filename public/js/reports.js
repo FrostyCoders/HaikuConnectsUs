@@ -21,7 +21,7 @@ class report
 
         let checkButton = document.createElement("div");
         checkButton.setAttribute("class", "report-to-haiku");
-        checkButton.textContent = "Check haiku";
+        checkButton.textContent = "Check Haiku";
         checkButton.addEventListener("click", () => {
             this.goToHaiku();
         }, true);

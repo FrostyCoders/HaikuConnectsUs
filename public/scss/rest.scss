@@ -1,61 +1,61 @@
 @import "config";
 
 .load-error{
-    text-align: center;
     font-size: 2.5rem;
-    width: 100%;
     margin-top: 2.5rem;
-    padding-top: 2rem;
     padding-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .jumbotron-text{
-    text-align: center;
-    width: 100%;
     margin-left: 0;
     min-height: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .first-row{
-    margin-top: 5rem;
     font-size: 1.75rem;
+    margin-top: 5rem;
 
     h4{
-        text-align: center;
         font-size: 2.25rem;
+        text-align: center;
     }
 
     hr{
-        width: 10rem;
         margin-bottom: 2.5rem;
+        width: 10rem;
     }
 
     .hr-big{
-        width: 80%;
         margin: 3rem auto;
+        width: 80%;
     }
 }
 
 // AUTHORS LIST
 .author-submit-container{
-    width: 100%;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .author-edit{
-    width: 3rem;
-    height: 3rem;
-    position: absolute;
-    left: 3.5rem;
-    top: 50%;
-    transform: translateY(-20%);
     background-image: url(../img/icons/edit_normal.svg);
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
     border-radius: 50%;
+    height: 3rem;
+    left: 3.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-20%);
     transition-duration: 0.15s;
+    width: 3rem;
 }
 
 .author-edit:hover{
@@ -68,59 +68,57 @@
 }
 
 .add-new-author{
-    position: fixed;
-    display: none;
-    z-index: 99999;
-    width: 40rem;
-    min-height: 32rem;
     background-color: $light-color;
     border: 1px solid $dark-color;
     border-radius: 0.5rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
     box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
+    display: none;
+    left: 50%;
+    min-height: 32rem;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    z-index: 99999;
 
     p{
-        text-align: center;
         font-size: 2rem;
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
         letter-spacing: 0.2rem;
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        text-align: center;
     }
 
     input[type="text"]{
-        display: block;
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 2.5rem;
-        height: 3.6rem;
-        padding: 0.5rem 1rem;
         background-color: $white-color;
         border: 1.5px solid $dark-color;
         border-radius: 0.5rem;
+        display: block;
+        height: 3.6rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2.5rem;
+        padding: 0.5rem 1rem;
         transition-duration: 0.35s;
+        width: 80%;
     }
 
     input[type="submit"], input[type="button"]{
-        position: relative;
-        margin: 2rem;
         background-color: $dark-color;
-        color: $light-color;
         border: 2px solid $dark-color;
         border-radius: 0.5rem;
+        color: $light-color;
         font-weight: 500;
-        width: 10rem;
         height: 4rem;
+        margin: 2rem;
+        position: relative;
         transition-duration: 0.35s;
+        width: 10rem;
     }
 
     input[type="text"]:focus{
-        outline: none;
         border-color: $extra-color;
+        outline: none;
     }
 
     input[type="submit"]:hover, input[type="button"]:hover{
@@ -130,23 +128,23 @@
 }
 
 .add-new-author-close{
-    width: 2rem;
+    cursor: pointer;
     height: 2rem;
     position: absolute;
     right: 1rem;
     top: 1rem;
-    cursor: pointer;
+    width: 2rem;
 }
 
 .add-new-author-close:before, .add-new-author-close:after{
-    content: "";
-    width: 0.3rem;
-    height: 2rem;
     background-color: $dark-color;
-    position: absolute;
+    content: "";
+    height: 2rem;
     left: 40%;
+    position: absolute;
     transform: translateX(-50%);
     transition-duration: 0.35s;
+    width: 0.3rem;
 }
 
 .add-new-author-close:before{
@@ -157,7 +155,7 @@
     transform: rotate(45deg);
 }
 
-.add-new-author-close:hover::before, .add-new-author-close:hover::after { 
+.add-new-author-close:hover::before, .add-new-author-close:hover::after{ 
     background-color: $extra-color;
 }
 
@@ -166,16 +164,15 @@
 }
 
 .table-responsive{
-    text-align: center;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .table-hover tbody tr{
     cursor: pointer;
 }
 
-.table-hover tbody tr:hover
-{
+.table-hover tbody tr:hover{
     background-color: #f1dedd;
 }
 
@@ -200,9 +197,9 @@
 }
 
 .info-about-author{
+    color: #777;
     padding: 1rem;
     text-align: right;
-    color: #777;
 }
 
 .info-about-author:last-child{
@@ -221,8 +218,8 @@
 }
 
 .settings label{
-    width: 80%;
     margin: 1rem 10%;
+    width: 80%;
 }
 
 .settings label:first-child{
@@ -230,21 +227,21 @@
 }
 
 .settings input[type="submit"]{
-    display: none;
-    position: relative;
-    top: 1.5rem;
-    left: 80%;
-    transform: translateX(-50%);
     background-color: $dark-color;
-    color: $light-color;
     border: 2px solid $dark-color;
     border-radius: 0.5rem;
+    color: $light-color;
+    display: none;
     font-size: 1.25rem;
     font-weight: 500;
-    width: 7.5rem;
     height: 3rem;
+    left: 80%;
     margin-bottom: 3rem;
+    position: relative;
+    top: 1.5rem;
+    transform: translateX(-50%);
     transition-duration: 0.35s;
+    width: 7.5rem;
 }
 
 .settings input[type="submit"]:hover{
@@ -256,72 +253,71 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 25rem;
     height: 25rem;
     margin: 2rem auto 0;
+    width: 25rem;
 }
 
 .settings-nickname{
-    text-align: center;
-    width: 100%;
     color: $extra-color;
-    margin-bottom: 2rem;
     font-weight: bold;
     font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .settings-email{
-    text-align: center;
-    width: 100%;
     color: $extra-color;
     margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .settings input[type="text"], .settings input[type="password"], .settings input[type="email"]{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 0.5rem;
-    height: 3.6rem;
-    padding: 0.5rem 1rem;
     background-color: $white-color;
     border: 1.5px solid $dark-color;
     border-radius: 0.5rem;
+    height: 3.6rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
     transition-duration: 0.35s;
+    width: 80%;
 }
 
 .settings input[type="text"]:focus, .settings input[type="password"]:focus, .settings input[type="email"]:focus{
-    outline: none;
     border-color: $extra-color;
+    outline: none;
 }
 
 .hr-big-space{
-    margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .password-checker{
-    width: 80%;
-    height: 1rem;
-    margin: 3rem 10% 1rem 10%;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     display: none;
+    height: 1rem;
+    justify-content: space-between;
+    margin: 3rem 10% 1rem 10%;
+    width: 80%;
 
     .password-weak, .password-medium, .password-strong{
-        height: 100%;
-        width: 100%;
-        border-radius: 2.5px;
-        margin: 0 1rem;
         background-color: #777;
+        border-radius: 2.5px;
+        height: 100%;
+        margin: 0 1rem;
+        width: 100%;
     }
 }
 
 .settings-notification{
     display: none;
-    top: 0.75rem;
     text-align: center;
+    top: 0.75rem;
 }
 
 // REPORTS LIST
@@ -331,9 +327,9 @@
 }
 
 .filter-option{
-    width: 45%;
-    min-height: 10rem;
     margin-top: 2rem;
+    min-height: 10rem;
+    width: 45%;
 }
 
 .filter-option p{
@@ -341,14 +337,14 @@
 }
 
 .radio-container{
-    width: 50%;
     float: left;
+    width: 50%;
 }
 
 .radio-container label{
-    width: 100%;
     padding-left: 1rem;
     position: relative;
+    width: 100%;
 }
 
 .radio-container span.radio:hover{
@@ -356,21 +352,21 @@
 }
 
 .report-content{
-    display: flex;
     align-content: flex-start;
+    display: flex;
     flex-wrap: wrap;
 }
 
 .report-container{
-    float: left;
-    position: relative;
-    width: 45%;
-    min-height: 5rem;
-    margin: 2.5rem 2.5%;
-    border-radius: 0.5rem;
     background-color: #ffffff;
     border: 1.5px solid $dark-color;
+    border-radius: 0.5rem;
+    float: left;
+    margin: 2.5rem 2.5%;
+    min-height: 5rem;
+    position: relative;
     transition-duration: 0.35s;
+    width: 45%;
 
     hr{
         margin-bottom: 0.25rem;
@@ -380,54 +376,52 @@
 }
 
 .report-container:hover{
-    -webkit-box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
-    -moz-box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
     box-shadow: 0px 0px 50px -30px rgba(221,48,80,1);
 }
 
 .report-sender{
-    text-align: center;
-    padding: 1rem;
-    width: 75%;
     margin-left: auto;
     margin-right: auto;
+    padding: 1rem;
+    text-align: center;
+    width: 75%;
     word-break: break-all;
 }
 
 .report-sender span, .report-desc span{
     color: $extra-color;
     display: block;
-    text-align: center;
     padding-bottom: 0.75rem;
+    text-align: center;
 }
 
 .report-desc{
-    text-align: justify;
     padding: 1.5rem;
+    text-align: justify;
 }
 
 .report-time{
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    font-size: 1.25rem;
     color: #777;
+    font-size: 1.25rem;
+    left: 1rem;
+    position: absolute;
+    top: 1rem;
 }
 
 .report-to-haiku{
+    background-color: $dark-color;
+    border: 2px solid $dark-color;
+    border-radius: 0.5rem;
+    color: $light-color;
+    cursor: pointer;
+    font-weight: 500;
+    height: 4rem;
+    line-height: 3.5rem;
     margin: 1rem auto 2rem auto;
     text-align: center;
-    line-height: 3.5rem;
-    background-color: $dark-color;
-    color: $light-color;
-    border: 1.5px solid $dark-color;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    width: 11rem;
-    height: 4rem;
     transition-duration: 0.35s;
-    cursor: pointer;
     user-select: none;
+    width: 11rem;
 }
 
 .report-to-haiku:hover{
@@ -437,34 +431,33 @@
 
 .report-switch{
     position: absolute;
-    top: 0.85rem;
     right: 1rem;
+    top: 0.85rem;
 }
 
 .report-switcher{
-    position: relative;
     display: inline-block;
-    width: 5rem;
     height: 2.75rem;
+    position: relative;
+    width: 5rem;
 }
 
 .report-switcher input{
+    height: 0;
     opacity: 0;
     width: 0;
-    height: 0;
 }
 
 .report-slider{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: $dark-color;
-    transition: 0.4s;
     border-radius: 5rem;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
     opacity: 0.75;
+    position: absolute;
+    right: 0;
+    top: 0;
     transition-duration: 0.35s;
 }
 
@@ -473,33 +466,33 @@
 }
 
 .report-slider:before{
-    position: absolute;
+    left: 0.5rem;
+    background-color: $light-color;
+    bottom: 0.375rem;
+    border-radius: 50%;
     content: "";
     height: 2rem;
-    width: 2rem;
-    left: 0.5rem;
-    bottom: 0.375rem;
-    background-color: $light-color;
+    position: absolute;
     transition-duration: 0.35s;
-    border-radius: 50%;
+    width: 2rem;
 }
 
 .report-slider:after{
-    position: absolute;
-    content: "UNDONE";
+    bottom: -1.5rem;
     color: $dark-color;
-    text-align: center;
+    content: "UNDONE";
     font-size: 1rem;
     font-weight: bold;
     left: 50%;
+    position: absolute;
+    text-align: center;
     transform: translateX(-50%);
-    bottom: -1.5rem;
     transition-duration: 0.35s;
 }
 
 .report-switcher input:checked + .report-slider:before{
-    transform: translateX(2rem);
     background-color: $extra-color;
+    transform: translateX(2rem);
 }
 
 .report-switcher input:checked + .report-slider:after{
@@ -508,24 +501,24 @@
 
 // ERROR PAGES
 .error-img{
-    margin-top: -2rem;
+    animation: error-img 5s infinite;
+    background-image: url(../img/icons/error_404_2.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50rem;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -2rem;
     width: 100%;
-    height: 50rem;
-    background-image: url(../img/icons/error_404_2.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    animation: error-img 5s infinite;
 }
 
 .error-message h1{
-    font-size: 5rem;
-    padding-top: 9rem;
-    padding-left: 5rem;
     color: $extra-color;
+    font-size: 5rem;
     font-weight: bold;
+    padding-left: 5rem;
+    padding-top: 9rem;
 }
 
 .error-message p{
@@ -535,17 +528,17 @@
 }
 
 .error-message a button{
-    font-size: 2.5rem;
-    margin-top: 2rem;
-    margin-left: 5rem;
     background-color: $dark-color;
-    color: $light-color;
     border: 2px solid $dark-color;
     border-radius: 0.5rem;
+    color: $light-color;
+    font-size: 2.5rem;
     font-weight: 500;
-    width: 30rem;
     height: 5rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
     transition-duration: 0.35s;
+    width: 30rem;
 }
 
 .error-message a button:hover{
@@ -562,19 +555,19 @@
 @media only screen and (max-width: 768px){    
    .report-container{
         float: none;
-        width: 90%;
         margin-left: 5%;
+        width: 90%;
     }
     
     .error-img{
-        height: 0;
         background-image: none;
         display: none;
+        height: 0;
     }
     
     .error-message h1{
-        padding-top: 0;
         padding-left: 0;
+        padding-top: 0;
         text-align: center;
     }
     
@@ -584,21 +577,21 @@
     }
     
     .error-message a button{
+        left: 50%;
         margin-left: 0;
         margin-bottom: 10rem;
         position: relative;
-        left: 50%;
         transform: translateX(-50%);
     }
     
     .filter-option{
-        width: 100%;
         min-height: 17.5rem;
+        width: 100%;
     }
     
     .radio-container{
-        width: 60%;
         margin-left: 20%;
+        width: 60%;
     }
     
     .filter-option p{

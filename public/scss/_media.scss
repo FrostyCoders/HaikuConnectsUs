@@ -1,14 +1,14 @@
 // MEDIA WIDTH MAX
 @media only screen and (max-width: 992px){
    .jumbotron-text{
-        width: 60%;
         margin-left: 8.333333%;
+        width: 60%; 
     }
 
     .jumbotron-img{
-        width: 28.333334%;
-        margin-left: 3.333333%;
         background-size: 100%;
+        margin-left: 3.333333%;
+        width: 28.333334%;
     }
     
     .filters #show-filters{
@@ -38,17 +38,17 @@
     }
     
     .post-report-menu{
-        width: 80%;
+         width: 80%;
     }
     
     .nav-item{
-       padding: 0.5rem;
-       text-align: center;
-       margin-left: 0rem;
+        margin-left: 0rem;
+        padding: 0.5rem;
+        text-align: center;
     }  
     
     .nav-link:hover::before{
-       width: 30%;
+        width: 30%;
     }
     
     .navbar-nav .nav-icon{
@@ -57,8 +57,8 @@
     }
 
     .post-nav-handwriting{
-        width: 60vw;
         height: 37.5vw;
+        width: 60vw;
     }
 }
 
@@ -68,10 +68,10 @@
     }
     
     .jumbotron-text{
+        margin-left: 8.333333%;
+        min-height: 10rem;
         text-align: center;
         width: 83.333333%;
-        min-height: 10rem;
-        margin-left: 8.333333%;
     }
 
     .jumbotron-img{
@@ -83,10 +83,10 @@
     }
 
     .mg-posts, .mg-posts3{
-        width: 90%;
         float: none;
         margin-left: 5%;
         margin-right: 5%;
+        width: 90%;
     }
     
     .pagination{
@@ -103,8 +103,8 @@
     }
 
     .post-nav-handwriting{
-        width: 80vw;
         height: 50vw;
+        width: 80vw;
     }
     
     .page-communicate{
