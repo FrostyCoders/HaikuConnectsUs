@@ -1,20 +1,20 @@
 @import "config";
 
 .jumbotron-text{
-    text-align: center;
-    width: 100%;
     margin-left: 0;
     min-height: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
 .add-inputs, .live{
-    margin-top: 5rem;
     font-size: 1.6rem;
+    margin-top: 5rem;
 }
 
 .add-inputs h4, .live h4{
-    text-align: center;
     font-size: 2.25rem;
+    text-align: center;
 }
 
 .add-inputs hr, .live hr{
@@ -22,8 +22,8 @@
 }
 
 .add-inputs label{
-    margin-left: 10%;
     display: block;
+    margin-left: 10%;
     margin-top: 3rem;
 }
 
@@ -32,38 +32,38 @@
 }
 
 .add-inputs input[type="text"]{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    height: 3.6rem;
-    padding: 0.5rem 1rem;
     background-color: $white-color;
     border: 1.5px solid $dark-color;
     border-radius: 0.5rem;
+    height: 3.6rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0.5rem 1rem;
     transition-duration: 0.35s;
+    width: 80%;
 }
 
 .add-inputs input[type="file"]{
-    width: 30rem;
-    margin-left: 10%;
-    height: 3.6rem;
-    outline: none;
     display: none;
+    height: 3.6rem;
+    margin-left: 10%;
+    outline: none;
+    width: 30rem;
 }
 
 .add-inputs .input-button{
     background-color: $white-color;
-    color: $dark-color;
     border: 1.5px solid $dark-color;
     border-radius: 0.5rem;
-    font-weight: 500;
-    margin-top: 0.75rem;
-    line-height: 3rem;
-    text-align: center;
-    width: 15rem;
-    height: 3.5rem;
+    color: $dark-color;
     cursor: pointer;
+    font-weight: 500;
+    height: 3.5rem;
+    line-height: 3rem;
+    margin-top: 0.75rem;
+    text-align: center;
     transition-duration: 0.35s;
+    width: 15rem;
 }
 
 .add-inputs .input-button:hover{
@@ -71,22 +71,22 @@
 }
 
 .add-inputs textarea{
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    min-height: 11rem;
-    line-height: 3rem;
-    padding: 0.5rem 1rem;
-    resize: none;
     background-color: $white-color;
     border: 1.5px solid $dark-color;
     border-radius: 0.5rem;
+    line-height: 3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 11rem;
+    padding: 0.5rem 1rem;
+    resize: none;
     transition-duration: 0.35s;
+    width: 80%;
 }
 
 .add-inputs textarea:focus, .add-inputs input[type="text"]:focus{
-    outline: none;
     border-color: $extra-color;
+    outline: none;
 }
 
 .add-inputs textarea::-webkit-scrollbar{
@@ -109,14 +109,14 @@
 }
 
 .add-inputs input[type="submit"]{
-    margin: 4rem auto;
     background-color: $dark-color;
-    color: $white-color;
     border: 2px solid $dark-color;
     border-radius: 0.5rem;
+    color: $white-color;
     font-weight: 500;
-    min-width: 10rem;
     height: 4rem;
+    margin: 4rem auto;
+    min-width: 10rem;
     transition-duration: 0.35s;
 }
 
@@ -125,30 +125,30 @@
 }
 
 .add-inputs ul{
-    display: none;
-    position: absolute;
     background-color: $white-color;
+    border: 1px solid $dark-color;
+    border-radius: 0.25rem;
     color: $dark-color;
+    display: none;
     margin-left: 10%;
     margin-right: 10%;
-    border: 1px solid $dark-color;
-    width: calc(80% - 3rem);
-    min-height: 3.5rem;
     max-height: 11rem;
+    min-height: 3.5rem;
     overflow-y: auto;
-    border-radius: 0.25rem;
     padding-left: 0;
+    position: absolute;
+    width: calc(80% - 3rem);
 }
 
 .add-inputs ul li{
-    text-align: center;
     border-bottom: 1px solid $dark-color;
-    min-height: 3.5rem;
+    cursor: pointer;
     line-height: 3.5rem;
     list-style: none;
-    width: 100%;
-    cursor: pointer;
+    min-height: 3.5rem;
+    text-align: center;
     transition-duration: 0.15s;
+    width: 100%;
 }
 
 .add-inputs ul li:hover{
@@ -165,53 +165,50 @@
 }
 
 .file-name{
-    word-break: break-word;
+    display: none;
     margin-left: 10%;
     margin-top: 0.5rem;
     width: 80%;
-    display: none;
+    word-break: break-word;
 }
 
 .file-delete{
-    position: absolute;
-    left: 15.5rem;
-    top: 3.2rem;
-    width: 3.5rem;
-    height: 3.5rem;
     border: 1.5px solid $dark-color;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition-duration: 0.35s;
     display: none;
+    height: 3.5rem;
+    left: 15.5rem;
+    position: absolute;
+    top: 3.2rem;
+    transition-duration: 0.35s;
+    width: 3.5rem;
 }
 
 .file-delete:before{
+    background: #000;
     content: "";
     display: block;
-    position: absolute;
-    top: 1.5rem;
-    left: 0.6rem;
-    transform: translate(-50%, -50%);
-    transform: rotate(-45deg);
-    width: 2rem;
     height: 0.3rem;
-    
-    background: #000;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
     transition-duration: 0.35s;
+    width: 2rem;
 }
 
 .file-delete:after{
+    background: #000;
     content: "";
     display: block;
-    position: absolute;
-    top: 1.5rem;
-    left: 0.6rem;
-    transform: translate(-50%, -50%);
-    width: 2rem;
     height: 0.3rem;
-    transform: rotate(45deg);
-    background: #000;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
     transition-duration: 0.35s;
+    width: 2rem;
 }
 
 .file-delete:hover::before, .file-delete:hover::after{
@@ -223,12 +220,12 @@
 }
 
 .posts{
+    left: 50%;
+    margin-bottom: 25rem;
     position: relative;
     top: 7.5rem;
-    left: 50%;
-    width: 100%;
-    margin-bottom: 25rem;
     transform: translateX(-50%);
+    width: 100%;
 }
 
 .posts:hover
@@ -246,12 +243,12 @@
 }
 
 .posts .post-header .posts-haiku .post-haiku{
+    height: 100%;
+    left: 50%;
+    opacity: 1;
     position: relative;
     top: 50%;
-    left: 50%;
     transform: translateX(-50%);
-    opacity: 1;
-    height: 100%;
 }
 
 .posts .post-footer .post-like:hover{
@@ -260,61 +257,59 @@
 }
 
 .add-new-author{
-    position: fixed;
-    display: none;
-    z-index: 99999;
-    width: 40rem;
-    min-height: 32rem;
     background-color: $light-color;
     border: 1px solid $dark-color;
     border-radius: 0.5rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
     box-shadow: 0px 5px 50px -10px rgba(0,0,0,1);
+    display: none;
+    left: 50%;
+    min-height: 32rem;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    z-index: 99999;
 
     p{
-        text-align: center;
         font-size: 2rem;
+        letter-spacing: 0.2rem;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        letter-spacing: 0.2rem;
+        text-align: center;
     }
 
     input[type="text"]{
-        display: block;
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 2.5rem;
-        height: 3.6rem;
-        padding: 0.5rem 1rem;
         background-color: $white-color;
         border: 1.5px solid $dark-color;
         border-radius: 0.5rem;
+        display: block;
+        height: 3.6rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2.5rem;
+        padding: 0.5rem 1rem;
         transition-duration: 0.35s;
+        width: 80%;
     }
 
     input[type="submit"]{
-        position: relative;
-        top: 2.5rem;
-        left: 50%;
-        transform: translateX(-50%);
         background-color: $dark-color;
-        color: $light-color;
         border: 2px solid $dark-color;
         border-radius: 0.5rem;
+        color: $light-color;
         font-weight: 500;
-        width: 10rem;
         height: 4rem;
+        left: 50%;
+        position: relative;
+        top: 2.5rem;
+        transform: translateX(-50%);
         transition-duration: 0.35s;
+        width: 10rem;
     }
 
     input[type="text"]:focus{
-        outline: none;
         border-color: $extra-color;
+        outline: none;
     }
 
     input[type="submit"]:hover{
@@ -324,23 +319,23 @@
 }
 
 .add-new-author-close{
-    width: 2rem;
+    cursor: pointer;
     height: 2rem;
     position: absolute;
     right: 1rem;
     top: 1rem;
-    cursor: pointer;
+    width: 2rem;
 }
 
 .add-new-author-close:before, .add-new-author-close:after{
     content: "";
-    width: 0.3rem;
-    height: 2rem;
     background-color: $dark-color;
-    position: absolute;
+    height: 2rem;
     left: 40%;
+    position: absolute;
     transform: translateX(-50%);
     transition-duration: 0.35s;
+    width: 0.3rem;
 }
 
 .add-new-author-close:before{
@@ -361,15 +356,15 @@
 
 @media only screen and (max-width: 992px){
      .post-nav-handwriting{
-         width: 40vw;
          height: 25vw;
+         width: 40vw;
      }
 }
 
 @media only screen and (max-width: 768px){
     .post-nav-handwriting{
-        width: 80vw;
         height: 50vw;
+        width: 80vw;
     }
 }
 

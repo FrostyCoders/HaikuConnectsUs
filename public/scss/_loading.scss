@@ -1,25 +1,23 @@
 .points-loading-container{
-    display: none;
-    position: fixed;
     bottom: 0.1rem;
+    display: none;
+    height: 5rem;
+    position: fixed;
     right: 0.1rem;
     transform: translate(-25%, -25%);
     width: 7.5rem;
-    height: 5rem;
     z-index: 9999;
 }
 
 .point1, .point1:before, .point1:after{
+    background-color: $extra-color;
+    border-radius: 0.1rem;
     bottom: 0;
+    height: 1.5rem;
     left: 50%;
+    position: absolute;
     transform: translate(-50%);
     width: 1.25rem;
-    height: 1.5rem;
-    position: absolute;
-    border-radius: 0.1rem;
-    -moz-border-radius: 0.1rem;
-    -webkit-border-radius: 0.1rem;
-    background-color: $extra-color;
 }
 
 .point1{
@@ -27,24 +25,23 @@
 }
 
 .point1:before{
+    animation: 2.5s infinite point1;
     content: "";
     display: block;
-    left: -125%;
     height: 2rem;
-    animation: 2.5s infinite point1;
+    left: -125%;
 }
 
 .point1:after{
+    animation: 3s infinite point1;
     content: "";
     display: block;
-    left: 225%;
     height: 2.5rem;
-    animation: 3s infinite point1;
+    left: 225%;
 }
 
-
 @keyframes point1{
-    0%, 100% {
+    0%,100% {
         height: 0;
     }
     50% {

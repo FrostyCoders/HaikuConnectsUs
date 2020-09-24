@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="author" content="FrostyCoders">
     <meta name="description" content="Website dedicated to the work of Haiku authors from around the world!">
-    <meta name="keywords" content="haiku, connects, us">
+    <meta name="keywords" content="international picture postcard project, international, picture, postcard, project, haikuconnectsus, haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
     <title>International Picture Postcard Project</title>
     
     <!-- FAVICON -->
@@ -38,8 +39,8 @@
             <input type="text" id="author-surname" placeholder="Surname" />
             <input type="text" id="author-country" placeholder="Country" />
             <div class="author-submit-container">
-            <input type="button" id="author-show-haiku" value="Show haiku" />
-            <input type="submit" id="author-submit" value="Edit author" />
+            <input type="button" id="author-show-haiku" value="Show Haiku" />
+            <input type="submit" id="author-submit" value="Edit Author" />
             </div>
         </form>
     </div>

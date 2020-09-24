@@ -1,18 +1,16 @@
 @keyframes show-element{
-    from {opacity:0;}
-    to {opacity:1;}
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 @keyframes show-nav-link-icon-container{
-    from {height:0;}
-    to {height:3.3rem;}
+    0% {height:0;}
+    100% {height:3.3rem;}
 }
 
 @keyframes like-it{
-    0% {filter: grayscale(0);}
+    0%,75%,100% {filter: grayscale(0);}
     25% {filter: grayscale(1);}
-    75% {filter: grayscale(0);}
-    100% {filter: grayscale(0);}
 }
 
 @keyframes error-img{
