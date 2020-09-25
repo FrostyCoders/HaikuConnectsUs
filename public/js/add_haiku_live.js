@@ -98,7 +98,7 @@ function liveCheckEnter()
 } 
 
 // CHANGE BACKGROUND ON LIVE
-var pullFileBackground = function()
+document.querySelector("#background-haiku").onchange = function()
 { 
     var fileInput = document.querySelector("#background-haiku");
     var fileComplete = document.getElementById("file-complete");
@@ -133,7 +133,7 @@ var pullFileBackground = function()
     buttonBgDelete.style.display = "block";
 }
 
-var pullFileHandwriting = function()
+document.querySelector("#handwriting-haiku").onchange = function()
 { 
     var fileInputHand = document.querySelector("#handwriting-haiku");
     var fileCompleteHand = document.getElementById("file-complete-hand");
@@ -168,76 +168,51 @@ var pullFileHandwriting = function()
     buttonHwDelete.style.display = "block";
 }
 
-document.querySelector("#background-haiku").onchange=pullFileBackground;
-document.querySelector("#handwriting-haiku").onchange=pullFileHandwriting;
-
-
 // ADD NEW AUTHOR
-
-const addAuthor = document.getElementById("add-author");
-const addNewMenuClose = document.getElementById("add-new-author-close");
-
-function showAddNewAuthor()
-{
+document.getElementById("add-author").addEventListener('click', () => {
     const addNewMenu = document.getElementById("add-new-author");
     addNewMenu.style.display = "block";
     addNewMenu.style.animation = "show-element 0.5s 1";
-}
-addAuthor.addEventListener('click', showAddNewAuthor, false);
+}, false);
 
-function hideAddNewAuthor()
-{
-    const addNewMenu = document.getElementById("add-new-author");
-    addNewMenu.style.display = "none";
-}
-addNewMenuClose.addEventListener('click', hideAddNewAuthor, false);
+document.getElementById("add-new-author-close").addEventListener('click', () => {
+    document.getElementById("add-new-author").style.display = "none";
+}, false);
 
-function postSubMenu()
+// DROPDOWN MENU IN UP RIGHT CORNER OF POST
+document.getElementById("post-nav").addEventListener('click', () => {
+    const postnavsub = document.getElementById("post-nav-sub");
+
+    if(postnavsub.style.display === "block")
     {
-        var postnavsub = document.getElementById("post-nav-sub");
-
-        if(postnavsub.style.display === "block")
-            {
-                postnavsub.style.display = "none";
-            }
-        else
-            {
-                postnavsub.style.display = "block";
-                postnavsub.style.animation = "show-element 1s 1";
-            }
+        postnavsub.style.display = "none";
     }
+    else
+    {
+        postnavsub.style.display = "block";
+        postnavsub.style.animation = "show-element 1s 1";
+    }
+}, false);
 
-var postnav = document.getElementById("post-nav");
-postnav.addEventListener('click', postSubMenu, false);
-
-function showHandwriting()
-{
-    var handwritingContainer = document.getElementById("post-nav-handwriting");
+// SHOW HAIKU HANDWRITING CONTAINER
+document.getElementById("post-nav-sub-option-handwriting").addEventListener('click', () => {
+    const handwritingContainer = document.getElementById("post-nav-handwriting");
     handwritingContainer.style.display = "block";
-}
+}, false);
 
-var handwritingNav = document.getElementById("post-nav-sub-option-handwriting");
-handwritingNav.addEventListener('click', showHandwriting, false);
-
-function hideHandwriting()
-{
-    var handwritingContainer = document.getElementById("post-nav-handwriting");
+// HIDE HAIKU HANDWRITING CONTAINER
+document.getElementById("post-nav-handwriting-close").addEventListener('click', () => {
+    const handwritingContainer = document.getElementById("post-nav-handwriting");
     handwritingContainer.style.display = "none";
-}
-
-var handwritingClose = document.getElementById("post-nav-handwriting-close");
-handwritingClose.addEventListener('click', hideHandwriting, false);
+}, false);
 
 function deleteBackground()
 {
-    const buttonBgDelete = document.getElementById("file-delete-background");
     const fileComplete = document.getElementById("file-complete");
-    const postHeader = document.getElementById("post-header");
-    const backgroundName = document.getElementById('background-name');
     
-    buttonBgDelete.style.display = "none";
-    backgroundName.style.display = "none";
-    postHeader.style.backgroundImage = "none";
+    document.getElementById("file-delete-background").style.display = "none";
+    document.getElementById('background-name').style.display = "none";
+    document.getElementById("post-header").style.backgroundImage = "none";
     fileComplete.textContent = "Upload background";
     fileComplete.style.borderColor = "var(--dark-color)";
     fileComplete.style.color = "var(--dark-color)";
@@ -245,14 +220,11 @@ function deleteBackground()
 
 function deleteHandwriting()
 {
-    const buttonHwDelete = document.getElementById("file-delete-handwriting");
     const fileCompleteHand = document.getElementById("file-complete-hand");
-    const postHeaderHand = document.getElementById("post-nav-handwriting");
-    const handwritingName = document.getElementById('handwriting-name');
     
-    buttonHwDelete.style.display = "none";
-    handwritingName.style.display = "none";
-    postHeaderHand.style.backgroundImage = "none";
+    document.getElementById("file-delete-handwriting").style.display = "none";
+    document.getElementById('handwriting-name').style.display = "none";
+    document.getElementById("post-nav-handwriting").style.backgroundImage = "none";
     fileCompleteHand.textContent = "Upload handwriting";
     fileCompleteHand.style.borderColor = "var(--dark-color)";
     fileCompleteHand.style.color = "var(--dark-color)";

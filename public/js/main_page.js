@@ -343,6 +343,28 @@ const generatePages = (cPage, pageAmmount) => {
     }
 };
 
+// SHOW & HIDE FILTERS IN MAIN PAGE
+document.getElementById("show-filters").addEventListener('click', () => {
+    const showfiltersbutton = document.getElementById("show-filters");
+    const hidefiltersbutton = document.getElementById("hide-filters");
+    const filtersform = document.getElementById("filters-form");
+
+    filtersform.style.display = "block";
+    showfiltersbutton.style.display = "none";
+    hidefiltersbutton.style.display = "block";
+    filtersform.style.animation = "show-element 1s 1";
+}, false);
+
+document.getElementById("hide-filters").addEventListener('click', () => {
+    const showfiltersbutton = document.getElementById("show-filters");
+    const hidefiltersbutton = document.getElementById("hide-filters");
+    const filtersform = document.getElementById("filters-form");
+
+    filtersform.style.display = "none";
+    hidefiltersbutton.style.display = "none";
+    showfiltersbutton.style.display = "block";
+}, false);
+
 // <!--- MAIN ---!>
 let haikuPosts = [];
 let reporting = null;
@@ -364,30 +386,3 @@ window.onload = () => {
     loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
-// SHOW & HIDE FILTERS IN MAIN PAGE
-function showFilters()
-{
-    const showfiltersbutton = document.getElementById("show-filters");
-    const hidefiltersbutton = document.getElementById("hide-filters");
-    const filtersform = document.getElementById("filters-form");
-
-    filtersform.style.display = "block";
-    showfiltersbutton.style.display = "none";
-    hidefiltersbutton.style.display = "block";
-    filtersform.style.animation = "show-element 1s 1";
-}
-
-function hideFilters()
-{
-    const showfiltersbutton = document.getElementById("show-filters");
-    const hidefiltersbutton = document.getElementById("hide-filters");
-    const filtersform = document.getElementById("filters-form");
-
-    filtersform.style.display = "none";
-    hidefiltersbutton.style.display = "none";
-    showfiltersbutton.style.display = "block";
-}
-const showfiltersbutton = document.getElementById("show-filters");
-showfiltersbutton.addEventListener('click', showFilters, false);
-const hidefiltersbutton = document.getElementById("hide-filters");
-hidefiltersbutton.addEventListener('click', hideFilters, false);
