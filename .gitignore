@@ -1,9 +1,0 @@
-# ignore config file
-config/config.php
-# ignore every uploaded image except of default images
-uploads/background/*
-uploads/handwriting/*
-!uploads/background/default.png
-!uploads/handwriting/no_hw.jpg
-# ignore error log
-logs/*
