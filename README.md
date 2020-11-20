@@ -36,8 +36,8 @@ victorious, in the end we are all victorious and for that I thank you cordially.
 
 ## Application requirements
 
- - Windows or Linux server
- - Basic web server (apache2 or IIS)
+ - Linux Server
+ - Basic web server (apache2 or nginx)
  - Configured MySQL server (version 5.0 or latest) 
  - Configured PHP server (version 7.0 or latest)
  - Disk usage depends on haiku images stored on server

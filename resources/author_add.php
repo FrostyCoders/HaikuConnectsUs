@@ -22,7 +22,7 @@
         $surname = $_POST['surname'];
         $country = $_POST['country'];
 
-        $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
+        $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬]/';
         if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
             die(json_encode([false, "Error, new author data could not contain special characters!"]));
 

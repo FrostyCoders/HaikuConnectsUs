@@ -135,7 +135,10 @@ class reportsSite
                     });
                 }
                 else if(response != false && response[0] == false)
+                {
                     showCommunicate(response);
+                    this.pages = 1;
+                }
                 else
                     showCommunicate([false, "Error, cannot load reports, try later!"]);
 

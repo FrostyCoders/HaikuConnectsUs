@@ -13,9 +13,12 @@
     define('CKEY2', '%-\&RAk}?frljv/oy46#u@NQ=C2Wx~|hYesdXSbw."m5+V]$M`>(F!DG)_UIc[P^<z,'."'".'*9a8H;O:0JnTpt1BZ{iK3gE7Lq');
 
     // FILE UPLOADS DIRECTORIES
-    define('HW_DIR', realpath("../uploads/handwriting/") . '\\');
-    define('BG_DIR', realpath("../uploads/background/") . '\\');
+    define('HW_DIR', realpath("../uploads/handwriting/") . '/');
+    define('BG_DIR', realpath("../uploads/background/") . '/');
 
     // ERR LOG DIRECTORY
-    define('ERR_DIR', "../logs/");
+    define('ERR_DIR', realpath("../logs/") . '/');
+
+    // MAIL OPTIONS
+    define('MAIL_FROM', "noreply@example.com");
 ?>

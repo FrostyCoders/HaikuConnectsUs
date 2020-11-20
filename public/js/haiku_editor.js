@@ -91,7 +91,7 @@ document.getElementById("add_author_form").addEventListener("submit", (event) =>
                 const response = JSON.parse(request.responseText);
                 if(response[0] == true)
                 {
-                    hideAddNewAuthor();
+                    document.getElementById("add-new-author").style.display = "none";
                     setAuthorFilter(response[2], firstName + " " + surName + ", " + country);
                 }
                 showCommunicate(response);
