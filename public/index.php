@@ -8,7 +8,7 @@
     <meta name="keywords" content="international picture postcard project, international, picture, postcard, project, haikuconnectsus, haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="index, follow">
-    <title>International Picture Postcard Project</title>
+    <title>Haiku Connects Us</title>
     
     <!-- FAVICON -->
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
@@ -20,7 +20,7 @@
     
 </head>
 <body>
-    <!-- INNE -->
+    <!-- OTHER -->
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
@@ -49,9 +49,9 @@
             </div>';
         }
     ?>
-    <!-- PASEK NAWIGACYJNY -->
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">International Picture Postcard Project</a>
+      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -70,14 +70,13 @@
       </div>     
     </nav>
 
-    <!-- ZAWARTOŚĆ  -->
-    <!--col-md-10 col-lg-8 col-lg-8 offset-0 offset-md-1 offset-lg-2-->
+    <!-- MAIN -->
     <main>
         <div class="container-fluid">
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">Haiku Connects Us!</h1>
+                            <h1 class="display-4">International Picture Postcard Project!</h1>
                             <h3 class="my-4 font-weight-light">We are unique and that makes us different. <br/>Our work does not have to be underestimated and wait for greater publicity.</h3>
                             <hr class="my-4">
                             <p class="m-1 mb-4">Let's share it among those who also create haiku!</p>
@@ -155,22 +154,19 @@
         </div>
     </main>
     
-    <!-- STOPKA -->     
+    <!-- FOOTER -->     
     <footer class="page-footer">
         <?php
             require_once "../resources/site_footer.php";
         ?>
     </footer>
-    <!-- Footer -->
     
-    <!-- SKRYPTY -->
-    
+    <!-- SCRIPTS -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/haiku.class.js"></script>
     <script src="js/main_page.js"></script>
     <script src="js/common.js"></script>
-
 </body>
 </html>

@@ -18,11 +18,7 @@
     .filter-option{
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
-    }
-    
-    .filter-option ul{
-        width: calc(50% - 3rem);
+        width: 75%;
     }
     
     #filters-form{
@@ -60,11 +56,21 @@
         height: 37.5vw;
         width: 60vw;
     }
+
+    .post-haiku{
+        font-size: 1.75rem;
+        top: 37.5%;
+    }
 }
 
 @media only screen and (max-width: 768px){    
     .jumbotron-my{
         padding: 2.5rem;
+
+        .display-4
+        {
+            font-size: 2.55rem;
+        }
     }
     
     .jumbotron-text{
@@ -110,6 +116,43 @@
     .page-communicate{
         width: 70%;
     }
+
+    .cookie-alert{
+        justify-content: flex-start;
+    
+        &-close{
+            cursor: pointer;
+            height: 2.5rem;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            width: 2.5rem;
+        }
+    
+        p{
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            text-align: center;
+            width: 92.5%;
+        }
+    }
+
+    .navbar{
+        &-brand{
+            font-size: 1.75rem;
+            margin-left: 0.5rem;
+         }
+    }
+
+    .post-haiku{
+        font-size: 1.75rem;
+        top: 40%;
+    }
+
+    .logo-footer{
+        height: 10rem;
+        width: 10rem;
+    }
 }
 
 // MEDIA WIDTH MIN
@@ -128,5 +171,9 @@
     
     #navbar-toggler-menu-close{
         display: none !important;
+    }
+
+    .mg-posts1 .post-header .posts-haiku .post-haiku{
+       top: 25%;
     }
 }
