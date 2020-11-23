@@ -81,10 +81,10 @@
     <meta name="keywords" content="international picture postcard project, international, picture, postcard, project, haikuconnectsus, haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>International Picture Postcard Project</title>
+    <title>Haiku Connects Us</title>
     
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="../img/icons/haiku_logo_normal.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
     
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
@@ -93,7 +93,7 @@
     <link rel="stylesheet" type="text/css" href="css/rest.css" />
 </head>
 <body>
-    <!-- INNE -->
+    <!-- OTHER -->
     <div class="loading-container" id="loading-container">
         <div class="points-loading-container">
             <div class="point1"></div>
@@ -109,9 +109,9 @@
             </div>';
         }
     ?>
-    <!-- PASEK NAWIGACYJNY -->
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">International Picture Postcard Project</a>
+      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -123,36 +123,14 @@
       <div class="collapse navbar-collapse" id="menu">
        
            <ul class="navbar-nav ml-auto mg-0">
-              <li class="nav-item active">
-                 <a class="nav-link nav-text" href="index.php">Start</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="authors_list.php">Authors List</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="authors_map.php">Authors Map</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="about_the_project.php">About The Project</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="reports_list.php">Reports List</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link nav-text" href="haiku_editor.php">Add Haiku</a>
-              </li>
-              <li class="nav-item nav-icon" id="nav-icons">
-                 <a class="nav-link" href="#"><div class="avatar-nav-icon"></div></a>
-                 <div id="nav-link-icon-container">
-                 <a class="nav-link nav-link-icon" id="nav-link-icon1" href="../settings.php"><div class="gear-nav-icon" title="settings"></div></a>
-                 <a class="nav-link nav-link-icon" id="nav-link-icon2" href="../resources/logout.php"><div class="logout-nav-icon" title="logout"></div></a>
-                 </div>
-              </li>
+            <?php
+                    require_once "../resources/site_menu.php";
+                ?>
            </ul>
       </div>     
     </nav>
 
-    <!-- ZAWARTOŚĆ  -->
+    <!-- MAIN -->
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -169,67 +147,17 @@
         </div>
     </main>
     
-    <!-- STOPKA -->     
+    <!-- FOOTER -->     
     <footer class="page-footer">
-        <div class="container">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-                 <h4>Project Partners:</h4>
-            </div>
-            <div class="row text-center justify-content-center pt-5 mb-3">
-                <div class="col-6 col-lg-3 mb-3">
-                    <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Biblioteka w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Zespół Szkół im. Władysława Orkana w Nowym Targu">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="FrostyCoders">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 mb-3">
-                     <div class="logo">
-                        <a href="#">
-                            <img class="logo-tooltip" src="img/icons/gear_normal.svg" title="Others">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3"> 
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="privacy_policy.php">Privacy Policy</a>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <a class="footer-a" href="cookies_policy.php">Cookies Policy</a>
-                </div>
-            </div>
-        </div>
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-4">2020 &copy; FROSTYCODERS</div>
-    <!-- Copyright -->
-
+        <?php
+            require_once "../resources/site_footer.php";
+        ?>
     </footer>
-    <!-- Footer -->
 
-    
-    <!-- SKRYPTY -->
-    
+    <!-- SCRIPTS -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/common.js"></script>
-    
 </body>
 </html>

@@ -8,7 +8,7 @@
     <meta name="keywords" content="international picture postcard project, international, picture, postcard, project, haikuconnectsus, haiku, connects, us">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex, nofollow">
-    <title>International Picture Postcard Project</title>
+    <title>Haiku Connects Us</title>
     
     <!-- FAVICON -->
     <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
@@ -22,7 +22,7 @@
     
 </head>
 <body>
-    <!-- INNE -->
+    <!-- OTHER -->
     <div class="page-communicate" id="page-communicate">
     <div class="page-communicate-icon" id="page-communicate-icon"></div>
     <div class="page-communicate-text" id="page-communicate-text"></div>
@@ -41,9 +41,9 @@
             </div>';
         }
     ?>
-    <!-- PASEK NAWIGACYJNY -->
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="index.php">International Picture Postcard Project</a>
+      <a class="navbar-brand" href="index.php">Haiku Connects Us</a>
       
       <button class="navbar-toggler custom-toggler" id="navbar-toggler-menu" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="false">
          <span class="navbar-toggler-icon" id="navbar-toggler-icon-menu"></span>
@@ -64,7 +64,7 @@
       </div>     
     </nav>
 
-    <!-- ZAWARTOŚĆ  -->
+    <!-- MAIN -->
     <main>
         <div class="container-fluid">
             <div class="row">
@@ -123,16 +123,12 @@
             require_once "../resources/site_footer.php";
         ?>
     </footer>
-    <!-- FOOTER -->
 
-    <!-- SKRYPTY -->
-    
+    <!-- SCRIPTS -->
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/reports.js"></script>
-
-    
 </body>
 </html>
