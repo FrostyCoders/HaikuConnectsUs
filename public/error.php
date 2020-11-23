@@ -84,7 +84,7 @@
     <title>Haiku Connects Us</title>
     
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="../img/icons/haiku_logo_normal.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/icons/haiku_logo_normal.svg" type="image/x-icon" />
     
     <!-- STYLE -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>

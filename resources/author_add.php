@@ -22,9 +22,9 @@
         $surname = $_POST['surname'];
         $country = $_POST['country'];
 
-        $specials = '/[\'^£$%&*()}{@#~?><>,|=_+¬]/';
+        $specials = '/[\'^£$%&*()}{@#~?><>|=_+¬]/';
         if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
-            die(json_encode([false, "Error, new author data could not contain special characters!"]));
+            die(json_encode([false, "Error, new author data could not contain special characters! Except , and -."]));
 
         $query = $conn->prepare("INSERT INTO authors VALUES (NULL, :name, :surname, :country)");
         $get_id = $conn->prepare("SELECT id FROM authors ORDER BY id DESC LIMIT 1");
