@@ -128,44 +128,6 @@ document.querySelector("#background-haiku").onchange = function()
         backgroundName.textContent = "Filename: "+filename;
         backgroundName.style.display = "block";
     }
-    
-    const buttonBgDelete = document.getElementById("file-delete-background");
-    buttonBgDelete.style.display = "block";
-}
-
-document.querySelector("#handwriting-haiku").onchange = function()
-{ 
-    var fileInputHand = document.querySelector("#handwriting-haiku");
-    var fileCompleteHand = document.getElementById("file-complete-hand");
-    
-    var reader = new FileReader();
-    reader.onload = function()
-    {
-        var postHeaderHead = document.getElementById("post-nav-handwriting"); 
-        postHeaderHead.style.backgroundImage = 'url('+reader.result+')';
-        fileCompleteHand.textContent = "Upload successfully";
-        fileCompleteHand.style.borderColor = "#2da333";
-        fileCompleteHand.style.color = "#2da333";
-    }
-    
-    reader.readAsDataURL(fileInputHand.files[0]);
-    
-    let fullPath = document.getElementById('handwriting-haiku').value;
-    let handwritingName = document.getElementById('handwriting-name');
-    if (fullPath) 
-    {
-        let startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-        let filename = fullPath.substring(startIndex);
-        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) 
-        {
-            filename = filename.substring(1);
-        }
-        handwritingName.textContent = "Filename: "+filename;
-        handwritingName.style.display = "block";
-    }
-    
-    const buttonHwDelete = document.getElementById("file-delete-handwriting");
-    buttonHwDelete.style.display = "block";
 }
 
 // ADD NEW AUTHOR
@@ -179,53 +141,14 @@ document.getElementById("add-new-author-close").addEventListener('click', () => 
     document.getElementById("add-new-author").style.display = "none";
 }, false);
 
-// DROPDOWN MENU IN UP RIGHT CORNER OF POST
-document.getElementById("post-nav").addEventListener('click', () => {
-    const postnavsub = document.getElementById("post-nav-sub");
-
-    if(postnavsub.style.display === "block")
-    {
-        postnavsub.style.display = "none";
-    }
-    else
-    {
-        postnavsub.style.display = "block";
-        postnavsub.style.animation = "show-element 1s 1";
-    }
-}, false);
-
-// SHOW HAIKU HANDWRITING CONTAINER
-document.getElementById("post-nav-sub-option-handwriting").addEventListener('click', () => {
-    const handwritingContainer = document.getElementById("post-nav-handwriting");
-    handwritingContainer.style.display = "block";
-}, false);
-
-// HIDE HAIKU HANDWRITING CONTAINER
-document.getElementById("post-nav-handwriting-close").addEventListener('click', () => {
-    const handwritingContainer = document.getElementById("post-nav-handwriting");
-    handwritingContainer.style.display = "none";
-}, false);
-
 function deleteBackground()
 {
     const fileComplete = document.getElementById("file-complete");
-    
-    document.getElementById("file-delete-background").style.display = "none";
     document.getElementById('background-name').style.display = "none";
-    document.getElementById("post-header").style.backgroundImage = "none";
+    document.getElementById("post-header").style.backgroundImage = "url(img/other/background.jpg";
     fileComplete.textContent = "Upload background";
-    fileComplete.style.borderColor = "var(--dark-color)";
-    fileComplete.style.color = "var(--dark-color)";
+    fileComplete.style.borderColor = "#353330";
+    fileComplete.style.color = "#353330";
 }
 
-function deleteHandwriting()
-{
-    const fileCompleteHand = document.getElementById("file-complete-hand");
-    
-    document.getElementById("file-delete-handwriting").style.display = "none";
-    document.getElementById('handwriting-name').style.display = "none";
-    document.getElementById("post-nav-handwriting").style.backgroundImage = "none";
-    fileCompleteHand.textContent = "Upload handwriting";
-    fileCompleteHand.style.borderColor = "var(--dark-color)";
-    fileCompleteHand.style.color = "var(--dark-color)";
-}
+document.getElementById("form-delete").addEventListener('click', deleteBackground, false);

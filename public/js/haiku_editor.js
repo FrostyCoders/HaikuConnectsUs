@@ -137,6 +137,13 @@ const addNewHaiku = (event) => {
 
                 showCommunicate(response);
                 Loading(false);
+
+                const fileComplete = document.getElementById("file-complete");
+                document.getElementById('background-name').style.display = "none";
+                document.getElementById("post-header").style.backgroundImage = "url(img/other/background.jpg";
+                fileComplete.textContent = "Upload background";
+                fileComplete.style.borderColor = "#353330";
+                fileComplete.style.color = "#353330";
             }
         };
 
@@ -244,34 +251,19 @@ const enterData = (id) => {
                 document.getElementById("in-english").value = haikuData[5];
                 document.getElementById("in-native").value = haikuData[6];
                 document.getElementById("post-header").style.backgroundImage = "url(../uploads/background/" + haikuData[7] + ")";
-                document.getElementById("post-nav-handwriting").style.backgroundImage = "url(../uploads/handwriting/" + haikuData[8] + ")";
 
                 liveAuthorHaiku();
 
 
                 if (haikuData[7] != "default.png"){
                     const fileComplete = document.getElementById("file-complete");
-                    const deleteButtonBg = document.getElementById("file-delete-background");
                     fileComplete.textContent = "Image choosed";
                     fileComplete.style.borderColor = "#2da333";
                     fileComplete.style.color = "#2da333";
-                    deleteButtonBg.style.display = "block";
-                    deleteButtonBg.addEventListener("click", () => {
-                        deleteImage("bg");
-                    });
                     
                 }
-                if(haikuData[8] != "no_hw.jpg")
+                if(haikuData[6] != null)
                 {
-                    const fileCompleteHand = document.getElementById("file-complete-hand");
-                    const deleteButtonHw = document.getElementById("file-delete-handwriting");
-                    fileCompleteHand.textContent = "Image choosed";
-                    fileCompleteHand.style.borderColor = "#2da333";
-                    fileCompleteHand.style.color = "#2da333";
-                    deleteButtonHw.style.display = "block";
-                    deleteButtonHw.addEventListener("click", () => {
-                        deleteImage("hw");
-                    });
                     document.getElementById("lang-switch").style.display = "block";
                 }
             }

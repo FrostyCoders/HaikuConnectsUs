@@ -73,11 +73,25 @@ class Haiku
         var post_nav_sub = document.createElement("div");
         post_nav_sub.setAttribute("class", "post-nav-sub");
 
-        let options = ["Handwriting", "Report"];
+        let options = [];
 
         if(this.loggedIn == true)
-            options = ["Handwriting", "Edit", "Delete"];
+        {
+            options.push("Edit");
             
+            if(this.handwriting != "no_hw.jpg")
+                options.push("Handwriting");
+
+            options.push("Delete");
+        }
+        else
+        {
+            options.push("Report");
+            
+            if(this.handwriting != "no_hw.jpg")
+                options.push("Handwriting");
+        }
+        
         options.forEach(option => {
             let post_nav_sub_option = document.createElement("div");
             post_nav_sub_option.setAttribute("class", "post-nav-sub-option");
@@ -121,7 +135,7 @@ class Haiku
     showOnWebsite(boxId)
     {
         document.getElementById(boxId).appendChild(this.post);
-
+        
         document.querySelector("#haiku"+this.id+" .post-nav").addEventListener("click", () => {
             const optionsCon = document.querySelector("#haiku"+this.id+" .post-nav-sub");
             if(optionsCon.style.display === "block")
@@ -134,30 +148,43 @@ class Haiku
         });
         
         const options = document.querySelectorAll("#haiku"+this.id+" .post-nav-sub-option");
-        options[0].addEventListener("click", () => {
-            const hwCon = document.querySelector("#haiku"+this.id+" .post-nav-handwriting");
-            hwCon.style.display = "block";
-            hwCon.style.animation = "show-element 1s 1";
-        });
-
-        document.querySelector("#haiku"+this.id+" .post-nav-handwriting-close").addEventListener("click", () => {
-            document.querySelector("#haiku"+this.id+" .post-nav-handwriting").style.display = "none";
-        });
-
+        
+        if(this.handwriting != "no_hw.jpg")
+        {
+            options[1].addEventListener("click", () => {
+                const hwCon = document.querySelector("#haiku"+this.id+" .post-nav-handwriting");
+                hwCon.style.display = "block";
+                hwCon.style.animation = "show-element 1s 1";
+            });
+    
+            document.querySelector("#haiku"+this.id+" .post-nav-handwriting-close").addEventListener("click", () => {
+                document.querySelector("#haiku"+this.id+" .post-nav-handwriting").style.display = "none";
+            });
+        }
 
         if(this.loggedIn == true)
         {
-            options[1].addEventListener("click", () => {
+            options[0].addEventListener("click", () => {
                 this.editHaiku();
             });
 
-            options[2].addEventListener("click", () => {
-                this.deleteHaiku();
-            });
+            if(this.handwriting != "no_hw.jpg")
+            {
+                options[2].addEventListener("click", () => {
+                    this.deleteHaiku();
+                });
+            }
+            else
+            {
+                options[1].addEventListener("click", () => {
+                    this.deleteHaiku();
+                });
+            }
+            
         }
         else
         {
-            options[1].addEventListener("click", () => {
+            options[0].addEventListener("click", () => {
                 showReportHaiku(this.id);
             });
         }

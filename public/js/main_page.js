@@ -7,6 +7,10 @@ const checkStorage = () => {
     if (sessionStorage.getItem("reports") === null) {
         sessionStorage.setItem("reports", JSON.stringify([]));
     }
+
+    if (sessionStorage.getItem("page") === null) {
+        sessionStorage.setItem("page", JSON.stringify([1, "newest", 2, 0]));
+    }
 };
 
 const saveLikesData = (value, mode) => {
@@ -31,7 +35,6 @@ const saveLikesData = (value, mode) => {
     else
     {
         throw new Error("Error, undefined function mode!");
-        return;
     }
 };
 
@@ -44,10 +47,10 @@ const saveReportsData = (value) => {
 
 // <!--- HAIKU LOADING ---!>
 const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 0) => {
-    Loading(true);
     const haikuBox = document.getElementById("haiku_box");
     const request = new XMLHttpRequest;
-    request.onreadystatechange = () => {
+    function requestHandler()
+    {
         if (request.readyState == 4 && request.status == 200)
         {
             const haikuData = JSON.parse(request.responseText);
@@ -57,6 +60,9 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 
                     haikuBox.innerHTML = '<p class="load-error">No haiku to show.</p>';
                 else
                 {
+                    haikuPosts.forEach(element => {
+                        element.destroyPost();
+                    });
                     haikuPosts = [];
                     const likedPosts = JSON.parse(localStorage.getItem("likes"));
                     const reportedPosts = JSON.parse(sessionStorage.getItem("reports"));
@@ -108,7 +114,7 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 
                         haikuObject.showOnWebsite("haiku_box");
                     });
                 }
-                generatePages(currentPage, haikuData[1]);
+                generatePages(haikuData[1]);
             }
             else
             {
@@ -119,8 +125,10 @@ const loadHaiku = (page = 1, order = "newest", ammount = 10, grid = 2, author = 
                 });
             }
             Loading(false);
+            request.removeEventListener("readystatechange", requestHandler);
         }
-    };
+    }
+    request.addEventListener("readystatechange", requestHandler);
     request.open("POST", "../resources/haiku_load.php", true);
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.send(
@@ -294,23 +302,36 @@ document.getElementById("report_form").addEventListener("submit", (event) => {
 });
 
 // <!--- PAGES ---!>
-const changePage = (page) => {
-    currentPage = page;
+const nextPage = () => {
+    currentPage++;
     document.getElementById("haiku_box").scrollIntoView({behavior: 'smooth', block: 'start'});
     loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
 };
 
-const generatePages = (cPage, pageAmmount) => {
+const previousPage = () => {
+    currentPage--;
+    document.getElementById("haiku_box").scrollIntoView({behavior: 'smooth', block: 'start'});
+    loadHaiku(currentPage, order, ammount, grid, selectedAuthor);
+};
+
+const generatePages = (pageAmmount) => {
     const previous = document.getElementById("previous_button");
     const next = document.getElementById("next_button");
     const pageNumber = document.querySelector("#page_number a");
 
-    if(cPage > 1 && pageAmmount > 1)
+    if(init == true)
+    {
+        previous.addEventListener("click", previousPage);
+        next.addEventListener("click", nextPage);
+        init = false;
+    }
+
+    previous.style.pointerEvents = "none";
+    next.style.pointerEvents = "none";
+
+    if(currentPage > 1 && pageAmmount > 1)
     {
         previous.style.display = "block";
-        previous.addEventListener("click", () => {
-            changePage(cPage - 1);
-        });
     }
     else
     {
@@ -319,16 +340,13 @@ const generatePages = (cPage, pageAmmount) => {
 
     if(pageAmmount != 0)
     {
-        pageNumber.textContent = cPage + "/" + pageAmmount;
+        pageNumber.textContent = currentPage + "/" + pageAmmount;
         pageNumber.style.display = "block";
     }   
 
-    if(cPage < pageAmmount && pageAmmount > 1)
+    if(currentPage < pageAmmount && pageAmmount > 1)
     {
         next.style.display = "block";
-        next.addEventListener("click", () => {
-            changePage(cPage + 1);
-        });
     }
     else
     {
@@ -341,6 +359,11 @@ const generatePages = (cPage, pageAmmount) => {
         next.style.display = "none";
         pageNumber.style.display = "none";
     }
+
+    setTimeout(() => {
+        previous.style.pointerEvents = "all";
+        next.style.pointerEvents = "all";
+    }, 1500);
 };
 
 // SHOW & HIDE FILTERS IN MAIN PAGE
@@ -373,6 +396,7 @@ let currentPage = 1;
 let order = "newest";
 let grid = 2;
 let ammount = 10;
+let init = true;
 
 window.onload = () => {
     checkStorage();

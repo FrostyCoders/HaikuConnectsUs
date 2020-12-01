@@ -13,7 +13,7 @@
 
         empty($_POST['search']) ? $phrase = " " : $phrase = $_POST['search'];
 
-        $query = $conn->prepare("SELECT * FROM authors");
+        $query = $conn->prepare("SELECT * FROM authors ORDER BY surname");
 
         try
         {
@@ -31,10 +31,11 @@
         {
             $authors = $query->fetchAll();
             $authors_list = array();
+            $phrase = "/$phrase/i";
             foreach($authors as $a)
             {
                 $full_name = $a['name'] . " " . $a['surname'];
-                if(strstr($full_name, $phrase))
+                if(preg_match($phrase, $full_name . " " . $a['country']))
                 {   
                     array_push($authors_list, array(
                         "id" => $a['id'],

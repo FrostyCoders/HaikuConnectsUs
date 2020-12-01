@@ -10,7 +10,7 @@
         require_once "../utils/logs.php";
         require_once "db_connect.php";
 
-        if(!isset($_POST['author']) || !isset($_POST['content']) || !isset($_POST['content_native']) || !isset($_FILES['bg_image']) || !isset($_FILES['hw_image']))
+        if(!isset($_POST['author']) || !isset($_POST['content']) || !isset($_POST['content_native']) || !isset($_FILES['bg_image']))
         {
             die(json_encode([false, "Error, missing data, fill all required inputs!"]));
         }
@@ -35,47 +35,7 @@
 
             $allowed_ext = array("jpg", "png", "jpeg", "bmp");
 
-            $handwriting = $_FILES['hw_image'];
-
-            if($handwriting['error'] !== 0 && $handwriting['error'] !== 4)
-            {
-                die(json_encode([false, "Error, problem with handwriting image, check it and try again!"]));
-            }
-            else if($handwriting['error'] === 4)
-            {
-                $hw_new_name = "no_hw.jpg";
-            }
-            else
-            {
-                $hw_ext = explode('.', $handwriting['name']);
-                $hw_ext = end($hw_ext);
-                $hw_ext = strtolower($hw_ext);
-                if(!in_array($hw_ext, $allowed_ext))
-                {
-                    die(json_encode([false, "Error, you cannot add this type of file in handwriting image!"]));
-                }
-
-                if($handwriting['size'] > 10485760)
-                {
-                    die(json_encode([false, "Error, size of uploaded handwriting image file is too big!"]));
-                }
-
-                $hw_tmp_name = $handwriting['tmp_name'];
-                $hw_new_name = uniqid('', true) . "." . $hw_ext;
-                $hw_destination = HW_DIR . $hw_new_name;
-
-                if(file_exists($hw_destination))
-                {
-                    saveToLog(1, "File already exist: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                    die(json_encode([false, "Error, something went wrong during file upload, try again!"]));
-                }
-
-                if(!move_uploaded_file($hw_tmp_name, $hw_destination))
-                {
-                    saveToLog(0, "Cannot move uploaded file: " . $e, realpath(".") . "\\" .  basename(__FILE__), __LINE__);
-                    die(json_encode([false, "Error, cannot add haiku, try later!"]));
-                }
-            }
+            $hw_new_name = "no_hw.jpg";
 
             $background = $_FILES['bg_image'];
 

@@ -136,6 +136,7 @@
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
+                    <p id="load-error"></p>
                 </div>
                 <div class="col-12 col-lg-9 offset-0 offset-lg-3">
                     <nav aria-label="Page pagination">

@@ -99,18 +99,11 @@
                         <textarea id="in-english" name="content" placeholder="Separate the lines with the ENTER..."></textarea>
                         <label for="in-native">In Native Language (optional):</label>
                         <textarea id="in-native" name="content_native" placeholder="Separate the lines with the ENTER..."></textarea>
-                        <label class="file-position">Background (JPG, JPEG, PNG or BMP - max. 10MB):
-                            <div class="file-delete" id="file-delete-background" title="Delete"></div>
-                        </label>
+                        <label class="file-position">Background (JPG, JPEG, PNG or BMP - max. 10MB):</label>
                         <label for="background-haiku" class="input-button" id="file-complete">Upload background</label>
                         <div class="file-name" id="background-name"></div>
-                        <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg"/>
-                        <label class="file-position">Handwritten letter (JPG, JPEG, PNG or BMP - max. 10MB - optional):
-                            <div class="file-delete" id="file-delete-handwriting" title="Delete"></div>
-                        </label>
-                        <label for="handwriting-haiku" class="input-button" id="file-complete-hand">Upload handwriting</label>
-                        <input type="file" id="handwriting-haiku" name="hw_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg" />
-                        <div class="file-name" id="handwriting-name"></div>
+                        <input type="file" id="background-haiku" name="bg_image" size="1" accept="image/jpeg,image/png,image/bmp,image/jpg" />
+                        <input type="reset" class="form-delete" id="form-delete" value="Clear the form">
                         <input type="submit" id="add-haiku-button" value="Add Haiku" />
                     </form>
                 </div>
@@ -128,15 +121,6 @@
                                 <input type="checkbox" id="ischecked">
                                 <span class="lang-slider"></span>
                             </label>
-                        </div>
-                        <div class="post-nav" id="post-nav">
-                            <div class="post-nav-dot"></div>
-                            <div class="post-nav-handwriting" id="post-nav-handwriting">
-                                <div class="post-nav-handwriting-close" id="post-nav-handwriting-close"></div>
-                            </div>
-                            <div class="post-nav-sub" id="post-nav-sub">
-                                <div class="post-nav-sub-option" id="post-nav-sub-option-handwriting">Handwriting</div>
-                            </div>
                         </div>
                         <div class="post-footer">
                             <div class="post-author" id="post-author"></div>

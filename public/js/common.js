@@ -96,18 +96,23 @@ $(document).ready(function(){
     
     // ANIMATION ON AVATAR ICON
     function showNavIcons() {
-      const navlinkiconcontainer = document.getElementById("nav-link-icon-container");
       const navlinkicon1 = document.getElementById("nav-link-icon1");
       const navlinkicon2 = document.getElementById("nav-link-icon2");
-      navlinkiconcontainer.style.display = "block";
-      navlinkiconcontainer.style.animation = "show-nav-link-icon-container 0.35s 1";
-      navlinkicon1.style.animation = "show-element 1s 1";
-      navlinkicon2.style.animation = "show-element 1s 1";
+      const navlinkiconcontainer = document.getElementById("nav-link-icon-container");
+
+      if (navlinkiconcontainer!=null){
+        navlinkiconcontainer.style.display = "block";
+        navlinkiconcontainer.style.animation = "show-nav-link-icon-container 0.35s 1";
+        navlinkicon1.style.animation = "show-element 1s 1";
+        navlinkicon2.style.animation = "show-element 1s 1";
+      }
     }
     
     function hideNavIcons() {
       const navlinkiconcontainer = document.getElementById("nav-link-icon-container");
-      navlinkiconcontainer.style.display = "none";
+      if (navlinkiconcontainer!=null){
+        navlinkiconcontainer.style.display = "none";
+      }
     }
     
     const navicons = document.getElementById("nav-icons");

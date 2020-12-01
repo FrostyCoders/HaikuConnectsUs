@@ -185,7 +185,11 @@ class reportsSite
         const pageNumber = document.querySelector("#page_number .page-link");
         const next = document.getElementById("next_button");
 
+        previous.style.pointerEvents = "none";
+        next.style.pointerEvents = "none";
+
         pageNumber.textContent = this.page + "/" + this.pages;
+        pageNumber.style.display = "block";
 
         if(this.page > 1)
             previous.style.display = "block";
@@ -196,6 +200,11 @@ class reportsSite
             next.style.display = "block";
         else
             next.style.display = "none";
+
+        setTimeout(() => {
+            previous.style.pointerEvents = "all";
+            next.style.pointerEvents = "all";
+        }, 1500);
     }
 
     changePage(where)
