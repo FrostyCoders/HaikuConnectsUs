@@ -63,7 +63,8 @@
       <div class="collapse navbar-collapse" id="menu">
        
            <ul class="navbar-nav ml-auto mg-0">
-            <?php
+                <?php
+                    require_once "../utils/visits_counter.php";
                     require_once "../resources/site_menu.php";
                 ?>
            </ul>
@@ -76,8 +77,8 @@
             <div class="row">
                 <div class="w-100 jumbotron-my">
                         <div class="jumbotron-text">
-                            <h1 class="display-4">International Picture Postcard Project!</h1>
-                            <h3 class="my-4 font-weight-light">We are unique and that makes us different. <br/>Our work does not have to be underestimated and wait for greater publicity.</h3>
+                            <h1 class="display-4">Haiku Postcard Project!</h1>
+                            <h3 class="my-4 font-weight-light">We are unique and that makes us different.<br/>Our work does not have to be underestimated<br/>and wait for greater publicity.</h3>
                             <hr class="my-4">
                             <p class="m-1 mb-4">Let's share it among those who also create haiku!</p>
                         </div>
@@ -128,15 +129,22 @@
                         </div>
                         <div class="filter-option">
                             <p>Search author:</p>
-                            <input id="author_input" type="text" placeholder="Search..." />
+                            <input id="author_input" type="text" placeholder="Search..." autocomplete="off" />
                             <ul id="author_list">
                                 
                             </ul>
                         </div>
+                        <div class="filter-option">
+                            <p>Todays visits:</p>
+                            <p class="filter-counter"><?php echo $daily; ?></p>
+                        </div>
+                        <div class="filter-option">
+                            <p>All visits:</p>
+                            <p class="filter-counter"><?php echo $all_visits; ?></p>
+                        </div>
                     </form>
                 </div>
                 <div id="haiku_box" class="col-12 col-lg-9 offset-0">
-                    <p id="load-error"></p>
                 </div>
                 <div class="col-12 col-lg-9 offset-0 offset-lg-3">
                     <nav aria-label="Page pagination">

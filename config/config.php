@@ -1,6 +1,6 @@
 <?php
     // Website url address (e.g. https://mypage.com)
-    define('SITE_URL', 'http://localhost/haiku');
+    define('SITE_URL', 'localhost');
     
     // DB info 
     define('DB_HOST', 'localhost');
@@ -9,8 +9,8 @@
     define('DB_NAME', 'haiku');
 
     // ENCRYPTION KEYS
-    define('CKEY1', '<[!m]_XW(N\|@c>ET4l-GKO/Sj~}1D?Y'."'".'Ufit.g#aqp&^L"bvwCxH0k7JM2$hR%+Z)AVo93{8,Q:e*Ps;d`nz6IB=yru5F');
-    define('CKEY2', '%-\&RAk}?frljv/oy46#u@NQ=C2Wx~|hYesdXSbw."m5+V]$M`>(F!DG)_UIc[P^<z,'."'".'*9a8H;O:0JnTpt1BZ{iK3gE7Lq');
+    define('CKEY1', 'pK*wZk`"IQxy?|7oFX2Bmn;fu6cUE]-s9Jt5N@#YDLz=R.^O_d'."'".'i$31hP%>S()gq+CG{TvA0}<!/HjVe~&8\Mar4:,blW[');
+    define('CKEY2', 'P}8h|G]0*j1[6D!W\+o_r:%x(iMem$425>~HdRAVup"UtY#9zLvcy<3/{NO@g=C-fSEk.7;lBsI&)X^Z`wJTK,?q'."'".'naQbF');
 
     // FILE UPLOADS DIRECTORIES
     define('HW_DIR', realpath("../uploads/handwriting/") . '/');
@@ -20,5 +20,5 @@
     define('ERR_DIR', realpath("../logs/") . '/');
 
     // MAIL OPTIONS
-    define('MAIL_FROM', "noreply@example.com");
+    define('MAIL_FROM', "");
 ?>

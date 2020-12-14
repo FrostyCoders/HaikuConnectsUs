@@ -8,14 +8,14 @@ echo '<div class="container">
             <div class="col-6 col-lg-4 mb-4">
                 <div class="logo-footer">
                     <a href="http://www.mbp.nowytarg.pl/" target="_blank">
-                        <div class="logo-tooltip logo-tooltip-1" title="Biblioteka Publiczna w Nowym Targu"></div>
+                        <div class="logo-tooltip logo-tooltip-1" title="Miejska Biblioteka Publiczna<br/>w Nowym Targu"></div>
                     </a>
                 </div>
             </div>
             <div class="col-6 col-lg-4 mb-4">
                 <div class="logo-footer">
                     <a href="https://zs1.nowotarski.edu.pl/" target="_blank">
-                        <div class="logo-tooltip logo-tooltip-2" title="Zespół Szkół im. Władysława Orkana w Nowym Targu"></div>
+                        <div class="logo-tooltip logo-tooltip-2" title="Zespół Szkół nr 1 im. Władysława Orkana<br />w Nowym Targu"></div>
                     </a>
                 </div>
             </div>

@@ -25,9 +25,9 @@
         $country = $_POST['country'];
         $id = intval($_POST['id']);
 
-        $specials = '/[\'^£$%&*()}{@#~?><>|=_+¬]/';
+        $specials = '/[\^£$%&*()}{@#~?><>|=_+¬]/';
         if(preg_match($specials, $name) == true || (preg_match($specials, $surname) == true || (preg_match($specials, $country) == true)))
-            die(json_encode([false, "Error, new author data could not contain special characters!Except , and -."]));
+            die(json_encode([false, "Error, new author data could not contain special characters!Except , ' and -."]));
 
         $query = $conn->prepare("UPDATE authors SET name=:name, surname=:surname, country=:country WHERE id=:id");
 

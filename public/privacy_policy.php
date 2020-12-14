@@ -88,7 +88,7 @@
                     <p class="info-about">5. In order to edit or delete of the post with haiku, please notify to the administrator of data by report this haiku with the appropriate button in the post menu.</p>
                     <p class="info-about">6. When reporting post with haiku you must not use vulgar language, make so-called spam, advertise.</p>
                     <p class="info-about">7. Any errors that occurred while using the website <q>Haiku Connects Us</q> are recording and saving to provide you with a better website experience and possibility to fix errors.</p>
-                    <p class="info-about">8. Website <q>Haiku Connects Us</q> is provided as it is. Creators of this website are not be responsible for any damages while using website <q>Haiku Connects Us</q>.</p>
+                    <p class="info-about">8. Website <q>Haiku Connects Us</q> is provided as it is. Creators of this website are not be responsible for any damages while using website <q>Haiku Connects Us</q></p>
                 </div>
             </div>
         </div>

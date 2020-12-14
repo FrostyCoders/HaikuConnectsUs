@@ -93,7 +93,7 @@
                 </div>
             </div>    
             <div class="row" id="table-box"> 
-                <div class="col-12 col-lg-6 offset-0 table-con">
+                <div class="col-12 col-lg-6 offset-0 offset-lg-3 table-con">
                     <div class="table-responsive">
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
@@ -103,17 +103,6 @@
                         </tbody>
                     </table>
                     </div>
-                </div>
-                 <div class="col-12 col-lg-6 offset-0 table-con">
-                    <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
-                        <thead>
-                            <tr><th>Authors</th><th>Country</th></tr>
-                        </thead>
-                        <tbody id="table-response2">
-                        </tbody>
-                    </table>
-                 </div>
                 </div>
             </div>
         </div>

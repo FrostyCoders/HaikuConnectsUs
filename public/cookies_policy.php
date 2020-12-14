@@ -78,7 +78,7 @@
                     <p class="info-about">You can disable cookies at any time in the privacy settings of your browser.</p>
                     <h4>Cookies used by us:</h4>
                     <hr class="mt-3">
-                    <p class="info-about"><q>Haiku Connects Us</q> uses cookies to provide a unique session for the local user's device and to display an alert cookie.</p>
+                    <p class="info-about"><q>Haiku Connects Us</q> uses cookies to provide a unique session for the local user's device, display an cookie alert and check visits on website.</p>
                     <hr class="hr-big">
                     <h4>What are a local and session storage?</h4>
                     <hr class="mt-3">

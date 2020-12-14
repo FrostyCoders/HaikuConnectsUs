@@ -150,7 +150,7 @@ document.getElementById("author_input").addEventListener("focusin", () => {
 document.getElementById("author_input").addEventListener("focusout", () => {
     setTimeout(() => {
         document.getElementById("author_list").style.display = "none";
-    }, 100);
+    }, 200);
 });
 
 document.getElementById("author_input").addEventListener("keyup", () => {
@@ -326,9 +326,6 @@ const generatePages = (pageAmmount) => {
         init = false;
     }
 
-    previous.style.pointerEvents = "none";
-    next.style.pointerEvents = "none";
-
     if(currentPage > 1 && pageAmmount > 1)
     {
         previous.style.display = "block";
@@ -359,11 +356,6 @@ const generatePages = (pageAmmount) => {
         next.style.display = "none";
         pageNumber.style.display = "none";
     }
-
-    setTimeout(() => {
-        previous.style.pointerEvents = "all";
-        next.style.pointerEvents = "all";
-    }, 1500);
 };
 
 // SHOW & HIDE FILTERS IN MAIN PAGE

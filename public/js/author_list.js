@@ -18,15 +18,11 @@ const showAuthors = () => {
             const loadReady = JSON.parse(request.responseText);
             if(loadReady[0] == true)
             {
-                const tables = [
-                    document.getElementById('table-response1'),
-                    document.getElementById('table-response2')
-                ]
+                const tables = [document.getElementById('table-response1')];
                 tables.forEach(element => {
                     element.innerHTML = "";
                 });
 
-                let count = 0;
                 loadReady[1].forEach(author => {
                     const tr = document.createElement("tr");
                     tr.setAttribute("class", "trAll");
@@ -46,13 +42,7 @@ const showAuthors = () => {
                             showAuthorsHaiku(author['id'], author['fname'], author['country']);
                         });
                     }
-
-                    if(count%2 == 0)
-                        tables[0].appendChild(tr);
-                    else
-                        tables[1].appendChild(tr);
-                        
-                    count++;
+                    tables[0].appendChild(tr);
                 });
             }
             else
@@ -74,12 +64,6 @@ const showAuthorsHaiku = (id, fname, country) => {
     window.location.href = "index.php";
 };
 
-function addSendEvent(event){
-    event.preventDefault();
-    sendEditedAuthor(window.id);
-}
-
-
 const editAuthor = (id, fullname, fname, sname, country) => {
     const add_new_author = document.getElementById('add-new-author');
     add_new_author.style.display = "block";
@@ -88,9 +72,10 @@ const editAuthor = (id, fullname, fname, sname, country) => {
     document.getElementById('author-surname').value = sname;
     document.getElementById('author-country').value = country;
 
-    window.id = id;
-
-    document.getElementById('add_author_form').addEventListener("submit", addSendEvent);
+    document.getElementById('add_author_form').addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendEditedAuthor(id);
+    });
 
     document.getElementById('author-show-haiku').addEventListener("click", () => {
         showAuthorsHaiku(id, fullname, country);
@@ -122,7 +107,6 @@ const sendEditedAuthor = (id) => {
     request.send('id='+id+"&"+"name="+firstname+"&"+
     "surname="+surname+"&"+
     "country="+country);
-    document.getElementById('add_author_form').removeEventListener("submit", addSendEvent);
 };
 
 document.getElementById("add-new-author-close").addEventListener('click', () => {

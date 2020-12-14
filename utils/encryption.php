@@ -186,4 +186,10 @@
         $crypt_pass = implode("", $crypt_pass);
         return $crypt_pass;
     }
+
+    //require_once "../config/config.php";
+
+    //echo encrypt_email("wojtek9631@gmail.com", CKEY1);
+
+
 ?>

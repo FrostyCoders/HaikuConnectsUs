@@ -135,7 +135,7 @@ class Haiku
     showOnWebsite(boxId)
     {
         document.getElementById(boxId).appendChild(this.post);
-        
+
         document.querySelector("#haiku"+this.id+" .post-nav").addEventListener("click", () => {
             const optionsCon = document.querySelector("#haiku"+this.id+" .post-nav-sub");
             if(optionsCon.style.display === "block")
